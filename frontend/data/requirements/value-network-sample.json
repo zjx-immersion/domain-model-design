@@ -1,0 +1,194 @@
+{
+  "l1": {
+    "level": 1,
+    "nodes": [
+      {
+        "id": "stage-1",
+        "type": "milestone",
+        "name": "产品规划",
+        "status": "completed",
+        "layer": 1,
+        "progress": 100,
+        "owner": "产品团队",
+        "startDate": "2025-01-01",
+        "endDate": "2025-01-15",
+        "metrics": [
+          { "key": "完成度", "value": 100, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-2",
+        "type": "milestone",
+        "name": "需求分析",
+        "status": "completed",
+        "layer": 1,
+        "progress": 100,
+        "owner": "系统工程团队",
+        "startDate": "2025-01-10",
+        "endDate": "2025-01-25",
+        "metrics": [
+          { "key": "完成度", "value": 100, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-3",
+        "type": "milestone",
+        "name": "项目规划",
+        "status": "completed",
+        "layer": 1,
+        "progress": 100,
+        "owner": "项目管理团队",
+        "startDate": "2025-01-20",
+        "endDate": "2025-02-05",
+        "metrics": [
+          { "key": "完成度", "value": 100, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-4",
+        "type": "milestone",
+        "name": "迭代研发",
+        "status": "in_progress",
+        "layer": 1,
+        "progress": 65,
+        "owner": "研发团队",
+        "startDate": "2025-02-01",
+        "endDate": "2025-04-30",
+        "metrics": [
+          { "key": "完成度", "value": 65, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-5",
+        "type": "milestone",
+        "name": "集成晋级",
+        "status": "in_progress",
+        "layer": 1,
+        "progress": 40,
+        "owner": "集成团队",
+        "startDate": "2025-03-01",
+        "endDate": "2025-05-15",
+        "metrics": [
+          { "key": "完成度", "value": 40, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-6",
+        "type": "milestone",
+        "name": "测试验证",
+        "status": "in_progress",
+        "layer": 1,
+        "progress": 30,
+        "owner": "测试团队",
+        "startDate": "2025-04-01",
+        "endDate": "2025-06-15",
+        "metrics": [
+          { "key": "完成度", "value": 30, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-7",
+        "type": "milestone",
+        "name": "需求验收",
+        "status": "draft",
+        "layer": 1,
+        "progress": 0,
+        "owner": "产品团队",
+        "startDate": "2025-06-01",
+        "endDate": "2025-06-30",
+        "metrics": [
+          { "key": "完成度", "value": 0, "unit": "%" }
+        ]
+      },
+      {
+        "id": "stage-8",
+        "type": "milestone",
+        "name": "发布交付",
+        "status": "draft",
+        "layer": 1,
+        "progress": 0,
+        "owner": "发布团队",
+        "startDate": "2025-07-01",
+        "endDate": "2025-07-18",
+        "metrics": [
+          { "key": "完成度", "value": 0, "unit": "%" }
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-1",
+        "source": "stage-1",
+        "target": "stage-2",
+        "type": "flow",
+        "label": "需求输入",
+        "isCritical": true
+      },
+      {
+        "id": "conn-2",
+        "source": "stage-2",
+        "target": "stage-3",
+        "type": "flow",
+        "label": "需求分解",
+        "isCritical": true
+      },
+      {
+        "id": "conn-3",
+        "source": "stage-3",
+        "target": "stage-4",
+        "type": "flow",
+        "label": "任务分配",
+        "isCritical": true
+      },
+      {
+        "id": "conn-4",
+        "source": "stage-4",
+        "target": "stage-5",
+        "type": "flow",
+        "label": "代码提交",
+        "isCritical": true
+      },
+      {
+        "id": "conn-5",
+        "source": "stage-5",
+        "target": "stage-6",
+        "type": "flow",
+        "label": "集成包",
+        "isCritical": true
+      },
+      {
+        "id": "conn-6",
+        "source": "stage-6",
+        "target": "stage-7",
+        "type": "flow",
+        "label": "测试报告",
+        "isCritical": true
+      },
+      {
+        "id": "conn-7",
+        "source": "stage-7",
+        "target": "stage-8",
+        "type": "flow",
+        "label": "验收通过",
+        "isCritical": true
+      },
+      {
+        "id": "conn-8",
+        "source": "stage-6",
+        "target": "stage-4",
+        "type": "feedback",
+        "label": "缺陷反馈"
+      }
+    ],
+    "criticalPath": ["stage-1", "stage-2", "stage-3", "stage-4", "stage-5", "stage-6", "stage-7", "stage-8"],
+    "bottlenecks": ["stage-4"],
+    "metrics": {
+      "totalNodes": 8,
+      "totalConnections": 8,
+      "avgProgress": 42,
+      "criticalPathLength": 8,
+      "bottleneckCount": 1
+    }
+  }
+}
+

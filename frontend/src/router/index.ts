@@ -218,6 +218,44 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/Requirement/Traceability.vue'),
             meta: { title: '需求追溯' },
           },
+          {
+            path: 'traceability/matrix',
+            name: 'TraceabilityMatrix',
+            component: () => import('@/views/Requirement/TraceabilityMatrix.vue'),
+            meta: { title: '追溯矩阵' },
+          },
+          {
+            path: 'traceability/impact',
+            name: 'ImpactAnalysis',
+            component: () => import('@/views/Requirement/ImpactAnalysis.vue'),
+            meta: { title: '影响分析' },
+          },
+        ],
+      },
+      // 价值网络
+      {
+        path: 'value-network',
+        name: 'ValueNetwork',
+        meta: { title: '价值网络', icon: 'Share' },
+        children: [
+          {
+            path: 'l1',
+            name: 'ValueNetworkL1',
+            component: () => import('@/views/ValueNetwork/L1Strategic.vue'),
+            meta: { title: 'L1战略级网络' },
+          },
+          {
+            path: 'l2',
+            name: 'ValueNetworkL2',
+            component: () => import('@/views/ValueNetwork/L2Execution.vue'),
+            meta: { title: 'L2执行级网络' },
+          },
+          {
+            path: 'l3',
+            name: 'ValueNetworkL3',
+            component: () => import('@/views/ValueNetwork/L3Operational.vue'),
+            meta: { title: 'L3操作级网络' },
+          },
         ],
       },
       // Sprint协同

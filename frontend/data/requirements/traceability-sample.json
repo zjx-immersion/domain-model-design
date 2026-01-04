@@ -1,0 +1,138 @@
+{
+  "nodes": [
+    {
+      "id": "ur-001",
+      "entityType": "user_requirement",
+      "entityId": "UR-NOA-001",
+      "name": "自动驾驶路径规划优化",
+      "status": "in_progress",
+      "layer": 1,
+      "owner": "张伟",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-03T00:00:00Z"
+    },
+    {
+      "id": "fr-001",
+      "entityType": "feature_requirement",
+      "entityId": "FR-NOA-001",
+      "name": "实时路径规划算法",
+      "status": "in_progress",
+      "layer": 2,
+      "owner": "李明",
+      "createdAt": "2025-01-02T00:00:00Z",
+      "updatedAt": "2025-01-04T00:00:00Z"
+    },
+    {
+      "id": "mr-001",
+      "entityType": "module_requirement",
+      "entityId": "MR-NOA-001",
+      "name": "路径规划引擎模块",
+      "status": "in_progress",
+      "layer": 3,
+      "owner": "王芳",
+      "createdAt": "2025-01-03T00:00:00Z",
+      "updatedAt": "2025-01-05T00:00:00Z"
+    },
+    {
+      "id": "story-001",
+      "entityType": "story",
+      "entityId": "STORY-001",
+      "name": "实现A*路径搜索算法",
+      "status": "completed",
+      "layer": 4,
+      "owner": "赵强",
+      "createdAt": "2025-01-04T00:00:00Z",
+      "updatedAt": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": "code-001",
+      "entityType": "code",
+      "entityId": "path_planner.cpp",
+      "name": "路径规划器实现",
+      "status": "completed",
+      "layer": 5,
+      "owner": "赵强",
+      "createdAt": "2025-01-05T00:00:00Z",
+      "updatedAt": "2025-01-10T00:00:00Z"
+    },
+    {
+      "id": "test-001",
+      "entityType": "test_case",
+      "entityId": "TC-001",
+      "name": "路径规划算法单元测试",
+      "status": "completed",
+      "layer": 6,
+      "owner": "孙丽",
+      "createdAt": "2025-01-08T00:00:00Z",
+      "updatedAt": "2025-01-12T00:00:00Z"
+    },
+    {
+      "id": "release-001",
+      "entityType": "release",
+      "entityId": "NOA-v3.1.0",
+      "name": "NOA v3.1 发布版本",
+      "status": "in_progress",
+      "layer": 7,
+      "owner": "周杰",
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-15T00:00:00Z"
+    }
+  ],
+  "links": [
+    {
+      "id": "link-001",
+      "sourceId": "ur-001",
+      "targetId": "fr-001",
+      "relationType": "derive_from",
+      "description": "用户需求派生特性需求",
+      "createdAt": "2025-01-02T00:00:00Z",
+      "createdBy": "李明"
+    },
+    {
+      "id": "link-002",
+      "sourceId": "fr-001",
+      "targetId": "mr-001",
+      "relationType": "realize_by",
+      "description": "特性需求由模块需求实现",
+      "createdAt": "2025-01-03T00:00:00Z",
+      "createdBy": "王芳"
+    },
+    {
+      "id": "link-003",
+      "sourceId": "mr-001",
+      "targetId": "story-001",
+      "relationType": "implement_by",
+      "description": "模块需求通过用户故事实现",
+      "createdAt": "2025-01-04T00:00:00Z",
+      "createdBy": "赵强"
+    },
+    {
+      "id": "link-004",
+      "sourceId": "story-001",
+      "targetId": "code-001",
+      "relationType": "implement_by",
+      "description": "用户故事通过代码实现",
+      "createdAt": "2025-01-05T00:00:00Z",
+      "createdBy": "赵强"
+    },
+    {
+      "id": "link-005",
+      "sourceId": "code-001",
+      "targetId": "test-001",
+      "relationType": "test_by",
+      "description": "代码由测试用例验证",
+      "createdAt": "2025-01-08T00:00:00Z",
+      "createdBy": "孙丽"
+    },
+    {
+      "id": "link-006",
+      "sourceId": "story-001",
+      "targetId": "release-001",
+      "relationType": "deliver_in",
+      "description": "用户故事在版本中交付",
+      "createdAt": "2025-01-10T00:00:00Z",
+      "createdBy": "周杰"
+    }
+  ]
+}
+
