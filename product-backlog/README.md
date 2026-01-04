@@ -1,10 +1,13 @@
 # Auto DevOps平台 - Product Backlog
 
-> **目录版本**: v2.0  
+> **目录版本**: v2.1  
 > **创建日期**: 2025-01-03  
-> **包含特性**: 33个  
-> **总Story Points**: 627 SP  
-> **预估工作量**: 250+人天
+> **最后更新**: 2025-01-05  
+> **包含特性**: 41个（前端33个 + 后端8个）  
+> **前端Story Points**: 417 SP（MVP）  
+> **后端Story Points**: 280 SP（Phase 2）  
+> **总Story Points**: 697 SP  
+> **预估工作量**: 279人天
 
 ---
 
@@ -34,7 +37,7 @@ product-backlog/
 │  │  ├─ F010-需求追溯管理/
 │  │  └─ F011-需求变更管理/
 │  │
-│  ├─ 3-project-management/           # 项目管理域（3个Features） ← NEW!
+│  ├─ 3-project-management/           # 项目管理域（3个Features）
 │  │  ├─ F029-PI Planning管理/       ✅ README已完成
 │  │  ├─ F030-项目生命周期管理/      ✅ README已完成
 │  │  └─ F031-项目协同管理/
