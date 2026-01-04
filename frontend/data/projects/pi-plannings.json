@@ -1,0 +1,84 @@
+[
+  {
+    "id": "PI001",
+    "code": "PI-2025-Q1",
+    "name": "2025 Q1 PI Planning",
+    "projectId": "PROJ001",
+    "projectName": "NOA v3.1 2025年度项目",
+    "status": "active",
+    "startDate": "2025-01-06",
+    "endDate": "2025-03-28",
+    "duration": 12,
+    "teamCount": 5,
+    "objectiveCount": 12,
+    "storyCount": 45,
+    "totalPoints": 180,
+    "completedPoints": 45,
+    "progress": 25,
+    "confidence": 85,
+    "risks": [
+      {
+        "id": "RISK001",
+        "title": "传感器供应延迟",
+        "level": "medium",
+        "impact": "延期1-2周",
+        "mitigation": "寻找备用供应商",
+        "owner": "U012"
+      },
+      {
+        "id": "RISK002",
+        "title": "算法性能不达标",
+        "level": "high",
+        "impact": "需重新优化",
+        "mitigation": "增加算法优化人力",
+        "owner": "U013"
+      }
+    ],
+    "dependencies": [
+      {
+        "id": "DEP001",
+        "from": "感知团队",
+        "to": "融合团队",
+        "type": "data_interface",
+        "status": "resolved"
+      },
+      {
+        "id": "DEP002",
+        "from": "融合团队",
+        "to": "规划团队",
+        "type": "module_integration",
+        "status": "at_risk"
+      }
+    ],
+    "achievements": [
+      "完成核心感知算法升级",
+      "建立完整的回归测试体系"
+    ],
+    "createdAt": "2024-12-20T00:00:00Z",
+    "updatedAt": "2025-01-03T10:30:00Z"
+  },
+  {
+    "id": "PI002",
+    "code": "PI-2025-Q2",
+    "name": "2025 Q2 PI Planning",
+    "projectId": "PROJ001",
+    "projectName": "NOA v3.1 2025年度项目",
+    "status": "planning",
+    "startDate": "2025-04-01",
+    "endDate": "2025-06-30",
+    "duration": 13,
+    "teamCount": 5,
+    "objectiveCount": 10,
+    "storyCount": 38,
+    "totalPoints": 150,
+    "completedPoints": 0,
+    "progress": 0,
+    "confidence": 0,
+    "risks": [],
+    "dependencies": [],
+    "achievements": [],
+    "createdAt": "2025-01-02T00:00:00Z",
+    "updatedAt": "2025-01-03T00:00:00Z"
+  }
+]
+

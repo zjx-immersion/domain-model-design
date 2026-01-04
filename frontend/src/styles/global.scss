@@ -1,0 +1,165 @@
+@import './variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $bg-secondary;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: lighten($primary, 10%);
+  }
+}
+
+// 工具类
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 状态标签
+.status-tag {
+  padding: 2px 8px;
+  border-radius: $radius-sm;
+  font-size: 12px;
+  display: inline-block;
+
+  &.planning {
+    background-color: lighten($status-planning, 35%);
+    color: $status-planning;
+  }
+
+  &.in-progress {
+    background-color: lighten($status-inprogress, 45%);
+    color: $status-inprogress;
+  }
+
+  &.testing {
+    background-color: lighten($status-testing, 35%);
+    color: $status-testing;
+  }
+
+  &.completed {
+    background-color: lighten($status-completed, 45%);
+    color: $status-completed;
+  }
+
+  &.blocked {
+    background-color: lighten($status-blocked, 35%);
+    color: $status-blocked;
+  }
+}
+
+// 卡片样式
+.card {
+  background: $bg-primary;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+// 页面容器
+.page-container {
+  padding: $spacing-lg;
+  min-height: calc(100vh - 60px);
+}
+
+.page-header {
+  margin-bottom: $spacing-lg;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+  }
+
+  .description {
+    color: $text-secondary;
+    font-size: 14px;
+  }
+}
+
+// 价值流样式
+.value-stream-stage {
+  background: $bg-primary;
+  border: 2px solid $border-color;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    border-color: $primary;
+    background-color: lighten($primary, 48%);
+  }
+
+  &.completed {
+    border-color: $success;
+    background-color: lighten($success, 50%);
+  }
+
+  .stage-icon {
+    font-size: 24px;
+    color: $primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .stage-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+  }
+
+  .stage-status {
+    font-size: 12px;
+    color: $text-secondary;
+  }
+}
+

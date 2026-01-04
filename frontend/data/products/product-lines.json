@@ -1,0 +1,25 @@
+[
+  {
+    "id": "PL001",
+    "code": "PL-SmartDriving",
+    "name": "智能驾驶产品线",
+    "description": "覆盖智能驾驶全场景的产品线",
+    "owner": "U001",
+    "status": "active",
+    "productCount": 3,
+    "createdAt": "2023-01-15T00:00:00Z",
+    "updatedAt": "2025-01-03T00:00:00Z"
+  },
+  {
+    "id": "PL002",
+    "code": "PL-SmartCockpit",
+    "name": "智能座舱产品线",
+    "description": "智能座舱相关产品",
+    "owner": "U002",
+    "status": "active",
+    "productCount": 3,
+    "createdAt": "2023-02-01T00:00:00Z",
+    "updatedAt": "2025-01-03T00:00:00Z"
+  }
+]
+
