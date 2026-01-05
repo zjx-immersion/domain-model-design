@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T12:00:00Z",
+    "description": "软件模块Mock数据"
+  },
+  "data": [
+    {
+      "id": "MOD-Radar",
+      "name": "雷达检测模块",
+      "code": "RadarDetection",
+      "description": "毫米波雷达目标检测与跟踪",
+      "featureId": "FEAT-001",
+      "featureName": "融合感知",
+      "type": "perception",
+      "status": "completed",
+      "owner": "李开发",
+      "ownerId": "USER-201",
+      "requirements": ["MR-001", "MR-002"],
+      "codeRepo": "https://git.company.com/perception/radar",
+      "progress": 1.0,
+      "metrics": {
+        "linesOfCode": 12500,
+        "coverage": 0.85,
+        "complexity": 15
+      },
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2024-12-15T00:00:00Z"
+    },
+    {
+      "id": "MOD-Camera",
+      "name": "视觉检测模块",
+      "code": "CameraDetection",
+      "description": "摄像头目标检测、车道线检测",
+      "featureId": "FEAT-001",
+      "featureName": "融合感知",
+      "type": "perception",
+      "status": "in_development",
+      "owner": "王开发",
+      "ownerId": "USER-202",
+      "requirements": ["MR-003", "MR-004"],
+      "codeRepo": "https://git.company.com/perception/camera",
+      "progress": 0.75,
+      "metrics": {
+        "linesOfCode": 18000,
+        "coverage": 0.78,
+        "complexity": 22
+      },
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2025-01-05T00:00:00Z"
+    },
+    {
+      "id": "MOD-Fusion",
+      "name": "传感器融合模块",
+      "code": "SensorFusion",
+      "description": "多传感器数据融合算法",
+      "featureId": "FEAT-001",
+      "featureName": "融合感知",
+      "type": "perception",
+      "status": "in_development",
+      "owner": "张开发",
+      "ownerId": "USER-203",
+      "requirements": ["MR-005"],
+      "codeRepo": "https://git.company.com/perception/fusion",
+      "progress": 0.60,
+      "metrics": {
+        "linesOfCode": 8500,
+        "coverage": 0.72,
+        "complexity": 18
+      },
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2025-01-05T00:00:00Z"
+    }
+  ]
+}
+

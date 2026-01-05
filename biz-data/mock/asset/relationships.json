@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T12:00:00Z",
+    "description": "资产关系Mock数据"
+  },
+  "nodes": [
+    {"id": "PL-001", "type": "ProductLine", "name": "智能驾驶", "level": 0},
+    {"id": "PROD-NOA", "type": "Product", "name": "NOA v3.1", "level": 1},
+    {"id": "FEAT-001", "type": "Feature", "name": "融合感知", "level": 2},
+    {"id": "FEAT-002", "type": "Feature", "name": "路径规划", "level": 2},
+    {"id": "FEAT-003", "type": "Feature", "name": "决策控制", "level": 2},
+    {"id": "MOD-Radar", "type": "Module", "name": "雷达检测模块", "level": 3},
+    {"id": "MOD-Camera", "type": "Module", "name": "视觉检测模块", "level": 3},
+    {"id": "MOD-Fusion", "type": "Module", "name": "传感器融合模块", "level": 3}
+  ],
+  "edges": [
+    {"source": "PL-001", "target": "PROD-NOA", "type": "contains", "label": "包含"},
+    {"source": "PROD-NOA", "target": "FEAT-001", "type": "contains", "label": "包含"},
+    {"source": "PROD-NOA", "target": "FEAT-002", "type": "contains", "label": "包含"},
+    {"source": "PROD-NOA", "target": "FEAT-003", "type": "contains", "label": "包含"},
+    {"source": "FEAT-001", "target": "MOD-Radar", "type": "contains", "label": "包含"},
+    {"source": "FEAT-001", "target": "MOD-Camera", "type": "contains", "label": "包含"},
+    {"source": "FEAT-001", "target": "MOD-Fusion", "type": "contains", "label": "包含"},
+    {"source": "MOD-Fusion", "target": "MOD-Radar", "type": "depends_on", "label": "依赖"},
+    {"source": "MOD-Fusion", "target": "MOD-Camera", "type": "depends_on", "label": "依赖"}
+  ]
+}
+

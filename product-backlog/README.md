@@ -63,11 +63,25 @@ product-backlog/
 │  │  ├─ F025-成本分析/
 │  │  └─ F032-趋势预测/
 │  │
-│  └─ 7-platform-support/             # 平台支撑域（4个Features）
-│     ├─ F026-用户权限管理/
-│     ├─ F027-角色工作台/
-│     ├─ F028-系统配置/
-│     └─ F033-审计日志/
+│  ├─ 7-platform-support/             # 平台支撑域（4个Features）
+│  │  ├─ F026-用户权限管理/
+│  │  ├─ F027-角色工作台/
+│  │  ├─ F028-系统配置/
+│  │  └─ F033-审计日志/
+│  │
+│  ├─ 8-backend-services/             # 后端服务域（8个Features）🆕
+│  │  ├─ README.md                   # 后端服务总览
+│  │  ├─ F034-基础服务层/            # 认证、权限、会话（34 SP）
+│  │  ├─ F035-资产管理服务/          # 资产CRUD API（34 SP）
+│  │  ├─ F036-需求管理服务/          # 需求+追溯API（47 SP）⭐
+│  │  ├─ F037-项目管理服务/          # 项目+PI API（55 SP）
+│  │  ├─ F038-研发协同服务/          # Sprint+Task API（34 SP）
+│  │  ├─ F039-DevOps服务/            # CI/CD API（34 SP）
+│  │  ├─ F040-数据分析服务/          # 分析+报表API（34 SP）
+│  │  └─ F041-文件存储服务/          # 文件管理API（8 SP）
+│  │  # 总计：280 SP（Phase 2实施）
+│  │
+│  └─ F007-用户需求管理PRD.md        # （待移动）
 │
 └─ user-stories/                      # 已拆解的用户故事（旧结构）
    └─ USER_STORIES_SUMMARY.md

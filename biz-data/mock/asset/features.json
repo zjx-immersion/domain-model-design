@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T12:00:00Z",
+    "description": "领域特性Mock数据"
+  },
+  "data": [
+    {
+      "id": "FEAT-001",
+      "name": "融合感知",
+      "code": "FusionPerception",
+      "description": "多传感器融合感知能力，包含摄像头、雷达、激光雷达数据融合",
+      "productId": "PROD-NOA",
+      "productName": "NOA v3.1",
+      "type": "core",
+      "priority": "P0",
+      "status": "in_development",
+      "owner": "赵工程师",
+      "ownerId": "USER-101",
+      "modules": ["MOD-Radar", "MOD-Camera", "MOD-Lidar", "MOD-Fusion"],
+      "requirements": ["FR-001", "FR-002"],
+      "progress": 0.65,
+      "metrics": {
+        "totalModules": 4,
+        "completedModules": 2,
+        "totalRequirements": 8,
+        "completedRequirements": 5
+      },
+      "technicalSpecs": {
+        "detectionRange": "200m",
+        "accuracy": "95%",
+        "latency": "<100ms",
+        "sensors": ["Camera×8", "Radar×5", "Lidar×1"]
+      },
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "FEAT-002",
+      "name": "路径规划",
+      "code": "PathPlanning",
+      "description": "智能路径规划能力，支持动态避障、多路径评估",
+      "productId": "PROD-NOA",
+      "productName": "NOA v3.1",
+      "type": "core",
+      "priority": "P0",
+      "status": "in_development",
+      "owner": "钱工程师",
+      "ownerId": "USER-102",
+      "modules": ["MOD-GlobalPlanner", "MOD-LocalPlanner", "MOD-Optimizer"],
+      "requirements": ["FR-003", "FR-004"],
+      "progress": 0.58,
+      "metrics": {
+        "totalModules": 3,
+        "completedModules": 1,
+        "totalRequirements": 6,
+        "completedRequirements": 3
+      },
+      "technicalSpecs": {
+        "planningHorizon": "5s",
+        "updateFrequency": "10Hz",
+        "pathResolution": "0.1m"
+      },
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "FEAT-003",
+      "name": "决策控制",
+      "code": "DecisionControl",
+      "description": "智能决策与车辆控制能力",
+      "productId": "PROD-NOA",
+      "productName": "NOA v3.1",
+      "type": "core",
+      "priority": "P0",
+      "status": "in_development",
+      "owner": "孙工程师",
+      "ownerId": "USER-103",
+      "modules": ["MOD-Decision", "MOD-LongControl", "MOD-LatControl"],
+      "requirements": ["FR-005", "FR-006"],
+      "progress": 0.72,
+      "metrics": {
+        "totalModules": 3,
+        "completedModules": 2,
+        "totalRequirements": 5,
+        "completedRequirements": 4
+      },
+      "technicalSpecs": {
+        "decisionLatency": "<50ms",
+        "controlFrequency": "50Hz",
+        "safetyLevel": "ASIL-D"
+      },
+      "createdAt": "2024-06-01T00:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "FEAT-004",
+      "name": "语音识别",
+      "code": "VoiceRecognition",
+      "description": "智能语音识别与理解",
+      "productId": "PROD-VOICE",
+      "productName": "智能语音助手",
+      "type": "core",
+      "priority": "P0",
+      "status": "stable",
+      "owner": "周工程师",
+      "ownerId": "USER-104",
+      "modules": ["MOD-ASR", "MOD-NLU", "MOD-Dialog"],
+      "requirements": ["FR-007"],
+      "progress": 0.95,
+      "metrics": {
+        "totalModules": 3,
+        "completedModules": 3,
+        "totalRequirements": 4,
+        "completedRequirements": 4
+      },
+      "technicalSpecs": {
+        "accuracy": "98%",
+        "responseTime": "<500ms",
+        "languages": ["中文", "英文"]
+      },
+      "createdAt": "2024-03-01T00:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    },
+    {
+      "id": "FEAT-005",
+      "name": "AR导航",
+      "code": "ARNavigation",
+      "description": "增强现实导航显示",
+      "productId": "PROD-HUD",
+      "productName": "AR-HUD",
+      "type": "enhanced",
+      "priority": "P1",
+      "status": "in_development",
+      "owner": "吴工程师",
+      "ownerId": "USER-105",
+      "modules": ["MOD-ARRender", "MOD-Localization"],
+      "requirements": ["FR-008"],
+      "progress": 0.45,
+      "metrics": {
+        "totalModules": 2,
+        "completedModules": 0,
+        "totalRequirements": 3,
+        "completedRequirements": 1
+      },
+      "technicalSpecs": {
+        "displayRange": "15m",
+        "refreshRate": "60Hz",
+        "accuracy": "±0.5m"
+      },
+      "createdAt": "2024-09-01T00:00:00Z",
+      "updatedAt": "2025-01-05T10:00:00Z"
+    }
+  ]
+}
+
