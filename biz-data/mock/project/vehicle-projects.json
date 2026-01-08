@@ -1,0 +1,303 @@
+{
+  "data": [
+    {
+      "id": "VP-2025-001",
+      "code": "2025-ICV",
+      "name": "2025款智能驾驶车型项目",
+      "description": "2025款搭载L3级智能驾驶的智能网联车型，整合智能驾驶、智能座舱和电子电器架构的全面升级",
+      "companyId": "COMPANY-001",
+      "businessUnitId": "BU-ICV",
+      "owner": "张伟",
+      "sponsor": "李总",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING", "TEAM-CONTROL", "TEAM-COCKPIT", "TEAM-EE"],
+      "startDate": "2024-01-01",
+      "targetDate": "2025-12-31",
+      "actualDate": null,
+      "domainProjectIds": ["DP-AD-2025-Q1", "DP-IC-2025-Q1", "DP-EE-2025-Q1"],
+      "objectives": [
+        "实现L3级智能驾驶功能，支持高速和城区NOA",
+        "升级智能座舱体验，支持多模态交互",
+        "优化电子电器架构，提升系统性能和安全性",
+        "确保按时交付，质量达标"
+      ],
+      "scope": "涵盖智能驾驶（NOA、泊车、召唤）、智能座舱（语音交互、智能推荐、AR导航）、电子电器架构（域控制器、通信架构）的完整开发和集成",
+      "milestones": [
+        {
+          "id": "MS-001",
+          "name": "需求评审完成",
+          "targetDate": "2024-03-31",
+          "actualDate": "2024-03-28",
+          "status": "achieved",
+          "deliverables": ["需求规格书", "架构设计文档"]
+        },
+        {
+          "id": "MS-002",
+          "name": "系统设计完成",
+          "targetDate": "2024-06-30",
+          "actualDate": "2024-06-25",
+          "status": "achieved",
+          "deliverables": ["详细设计文档", "接口规范"]
+        },
+        {
+          "id": "MS-003",
+          "name": "开发阶段完成",
+          "targetDate": "2025-03-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["代码完成", "单元测试通过"]
+        },
+        {
+          "id": "MS-004",
+          "name": "集成测试完成",
+          "targetDate": "2025-09-30",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["集成测试报告", "性能测试报告"]
+        },
+        {
+          "id": "MS-005",
+          "name": "量产交付",
+          "targetDate": "2025-12-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["量产软件版本", "交付文档"]
+        }
+      ],
+      "status": "active",
+      "phase": "开发",
+      "budget": 50000000,
+      "progress": 45,
+      "completedDomainProjects": 0,
+      "totalDomainProjects": 3,
+      "risks": [
+        "智能驾驶功能验证时间紧张",
+        "跨领域集成复杂度高",
+        "供应商交付可能延期"
+      ],
+      "issues": [
+        "部分硬件样机交付延迟2周",
+        "测试资源不足"
+      ],
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "张伟"
+    },
+    {
+      "id": "VP-2026-001",
+      "code": "2026-EV",
+      "name": "2026款纯电动车型项目",
+      "description": "2026款纯电动车型，搭载最新一代智能驾驶和智能座舱系统",
+      "companyId": "COMPANY-001",
+      "businessUnitId": "BU-EV",
+      "owner": "王芳",
+      "sponsor": "赵总",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING", "TEAM-CONTROL", "TEAM-COCKPIT"],
+      "startDate": "2024-07-01",
+      "targetDate": "2026-06-30",
+      "actualDate": null,
+      "domainProjectIds": ["DP-AD-2026-Q3", "DP-IC-2026-Q3"],
+      "objectives": [
+        "实现L4级城市领航功能",
+        "打造沉浸式智能座舱体验",
+        "提升续航和充电效率",
+        "建立行业领先的智能化水平"
+      ],
+      "scope": "覆盖L4级智能驾驶、全场景智能座舱、三电系统集成",
+      "milestones": [
+        {
+          "id": "MS-011",
+          "name": "概念设计完成",
+          "targetDate": "2024-09-30",
+          "actualDate": "2024-09-25",
+          "status": "achieved",
+          "deliverables": ["概念设计方案", "可行性分析报告"]
+        },
+        {
+          "id": "MS-012",
+          "name": "系统设计完成",
+          "targetDate": "2024-12-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["系统架构设计", "接口定义"]
+        },
+        {
+          "id": "MS-013",
+          "name": "原型验证完成",
+          "targetDate": "2025-06-30",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["原型系统", "验证报告"]
+        },
+        {
+          "id": "MS-014",
+          "name": "量产开发完成",
+          "targetDate": "2026-03-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["量产软件", "测试报告"]
+        },
+        {
+          "id": "MS-015",
+          "name": "车型上市",
+          "targetDate": "2026-06-30",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["量产车型", "市场推广材料"]
+        }
+      ],
+      "status": "active",
+      "phase": "设计",
+      "budget": 80000000,
+      "progress": 20,
+      "completedDomainProjects": 0,
+      "totalDomainProjects": 2,
+      "risks": [
+        "L4级功能技术难度高",
+        "法规认证存在不确定性"
+      ],
+      "issues": [],
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "王芳"
+    },
+    {
+      "id": "VP-2024-001",
+      "code": "2024-SUV",
+      "name": "2024款智能SUV项目",
+      "description": "2024款中大型智能SUV，首次搭载公司自研智能驾驶系统",
+      "companyId": "COMPANY-001",
+      "businessUnitId": "BU-ICV",
+      "owner": "刘强",
+      "sponsor": "陈总",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING", "TEAM-COCKPIT"],
+      "startDate": "2023-01-01",
+      "targetDate": "2024-12-31",
+      "actualDate": "2024-12-20",
+      "domainProjectIds": ["DP-AD-2024-Q1", "DP-IC-2024-Q1"],
+      "objectives": [
+        "实现高速NOA功能",
+        "打造智能化座舱体验",
+        "建立量产交付能力"
+      ],
+      "scope": "高速智能驾驶、智能座舱基础功能",
+      "milestones": [
+        {
+          "id": "MS-021",
+          "name": "需求评审完成",
+          "targetDate": "2023-03-31",
+          "actualDate": "2023-03-30",
+          "status": "achieved",
+          "deliverables": ["需求规格书"]
+        },
+        {
+          "id": "MS-022",
+          "name": "系统设计完成",
+          "targetDate": "2023-06-30",
+          "actualDate": "2023-06-28",
+          "status": "achieved",
+          "deliverables": ["系统设计文档"]
+        },
+        {
+          "id": "MS-023",
+          "name": "开发完成",
+          "targetDate": "2024-06-30",
+          "actualDate": "2024-06-25",
+          "status": "achieved",
+          "deliverables": ["代码完成", "测试完成"]
+        },
+        {
+          "id": "MS-024",
+          "name": "量产交付",
+          "targetDate": "2024-12-31",
+          "actualDate": "2024-12-20",
+          "status": "achieved",
+          "deliverables": ["量产软件", "交付文档"]
+        }
+      ],
+      "status": "completed",
+      "phase": "已交付",
+      "budget": 30000000,
+      "progress": 100,
+      "completedDomainProjects": 2,
+      "totalDomainProjects": 2,
+      "risks": [],
+      "issues": [],
+      "createdAt": "2023-01-01T00:00:00Z",
+      "updatedAt": "2024-12-20T16:00:00Z",
+      "createdBy": "admin",
+      "updatedBy": "刘强"
+    },
+    {
+      "id": "VP-2025-002",
+      "code": "2025-SPORT",
+      "name": "2025款运动轿车项目",
+      "description": "2025款高性能运动轿车，强调驾驶体验和智能化",
+      "companyId": "COMPANY-001",
+      "businessUnitId": "BU-SPORT",
+      "owner": "赵明",
+      "sponsor": "王总",
+      "teamIds": ["TEAM-PLANNING", "TEAM-CONTROL", "TEAM-COCKPIT"],
+      "startDate": "2024-03-01",
+      "targetDate": "2025-09-30",
+      "actualDate": null,
+      "domainProjectIds": ["DP-AD-2025-Q2"],
+      "objectives": [
+        "优化驾驶操控性能",
+        "集成智能驾驶辅助功能",
+        "打造运动化座舱体验"
+      ],
+      "scope": "智能驾驶辅助（LCC、AEB等）、运动化座舱",
+      "milestones": [
+        {
+          "id": "MS-031",
+          "name": "概念设计完成",
+          "targetDate": "2024-05-31",
+          "actualDate": "2024-05-30",
+          "status": "achieved",
+          "deliverables": ["概念设计"]
+        },
+        {
+          "id": "MS-032",
+          "name": "详细设计完成",
+          "targetDate": "2024-08-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["详细设计"]
+        },
+        {
+          "id": "MS-033",
+          "name": "开发完成",
+          "targetDate": "2025-05-31",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["软件开发完成"]
+        },
+        {
+          "id": "MS-034",
+          "name": "量产交付",
+          "targetDate": "2025-09-30",
+          "actualDate": null,
+          "status": "pending",
+          "deliverables": ["量产版本"]
+        }
+      ],
+      "status": "active",
+      "phase": "设计",
+      "budget": 35000000,
+      "progress": 25,
+      "completedDomainProjects": 0,
+      "totalDomainProjects": 1,
+      "risks": [
+        "性能优化与安全性平衡挑战"
+      ],
+      "issues": [],
+      "createdAt": "2024-03-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "赵明"
+    }
+  ]
+}
+

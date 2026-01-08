@@ -1,0 +1,267 @@
+{
+  "data": [
+    {
+      "id": "TB-PERCEPTION-Q1",
+      "name": "感知团队 - Q1 待办",
+      "description": "感知团队 2025 Q1 的工作项待办",
+      "teamId": "TEAM-PERCEPTION",
+      "teamName": "感知团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q1",
+      "workItemIds": [
+        "WI-AD-001", "WI-AD-002", "WI-AD-003", "WI-AD-004", "WI-AD-005",
+        "WI-AD-006", "WI-AD-007", "WI-AD-008", "WI-AD-009", "WI-AD-010",
+        "WI-AD-011", "WI-AD-012", "WI-AD-013", "WI-AD-014", "WI-AD-015"
+      ],
+      "priorityQueue": [
+        "WI-AD-001", "WI-AD-002", "WI-AD-003", "WI-AD-004", "WI-AD-005",
+        "WI-AD-006", "WI-AD-007", "WI-AD-008", "WI-AD-009", "WI-AD-010",
+        "WI-AD-011", "WI-AD-012", "WI-AD-013", "WI-AD-014", "WI-AD-015"
+      ],
+      "totalWorkItems": 15,
+      "todoWorkItems": 5,
+      "inProgressWorkItems": 4,
+      "completedWorkItems": 6,
+      "totalStoryPoints": 195,
+      "completedStoryPoints": 78,
+      "remainingStoryPoints": 117,
+      "teamCapacity": 50,
+      "remainingCapacity": 11,
+      "utilizationRate": 78,
+      "status": "active",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "感知团队Lead"
+    },
+    {
+      "id": "TB-PLANNING-Q1",
+      "name": "规划团队 - Q1 待办",
+      "description": "规划团队 2025 Q1 的工作项待办",
+      "teamId": "TEAM-PLANNING",
+      "teamName": "规划团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q1",
+      "workItemIds": [
+        "WI-AD-016", "WI-AD-017", "WI-AD-018", "WI-AD-019", "WI-AD-020",
+        "WI-AD-021", "WI-AD-022", "WI-AD-023", "WI-AD-024", "WI-AD-025"
+      ],
+      "priorityQueue": [
+        "WI-AD-016", "WI-AD-017", "WI-AD-018", "WI-AD-019", "WI-AD-020",
+        "WI-AD-021", "WI-AD-022", "WI-AD-023", "WI-AD-024", "WI-AD-025"
+      ],
+      "totalWorkItems": 10,
+      "todoWorkItems": 4,
+      "inProgressWorkItems": 3,
+      "completedWorkItems": 3,
+      "totalStoryPoints": 130,
+      "completedStoryPoints": 39,
+      "remainingStoryPoints": 91,
+      "teamCapacity": 40,
+      "remainingCapacity": 14,
+      "utilizationRate": 65,
+      "status": "active",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "规划团队Lead"
+    },
+    {
+      "id": "TB-CONTROL-Q1",
+      "name": "控制团队 - Q1 待办",
+      "description": "控制团队 2025 Q1 的工作项待办",
+      "teamId": "TEAM-CONTROL",
+      "teamName": "控制团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q1",
+      "workItemIds": [
+        "WI-AD-026", "WI-AD-027", "WI-AD-028", "WI-AD-029", "WI-AD-030",
+        "WI-AD-031", "WI-AD-032", "WI-AD-033", "WI-AD-034", "WI-AD-035",
+        "WI-AD-036", "WI-AD-037", "WI-AD-038", "WI-AD-039", "WI-AD-040"
+      ],
+      "priorityQueue": [
+        "WI-AD-026", "WI-AD-027", "WI-AD-028", "WI-AD-029", "WI-AD-030",
+        "WI-AD-031", "WI-AD-032", "WI-AD-033", "WI-AD-034", "WI-AD-035",
+        "WI-AD-036", "WI-AD-037", "WI-AD-038", "WI-AD-039", "WI-AD-040"
+      ],
+      "totalWorkItems": 15,
+      "todoWorkItems": 6,
+      "inProgressWorkItems": 3,
+      "completedWorkItems": 6,
+      "totalStoryPoints": 195,
+      "completedStoryPoints": 78,
+      "remainingStoryPoints": 117,
+      "teamCapacity": 45,
+      "remainingCapacity": 6,
+      "utilizationRate": 87,
+      "status": "active",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "控制团队Lead"
+    },
+    {
+      "id": "TB-COCKPIT-Q1",
+      "name": "座舱团队 - Q1 待办",
+      "description": "座舱团队 2025 Q1 的工作项待办",
+      "teamId": "TEAM-COCKPIT",
+      "teamName": "座舱团队",
+      "domainProjectId": "DP-IC-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q1-IC",
+      "workItemIds": [
+        "WI-IC-001", "WI-IC-002", "WI-IC-003", "WI-IC-004", "WI-IC-005",
+        "WI-IC-006", "WI-IC-007", "WI-IC-008", "WI-IC-009", "WI-IC-010",
+        "WI-IC-011", "WI-IC-012", "WI-IC-013", "WI-IC-014", "WI-IC-015",
+        "WI-IC-016", "WI-IC-017", "WI-IC-018", "WI-IC-019", "WI-IC-020",
+        "WI-IC-021", "WI-IC-022", "WI-IC-023", "WI-IC-024", "WI-IC-025"
+      ],
+      "priorityQueue": [
+        "WI-IC-001", "WI-IC-002", "WI-IC-003", "WI-IC-004", "WI-IC-005",
+        "WI-IC-006", "WI-IC-007", "WI-IC-008", "WI-IC-009", "WI-IC-010",
+        "WI-IC-011", "WI-IC-012", "WI-IC-013", "WI-IC-014", "WI-IC-015",
+        "WI-IC-016", "WI-IC-017", "WI-IC-018", "WI-IC-019", "WI-IC-020",
+        "WI-IC-021", "WI-IC-022", "WI-IC-023", "WI-IC-024", "WI-IC-025"
+      ],
+      "totalWorkItems": 25,
+      "todoWorkItems": 8,
+      "inProgressWorkItems": 5,
+      "completedWorkItems": 12,
+      "totalStoryPoints": 325,
+      "completedStoryPoints": 156,
+      "remainingStoryPoints": 169,
+      "teamCapacity": 60,
+      "remainingCapacity": 8,
+      "utilizationRate": 87,
+      "status": "active",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "李经理",
+      "updatedBy": "座舱团队Lead"
+    },
+    {
+      "id": "TB-EE-Q1",
+      "name": "电子电器团队 - Q1 待办",
+      "description": "电子电器团队 2025 Q1 的工作项待办",
+      "teamId": "TEAM-EE",
+      "teamName": "电子电器团队",
+      "domainProjectId": "DP-EE-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q1-EE",
+      "workItemIds": [
+        "WI-EE-001", "WI-EE-002", "WI-EE-003", "WI-EE-004", "WI-EE-005",
+        "WI-EE-006", "WI-EE-007", "WI-EE-008", "WI-EE-009", "WI-EE-010",
+        "WI-EE-011", "WI-EE-012", "WI-EE-013", "WI-EE-014", "WI-EE-015"
+      ],
+      "priorityQueue": [
+        "WI-EE-001", "WI-EE-002", "WI-EE-003", "WI-EE-004", "WI-EE-005",
+        "WI-EE-006", "WI-EE-007", "WI-EE-008", "WI-EE-009", "WI-EE-010",
+        "WI-EE-011", "WI-EE-012", "WI-EE-013", "WI-EE-014", "WI-EE-015"
+      ],
+      "totalWorkItems": 15,
+      "todoWorkItems": 6,
+      "inProgressWorkItems": 3,
+      "completedWorkItems": 6,
+      "totalStoryPoints": 195,
+      "completedStoryPoints": 78,
+      "remainingStoryPoints": 117,
+      "teamCapacity": 50,
+      "remainingCapacity": 11,
+      "utilizationRate": 78,
+      "status": "active",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "陈经理",
+      "updatedBy": "电子电器团队Lead"
+    },
+    {
+      "id": "TB-PERCEPTION-Q2",
+      "name": "感知团队 - Q2 待办",
+      "description": "感知团队 2025 Q2 的工作项待办",
+      "teamId": "TEAM-PERCEPTION",
+      "teamName": "感知团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q2",
+      "workItemIds": [
+        "WI-AD-041", "WI-AD-042", "WI-AD-043"
+      ],
+      "priorityQueue": [
+        "WI-AD-041", "WI-AD-042", "WI-AD-043"
+      ],
+      "totalWorkItems": 3,
+      "todoWorkItems": 3,
+      "inProgressWorkItems": 0,
+      "completedWorkItems": 0,
+      "totalStoryPoints": 39,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 39,
+      "teamCapacity": 50,
+      "remainingCapacity": 50,
+      "utilizationRate": 0,
+      "status": "active",
+      "createdAt": "2025-01-05T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "感知团队Lead"
+    },
+    {
+      "id": "TB-PLANNING-Q2",
+      "name": "规划团队 - Q2 待办",
+      "description": "规划团队 2025 Q2 的工作项待办",
+      "teamId": "TEAM-PLANNING",
+      "teamName": "规划团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q2",
+      "workItemIds": [
+        "WI-AD-044", "WI-AD-045", "WI-AD-046"
+      ],
+      "priorityQueue": [
+        "WI-AD-044", "WI-AD-045", "WI-AD-046"
+      ],
+      "totalWorkItems": 3,
+      "todoWorkItems": 3,
+      "inProgressWorkItems": 0,
+      "completedWorkItems": 0,
+      "totalStoryPoints": 39,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 39,
+      "teamCapacity": 40,
+      "remainingCapacity": 40,
+      "utilizationRate": 0,
+      "status": "active",
+      "createdAt": "2025-01-05T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "规划团队Lead"
+    },
+    {
+      "id": "TB-CONTROL-Q2",
+      "name": "控制团队 - Q2 待办",
+      "description": "控制团队 2025 Q2 的工作项待办",
+      "teamId": "TEAM-CONTROL",
+      "teamName": "控制团队",
+      "domainProjectId": "DP-AD-2025-Q1",
+      "projectBacklogId": "PB-PI-2025-Q2",
+      "workItemIds": [
+        "WI-AD-047", "WI-AD-048"
+      ],
+      "priorityQueue": [
+        "WI-AD-047", "WI-AD-048"
+      ],
+      "totalWorkItems": 2,
+      "todoWorkItems": 2,
+      "inProgressWorkItems": 0,
+      "completedWorkItems": 0,
+      "totalStoryPoints": 26,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 26,
+      "teamCapacity": 45,
+      "remainingCapacity": 45,
+      "utilizationRate": 0,
+      "status": "active",
+      "createdAt": "2025-01-05T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "王经理",
+      "updatedBy": "控制团队Lead"
+    }
+  ]
+}
+

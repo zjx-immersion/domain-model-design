@@ -1,0 +1,556 @@
+{
+  "data": [
+    {
+      "id": "DP-AD-2025-Q1",
+      "code": "AD-V31",
+      "name": "智能驾驶 V3.1 项目",
+      "description": "实现高速和城区NOA功能升级，提升感知精度和规划能力",
+      "domain": "智能驾驶",
+      "vehicleProjectId": "VP-2025-001",
+      "departmentId": "DEPT-AD",
+      "owner": "王经理",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING", "TEAM-CONTROL"],
+      "startDate": "2024-01-01",
+      "endDate": "2025-06-30",
+      "productIds": ["PROD-AD-NOA", "PROD-AD-PARK", "PROD-AD-SUMMON"],
+      "piPlanningIds": ["PI-2025-Q1", "PI-2025-Q2"],
+      "backlogIds": ["PB-PI-2025-Q1", "PB-PI-2025-Q2"],
+      "projectVersions": [
+        {
+          "id": "PV-001",
+          "productId": "PROD-AD-NOA",
+          "productName": "高速NOA",
+          "version": "V3.1",
+          "targetPI": "PI-2025-Q2",
+          "features": ["融合感知优化", "路径规划增强", "高精地图融合"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-06-30"
+        },
+        {
+          "id": "PV-002",
+          "productId": "PROD-AD-PARK",
+          "productName": "智能泊车",
+          "version": "V2.5",
+          "targetPI": "PI-2025-Q1",
+          "features": ["360环视优化", "泊车路径规划", "记忆泊车"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-03-31"
+        },
+        {
+          "id": "PV-003",
+          "productId": "PROD-AD-SUMMON",
+          "productName": "智能召唤",
+          "version": "V1.5",
+          "targetPI": "PI-2025-Q2",
+          "features": ["遥控召唤", "自动泊入泊出"],
+          "status": "planned",
+          "startDate": "2025-01-01",
+          "endDate": "2025-06-30"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-001",
+          "description": "实现高速NOA在复杂场景下的稳定性，成功率提升至95%",
+          "businessValue": 9,
+          "stretch": false,
+          "progress": 60,
+          "kpiMetrics": ["成功率95%", "接管率<5%"]
+        },
+        {
+          "id": "OBJ-002",
+          "description": "优化感知融合算法，提升目标检测精度至98%",
+          "businessValue": 8,
+          "stretch": false,
+          "progress": 70,
+          "kpiMetrics": ["检测精度98%", "误检率<2%"]
+        },
+        {
+          "id": "OBJ-003",
+          "description": "实现城区NOA基础功能，支持红绿灯识别和路口通过",
+          "businessValue": 10,
+          "stretch": true,
+          "progress": 30,
+          "kpiMetrics": ["红绿灯识别率>95%", "路口通过成功率>90%"]
+        }
+      ],
+      "scope": "高速NOA、城区NOA基础功能、智能泊车、智能召唤",
+      "status": "active",
+      "phase": "开发",
+      "totalPIs": 2,
+      "completedPIs": 0,
+      "progress": 45,
+      "totalStoryPoints": 1200,
+      "completedStoryPoints": 540,
+      "remainingStoryPoints": 660,
+      "stats": {
+        "totalWorkItems": 156,
+        "completedWorkItems": 68,
+        "totalFeatures": 25,
+        "completedFeatures": 11
+      },
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "王经理"
+    },
+    {
+      "id": "DP-IC-2025-Q1",
+      "code": "IC-V21",
+      "name": "智能座舱 V2.1 项目",
+      "description": "升级智能座舱体验，支持多模态交互和个性化推荐",
+      "domain": "智能座舱",
+      "vehicleProjectId": "VP-2025-001",
+      "departmentId": "DEPT-IC",
+      "owner": "李经理",
+      "teamIds": ["TEAM-COCKPIT"],
+      "startDate": "2024-01-01",
+      "endDate": "2025-06-30",
+      "productIds": ["PROD-IC-VOICE", "PROD-IC-HMI", "PROD-IC-NAVI"],
+      "piPlanningIds": ["PI-2025-Q1", "PI-2025-Q2"],
+      "backlogIds": ["PB-PI-2025-Q1-IC", "PB-PI-2025-Q2-IC"],
+      "projectVersions": [
+        {
+          "id": "PV-011",
+          "productId": "PROD-IC-VOICE",
+          "productName": "智能语音助手",
+          "version": "V2.1",
+          "targetPI": "PI-2025-Q1",
+          "features": ["连续对话", "多轮对话", "情感识别"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-03-31"
+        },
+        {
+          "id": "PV-012",
+          "productId": "PROD-IC-HMI",
+          "productName": "智能HMI",
+          "version": "V2.1",
+          "targetPI": "PI-2025-Q2",
+          "features": ["个性化UI", "手势控制", "智能推荐"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-06-30"
+        },
+        {
+          "id": "PV-013",
+          "productId": "PROD-IC-NAVI",
+          "productName": "AR导航",
+          "version": "V1.0",
+          "targetPI": "PI-2025-Q2",
+          "features": ["AR实景导航", "车道级引导"],
+          "status": "planned",
+          "startDate": "2025-01-01",
+          "endDate": "2025-06-30"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-011",
+          "description": "提升语音识别准确率至98%，支持连续对话",
+          "businessValue": 8,
+          "stretch": false,
+          "progress": 75,
+          "kpiMetrics": ["识别率98%", "响应时间<500ms"]
+        },
+        {
+          "id": "OBJ-012",
+          "description": "实现个性化UI推荐，用户满意度达90%",
+          "businessValue": 7,
+          "stretch": false,
+          "progress": 50,
+          "kpiMetrics": ["用户满意度90%", "使用频率提升30%"]
+        }
+      ],
+      "scope": "智能语音、智能HMI、AR导航",
+      "status": "active",
+      "phase": "开发",
+      "totalPIs": 2,
+      "completedPIs": 0,
+      "progress": 50,
+      "totalStoryPoints": 800,
+      "completedStoryPoints": 400,
+      "remainingStoryPoints": 400,
+      "stats": {
+        "totalWorkItems": 98,
+        "completedWorkItems": 49,
+        "totalFeatures": 18,
+        "completedFeatures": 9
+      },
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "李经理"
+    },
+    {
+      "id": "DP-EE-2025-Q1",
+      "code": "EE-V20",
+      "name": "电子电器架构 V2.0 项目",
+      "description": "优化域控制器架构，提升通信性能和系统安全性",
+      "domain": "电子电器",
+      "vehicleProjectId": "VP-2025-001",
+      "departmentId": "DEPT-EE",
+      "owner": "陈经理",
+      "teamIds": ["TEAM-EE"],
+      "startDate": "2024-01-01",
+      "endDate": "2025-06-30",
+      "productIds": ["PROD-EE-CONTROLLER", "PROD-EE-COMM"],
+      "piPlanningIds": ["PI-2025-Q1"],
+      "backlogIds": ["PB-PI-2025-Q1-EE"],
+      "projectVersions": [
+        {
+          "id": "PV-021",
+          "productId": "PROD-EE-CONTROLLER",
+          "productName": "域控制器",
+          "version": "V2.0",
+          "targetPI": "PI-2025-Q1",
+          "features": ["计算性能提升", "功耗优化", "安全加固"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-03-31"
+        },
+        {
+          "id": "PV-022",
+          "productId": "PROD-EE-COMM",
+          "productName": "通信架构",
+          "version": "V2.0",
+          "targetPI": "PI-2025-Q1",
+          "features": ["TSN支持", "冗余通信", "OTA优化"],
+          "status": "in-progress",
+          "startDate": "2024-01-01",
+          "endDate": "2025-03-31"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-021",
+          "description": "提升域控制器计算性能30%，降低功耗20%",
+          "businessValue": 8,
+          "stretch": false,
+          "progress": 60,
+          "kpiMetrics": ["性能提升30%", "功耗降低20%"]
+        },
+        {
+          "id": "OBJ-022",
+          "description": "实现TSN确定性通信，时延<10ms",
+          "businessValue": 9,
+          "stretch": false,
+          "progress": 55,
+          "kpiMetrics": ["时延<10ms", "丢包率<0.01%"]
+        }
+      ],
+      "scope": "域控制器、通信架构",
+      "status": "active",
+      "phase": "开发",
+      "totalPIs": 1,
+      "completedPIs": 0,
+      "progress": 40,
+      "totalStoryPoints": 500,
+      "completedStoryPoints": 200,
+      "remainingStoryPoints": 300,
+      "stats": {
+        "totalWorkItems": 65,
+        "completedWorkItems": 26,
+        "totalFeatures": 12,
+        "completedFeatures": 5
+      },
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "陈经理"
+    },
+    {
+      "id": "DP-AD-2026-Q3",
+      "code": "AD-V40",
+      "name": "智能驾驶 V4.0 项目",
+      "description": "实现L4级城市领航功能",
+      "domain": "智能驾驶",
+      "vehicleProjectId": "VP-2026-001",
+      "departmentId": "DEPT-AD",
+      "owner": "周经理",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING", "TEAM-CONTROL"],
+      "startDate": "2024-07-01",
+      "endDate": "2026-03-31",
+      "productIds": ["PROD-AD-NOA", "PROD-AD-PARK"],
+      "piPlanningIds": ["PI-2024-Q4", "PI-2025-Q3"],
+      "backlogIds": [],
+      "projectVersions": [
+        {
+          "id": "PV-031",
+          "productId": "PROD-AD-NOA",
+          "productName": "城市NOA",
+          "version": "V4.0",
+          "targetPI": "PI-2025-Q4",
+          "features": ["L4级城市领航", "无图化智驾", "智能决策"],
+          "status": "planned",
+          "startDate": "2024-07-01",
+          "endDate": "2026-03-31"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-031",
+          "description": "实现L4级城市领航，无人干预里程>1000km",
+          "businessValue": 10,
+          "stretch": true,
+          "progress": 10,
+          "kpiMetrics": ["无人干预里程>1000km", "安全性达到L4标准"]
+        }
+      ],
+      "scope": "L4级城市领航",
+      "status": "active",
+      "phase": "设计",
+      "totalPIs": 2,
+      "completedPIs": 0,
+      "progress": 15,
+      "totalStoryPoints": 2000,
+      "completedStoryPoints": 300,
+      "remainingStoryPoints": 1700,
+      "stats": {
+        "totalWorkItems": 240,
+        "completedWorkItems": 36,
+        "totalFeatures": 35,
+        "completedFeatures": 5
+      },
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "周经理"
+    },
+    {
+      "id": "DP-IC-2026-Q3",
+      "code": "IC-V30",
+      "name": "智能座舱 V3.0 项目",
+      "description": "打造沉浸式智能座舱体验",
+      "domain": "智能座舱",
+      "vehicleProjectId": "VP-2026-001",
+      "departmentId": "DEPT-IC",
+      "owner": "孙经理",
+      "teamIds": ["TEAM-COCKPIT"],
+      "startDate": "2024-07-01",
+      "endDate": "2026-03-31",
+      "productIds": ["PROD-IC-VOICE", "PROD-IC-HMI"],
+      "piPlanningIds": ["PI-2024-Q4"],
+      "backlogIds": [],
+      "projectVersions": [
+        {
+          "id": "PV-041",
+          "productId": "PROD-IC-VOICE",
+          "productName": "智能语音助手",
+          "version": "V3.0",
+          "targetPI": "PI-2025-Q3",
+          "features": ["多模态交互", "情感计算", "主动推荐"],
+          "status": "planned",
+          "startDate": "2024-07-01",
+          "endDate": "2026-03-31"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-041",
+          "description": "实现多模态交互，用户满意度达95%",
+          "businessValue": 9,
+          "stretch": false,
+          "progress": 20,
+          "kpiMetrics": ["用户满意度95%", "交互成功率>98%"]
+        }
+      ],
+      "scope": "多模态交互、沉浸式体验",
+      "status": "active",
+      "phase": "设计",
+      "totalPIs": 1,
+      "completedPIs": 0,
+      "progress": 20,
+      "totalStoryPoints": 1200,
+      "completedStoryPoints": 240,
+      "remainingStoryPoints": 960,
+      "stats": {
+        "totalWorkItems": 150,
+        "completedWorkItems": 30,
+        "totalFeatures": 20,
+        "completedFeatures": 4
+      },
+      "createdAt": "2024-07-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "孙经理"
+    },
+    {
+      "id": "DP-AD-2024-Q1",
+      "code": "AD-V20",
+      "name": "智能驾驶 V2.0 项目",
+      "description": "实现高速NOA基础功能",
+      "domain": "智能驾驶",
+      "vehicleProjectId": "VP-2024-001",
+      "departmentId": "DEPT-AD",
+      "owner": "郑经理",
+      "teamIds": ["TEAM-PERCEPTION", "TEAM-PLANNING"],
+      "startDate": "2023-01-01",
+      "endDate": "2024-09-30",
+      "productIds": ["PROD-AD-NOA"],
+      "piPlanningIds": ["PI-2023-Q1", "PI-2023-Q3", "PI-2024-Q1"],
+      "backlogIds": [],
+      "projectVersions": [
+        {
+          "id": "PV-051",
+          "productId": "PROD-AD-NOA",
+          "productName": "高速NOA",
+          "version": "V2.0",
+          "targetPI": "PI-2024-Q1",
+          "features": ["高速自动驾驶", "自动变道", "自动超车"],
+          "status": "completed",
+          "startDate": "2023-01-01",
+          "endDate": "2024-09-30"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-051",
+          "description": "实现高速NOA基础功能，成功率90%",
+          "businessValue": 8,
+          "stretch": false,
+          "progress": 100,
+          "kpiMetrics": ["成功率90%", "接管率<10%"]
+        }
+      ],
+      "scope": "高速NOA基础功能",
+      "status": "completed",
+      "phase": "已交付",
+      "totalPIs": 3,
+      "completedPIs": 3,
+      "progress": 100,
+      "totalStoryPoints": 800,
+      "completedStoryPoints": 800,
+      "remainingStoryPoints": 0,
+      "stats": {
+        "totalWorkItems": 120,
+        "completedWorkItems": 120,
+        "totalFeatures": 15,
+        "completedFeatures": 15
+      },
+      "createdAt": "2023-01-01T00:00:00Z",
+      "updatedAt": "2024-09-30T16:00:00Z",
+      "createdBy": "admin",
+      "updatedBy": "郑经理"
+    },
+    {
+      "id": "DP-IC-2024-Q1",
+      "code": "IC-V15",
+      "name": "智能座舱 V1.5 项目",
+      "description": "打造智能化座舱基础体验",
+      "domain": "智能座舱",
+      "vehicleProjectId": "VP-2024-001",
+      "departmentId": "DEPT-IC",
+      "owner": "吴经理",
+      "teamIds": ["TEAM-COCKPIT"],
+      "startDate": "2023-01-01",
+      "endDate": "2024-09-30",
+      "productIds": ["PROD-IC-VOICE", "PROD-IC-HMI"],
+      "piPlanningIds": ["PI-2023-Q1", "PI-2024-Q1"],
+      "backlogIds": [],
+      "projectVersions": [
+        {
+          "id": "PV-061",
+          "productId": "PROD-IC-VOICE",
+          "productName": "智能语音助手",
+          "version": "V1.5",
+          "targetPI": "PI-2024-Q1",
+          "features": ["语音控制", "唤醒词识别", "基础对话"],
+          "status": "completed",
+          "startDate": "2023-01-01",
+          "endDate": "2024-09-30"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-061",
+          "description": "实现语音控制基础功能，识别率95%",
+          "businessValue": 7,
+          "stretch": false,
+          "progress": 100,
+          "kpiMetrics": ["识别率95%", "响应时间<1s"]
+        }
+      ],
+      "scope": "智能语音基础功能",
+      "status": "completed",
+      "phase": "已交付",
+      "totalPIs": 2,
+      "completedPIs": 2,
+      "progress": 100,
+      "totalStoryPoints": 500,
+      "completedStoryPoints": 500,
+      "remainingStoryPoints": 0,
+      "stats": {
+        "totalWorkItems": 75,
+        "completedWorkItems": 75,
+        "totalFeatures": 10,
+        "completedFeatures": 10
+      },
+      "createdAt": "2023-01-01T00:00:00Z",
+      "updatedAt": "2024-09-30T16:00:00Z",
+      "createdBy": "admin",
+      "updatedBy": "吴经理"
+    },
+    {
+      "id": "DP-AD-2025-Q2",
+      "code": "AD-V25",
+      "name": "智能驾驶辅助 V2.5 项目",
+      "description": "优化驾驶辅助功能，提升操控体验",
+      "domain": "智能驾驶",
+      "vehicleProjectId": "VP-2025-002",
+      "departmentId": "DEPT-AD",
+      "owner": "钱经理",
+      "teamIds": ["TEAM-PLANNING", "TEAM-CONTROL"],
+      "startDate": "2024-03-01",
+      "endDate": "2025-08-31",
+      "productIds": ["PROD-AD-ADAS"],
+      "piPlanningIds": ["PI-2024-Q2", "PI-2025-Q1"],
+      "backlogIds": [],
+      "projectVersions": [
+        {
+          "id": "PV-071",
+          "productId": "PROD-AD-ADAS",
+          "productName": "驾驶辅助系统",
+          "version": "V2.5",
+          "targetPI": "PI-2025-Q2",
+          "features": ["LCC", "AEB", "LKA", "ACC"],
+          "status": "in-progress",
+          "startDate": "2024-03-01",
+          "endDate": "2025-08-31"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "OBJ-071",
+          "description": "优化LCC功能，提升车道保持稳定性",
+          "businessValue": 7,
+          "stretch": false,
+          "progress": 40,
+          "kpiMetrics": ["车道保持成功率>95%", "舒适度评分>4.5"]
+        }
+      ],
+      "scope": "驾驶辅助系统（LCC、AEB、LKA、ACC）",
+      "status": "active",
+      "phase": "开发",
+      "totalPIs": 2,
+      "completedPIs": 0,
+      "progress": 30,
+      "totalStoryPoints": 600,
+      "completedStoryPoints": 180,
+      "remainingStoryPoints": 420,
+      "stats": {
+        "totalWorkItems": 85,
+        "completedWorkItems": 26,
+        "totalFeatures": 12,
+        "completedFeatures": 4
+      },
+      "createdAt": "2024-03-01T00:00:00Z",
+      "updatedAt": "2025-01-08T10:30:00Z",
+      "createdBy": "admin",
+      "updatedBy": "钱经理"
+    }
+  ]
+}
+
