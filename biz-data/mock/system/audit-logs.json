@@ -1,0 +1,11 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T16:00:00Z", "description": "操作日志Mock数据"},
+  "data": [
+    {"id": "LOG-001", "timestamp": "2025-01-05T10:30:00Z", "user": "张三", "action": "create", "resource": "Sprint", "resourceId": "SPRINT-001", "details": "创建Sprint 1", "ipAddress": "192.168.1.100", "result": "success"},
+    {"id": "LOG-002", "timestamp": "2025-01-05T11:00:00Z", "user": "李四", "action": "update", "resource": "Story", "resourceId": "STORY-001", "details": "更新Story状态为完成", "ipAddress": "192.168.1.101", "result": "success"},
+    {"id": "LOG-003", "timestamp": "2025-01-05T11:30:00Z", "user": "王五", "action": "delete", "resource": "Task", "resourceId": "TASK-005", "details": "删除重复任务", "ipAddress": "192.168.1.102", "result": "success"},
+    {"id": "LOG-004", "timestamp": "2025-01-05T12:00:00Z", "user": "赵六", "action": "login", "resource": "System", "details": "用户登录", "ipAddress": "192.168.1.103", "result": "success"},
+    {"id": "LOG-005", "timestamp": "2025-01-05T14:00:00Z", "user": "admin", "action": "config", "resource": "System", "details": "修改系统配置", "ipAddress": "192.168.1.10", "result": "success"}
+  ]
+}
+

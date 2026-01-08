@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "planId": "TP-001",
+      "name": "v2.5.0版本功能测试计划",
+      "buildVersion": "v2.5.0",
+      "requirements": ["MR-001", "MR-002", "MR-003", "MR-004"],
+      "status": "completed",
+      "totalCount": 45,
+      "passedCount": 43,
+      "startDate": "2026-01-03",
+      "endDate": "2026-01-05"
+    },
+    {
+      "planId": "TP-002",
+      "name": "规划模块Hotfix测试计划",
+      "buildVersion": "v2.4.5",
+      "requirements": ["MR-025"],
+      "status": "completed",
+      "totalCount": 12,
+      "passedCount": 12,
+      "startDate": "2026-01-04",
+      "endDate": "2026-01-04"
+    },
+    {
+      "planId": "TP-003",
+      "name": "控制模块回归测试计划",
+      "buildVersion": "v2.4.3",
+      "requirements": ["MR-032"],
+      "status": "completed",
+      "totalCount": 28,
+      "passedCount": 25,
+      "startDate": "2026-01-04",
+      "endDate": "2026-01-04"
+    },
+    {
+      "planId": "TP-004",
+      "name": "v2.6.0版本测试计划",
+      "buildVersion": "v2.6.0-dev",
+      "requirements": ["MR-035", "MR-036"],
+      "status": "in_progress",
+      "totalCount": 52,
+      "passedCount": 18,
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-10"
+    }
+  ]
+}

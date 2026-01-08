@@ -1,121 +1,80 @@
 {
   "metadata": {
     "version": "1.0",
-    "lastUpdate": "2025-01-05T12:00:00Z",
+    "lastUpdate": "2025-01-05T18:00:00Z",
     "description": "产品线Mock数据"
   },
   "data": [
     {
       "id": "PL-001",
-      "name": "智能驾驶",
-      "code": "SmartDriving",
-      "description": "智能驾驶产品线，包含NOA、APA、HWA等核心产品",
+      "name": "智能驾驶平台",
+      "code": "ADS-Platform",
+      "description": "面向高速和城区场景的L2+到L4级智能驾驶解决方案",
       "status": "active",
-      "owner": "张总监",
-      "ownerId": "USER-001",
-      "roadmap": {
-        "vision": "打造L4级智能驾驶解决方案",
-        "milestones": [
-          {
-            "version": "v3.0",
-            "targetDate": "2024-12-31",
-            "status": "completed",
-            "features": ["高速NOA", "城区NOA Beta"]
-          },
-          {
-            "version": "v3.1",
-            "targetDate": "2025-06-30",
-            "status": "in_progress",
-            "features": ["城区NOA", "自动泊车增强", "智能召唤"]
-          },
-          {
-            "version": "v4.0",
-            "targetDate": "2025-12-31",
-            "status": "planned",
-            "features": ["L4级自动驾驶", "无人代客泊车"]
-          }
-        ]
-      },
-      "products": ["PROD-NOA", "PROD-APA", "PROD-HWA"],
+      "owner": "产品总监A",
+      "createDate": "2022-01-15",
+      "domains": ["感知", "决策", "控制", "地图定位"],
+      "products": ["PROD-001", "PROD-002", "PROD-003"],
+      "features": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004", "FEAT-005"],
+      "modules": 25,
+      "teams": ["感知团队", "规划团队", "控制团队"],
+      "versions": [
+        {"version": "v3.1", "releaseDate": "2024-12-01", "status": "current"},
+        {"version": "v3.0", "releaseDate": "2024-09-01", "status": "stable"},
+        {"version": "v2.5", "releaseDate": "2024-06-01", "status": "deprecated"}
+      ],
       "metrics": {
-        "totalProducts": 5,
-        "activeProducts": 3,
         "totalFeatures": 45,
-        "completionRate": 0.68
-      },
-      "createdAt": "2023-01-01T00:00:00Z",
-      "updatedAt": "2025-01-05T10:00:00Z",
-      "createdBy": "USER-001",
-      "updatedBy": "USER-001"
+        "activeFeatures": 38,
+        "reuseRate": 0.75,
+        "maturityLevel": "优化中"
+      }
     },
     {
       "id": "PL-002",
-      "name": "智能座舱",
-      "code": "SmartCockpit",
-      "description": "智能座舱产品线，包含语音助手、AR-HUD、智能交互等",
+      "name": "智能座舱平台",
+      "code": "ICS-Platform",
+      "description": "智能座舱人机交互和娱乐系统平台",
       "status": "active",
-      "owner": "李总监",
-      "ownerId": "USER-002",
-      "roadmap": {
-        "vision": "打造沉浸式智能座舱体验",
-        "milestones": [
-          {
-            "version": "v2.0",
-            "targetDate": "2025-03-31",
-            "status": "in_progress",
-            "features": ["多模态交互", "AR导航", "智能推荐"]
-          },
-          {
-            "version": "v3.0",
-            "targetDate": "2025-09-30",
-            "status": "planned",
-            "features": ["情感识别", "健康监测", "个性化定制"]
-          }
-        ]
-      },
-      "products": ["PROD-VOICE", "PROD-HUD", "PROD-INTERACT"],
+      "owner": "产品总监B",
+      "createDate": "2021-06-01",
+      "domains": ["语音交互", "车载娱乐", "仪表显示"],
+      "products": ["PROD-004", "PROD-005"],
+      "features": ["FEAT-006", "FEAT-007", "FEAT-008"],
+      "modules": 18,
+      "teams": ["座舱团队", "HMI团队"],
+      "versions": [
+        {"version": "v2.0", "releaseDate": "2024-10-01", "status": "current"}
+      ],
       "metrics": {
-        "totalProducts": 4,
-        "activeProducts": 4,
-        "totalFeatures": 32,
-        "completionRate": 0.75
-      },
-      "createdAt": "2023-03-01T00:00:00Z",
-      "updatedAt": "2025-01-05T10:00:00Z",
-      "createdBy": "USER-002",
-      "updatedBy": "USER-002"
+        "totalFeatures": 28,
+        "activeFeatures": 25,
+        "reuseRate": 0.68,
+        "maturityLevel": "成熟"
+      }
     },
     {
       "id": "PL-003",
-      "name": "车联网",
-      "code": "V2X",
-      "description": "车联网产品线，包含V2V、V2I、V2P等通信能力",
+      "name": "车联网平台",
+      "code": "IoV-Platform",
+      "description": "车联网通信、云服务和大数据平台",
       "status": "active",
-      "owner": "王总监",
-      "ownerId": "USER-003",
-      "roadmap": {
-        "vision": "构建智能网联生态",
-        "milestones": [
-          {
-            "version": "v1.5",
-            "targetDate": "2025-06-30",
-            "status": "in_progress",
-            "features": ["V2V通信", "红绿灯信息", "危险预警"]
-          }
-        ]
-      },
-      "products": ["PROD-V2V", "PROD-V2I"],
+      "owner": "产品总监C",
+      "createDate": "2021-03-01",
+      "domains": ["V2X通信", "云服务", "OTA升级", "大数据"],
+      "products": ["PROD-006"],
+      "features": ["FEAT-009", "FEAT-010"],
+      "modules": 12,
+      "teams": ["云服务团队", "通信团队"],
+      "versions": [
+        {"version": "v1.5", "releaseDate": "2024-11-01", "status": "current"}
+      ],
       "metrics": {
-        "totalProducts": 3,
-        "activeProducts": 2,
-        "totalFeatures": 18,
-        "completionRate": 0.56
-      },
-      "createdAt": "2023-06-01T00:00:00Z",
-      "updatedAt": "2025-01-05T10:00:00Z",
-      "createdBy": "USER-003",
-      "updatedBy": "USER-003"
+        "totalFeatures": 20,
+        "activeFeatures": 18,
+        "reuseRate": 0.60,
+        "maturityLevel": "成长中"
+      }
     }
   ]
 }
-

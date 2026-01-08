@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "reportId": "TR-001",
+      "name": "v2.5.0版本功能测试报告",
+      "planId": "TP-001",
+      "buildVersion": "v2.5.0",
+      "totalCount": 45,
+      "passedCount": 43,
+      "failedCount": 2,
+      "executionTime": "2026-01-05T18:30:00",
+      "tester": "测试团队A"
+    },
+    {
+      "reportId": "TR-002",
+      "name": "规划模块Hotfix测试报告",
+      "planId": "TP-002",
+      "buildVersion": "v2.4.5",
+      "totalCount": 12,
+      "passedCount": 12,
+      "failedCount": 0,
+      "executionTime": "2026-01-04T15:00:00",
+      "tester": "李工"
+    },
+    {
+      "reportId": "TR-003",
+      "name": "控制模块回归测试报告",
+      "planId": "TP-003",
+      "buildVersion": "v2.4.3",
+      "totalCount": 28,
+      "passedCount": 25,
+      "failedCount": 3,
+      "executionTime": "2026-01-04T18:00:00",
+      "tester": "测试团队B"
+    }
+  ]
+}

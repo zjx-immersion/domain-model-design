@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "module": "感知模块",
+      "moduleId": "MOD-001",
+      "codeCoverage": 82,
+      "requirementCoverage": 95,
+      "testCaseCount": 156,
+      "lastUpdateTime": "2026-01-05T18:30:00"
+    },
+    {
+      "module": "规划模块",
+      "moduleId": "MOD-007",
+      "codeCoverage": 78,
+      "requirementCoverage": 92,
+      "testCaseCount": 89,
+      "lastUpdateTime": "2026-01-04T15:00:00"
+    },
+    {
+      "module": "控制模块",
+      "moduleId": "MOD-010",
+      "codeCoverage": 68,
+      "requirementCoverage": 85,
+      "testCaseCount": 124,
+      "lastUpdateTime": "2026-01-04T18:00:00"
+    },
+    {
+      "module": "仿真平台",
+      "moduleId": "MOD-012",
+      "codeCoverage": 90,
+      "requirementCoverage": 98,
+      "testCaseCount": 234,
+      "lastUpdateTime": "2026-01-03T16:00:00"
+    },
+    {
+      "module": "工具链",
+      "moduleId": "MOD-013",
+      "codeCoverage": 75,
+      "requirementCoverage": 88,
+      "testCaseCount": 67,
+      "lastUpdateTime": "2026-01-02T14:30:00"
+    }
+  ]
+}
+

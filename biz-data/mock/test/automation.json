@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "testId": "AT-001",
+      "name": "感知模块单元测试套件",
+      "type": "unit",
+      "module": "感知模块",
+      "moduleId": "MOD-001",
+      "lastStatus": "passed",
+      "successRate": 95,
+      "executionCount": 342,
+      "lastExecutionTime": "2026-01-05T15:30:00"
+    },
+    {
+      "testId": "AT-002",
+      "name": "规划模块集成测试套件",
+      "type": "integration",
+      "module": "规划模块",
+      "moduleId": "MOD-007",
+      "lastStatus": "passed",
+      "successRate": 92,
+      "executionCount": 234,
+      "lastExecutionTime": "2026-01-05T11:00:00"
+    },
+    {
+      "testId": "AT-003",
+      "name": "端到端自动驾驶场景测试",
+      "type": "e2e",
+      "module": "全系统",
+      "moduleId": "SYS-001",
+      "lastStatus": "failed",
+      "successRate": 88,
+      "executionCount": 156,
+      "lastExecutionTime": "2026-01-05T17:00:00"
+    },
+    {
+      "testId": "AT-004",
+      "name": "控制模块性能基准测试",
+      "type": "performance",
+      "module": "控制模块",
+      "moduleId": "MOD-010",
+      "lastStatus": "passed",
+      "successRate": 90,
+      "executionCount": 89,
+      "lastExecutionTime": "2026-01-04T18:30:00"
+    },
+    {
+      "testId": "AT-005",
+      "name": "感知模块性能压测",
+      "type": "performance",
+      "module": "感知模块",
+      "moduleId": "MOD-001",
+      "lastStatus": "running",
+      "successRate": 93,
+      "executionCount": 45,
+      "lastExecutionTime": "2026-01-06T08:30:00"
+    }
+  ]
+}
+

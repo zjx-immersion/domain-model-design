@@ -1,0 +1,10 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "风险管理Mock数据"},
+  "data": [
+    {"piId": "PI-2025-Q1", "risks": [
+      {"id": "RISK-001", "title": "算法性能不达标", "probability": "high", "impact": "high", "status": "open", "owner": "张三", "mitigation": "增加测试用例"},
+      {"id": "RISK-002", "title": "资源不足", "probability": "medium", "impact": "medium", "status": "mitigated", "owner": "李四", "mitigation": "申请外部支持"}
+    ]}
+  ]
+}
+

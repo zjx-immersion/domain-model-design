@@ -1,0 +1,297 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T18:00:00Z",
+    "description": "L1主价值流Mock数据 - 端到端研发价值流"
+  },
+  "data": {
+    "valueStreamInfo": {
+      "id": "VS-MAIN",
+      "name": "智能驾驶研发价值流",
+      "description": "从产品规划到发布交付的端到端价值流",
+      "version": "v1.0",
+      "scope": "智能驾驶平台",
+      "period": {
+        "start": "2024-10-01",
+        "end": "2024-12-31"
+      }
+    },
+    "stages": [
+      {
+        "id": "STAGE-01",
+        "name": "产品规划",
+        "code": "ProductPlanning",
+        "order": 1,
+        "description": "根据市场需求和战略目标进行产品规划",
+        "owner": "产品总监A",
+        "team": "产品团队",
+        "inputs": ["市场调研报告", "竞品分析", "客户反馈", "技术趋势"],
+        "outputs": ["产品路线图", "版本计划", "用户需求列表"],
+        "activities": [
+          "市场调研与分析",
+          "客户需求收集",
+          "产品路线图制定",
+          "版本规划"
+        ],
+        "metrics": {
+          "leadTime": 15,
+          "processTime": 10,
+          "waitTime": 5,
+          "efficiency": 0.67,
+          "cycleTime": 15
+        },
+        "status": "active",
+        "nextStage": "STAGE-02"
+      },
+      {
+        "id": "STAGE-02",
+        "name": "需求分析",
+        "code": "RequirementAnalysis",
+        "order": 2,
+        "description": "将产品需求细化为可实现的特性和模块需求",
+        "owner": "需求分析师A",
+        "team": "需求团队",
+        "inputs": ["用户需求列表", "产品路线图"],
+        "outputs": ["特性需求规格", "模块需求规格", "用例文档"],
+        "activities": [
+          "需求分解",
+          "需求建模",
+          "需求评审",
+          "需求基线"
+        ],
+        "metrics": {
+          "leadTime": 10,
+          "processTime": 7,
+          "waitTime": 3,
+          "efficiency": 0.70,
+          "cycleTime": 10
+        },
+        "status": "active",
+        "nextStage": "STAGE-03"
+      },
+      {
+        "id": "STAGE-03",
+        "name": "项目规划",
+        "code": "ProjectPlanning",
+        "order": 3,
+        "description": "制定PI和Sprint计划，分配资源",
+        "owner": "项目经理A",
+        "team": "PMO",
+        "inputs": ["特性需求规格", "模块需求规格", "团队产能"],
+        "outputs": ["PI计划", "Sprint计划", "资源分配表", "依赖关系图"],
+        "activities": [
+          "PI Planning",
+          "团队产能评估",
+          "依赖识别",
+          "风险评估",
+          "Sprint规划"
+        ],
+        "metrics": {
+          "leadTime": 8,
+          "processTime": 6,
+          "waitTime": 2,
+          "efficiency": 0.75,
+          "cycleTime": 8
+        },
+        "status": "active",
+        "nextStage": "STAGE-04"
+      },
+      {
+        "id": "STAGE-04",
+        "name": "迭代研发",
+        "code": "IterationRD",
+        "order": 4,
+        "description": "以Sprint为单位进行迭代开发",
+        "owner": "研发总监",
+        "team": "研发团队",
+        "inputs": ["Sprint计划", "模块需求规格", "架构设计"],
+        "outputs": ["可工作代码", "单元测试", "代码评审记录"],
+        "activities": [
+          "Story拆解",
+          "任务分配",
+          "编码实现",
+          "单元测试",
+          "代码评审",
+          "每日站会",
+          "Sprint评审",
+          "Sprint回顾"
+        ],
+        "metrics": {
+          "leadTime": 30,
+          "processTime": 25,
+          "waitTime": 5,
+          "efficiency": 0.83,
+          "cycleTime": 30
+        },
+        "status": "active",
+        "nextStage": "STAGE-05"
+      },
+      {
+        "id": "STAGE-05",
+        "name": "集成晋级",
+        "code": "Integration",
+        "order": 5,
+        "description": "代码集成、构建和环境晋级",
+        "owner": "DevOps工程师A",
+        "team": "DevOps团队",
+        "inputs": ["可工作代码", "单元测试"],
+        "outputs": ["构建产物", "集成测试结果", "晋级报告"],
+        "activities": [
+          "代码集成",
+          "自动化构建",
+          "集成测试",
+          "环境部署",
+          "冒烟测试"
+        ],
+        "metrics": {
+          "leadTime": 5,
+          "processTime": 4,
+          "waitTime": 1,
+          "efficiency": 0.80,
+          "cycleTime": 5
+        },
+        "status": "active",
+        "nextStage": "STAGE-06"
+      },
+      {
+        "id": "STAGE-06",
+        "name": "测试验证",
+        "code": "Testing",
+        "order": 6,
+        "description": "系统测试、性能测试和回归测试",
+        "owner": "测试总监",
+        "team": "测试团队",
+        "inputs": ["构建产物", "测试计划", "测试用例"],
+        "outputs": ["测试报告", "缺陷列表", "测试覆盖率"],
+        "activities": [
+          "测试用例执行",
+          "性能测试",
+          "兼容性测试",
+          "缺陷提交",
+          "回归测试",
+          "测试报告编写"
+        ],
+        "metrics": {
+          "leadTime": 12,
+          "processTime": 10,
+          "waitTime": 2,
+          "efficiency": 0.83,
+          "cycleTime": 12
+        },
+        "status": "active",
+        "nextStage": "STAGE-07"
+      },
+      {
+        "id": "STAGE-07",
+        "name": "需求验收",
+        "code": "Acceptance",
+        "order": 7,
+        "description": "用户验收测试和需求确认",
+        "owner": "产品经理A",
+        "team": "产品团队",
+        "inputs": ["测试报告", "功能演示", "用户手册"],
+        "outputs": ["验收报告", "问题列表", "改进建议"],
+        "activities": [
+          "用户验收测试",
+          "功能演示",
+          "问题确认",
+          "验收报告编写"
+        ],
+        "metrics": {
+          "leadTime": 3,
+          "processTime": 2,
+          "waitTime": 1,
+          "efficiency": 0.67,
+          "cycleTime": 3
+        },
+        "status": "active",
+        "nextStage": "STAGE-08"
+      },
+      {
+        "id": "STAGE-08",
+        "name": "发布交付",
+        "code": "Release",
+        "order": 8,
+        "description": "版本发布和生产部署",
+        "owner": "发布经理",
+        "team": "DevOps团队",
+        "inputs": ["验收报告", "发布计划", "部署脚本"],
+        "outputs": ["生产版本", "发布报告", "用户文档"],
+        "activities": [
+          "发布准备",
+          "生产部署",
+          "发布验证",
+          "发布公告",
+          "版本归档"
+        ],
+        "metrics": {
+          "leadTime": 2,
+          "processTime": 1.5,
+          "waitTime": 0.5,
+          "efficiency": 0.75,
+          "cycleTime": 2
+        },
+        "status": "active",
+        "nextStage": null
+      }
+    ],
+    "summary": {
+      "totalStages": 8,
+      "totalLeadTime": 85,
+      "totalProcessTime": 65.5,
+      "totalWaitTime": 19.5,
+      "overallEfficiency": 0.77,
+      "throughput": 12,
+      "avgCycleTime": 7.08
+    },
+    "bottlenecks": [
+      {
+        "stageId": "STAGE-04",
+        "stageName": "迭代研发",
+        "reason": "开发资源不足，任务并行度低",
+        "impact": "high",
+        "leadTime": 30,
+        "waitTime": 5,
+        "recommendations": [
+          "增加开发人员配置",
+          "优化任务拆分粒度",
+          "引入结对编程提升效率"
+        ]
+      },
+      {
+        "stageId": "STAGE-01",
+        "stageName": "产品规划",
+        "reason": "决策周期长，需要多方评审",
+        "impact": "medium",
+        "leadTime": 15,
+        "waitTime": 5,
+        "recommendations": [
+          "建立快速决策机制",
+          "明确评审节点和标准",
+          "减少不必要的评审环节"
+        ]
+      }
+    ],
+    "improvements": [
+      {
+        "id": "IMP-001",
+        "title": "自动化测试覆盖率提升",
+        "targetStage": "STAGE-06",
+        "currentValue": 85.5,
+        "targetValue": 90,
+        "expectedBenefit": "减少回归测试时间20%",
+        "status": "in_progress"
+      },
+      {
+        "id": "IMP-002",
+        "title": "CI/CD流水线优化",
+        "targetStage": "STAGE-05",
+        "currentValue": "5天",
+        "targetValue": "3天",
+        "expectedBenefit": "加快集成晋级速度",
+        "status": "planned"
+      }
+    ]
+  }
+}
+

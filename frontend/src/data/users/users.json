@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "password": "admin123",
+    "name": "系统管理员",
+    "email": "admin@auto-devops.com",
+    "role": "admin",
+    "avatar": "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",
+    "department": "技术部",
+    "phone": "138****8888",
+    "status": "active"
+  },
+  {
+    "id": "2",
+    "username": "zhangsan",
+    "password": "123456",
+    "name": "张三",
+    "email": "zhangsan@auto-devops.com",
+    "role": "developer",
+    "avatar": "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+    "department": "感知团队",
+    "phone": "138****0001",
+    "status": "active"
+  },
+  {
+    "id": "3",
+    "username": "lisi",
+    "password": "123456",
+    "name": "李四",
+    "email": "lisi@auto-devops.com",
+    "role": "developer",
+    "avatar": "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+    "department": "规划团队",
+    "phone": "138****0002",
+    "status": "active"
+  },
+  {
+    "id": "4",
+    "username": "wangwu",
+    "password": "123456",
+    "name": "王五",
+    "email": "wangwu@auto-devops.com",
+    "role": "tester",
+    "avatar": "https://cube.elemecdn.com/6/94/4d3ea53c4e4d42f884c92c9fa0a99bpng.png",
+    "department": "测试团队",
+    "phone": "138****0003",
+    "status": "active"
+  },
+  {
+    "id": "5",
+    "username": "zhaoliu",
+    "password": "123456",
+    "name": "赵六",
+    "email": "zhaoliu@auto-devops.com",
+    "role": "pm",
+    "avatar": "https://cube.elemecdn.com/8/94/aa8c45d42f6e6c6e5e7c0a1e9f8eapng.png",
+    "department": "产品部",
+    "phone": "138****0004",
+    "status": "active"
+  }
+]
+

@@ -242,12 +242,110 @@ const graphContainer = ref<HTMLElement>()
 // 加载示例数据
 const loadSampleData = async () => {
   try {
-    const response = await fetch('/data/requirements/traceability-sample.json')
-    const data = await response.json()
+    const response = await fetch('/biz-data/mock/requirement/traceability.json')
+    const result = await response.json()
     
-    // 构建树形结构
-    const nodes = data.nodes as TraceNode[]
-    const links = data.links as TraceLink[]
+    // 从追溯链数据构建树形结构
+    const chains = result.data.traceabilityChains || []
+    if (chains.length === 0) {
+      ElMessage.warning('暂无追溯数据')
+      return
+    }
+    
+    // 构建节点和链接
+    const nodes: TraceNode[] = []
+    const links: TraceLink[] = []
+    
+    chains.forEach((chain: any) => {
+      // 用户需求节点
+      nodes.push({
+        id: chain.userRequirement.id,
+        entityType: 'user_requirement',
+        entityId: chain.userRequirement.id,
+        name: chain.userRequirement.title,
+        status: chain.userRequirement.status,
+        layer: 1,
+        owner: chain.userRequirement.owner || '',
+        createdAt: chain.userRequirement.createdAt || new Date().toISOString(),
+        updatedAt: chain.userRequirement.updatedAt || new Date().toISOString(),
+      })
+      
+      // 特性需求节点
+      chain.featureRequirements?.forEach((fr: any) => {
+        nodes.push({
+          id: fr.id,
+          entityType: 'feature_requirement',
+          entityId: fr.id,
+          name: fr.title,
+          status: fr.status,
+          layer: 2,
+          owner: fr.owner || '',
+          createdAt: fr.createdAt || new Date().toISOString(),
+          updatedAt: fr.updatedAt || new Date().toISOString(),
+        })
+        
+        // 创建用户需求到特性需求的链接
+        links.push({
+          id: `link-${chain.userRequirement.id}-${fr.id}`,
+          sourceId: chain.userRequirement.id,
+          targetId: fr.id,
+          linkType: 'satisfy',
+          status: 'active',
+        })
+      })
+      
+      // 模块需求节点
+      chain.moduleRequirements?.forEach((mr: any) => {
+        nodes.push({
+          id: mr.id,
+          entityType: 'module_requirement',
+          entityId: mr.id,
+          name: mr.title,
+          status: mr.status,
+          layer: 3,
+          owner: mr.owner || '',
+          createdAt: mr.createdAt || new Date().toISOString(),
+          updatedAt: mr.updatedAt || new Date().toISOString(),
+        })
+        
+        // 创建特性需求到模块需求的链接
+        if (mr.featureRequirementId) {
+          links.push({
+            id: `link-${mr.featureRequirementId}-${mr.id}`,
+            sourceId: mr.featureRequirementId,
+            targetId: mr.id,
+            linkType: 'decompose',
+            status: 'active',
+          })
+        }
+      })
+      
+      // Stories节点
+      chain.stories?.forEach((story: any) => {
+        nodes.push({
+          id: story.id,
+          entityType: 'story',
+          entityId: story.id,
+          name: story.title,
+          status: story.status,
+          layer: 4,
+          owner: story.owner || '',
+          createdAt: story.createdAt || new Date().toISOString(),
+          updatedAt: story.updatedAt || new Date().toISOString(),
+        })
+        
+        // 创建模块需求到Story的链接
+        if (story.moduleRequirementId) {
+          links.push({
+            id: `link-${story.moduleRequirementId}-${story.id}`,
+            sourceId: story.moduleRequirementId,
+            targetId: story.id,
+            linkType: 'implement',
+            status: 'active',
+          })
+        }
+      })
+    })
     
     // 找到根节点（L1层）
     const rootNodes = nodes.filter(n => n.layer === 1)

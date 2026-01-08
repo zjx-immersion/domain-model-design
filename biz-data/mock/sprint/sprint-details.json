@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "lastUpdate": "2025-01-05T22:00:00Z",
+    "description": "Sprint详情Mock数据 - 重构版，包含工作项"
+  },
+  "data": [
+    {
+      "id": "SPRINT-001",
+      "name": "Sprint 1 - NOA功能开发",
+      "piId": "PI-2025-Q1",
+      "teamId": "TEAM-001",
+      "team": "感知团队",
+      "startDate": "2025-01-13",
+      "endDate": "2025-01-24",
+      "duration": 12,
+      "status": "active",
+      "sprintGoal": "完成NOA感知模块核心功能，包括融合算法优化和障碍物检测模型训练",
+      "capacity": 40,
+      "commitment": 38,
+      "completed": 25,
+      "workItems": ["WI-001", "WI-002", "WI-005"],
+      "workItemDetails": [
+        {
+          "id": "WI-001",
+          "type": "module_requirement",
+          "title": "感知融合算法优化",
+          "priority": "P0",
+          "status": "in_progress",
+          "estimatedEffort": 40,
+          "progress": 0.80
+        },
+        {
+          "id": "WI-002",
+          "type": "bugfix",
+          "title": "传感器融合模块内存泄漏修复",
+          "priority": "P0",
+          "status": "planned",
+          "estimatedEffort": 8,
+          "progress": 0
+        },
+        {
+          "id": "WI-005",
+          "type": "module_requirement",
+          "title": "障碍物检测模型训练",
+          "priority": "P0",
+          "status": "in_progress",
+          "estimatedEffort": 52,
+          "progress": 0.73
+        }
+      ],
+      "tasks": ["TASK-001", "TASK-002", "TASK-003", "TASK-004", "TASK-005", "TASK-006", "TASK-007", "TASK-008"],
+      "taskStatistics": {
+        "total": 8,
+        "todo": 4,
+        "in_progress": 2,
+        "done": 2
+      },
+      "metrics": {
+        "velocity": 25,
+        "completionRate": 0.66,
+        "burndown": [38, 35, 30, 25],
+        "defects": 3,
+        "codeReviewTime": 2.5
+      }
+    },
+    {
+      "id": "SPRINT-002",
+      "name": "Sprint 2 - 性能优化与规划增强",
+      "piId": "PI-2025-Q1",
+      "teamId": "TEAM-001",
+      "team": "感知团队",
+      "startDate": "2025-01-27",
+      "endDate": "2025-02-07",
+      "duration": 12,
+      "status": "planned",
+      "sprintGoal": "完成性能优化和换道决策功能",
+      "capacity": 40,
+      "commitment": 35,
+      "completed": 0,
+      "workItems": ["WI-004", "WI-006"],
+      "workItemDetails": [
+        {
+          "id": "WI-004",
+          "type": "non_functional",
+          "title": "传感器融合性能优化",
+          "priority": "P1",
+          "status": "planned",
+          "estimatedEffort": 16,
+          "progress": 0
+        },
+        {
+          "id": "WI-006",
+          "type": "module_requirement",
+          "title": "换道决策优化",
+          "priority": "P1",
+          "status": "planned",
+          "estimatedEffort": 32,
+          "progress": 0
+        }
+      ],
+      "tasks": [],
+      "taskStatistics": {
+        "total": 0,
+        "todo": 0,
+        "in_progress": 0,
+        "done": 0
+      },
+      "metrics": {
+        "velocity": 0,
+        "completionRate": 0,
+        "burndown": [],
+        "defects": 0,
+        "codeReviewTime": 0
+      }
+    }
+  ]
+}
+

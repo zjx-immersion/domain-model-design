@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T18:00:00Z",
+    "description": "需求影响分析Mock数据"
+  },
+  "data": {
+    "impactAnalyses": [
+      {
+        "id": "IMPACT-001",
+        "changeId": "CHG-001",
+        "changeName": "UR-001需求调整：增加雨雪天气场景",
+        "changeType": "需求变更",
+        "changeDate": "2025-01-02",
+        "initiator": "产品经理A",
+        "status": "待评审",
+        "impactLevel": "高",
+        "impactScope": {
+          "userRequirements": [
+            {
+              "id": "UR-001",
+              "title": "高速NOA自动换道优化",
+              "impactType": "修改",
+              "impactDescription": "增加雨雪天气场景的需求描述",
+              "effort": "2小时",
+              "risk": "低"
+            }
+          ],
+          "featureRequirements": [
+            {
+              "id": "FR-001",
+              "title": "融合感知优化",
+              "impactType": "修改",
+              "impactDescription": "需要增强恶劣天气下的感知能力",
+              "effort": "3天",
+              "risk": "中"
+            },
+            {
+              "id": "FR-002",
+              "title": "决策规划增强",
+              "impactType": "修改",
+              "impactDescription": "需要调整雨雪天气下的决策策略",
+              "effort": "2天",
+              "risk": "中"
+            }
+          ],
+          "moduleRequirements": [
+            {
+              "id": "MR-001",
+              "title": "感知融合算法优化",
+              "impactType": "修改",
+              "impactDescription": "增加雨雪天气的传感器融合策略",
+              "effort": "5天",
+              "risk": "高"
+            },
+            {
+              "id": "MR-003",
+              "title": "换道决策优化",
+              "impactType": "修改",
+              "impactDescription": "调整雨雪天气的换道决策参数",
+              "effort": "3天",
+              "risk": "中"
+            }
+          ],
+          "modules": [
+            {
+              "id": "MOD-004",
+              "name": "传感器融合模块",
+              "impactType": "修改",
+              "impactDescription": "增加雨雪天气的数据处理逻辑",
+              "codeChange": "新增函数、修改算法",
+              "effort": "5天",
+              "risk": "高"
+            },
+            {
+              "id": "MOD-007",
+              "name": "决策引擎模块",
+              "impactType": "修改",
+              "impactDescription": "增加天气状态判断和策略切换",
+              "codeChange": "新增状态机、修改规则",
+              "effort": "3天",
+              "risk": "中"
+            }
+          ],
+          "testCases": [
+            {
+              "id": "TC-001",
+              "title": "感知融合算法测试",
+              "impactType": "修改+新增",
+              "impactDescription": "需要增加雨雪天气场景的测试用例",
+              "newCasesCount": 15,
+              "modifiedCasesCount": 5,
+              "effort": "2天",
+              "risk": "中"
+            },
+            {
+              "id": "TC-003",
+              "title": "换道决策场景测试",
+              "impactType": "修改+新增",
+              "impactDescription": "需要增加雨雪天气的换道决策测试",
+              "newCasesCount": 10,
+              "modifiedCasesCount": 3,
+              "effort": "1.5天",
+              "risk": "中"
+            }
+          ],
+          "documents": [
+            {
+              "name": "系统需求规格说明",
+              "impactType": "修改",
+              "effort": "1天"
+            },
+            {
+              "name": "详细设计文档",
+              "impactType": "修改",
+              "effort": "2天"
+            },
+            {
+              "name": "测试计划",
+              "impactType": "修改",
+              "effort": "1天"
+            }
+          ]
+        },
+        "totalEffort": {
+          "development": "13天",
+          "testing": "3.5天",
+          "documentation": "4天",
+          "total": "20.5天"
+        },
+        "risks": [
+          {
+            "id": "RISK-001",
+            "description": "雨雪天气传感器数据质量下降，可能导致感知准确率降低",
+            "probability": "高",
+            "impact": "高",
+            "mitigation": "增加传感器冗余、优化融合算法、增加测试覆盖"
+          },
+          {
+            "id": "RISK-002",
+            "description": "决策策略调整可能影响现有场景的性能",
+            "probability": "中",
+            "impact": "高",
+            "mitigation": "充分回归测试、分阶段发布、保留策略回退机制"
+          }
+        ],
+        "dependencies": [
+          {
+            "id": "DEP-001",
+            "description": "需要先完成传感器标定和数据采集",
+            "status": "待开始",
+            "blockingReason": "数据采集设备不足"
+          }
+        ],
+        "approval": {
+          "requiredApprovers": ["产品总监A", "技术总监", "测试总监"],
+          "approvedBy": [],
+          "rejectedBy": [],
+          "comments": []
+        }
+      },
+      {
+        "id": "IMPACT-002",
+        "changeId": "CHG-002",
+        "changeName": "FR-001需求优先级提升",
+        "changeType": "优先级变更",
+        "changeDate": "2024-12-28",
+        "initiator": "产品总监A",
+        "status": "已批准",
+        "impactLevel": "中",
+        "impactScope": {
+          "userRequirements": [],
+          "featureRequirements": [
+            {
+              "id": "FR-001",
+              "title": "融合感知优化",
+              "impactType": "优先级调整",
+              "impactDescription": "从P1提升到P0，需要优先投入资源",
+              "effort": "资源重新分配",
+              "risk": "低"
+            }
+          ],
+          "moduleRequirements": [
+            {
+              "id": "MR-001",
+              "title": "感知融合算法优化",
+              "impactType": "优先级调整",
+              "impactDescription": "提前到当前Sprint",
+              "effort": "Sprint规划调整",
+              "risk": "低"
+            }
+          ],
+          "modules": [],
+          "testCases": [],
+          "documents": []
+        },
+        "totalEffort": {
+          "development": "0天",
+          "testing": "0天",
+          "documentation": "0天",
+          "total": "0天（仅资源调整）"
+        },
+        "risks": [
+          {
+            "id": "RISK-003",
+            "description": "其他需求可能延期",
+            "probability": "高",
+            "impact": "中",
+            "mitigation": "与相关方沟通，调整期望"
+          }
+        ],
+        "dependencies": [],
+        "approval": {
+          "requiredApprovers": ["产品总监A", "研发总监"],
+          "approvedBy": ["产品总监A", "研发总监"],
+          "rejectedBy": [],
+          "comments": [
+            {
+              "approver": "产品总监A",
+              "comment": "市场需求紧急，同意提升优先级",
+              "date": "2024-12-28"
+            }
+          ]
+        }
+      },
+      {
+        "id": "IMPACT-003",
+        "changeId": "CHG-003",
+        "changeName": "删除UR-003需求",
+        "changeType": "需求删除",
+        "changeDate": "2024-12-20",
+        "initiator": "产品经理B",
+        "status": "已批准",
+        "impactLevel": "低",
+        "impactScope": {
+          "userRequirements": [
+            {
+              "id": "UR-003",
+              "title": "泊车辅助功能",
+              "impactType": "删除",
+              "impactDescription": "市场需求不明确，暂缓开发",
+              "effort": "0天",
+              "risk": "低"
+            }
+          ],
+          "featureRequirements": [
+            {
+              "id": "FR-008",
+              "title": "泊车路径规划",
+              "impactType": "删除",
+              "impactDescription": "关联需求删除，同步删除",
+              "effort": "0天",
+              "risk": "低"
+            }
+          ],
+          "moduleRequirements": [],
+          "modules": [],
+          "testCases": [],
+          "documents": []
+        },
+        "totalEffort": {
+          "development": "0天",
+          "testing": "0天",
+          "documentation": "0天",
+          "total": "0天（已删除）"
+        },
+        "risks": [],
+        "dependencies": [],
+        "approval": {
+          "requiredApprovers": ["产品总监A"],
+          "approvedBy": ["产品总监A"],
+          "rejectedBy": [],
+          "comments": [
+            {
+              "approver": "产品总监A",
+              "comment": "同意删除，资源聚焦核心功能",
+              "date": "2024-12-20"
+            }
+          ]
+        }
+      }
+    ],
+    "statistics": {
+      "totalImpactAnalyses": 3,
+      "byStatus": {
+        "pending": 1,
+        "approved": 2,
+        "rejected": 0
+      },
+      "byImpactLevel": {
+        "high": 1,
+        "medium": 1,
+        "low": 1
+      },
+      "byChangeType": {
+        "requirement_change": 1,
+        "priority_change": 1,
+        "requirement_deletion": 1
+      },
+      "totalEffort": {
+        "development": "13天",
+        "testing": "3.5天",
+        "documentation": "4天",
+        "total": "20.5天"
+      }
+    }
+  }
+}
+

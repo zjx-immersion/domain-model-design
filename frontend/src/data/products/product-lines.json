@@ -1,0 +1,131 @@
+[
+  {
+    "id": "PL-001",
+    "code": "ADAS",
+    "name": "智能驾驶",
+    "englishName": "Advanced Driver Assistance Systems",
+    "description": "L2-L4级别智能驾驶产品线，覆盖感知、规划、决策、控制全栈能力",
+    "status": "active",
+    "owner": "张三",
+    "ownerId": "2",
+    "products": ["PROD-001", "PROD-002", "PROD-003", "PROD-004"],
+    "productCount": 4,
+    "strategy": "聚焦城市NOA场景，快速迭代优化，2025年实现L3级别量产",
+    "roadmap": [
+      {
+        "version": "v3.1",
+        "milestone": "城市NOA Beta",
+        "targetDate": "2025-03-31"
+      },
+      {
+        "version": "v3.2",
+        "milestone": "端到端感知决策",
+        "targetDate": "2025-06-30"
+      },
+      {
+        "version": "v4.0",
+        "milestone": "L4级别城市自动驾驶",
+        "targetDate": "2025-12-31"
+      }
+    ],
+    "createdAt": "2023-01-01",
+    "updatedAt": "2025-01-07"
+  },
+  {
+    "id": "PL-002",
+    "code": "COCKPIT",
+    "name": "智能座舱",
+    "englishName": "Intelligent Cockpit",
+    "description": "下一代智能座舱系统，包含语音交互、多模态交互、AR-HUD等核心能力",
+    "status": "active",
+    "owner": "李四",
+    "ownerId": "3",
+    "products": ["PROD-007", "PROD-008", "PROD-009"],
+    "productCount": 3,
+    "strategy": "打造极致用户体验的智能座舱，引入AI大模型能力",
+    "roadmap": [
+      {
+        "version": "v2.0",
+        "milestone": "AI语音助手上线",
+        "targetDate": "2025-04-30"
+      },
+      {
+        "version": "v2.5",
+        "milestone": "多模态交互融合",
+        "targetDate": "2025-08-31"
+      },
+      {
+        "version": "v3.0",
+        "milestone": "情感化交互体验",
+        "targetDate": "2025-12-31"
+      }
+    ],
+    "createdAt": "2023-03-01",
+    "updatedAt": "2025-01-07"
+  },
+  {
+    "id": "PL-003",
+    "code": "EEA",
+    "name": "电子电器架构",
+    "englishName": "Electrical/Electronic Architecture",
+    "description": "域控制器架构、SOA服务化平台、OTA升级等电子电器架构核心能力",
+    "status": "active",
+    "owner": "王五",
+    "ownerId": "4",
+    "products": ["PROD-010", "PROD-011", "PROD-012"],
+    "productCount": 3,
+    "strategy": "构建软件定义汽车的基础平台，实现全车OTA和SOA服务化",
+    "roadmap": [
+      {
+        "version": "v1.0",
+        "milestone": "中央域控制器上车",
+        "targetDate": "2025-05-31"
+      },
+      {
+        "version": "v1.5",
+        "milestone": "SOA平台上线",
+        "targetDate": "2025-09-30"
+      },
+      {
+        "version": "v2.0",
+        "milestone": "全车OTA能力",
+        "targetDate": "2025-12-31"
+      }
+    ],
+    "createdAt": "2023-06-01",
+    "updatedAt": "2025-01-07"
+  },
+  {
+    "id": "PL-004",
+    "code": "INFRA",
+    "name": "基础设施",
+    "englishName": "Infrastructure",
+    "description": "支撑智能汽车的云端基础设施和数据服务",
+    "status": "active",
+    "owner": "赵六",
+    "ownerId": "5",
+    "products": ["PROD-005", "PROD-006"],
+    "productCount": 2,
+    "strategy": "构建高精度、实时更新的云端服务平台",
+    "roadmap": [
+      {
+        "version": "v1.5",
+        "milestone": "众包数据集成",
+        "targetDate": "2024-12-31"
+      },
+      {
+        "version": "v2.0",
+        "milestone": "实时地图更新",
+        "targetDate": "2025-06-30"
+      },
+      {
+        "version": "v2.5",
+        "milestone": "大规模仿真平台",
+        "targetDate": "2025-10-31"
+      }
+    ],
+    "createdAt": "2023-02-01",
+    "updatedAt": "2025-01-07"
+  }
+]
+

@@ -169,7 +169,7 @@ function getPriorityType(priority: string) {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .dashboard-container {
   .quick-actions {

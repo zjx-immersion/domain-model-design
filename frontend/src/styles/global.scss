@@ -1,4 +1,5 @@
-@import './variables.scss';
+@use './variables.scss' as *;
+@use 'sass:color';
 
 * {
   margin: 0;
@@ -21,7 +22,7 @@ a {
   transition: color $transition-fast;
 
   &:hover {
-    color: lighten($primary, 10%);
+    color: color.adjust($primary, $lightness: 10%);
   }
 }
 
@@ -64,27 +65,27 @@ a {
   display: inline-block;
 
   &.planning {
-    background-color: lighten($status-planning, 35%);
+    background-color: color.adjust($status-planning, $lightness: 35%);
     color: $status-planning;
   }
 
   &.in-progress {
-    background-color: lighten($status-inprogress, 45%);
+    background-color: color.adjust($status-inprogress, $lightness: 45%);
     color: $status-inprogress;
   }
 
   &.testing {
-    background-color: lighten($status-testing, 35%);
+    background-color: color.adjust($status-testing, $lightness: 35%);
     color: $status-testing;
   }
 
   &.completed {
-    background-color: lighten($status-completed, 45%);
+    background-color: color.adjust($status-completed, $lightness: 45%);
     color: $status-completed;
   }
 
   &.blocked {
-    background-color: lighten($status-blocked, 35%);
+    background-color: color.adjust($status-blocked, $lightness: 35%);
     color: $status-blocked;
   }
 }
@@ -137,12 +138,12 @@ a {
 
   &.active {
     border-color: $primary;
-    background-color: lighten($primary, 48%);
+    background-color: color.adjust($primary, $lightness: 48%);
   }
 
   &.completed {
     border-color: $success;
-    background-color: lighten($success, 50%);
+    background-color: color.adjust($success, $lightness: 50%);
   }
 
   .stage-icon {

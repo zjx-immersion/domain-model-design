@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "lastUpdate": "2025-01-05T22:00:00Z",
+    "description": "PI Planning详情Mock数据 - 重构版，包含工作项"
+  },
+  "data": [
+    {
+      "id": "PI-2025-Q1",
+      "code": "PI-2025-Q1",
+      "name": "2025 Q1 PI Planning",
+      "version": "v3.1",
+      "startDate": "2025-01-13",
+      "endDate": "2025-03-28",
+      "status": "executing",
+      "sprints": ["SPRINT-001", "SPRINT-002", "SPRINT-003", "SPRINT-004", "SPRINT-005", "SPRINT-006"],
+      "workItemBacklog": [
+        {
+          "id": "WI-007",
+          "type": "bugfix",
+          "title": "决策引擎状态机异常修复",
+          "priority": "P0",
+          "status": "backlog",
+          "moduleId": "MOD-007",
+          "estimatedEffort": 12
+        },
+        {
+          "id": "WI-008",
+          "type": "tech_debt",
+          "title": "决策引擎单元测试补充",
+          "priority": "P2",
+          "status": "backlog",
+          "moduleId": "MOD-007",
+          "estimatedEffort": 16
+        },
+        {
+          "id": "WI-009",
+          "type": "optimization",
+          "title": "横向控制响应时间优化",
+          "priority": "P1",
+          "status": "backlog",
+          "moduleId": "MOD-008",
+          "estimatedEffort": 20
+        },
+        {
+          "id": "WI-010",
+          "type": "research",
+          "title": "端到端自动驾驶技术调研",
+          "priority": "P2",
+          "status": "backlog",
+          "estimatedEffort": 40
+        }
+      ],
+      "plannedWorkItems": [
+        "WI-001",
+        "WI-002",
+        "WI-004",
+        "WI-005",
+        "WI-006"
+      ],
+      "workItemStatistics": {
+        "total": 10,
+        "planned": 5,
+        "backlog": 5,
+        "byType": {
+          "module_requirement": 3,
+          "bugfix": 2,
+          "tech_debt": 2,
+          "non_functional": 1,
+          "optimization": 1,
+          "research": 1
+        },
+        "byPriority": {
+          "P0": 4,
+          "P1": 4,
+          "P2": 2
+        }
+      },
+      "teamPlans": [
+        {
+          "teamId": "TEAM-001",
+          "teamName": "感知团队",
+          "capacity": {
+            "totalSprints": 6,
+            "sprintCapacity": 35,
+            "totalCapacity": 210
+          },
+          "workItems": ["WI-001", "WI-002", "WI-004", "WI-005"],
+          "totalEffort": 116,
+          "utilizationRate": 0.55,
+          "sprints": [
+            {
+              "sprintId": "SPRINT-001",
+              "sprintName": "Sprint 1",
+              "workItems": ["WI-001", "WI-002", "WI-005"],
+              "tasks": 8,
+              "committedPoints": 38
+            },
+            {
+              "sprintId": "SPRINT-002",
+              "sprintName": "Sprint 2",
+              "workItems": ["WI-004"],
+              "tasks": 0,
+              "committedPoints": 16
+            }
+          ]
+        },
+        {
+          "teamId": "TEAM-002",
+          "teamName": "规划团队",
+          "capacity": {
+            "totalSprints": 6,
+            "sprintCapacity": 32,
+            "totalCapacity": 192
+          },
+          "workItems": ["WI-006"],
+          "totalEffort": 32,
+          "utilizationRate": 0.17,
+          "sprints": [
+            {
+              "sprintId": "SPRINT-002",
+              "sprintName": "Sprint 2",
+              "workItems": ["WI-006"],
+              "tasks": 0,
+              "committedPoints": 32
+            }
+          ]
+        },
+        {
+          "teamId": "TEAM-003",
+          "teamName": "控制团队",
+          "capacity": {
+            "totalSprints": 6,
+            "sprintCapacity": 26,
+            "totalCapacity": 156
+          },
+          "workItems": [],
+          "totalEffort": 0,
+          "utilizationRate": 0,
+          "sprints": []
+        }
+      ],
+      "piObjectives": [
+        {
+          "id": "OBJ-001",
+          "name": "完成NOA v3.1核心功能",
+          "description": "完成感知融合算法优化和障碍物检测模型训练",
+          "businessValue": 8,
+          "teamId": "TEAM-001",
+          "workItems": ["WI-001", "WI-005"],
+          "storyPoints": 78,
+          "status": "in_progress",
+          "progress": 0.76
+        },
+        {
+          "id": "OBJ-002",
+          "name": "路径规划算法优化",
+          "description": "优化换道决策算法",
+          "businessValue": 5,
+          "teamId": "TEAM-002",
+          "workItems": ["WI-006"],
+          "storyPoints": 32,
+          "status": "planned",
+          "progress": 0
+        }
+      ],
+      "dependencies": [
+        {
+          "id": "DEP-001",
+          "fromWorkItem": "WI-001",
+          "fromTeam": "TEAM-001",
+          "fromSprint": "SPRINT-001",
+          "toWorkItem": "WI-006",
+          "toTeam": "TEAM-002",
+          "toSprint": "SPRINT-002",
+          "type": "finish_to_start",
+          "description": "感知优化完成后才能进行规划优化",
+          "status": "active"
+        }
+      ],
+      "risks": [
+        {
+          "id": "RISK-001",
+          "title": "感知算法复杂度高",
+          "description": "WI-001涉及的算法复杂度高，可能延期",
+          "probability": "medium",
+          "impact": "high",
+          "relatedWorkItems": ["WI-001"],
+          "mitigation": "增加技术评审，必要时调整范围",
+          "status": "monitoring"
+        }
+      ],
+      "metrics": {
+        "totalWorkItems": 10,
+        "plannedWorkItems": 5,
+        "completedWorkItems": 0,
+        "totalEffort": 260,
+        "plannedEffort": 148,
+        "completedEffort": 70,
+        "predictability": 0.85,
+        "avgVelocity": 30
+      },
+      "participants": ["产品经理A", "项目经理A", "算法架构师A", "需求分析师A"],
+      "createdBy": "项目经理A",
+      "createdAt": "2024-12-15T00:00:00Z",
+      "updatedAt": "2025-01-05T22:00:00Z"
+    }
+  ]
+}
+

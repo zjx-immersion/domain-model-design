@@ -241,7 +241,7 @@ function viewStage(stage: any) {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .value-stream-main {
   .role-selector {

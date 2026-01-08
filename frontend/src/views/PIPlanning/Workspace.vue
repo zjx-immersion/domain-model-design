@@ -108,6 +108,93 @@
             </el-card>
           </el-col>
         </el-row>
+
+        <!-- 特性包管理 - 全宽显示 -->
+        <el-card class="section-card baseline-management-section">
+          <template #header>
+            <div class="card-header-with-action">
+              <span>特性包管理</span>
+              <el-button type="primary" size="small" icon="Plus" @click="addBaseline">
+                关联特性包
+              </el-button>
+            </div>
+          </template>
+          
+          <div v-if="piBaselines.length > 0">
+            <div class="baseline-stats">
+              <div class="stat-item">
+                <span class="stat-label">总特性包数:</span>
+                <span class="stat-value">{{ piBaselines.length }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">总特性数:</span>
+                <span class="stat-value">{{ totalFeatures }}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">总工作量:</span>
+                <span class="stat-value">{{ totalStoryPoints }} SP</span>
+              </div>
+            </div>
+            
+            <el-table :data="piBaselines" stripe style="margin-top: 16px">
+              <el-table-column prop="code" label="编号" width="150" />
+              <el-table-column prop="name" label="特性包名称" min-width="220">
+                <template #default="scope">
+                  <el-link type="primary" @click="viewBaseline(scope.row.id)">
+                    {{ scope.row.name }}
+                  </el-link>
+                </template>
+              </el-table-column>
+              <el-table-column prop="productName" label="产品" width="180" />
+              <el-table-column label="特性构成" width="180">
+                <template #default="scope">
+                  <el-tag size="small" type="success">
+                    直接采用 {{ scope.row.adoptedFeatures?.length || 0 }}
+                  </el-tag>
+                  <el-tag size="small" type="warning" style="margin-left: 8px">
+                    需开发 {{ scope.row.developmentFeatures?.length || 0 }}
+                  </el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column label="总特性" width="100" align="center">
+                <template #default="scope">
+                  {{ (scope.row.adoptedFeatures?.length || 0) + (scope.row.developmentFeatures?.length || 0) }}
+                </template>
+              </el-table-column>
+              <el-table-column prop="estimatedStoryPoints" label="工作量" width="100" align="center">
+                <template #default="scope">
+                  {{ scope.row.estimatedStoryPoints }} SP
+                </template>
+              </el-table-column>
+              <el-table-column prop="status" label="状态" width="110">
+                <template #default="scope">
+                  <el-tag :type="getBaselineStatusType(scope.row.status)" size="small">
+                    {{ getBaselineStatusLabel(scope.row.status) }}
+                  </el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column prop="progress" label="进度" width="150">
+                <template #default="scope">
+                  <el-progress 
+                    :percentage="Math.round(scope.row.progress * 100)" 
+                    :status="scope.row.progress === 1 ? 'success' : undefined"
+                  />
+                </template>
+              </el-table-column>
+              <el-table-column label="操作" width="120" fixed="right">
+                <template #default="scope">
+                  <el-button link type="primary" size="small" @click="viewBaseline(scope.row.id)">
+                    查看
+                  </el-button>
+                  <el-button link type="danger" size="small" @click="removeBaseline(scope.row)">
+                    移除
+                  </el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </div>
+          <el-empty v-else description="暂无特性包，点击上方按钮关联特性包" :image-size="80" />
+        </el-card>
       </el-tab-pane>
 
       <!-- 风险管理Tab -->
@@ -217,6 +304,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import piPlanningsData from '@/data/projects/pi-plannings.json'
+import baselinesData from '@/data/release/baselines.json'
 import type { PIPlanning } from '@/types/project'
 
 const router = useRouter()
@@ -225,6 +313,9 @@ const route = useRoute()
 const activeTab = ref('overview')
 const confidence = ref(0)
 const piData = ref<PIPlanning | null>(null)
+
+// 特性包数据
+const piBaselines = ref<any[]>([])
 
 // 模拟PI Objectives数据
 const objectives = ref([
@@ -263,7 +354,29 @@ onMounted(() => {
   if (pi) {
     piData.value = pi as PIPlanning
     confidence.value = pi.confidence / 10
+    loadPIBaselines(piId)
   }
+})
+
+// 加载PI关联的特性包
+function loadPIBaselines(piId: string) {
+  piBaselines.value = baselinesData.data.filter((b: any) => b.piId === piId)
+}
+
+// 计算总特性数
+const totalFeatures = computed(() => {
+  return piBaselines.value.reduce((sum, baseline) => {
+    const adopted = baseline.adoptedFeatures?.length || 0
+    const development = baseline.developmentFeatures?.length || 0
+    return sum + adopted + development
+  }, 0)
+})
+
+// 计算总工作量
+const totalStoryPoints = computed(() => {
+  return piBaselines.value.reduce((sum, baseline) => {
+    return sum + (baseline.estimatedStoryPoints || 0)
+  }, 0)
 })
 
 function getStatusType(status?: string) {
@@ -376,10 +489,45 @@ function deleteDependency(dep: any) {
 function planCapacity() {
   ElMessage.info('容量规划功能开发中...')
 }
+
+// 特性包管理相关函数
+function addBaseline() {
+  ElMessage.info('关联特性包功能开发中...')
+}
+
+function viewBaseline(baselineId: string) {
+  router.push({ name: 'BaselineDetail', params: { id: baselineId } })
+}
+
+function removeBaseline(baseline: any) {
+  ElMessage.success(`移除特性包: ${baseline.name}`)
+  // 实际应用中应该调用API
+  piBaselines.value = piBaselines.value.filter(b => b.id !== baseline.id)
+}
+
+function getBaselineStatusType(status: string) {
+  const typeMap: Record<string, any> = {
+    draft: 'info',
+    baseline: 'success',
+    frozen: 'warning',
+    archived: ''
+  }
+  return typeMap[status] || 'info'
+}
+
+function getBaselineStatusLabel(status: string) {
+  const labelMap: Record<string, string> = {
+    draft: '草稿',
+    baseline: '已基线化',
+    frozen: '已冻结',
+    archived: '已归档'
+  }
+  return labelMap[status] || status
+}
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .pi-workspace {
   .page-header {
@@ -475,6 +623,38 @@ function planCapacity() {
       }
     }
 
+    // 特性包管理区域样式
+    .baseline-management-section {
+      margin-top: $spacing-lg;
+      
+      .baseline-stats {
+        display: flex;
+        gap: $spacing-xl;
+        padding: $spacing-md;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: $radius-sm;
+        margin-bottom: $spacing-md;
+
+        .stat-item {
+          display: flex;
+          align-items: center;
+          gap: $spacing-sm;
+
+          .stat-label {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          .stat-value {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
     .confidence-vote {
       text-align: center;
 
@@ -498,6 +678,12 @@ function planCapacity() {
     }
 
     .card-header-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header-with-action {
       display: flex;
       justify-content: space-between;
       align-items: center;

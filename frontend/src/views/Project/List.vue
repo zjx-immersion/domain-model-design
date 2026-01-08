@@ -285,7 +285,7 @@ function handleCommand(command: string, project: Project) {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .project-list {
   .filter-bar {

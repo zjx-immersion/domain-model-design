@@ -33,6 +33,16 @@
           <el-menu-item index="/pi-planning">PI列表</el-menu-item>
         </el-sub-menu>
 
+        <el-menu-item index="/releases/list">
+          <el-icon><Memo /></el-icon>
+          <template #title>版本管理</template>
+        </el-menu-item>
+
+        <el-menu-item index="/baselines/list">
+          <el-icon><Collection /></el-icon>
+          <template #title>特性包管理</template>
+        </el-menu-item>
+
         <el-sub-menu index="projects">
           <template #title>
             <el-icon><Box /></el-icon>
@@ -59,6 +69,7 @@
           </template>
           <el-menu-item index="/requirements/user">用户需求</el-menu-item>
           <el-menu-item index="/requirements/feature">特性需求</el-menu-item>
+          <el-menu-item index="/requirements/module">模块需求</el-menu-item>
           <el-menu-item index="/requirements/traceability">需求追溯</el-menu-item>
         </el-sub-menu>
 
@@ -170,7 +181,7 @@ function handleCommand(command: string) {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .main-layout {
   height: 100vh;
@@ -204,6 +215,56 @@ function handleCommand(command: string) {
     background-color: transparent;
     flex: 1;
     overflow-y: auto;
+
+    // 菜单项文字和图标颜色 - 提高对比度
+    .el-menu-item,
+    .el-sub-menu__title {
+      color: rgba(255, 255, 255, 0.85);
+      
+      .el-icon {
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      &:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        
+        .el-icon {
+          color: #fff;
+        }
+      }
+    }
+
+    // 激活状态
+    .el-menu-item.is-active {
+      color: #fff;
+      background-color: $primary;
+      
+      .el-icon {
+        color: #fff;
+      }
+    }
+
+    // 子菜单项
+    .el-menu-item {
+      &:not(.is-active) {
+        background-color: transparent;
+      }
+    }
+
+    // 子菜单标题展开状态
+    .el-sub-menu.is-opened > .el-sub-menu__title {
+      color: #fff;
+      
+      .el-icon {
+        color: #fff;
+      }
+    }
+
+    // 子菜单箭头图标
+    .el-sub-menu__icon-arrow {
+      color: rgba(255, 255, 255, 0.65);
+    }
   }
 
   .collapse-btn {

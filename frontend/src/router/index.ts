@@ -23,6 +23,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'value-stream',
         name: 'ValueStream',
+        redirect: '/value-stream/main',
         meta: { title: '研发价值流', icon: 'TrendCharts' },
         children: [
           {
@@ -85,6 +86,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'pi-planning',
         name: 'PIPlanning',
+        redirect: '/pi-planning/list',
         meta: { title: 'PI Planning', icon: 'Calendar' },
         children: [
           {
@@ -107,9 +109,52 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
+      // 版本管理
+      {
+        path: 'releases',
+        name: 'Releases',
+        redirect: '/releases/list',
+        meta: { title: '版本管理', icon: 'Histogram' },
+        children: [
+          {
+            path: 'list',
+            name: 'ReleaseList',
+            component: () => import('@/views/Release/ReleaseList.vue'),
+            meta: { title: '版本列表' },
+          },
+          {
+            path: ':id',
+            name: 'ReleaseDetail',
+            component: () => import('@/views/Release/ReleaseDetail.vue'),
+            meta: { title: '版本详情' },
+          },
+        ],
+      },
+      // 特性包管理
+      {
+        path: 'baselines',
+        name: 'Baselines',
+        redirect: '/baselines/list',
+        meta: { title: '特性包管理', icon: 'CollectionTag' },
+        children: [
+          {
+            path: 'list',
+            name: 'BaselineList',
+            component: () => import('@/views/Release/BaselineList.vue'),
+            meta: { title: '特性包列表' },
+          },
+          {
+            path: ':id',
+            name: 'BaselineDetail',
+            component: () => import('@/views/Release/BaselineDetail.vue'),
+            meta: { title: '特性包详情' },
+          },
+        ],
+      },
       {
         path: 'projects',
         name: 'Projects',
+        redirect: '/projects/list',
         meta: { title: '项目管理', icon: 'Box' },
         children: [
           {
@@ -136,8 +181,21 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'assets',
         name: 'Assets',
+        redirect: '/assets/product-lines',
         meta: { title: '资产管理', icon: 'Files' },
         children: [
+          {
+            path: 'product-lines',
+            name: 'ProductLines',
+            component: () => import('@/views/Asset/ProductLines.vue'),
+            meta: { title: '产品线' },
+          },
+          {
+            path: 'product-lines/:id',
+            name: 'ProductLineDetail',
+            component: () => import('@/views/Asset/ProductLineDetail.vue'),
+            meta: { title: '产品线详情' },
+          },
           {
             path: 'products',
             name: 'Products',
@@ -169,10 +227,16 @@ const routes: RouteRecordRaw[] = [
             meta: { title: '软件模块' },
           },
           {
-            path: 'library',
-            name: 'AssetLibrary',
-            component: () => import('@/views/Asset/Library.vue'),
-            meta: { title: '资产库' },
+            path: 'modules/:id',
+            name: 'ModuleDetail',
+            component: () => import('@/views/Asset/ModuleDetail.vue'),
+            meta: { title: '模块详情' },
+          },
+          {
+            path: 'relationship',
+            name: 'AssetRelationship',
+            component: () => import('@/views/Asset/Relationship.vue'),
+            meta: { title: '资产关系图' },
           },
         ],
       },
@@ -180,6 +244,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'requirements',
         name: 'Requirements',
+        redirect: '/requirements/user',
         meta: { title: '需求管理', icon: 'Document' },
         children: [
           {
@@ -207,10 +272,34 @@ const routes: RouteRecordRaw[] = [
             meta: { title: '特性需求详情' },
           },
           {
-            path: 'feature/:id/prd',
-            name: 'PRDEditor',
-            component: () => import('@/views/Requirement/PRDEditor.vue'),
-            meta: { title: 'PRD编写' },
+            path: 'module',
+            name: 'ModuleRequirements',
+            component: () => import('@/views/Requirement/ModuleRequirements.vue'),
+            meta: { title: '模块需求' },
+          },
+          {
+            path: 'module/:id',
+            name: 'ModuleRequirementDetail',
+            component: () => import('@/views/Requirement/ModuleRequirementDetail.vue'),
+            meta: { title: '模块需求详情' },
+          },
+          {
+            path: 'changes',
+            name: 'Changes',
+            component: () => import('@/views/Requirement/Changes.vue'),
+            meta: { title: '需求变更' },
+          },
+          {
+            path: 'changes/:id',
+            name: 'ChangeDetail',
+            component: () => import('@/views/Requirement/ChangeDetail.vue'),
+            meta: { title: '变更详情' },
+          },
+          {
+            path: 'kanban',
+            name: 'RequirementKanban',
+            component: () => import('@/views/Requirement/Kanban.vue'),
+            meta: { title: '需求看板' },
           },
           {
             path: 'traceability',
@@ -230,12 +319,40 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/Requirement/ImpactAnalysis.vue'),
             meta: { title: '影响分析' },
           },
+          {
+            path: 'traceability/graph',
+            name: 'TraceabilityGraph',
+            component: () => import('@/views/Requirement/TraceabilityGraph.vue'),
+            meta: { title: '追溯关系图谱' },
+          },
+        ],
+      },
+      // 工作项管理 ⭐ 新增
+      {
+        path: 'work-items',
+        name: 'WorkItems',
+        redirect: '/work-items/list',
+        meta: { title: '工作项管理', icon: 'Ticket' },
+        children: [
+          {
+            path: '',
+            name: 'WorkItemList',
+            component: () => import('@/views/WorkItem/List.vue'),
+            meta: { title: '工作项列表' },
+          },
+          {
+            path: ':id',
+            name: 'WorkItemDetail',
+            component: () => import('@/views/WorkItem/Detail.vue'),
+            meta: { title: '工作项详情' },
+          },
         ],
       },
       // 价值网络
       {
         path: 'value-network',
         name: 'ValueNetwork',
+        redirect: '/value-network/map',
         meta: { title: '价值网络', icon: 'Share' },
         children: [
           {
@@ -262,6 +379,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'sprints',
         name: 'Sprints',
+        redirect: '/sprints/list',
         meta: { title: '迭代协同', icon: 'Histogram' },
         children: [
           {
@@ -284,10 +402,38 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
+      // 团队管理 ⭐ 新增
+      {
+        path: 'teams',
+        name: 'Teams',
+        redirect: '/teams/list',
+        meta: { title: '团队管理', icon: 'UserFilled' },
+        children: [
+          {
+            path: '',
+            name: 'TeamList',
+            component: () => import('@/views/Team/List.vue'),
+            meta: { title: '团队列表' },
+          },
+          {
+            path: ':id',
+            name: 'TeamDetail',
+            component: () => import('@/views/Team/Detail.vue'),
+            meta: { title: '团队详情' },
+          },
+          {
+            path: ':id/modules',
+            name: 'TeamModuleConfig',
+            component: () => import('@/views/Team/ModuleConfig.vue'),
+            meta: { title: '模块配置' },
+          },
+        ],
+      },
       // DevOps
       {
         path: 'devops',
         name: 'DevOps',
+        redirect: '/devops/builds',
         meta: { title: 'DevOps', icon: 'SetUp' },
         children: [
           {
@@ -297,19 +443,147 @@ const routes: RouteRecordRaw[] = [
             meta: { title: '构建管理' },
           },
           {
+            path: 'pipeline',
+            name: 'Pipeline',
+            component: () => import('@/views/DevOps/Pipeline.vue'),
+            meta: { title: '流水线' },
+          },
+          {
+            path: 'environments',
+            name: 'Environments',
+            component: () => import('@/views/DevOps/Environments.vue'),
+            meta: { title: '环境管理' },
+          },
+          {
             path: 'releases',
-            name: 'Releases',
+            name: 'DevOpsReleases',
             component: () => import('@/views/DevOps/Releases.vue'),
             meta: { title: '发布管理' },
           },
+          {
+            path: 'release-board',
+            name: 'ReleaseBoard',
+            component: () => import('@/views/DevOps/ReleaseBoard.vue'),
+            meta: { title: '发布看板' },
+          },
+          {
+            path: 'metrics',
+            name: 'DevOpsMetrics',
+            component: () => import('@/views/DevOps/Metrics.vue'),
+            meta: { title: 'DevOps指标' },
+          },
         ],
       },
-      // 系统设置
+      // 测试管理
+      {
+        path: 'test',
+        name: 'Test',
+        redirect: '/test/cases',
+        meta: { title: '测试管理', icon: 'Operation' },
+        children: [
+          {
+            path: 'cases',
+            name: 'TestCases',
+            component: () => import('@/views/Test/Cases.vue'),
+            meta: { title: '测试用例' },
+          },
+          {
+            path: 'plans',
+            name: 'TestPlans',
+            component: () => import('@/views/Test/Plans.vue'),
+            meta: { title: '测试计划' },
+          },
+          {
+            path: 'defects',
+            name: 'Defects',
+            component: () => import('@/views/Test/Defects.vue'),
+            meta: { title: '缺陷管理' },
+          },
+          {
+            path: 'reports',
+            name: 'TestReports',
+            component: () => import('@/views/Test/Reports.vue'),
+            meta: { title: '测试报告' },
+          },
+          {
+            path: 'coverage',
+            name: 'TestCoverage',
+            component: () => import('@/views/Test/Coverage.vue'),
+            meta: { title: '测试覆盖率' },
+          },
+          {
+            path: 'automation',
+            name: 'TestAutomation',
+            component: () => import('@/views/Test/Automation.vue'),
+            meta: { title: '自动化测试' },
+          },
+        ],
+      },
+      // 数据分析
+      {
+        path: 'analytics',
+        name: 'Analytics',
+        redirect: '/analytics/value-stream',
+        meta: { title: '数据分析', icon: 'DataAnalysis' },
+        children: [
+          {
+            path: 'value-stream',
+            name: 'ValueStreamAnalytics',
+            component: () => import('@/views/Analytics/ValueStream.vue'),
+            meta: { title: '价值流分析' },
+          },
+          {
+            path: 'efficiency',
+            name: 'EfficiencyAnalytics',
+            component: () => import('@/views/Analytics/Efficiency.vue'),
+            meta: { title: '效能分析' },
+          },
+          {
+            path: 'quality',
+            name: 'QualityAnalytics',
+            component: () => import('@/views/Analytics/Quality.vue'),
+            meta: { title: '质量分析' },
+          },
+          {
+            path: 'cost',
+            name: 'CostAnalytics',
+            component: () => import('@/views/Analytics/Cost.vue'),
+            meta: { title: '成本分析' },
+          },
+        ],
+      },
+      // 系统管理
+      {
+        path: 'system',
+        name: 'System',
+        redirect: '/system/settings',
+        meta: { title: '系统管理', icon: 'Setting' },
+        children: [
       {
         path: 'settings',
-        name: 'Settings',
-        component: () => import('@/views/Settings/index.vue'),
-        meta: { title: '系统设置', icon: 'Setting' },
+            name: 'SystemSettings',
+            component: () => import('@/views/System/Settings.vue'),
+            meta: { title: '系统配置' },
+          },
+          {
+            path: 'users',
+            name: 'SystemUsers',
+            component: () => import('@/views/System/Users.vue'),
+            meta: { title: '用户管理' },
+          },
+          {
+            path: 'logs',
+            name: 'SystemLogs',
+            component: () => import('@/views/System/Logs.vue'),
+            meta: { title: '操作日志' },
+          },
+          {
+            path: 'notifications',
+            name: 'SystemNotifications',
+            component: () => import('@/views/System/Notifications.vue'),
+            meta: { title: '通知中心' },
+          },
+        ],
       },
     ],
   },

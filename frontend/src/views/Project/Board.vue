@@ -280,7 +280,7 @@ function refreshBoard() {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .project-board {
   .page-header {

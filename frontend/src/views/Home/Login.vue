@@ -55,8 +55,12 @@
           :closable="false"
         >
           <template #default>
-            <div>用户名: admin / zhangsan / lisi</div>
-            <div>密码: 123456</div>
+            <div style="line-height: 1.8;">
+              <div><strong>管理员：</strong>admin / admin123</div>
+              <div><strong>开发人员：</strong>zhangsan / 123456 或 lisi / 123456</div>
+              <div><strong>测试人员：</strong>wangwu / 123456</div>
+              <div><strong>产品经理：</strong>zhaoliu / 123456</div>
+            </div>
           </template>
         </el-alert>
       </div>
@@ -78,7 +82,7 @@ const loading = ref(false)
 
 const loginForm = reactive({
   username: 'admin',
-  password: '123456',
+  password: 'admin123',
 })
 
 const rules: FormRules = {
@@ -109,7 +113,7 @@ async function handleLogin() {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .login-container {
   min-height: 100vh;
@@ -153,6 +157,13 @@ async function handleLogin() {
     :deep(.el-alert__description) {
       font-size: 12px;
       line-height: 1.8;
+    }
+    
+    :deep(.el-alert__content) {
+      strong {
+        color: $primary;
+        font-weight: 600;
+      }
     }
   }
 }

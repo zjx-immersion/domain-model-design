@@ -1,0 +1,36 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T16:00:00Z", "description": "效能分析Mock数据"},
+  "data": {
+    "period": {"start": "2024-10-01", "end": "2024-12-31"},
+    "velocity": {
+      "current": 35,
+      "target": 40,
+      "trend": [30, 32, 34, 35, 36, 35, 34, 36, 35, 37, 35, 35],
+      "teamComparison": [
+        {"team": "感知团队", "velocity": 35, "capacity": 120},
+        {"team": "规划团队", "velocity": 32, "capacity": 100},
+        {"team": "控制团队", "velocity": 26, "capacity": 80}
+      ]
+    },
+    "throughput": {
+      "features": {"completed": 45, "inProgress": 12, "planned": 23},
+      "stories": {"completed": 280, "inProgress": 45, "planned": 95},
+      "tasks": {"completed": 1250, "inProgress": 180, "planned": 350}
+    },
+    "productivity": {
+      "linesOfCode": 125000,
+      "commits": 2340,
+      "pullRequests": 856,
+      "codeReviews": 1024,
+      "avgPRSize": 146,
+      "avgReviewTime": 4.5
+    },
+    "quality": {
+      "defectRate": 0.08,
+      "testCoverage": 85.5,
+      "codeQuality": 8.2,
+      "technicalDebt": 15
+    }
+  }
+}
+

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "PI-2025-Q1",
+    "code": "PI-2025-Q1",
+    "name": "2025 Q1 PI Planning",
+    "version": "v3.1",
+    "description": "2025年第一季度PI规划，聚焦NOA城市场景升级",
+    "startDate": "2025-01-13",
+    "endDate": "2025-03-28",
+    "status": "executing",
+    "progress": 45,
+    "objectives": [
+      {
+        "id": "OBJ-001",
+        "name": "NOA城市场景功能增强",
+        "businessValue": 10,
+        "progress": 60
+      },
+      {
+        "id": "OBJ-002",
+        "name": "感知算法精度提升10%",
+        "businessValue": 8,
+        "progress": 40
+      },
+      {
+        "id": "OBJ-003",
+        "name": "决策引擎响应时间优化",
+        "businessValue": 7,
+        "progress": 30
+      }
+    ],
+    "teams": [
+      {
+        "id": "TEAM-001",
+        "name": "感知团队",
+        "capacity": 240,
+        "committed": 220
+      },
+      {
+        "id": "TEAM-002",
+        "name": "规划团队",
+        "capacity": 200,
+        "committed": 180
+      }
+    ],
+    "risks": [
+      {
+        "id": "RISK-001",
+        "description": "红绿灯识别算法复杂度高",
+        "level": "高",
+        "status": "tracking"
+      }
+    ],
+    "owner": "张三",
+    "ownerId": "2"
+  },
+  {
+    "id": "PI-2024-Q4",
+    "code": "PI-2024-Q4",
+    "name": "2024 Q4 PI Planning",
+    "version": "v3.0",
+    "description": "2024年第四季度PI规划，完成高速NOA功能",
+    "startDate": "2024-10-01",
+    "endDate": "2024-12-20",
+    "status": "completed",
+    "progress": 100,
+    "objectives": [
+      {
+        "id": "OBJ-101",
+        "name": "高速NOA功能上线",
+        "businessValue": 10,
+        "progress": 100
+      },
+      {
+        "id": "OBJ-102",
+        "name": "地图引擎升级",
+        "businessValue": 8,
+        "progress": 100
+      }
+    ],
+    "teams": [
+      {
+        "id": "TEAM-001",
+        "name": "感知团队",
+        "capacity": 240,
+        "committed": 235
+      },
+      {
+        "id": "TEAM-004",
+        "name": "地图团队",
+        "capacity": 160,
+        "committed": 155
+      }
+    ],
+    "risks": [],
+    "owner": "李四",
+    "ownerId": "3"
+  },
+  {
+    "id": "PI-2025-Q2",
+    "code": "PI-2025-Q2",
+    "name": "2025 Q2 PI Planning",
+    "version": "v3.2",
+    "description": "2025年第二季度PI规划，引入端到端学习",
+    "startDate": "2025-04-01",
+    "endDate": "2025-06-30",
+    "status": "planning",
+    "progress": 5,
+    "objectives": [
+      {
+        "id": "OBJ-201",
+        "name": "端到端感知决策模型",
+        "businessValue": 9,
+        "progress": 0
+      },
+      {
+        "id": "OBJ-202",
+        "name": "仿真平台v2.0上线",
+        "businessValue": 8,
+        "progress": 10
+      }
+    ],
+    "teams": [
+      {
+        "id": "TEAM-002",
+        "name": "规划团队",
+        "capacity": 200,
+        "committed": 0
+      },
+      {
+        "id": "TEAM-005",
+        "name": "测试团队",
+        "capacity": 180,
+        "committed": 0
+      }
+    ],
+    "risks": [
+      {
+        "id": "RISK-201",
+        "description": "新技术方案需要充分验证",
+        "level": "中",
+        "status": "identified"
+      }
+    ],
+    "owner": "赵六",
+    "ownerId": "5"
+  }
+]
+

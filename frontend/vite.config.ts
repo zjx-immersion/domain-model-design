@@ -22,12 +22,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@/data': resolve(__dirname, 'data'),
+      '@/data': resolve(__dirname, 'src/data'),
+      '@/biz-data': resolve(__dirname, '../biz-data'),
     },
   },
   server: {
-    port: 3000,
+    port: 9080,
     open: true,
+    fs: {
+      // 允许访问项目根目录的 biz-data 文件夹
+      allow: ['..'],
+    },
   },
+  // 配置公共基础路径，使 /biz-data 可访问
+  publicDir: 'public',
 })
 

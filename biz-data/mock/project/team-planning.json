@@ -1,0 +1,14 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "团队规划Mock数据"},
+  "data": [
+    {
+      "piId": "PI-2025-Q1",
+      "teams": [
+        {"id": "TEAM-001", "name": "感知团队", "members": 12, "capacity": 120, "commitment": 110, "velocity": 35, "loadFactor": 0.92},
+        {"id": "TEAM-002", "name": "规划团队", "members": 10, "capacity": 100, "commitment": 95, "velocity": 32, "loadFactor": 0.95},
+        {"id": "TEAM-003", "name": "控制团队", "members": 8, "capacity": 80, "commitment": 78, "velocity": 26, "loadFactor": 0.98}
+      ]
+    }
+  ]
+}
+

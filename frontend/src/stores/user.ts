@@ -28,7 +28,7 @@ export const useUserStore = defineStore(
       // 模拟登录：在实际应用中这里应该调用API
       const user = usersData.find(u => u.username === username)
       
-      if (user && password === '123456') {
+      if (user && user.password === password) {
         currentUser.value = user as User
         token.value = `mock_token_${Date.now()}`
         return { success: true, message: '登录成功' }

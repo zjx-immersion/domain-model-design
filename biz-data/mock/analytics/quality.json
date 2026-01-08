@@ -1,0 +1,39 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T16:00:00Z", "description": "质量分析Mock数据"},
+  "data": {
+    "period": {"start": "2024-10-01", "end": "2024-12-31"},
+    "defects": {
+      "total": 125,
+      "critical": 5,
+      "high": 25,
+      "medium": 60,
+      "low": 35,
+      "fixed": 105,
+      "open": 20,
+      "trend": [15, 18, 12, 10, 14, 16, 11, 9, 8, 6, 4, 2]
+    },
+    "testCoverage": {
+      "unit": 88.5,
+      "integration": 75.2,
+      "system": 82.0,
+      "overall": 85.5,
+      "trend": [80, 81, 82, 83, 84, 84.5, 85, 85, 85.2, 85.5, 85.5, 85.5]
+    },
+    "codeQuality": {
+      "maintainability": 8.5,
+      "reliability": 8.0,
+      "security": 9.0,
+      "duplication": 3.5,
+      "complexity": 7.2,
+      "overall": 8.2
+    },
+    "buildSuccess": {
+      "successRate": 92.5,
+      "totalBuilds": 1025,
+      "successBuilds": 948,
+      "failedBuilds": 77,
+      "avgDuration": 12.5
+    }
+  }
+}
+

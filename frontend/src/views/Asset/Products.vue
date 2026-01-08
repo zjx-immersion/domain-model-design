@@ -91,6 +91,7 @@
                 <el-button text icon="More" circle @click.stop />
                 <template #dropdown>
                   <el-dropdown-menu>
+                    <el-dropdown-item command="modules">模块列表</el-dropdown-item>
                     <el-dropdown-item command="edit">编辑</el-dropdown-item>
                     <el-dropdown-item command="version">版本管理</el-dropdown-item>
                     <el-dropdown-item command="delete" divided>删除</el-dropdown-item>
@@ -163,12 +164,22 @@ function viewFeatures(productId: string) {
   })
 }
 
+function viewModules(productId: string) {
+  router.push({
+    path: '/assets/modules',
+    query: { productId },
+  })
+}
+
 function handleCreate() {
   ElMessage.info('创建产品功能开发中...')
 }
 
 function handleCommand(command: string, product: any) {
   switch (command) {
+    case 'modules':
+      viewModules(product.id)
+      break
     case 'edit':
       ElMessage.info(`编辑产品: ${product.name}`)
       break
@@ -189,7 +200,7 @@ function handleCommand(command: string, product: any) {
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/variables.scss';
+@use '@/styles/variables.scss' as *;
 
 .products-list {
   .filter-bar {

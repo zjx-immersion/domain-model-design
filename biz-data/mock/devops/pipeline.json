@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": "PIPE-001",
+      "name": "感知模块CI/CD流水线",
+      "module": "感知模块",
+      "moduleId": "MOD-001",
+      "lastStatus": "success",
+      "executions": 156,
+      "successRate": 0.942,
+      "lastRunTime": "2026-01-05T14:28:05",
+      "stages": ["代码检查", "单元测试", "构建", "集成测试", "部署测试环境"]
+    },
+    {
+      "id": "PIPE-002",
+      "name": "规划模块CI/CD流水线",
+      "module": "规划模块",
+      "moduleId": "MOD-007",
+      "lastStatus": "success",
+      "executions": 132,
+      "successRate": 0.924,
+      "lastRunTime": "2026-01-05T10:22:00",
+      "stages": ["代码检查", "单元测试", "构建", "性能测试", "部署"]
+    },
+    {
+      "id": "PIPE-003",
+      "name": "控制模块CI/CD流水线",
+      "module": "控制模块",
+      "moduleId": "MOD-010",
+      "lastStatus": "failed",
+      "executions": 98,
+      "successRate": 0.867,
+      "lastRunTime": "2026-01-04T16:47:32",
+      "stages": ["代码检查", "单元测试", "构建", "安全测试", "部署"]
+    }
+  ]
+}

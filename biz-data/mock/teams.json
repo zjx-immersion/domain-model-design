@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "lastUpdate": "2025-01-05T22:00:00Z",
+    "description": "团队Mock数据 - 重构版，包含模块责任绑定"
+  },
+  "data": [
+    {
+      "id": "TEAM-001",
+      "name": "感知团队",
+      "code": "Perception",
+      "description": "负责感知相关模块的开发和维护",
+      "members": [
+        {
+          "id": "EMP-001",
+          "name": "算法工程师A",
+          "role": "算法工程师",
+          "email": "algo-a@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-002",
+          "name": "算法工程师B",
+          "role": "算法工程师",
+          "email": "algo-b@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-003",
+          "name": "算法工程师C",
+          "role": "算法工程师",
+          "email": "algo-c@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-004",
+          "name": "算法架构师A",
+          "role": "架构师",
+          "email": "arch-a@company.com",
+          "capacity": 32
+        }
+      ],
+      "responsibleModules": [
+        "MOD-001",
+        "MOD-002",
+        "MOD-003",
+        "MOD-004",
+        "MOD-012",
+        "MOD-013"
+      ],
+      "moduleDetails": [
+        {"id": "MOD-001", "name": "摄像头感知模块"},
+        {"id": "MOD-002", "name": "激光雷达感知模块"},
+        {"id": "MOD-003", "name": "毫米波雷达感知模块"},
+        {"id": "MOD-004", "name": "传感器融合模块"},
+        {"id": "MOD-012", "name": "3D目标检测模块"},
+        {"id": "MOD-013", "name": "目标追踪模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 35,
+        "velocity": 34,
+        "utilizationRate": 0.95
+      },
+      "currentPI": "PI-2024-Q4",
+      "currentSprint": "SPRINT-001",
+      "workItems": ["WI-001", "WI-002", "WI-004", "WI-005"],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 12,
+        "avgVelocity": 34,
+        "completionRate": 0.92,
+        "defectRate": 0.08
+      }
+    },
+    {
+      "id": "TEAM-002",
+      "name": "规划团队",
+      "code": "Planning",
+      "description": "负责路径规划和决策相关模块的开发和维护",
+      "members": [
+        {
+          "id": "EMP-005",
+          "name": "规划工程师A",
+          "role": "规划工程师",
+          "email": "planning-a@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-006",
+          "name": "规划工程师B",
+          "role": "规划工程师",
+          "email": "planning-b@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-007",
+          "name": "算法架构师B",
+          "role": "架构师",
+          "email": "arch-b@company.com",
+          "capacity": 32
+        }
+      ],
+      "responsibleModules": [
+        "MOD-005",
+        "MOD-006",
+        "MOD-007"
+      ],
+      "moduleDetails": [
+        {"id": "MOD-005", "name": "全局路径规划模块"},
+        {"id": "MOD-006", "name": "局部路径规划模块"},
+        {"id": "MOD-007", "name": "决策引擎模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 32,
+        "velocity": 31,
+        "utilizationRate": 0.92
+      },
+      "currentPI": "PI-2024-Q4",
+      "currentSprint": "SPRINT-001",
+      "workItems": ["WI-006"],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 10,
+        "avgVelocity": 31,
+        "completionRate": 0.89,
+        "defectRate": 0.06
+      }
+    },
+    {
+      "id": "TEAM-003",
+      "name": "控制团队",
+      "code": "Control",
+      "description": "负责车辆控制相关模块的开发和维护",
+      "members": [
+        {
+          "id": "EMP-008",
+          "name": "控制工程师A",
+          "role": "控制工程师",
+          "email": "control-a@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-009",
+          "name": "控制工程师B",
+          "role": "控制工程师",
+          "email": "control-b@company.com",
+          "capacity": 40
+        }
+      ],
+      "responsibleModules": [
+        "MOD-008",
+        "MOD-009"
+      ],
+      "moduleDetails": [
+        {"id": "MOD-008", "name": "横向控制模块"},
+        {"id": "MOD-009", "name": "纵向控制模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 26,
+        "velocity": 25,
+        "utilizationRate": 0.88
+      },
+      "currentPI": "PI-2024-Q4",
+      "currentSprint": "SPRINT-001",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 8,
+        "avgVelocity": 25,
+        "completionRate": 0.94,
+        "defectRate": 0.04
+      }
+    },
+    {
+      "id": "TEAM-004",
+      "name": "地图团队",
+      "code": "Map",
+      "description": "负责高精地图和定位相关模块的开发和维护",
+      "members": [
+        {
+          "id": "EMP-010",
+          "name": "地图工程师A",
+          "role": "地图工程师",
+          "email": "map-a@company.com",
+          "capacity": 40
+        },
+        {
+          "id": "EMP-011",
+          "name": "定位工程师A",
+          "role": "定位工程师",
+          "email": "loc-a@company.com",
+          "capacity": 40
+        }
+      ],
+      "responsibleModules": [
+        "MOD-010",
+        "MOD-011"
+      ],
+      "moduleDetails": [
+        {"id": "MOD-010", "name": "高精地图模块"},
+        {"id": "MOD-011", "name": "高精定位模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 28,
+        "velocity": 27,
+        "utilizationRate": 0.90
+      },
+      "currentPI": "PI-2024-Q4",
+      "currentSprint": "SPRINT-001",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 8,
+        "avgVelocity": 27,
+        "completionRate": 0.91,
+        "defectRate": 0.10
+      }
+    }
+  ],
+  "statistics": {
+    "totalTeams": 4,
+    "totalMembers": 38,
+    "totalModules": 13,
+    "totalCapacity": 121,
+    "avgVelocity": 29.25,
+    "avgUtilization": 0.91
+  }
+}
+
