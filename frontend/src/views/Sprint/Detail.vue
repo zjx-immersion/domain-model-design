@@ -37,7 +37,13 @@
             <el-descriptions-item label="所属团队">
               <el-link type="primary">{{ sprint.teamId }}</el-link>
             </el-descriptions-item>
-            <el-descriptions-item label="Sprint目标">
+            <el-descriptions-item label="来源Backlog">
+              <router-link :to="`/backlog/team/${sprint.teamId}`" class="backlog-link">
+                <el-tag type="info" size="small">TeamBacklog</el-tag>
+                查看团队待办
+              </router-link>
+            </el-descriptions-item>
+            <el-descriptions-item label="Sprint目标" :span="2">
               {{ sprint.goal || '暂无目标' }}
             </el-descriptions-item>
           </el-descriptions>
@@ -275,6 +281,18 @@ onMounted(() => {
   .header-actions {
     display: flex;
     gap: 8px;
+  }
+}
+
+.backlog-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #409eff;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
   }
 }
 

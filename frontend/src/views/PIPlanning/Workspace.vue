@@ -20,6 +20,33 @@
       </div>
     </div>
 
+    <!-- 项目信息卡片 -->
+    <el-card class="project-info-card" shadow="never" v-if="domainProject">
+      <div class="project-info-content">
+        <div class="info-item">
+          <span class="info-label">所属领域项目:</span>
+          <router-link :to="`/projects/domain/${domainProject.id}`" class="info-link">
+            <el-tag type="success" size="large">{{ domainProject.domain }}</el-tag>
+            {{ domainProject.name }}
+          </router-link>
+        </div>
+        <div class="info-item" v-if="vehicleProject">
+          <span class="info-label">所属车型项目:</span>
+          <router-link :to="`/projects/vehicle/${vehicleProject.id}`" class="info-link">
+            {{ vehicleProject.name }}
+          </router-link>
+        </div>
+        <div class="info-item">
+          <span class="info-label">项目负责人:</span>
+          <span>{{ domainProject.owner }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">项目进度:</span>
+          <el-progress :percentage="domainProject.progress" style="width: 200px" />
+        </div>
+      </div>
+    </el-card>
+
     <el-tabs v-model="activeTab" class="pi-tabs">
       <!-- 概览Tab -->
       <el-tab-pane label="概览" name="overview">
@@ -305,7 +332,10 @@ import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import piPlanningsData from '@/data/projects/pi-plannings.json'
 import baselinesData from '@/data/release/baselines.json'
+import domainProjectsData from '@/biz-data/mock/project/domain-projects.json'
+import vehicleProjectsData from '@/biz-data/mock/project/vehicle-projects.json'
 import type { PIPlanning } from '@/types/project'
+import type { DomainProject, VehicleProject } from '@/types/project-v2'
 
 const router = useRouter()
 const route = useRoute()
@@ -313,6 +343,8 @@ const route = useRoute()
 const activeTab = ref('overview')
 const confidence = ref(0)
 const piData = ref<PIPlanning | null>(null)
+const domainProject = ref<DomainProject | null>(null)
+const vehicleProject = ref<VehicleProject | null>(null)
 
 // 特性包数据
 const piBaselines = ref<any[]>([])
@@ -355,8 +387,29 @@ onMounted(() => {
     piData.value = pi as PIPlanning
     confidence.value = pi.confidence / 10
     loadPIBaselines(piId)
+    loadProjectInfo(piId)
   }
 })
+
+// 加载项目信息
+const loadProjectInfo = (piId: string) => {
+  // 根据 PI ID 查找关联的领域项目
+  const domain = domainProjectsData.data.find((dp: any) => 
+    dp.piPlanningIds && dp.piPlanningIds.includes(piId)
+  )
+  
+  if (domain) {
+    domainProject.value = domain as DomainProject
+    
+    // 加载车型项目
+    const vehicle = vehicleProjectsData.data.find((vp: any) => 
+      vp.id === domain.vehicleProjectId
+    )
+    if (vehicle) {
+      vehicleProject.value = vehicle as VehicleProject
+    }
+  }
+}
 
 // 加载PI关联的特性包
 function loadPIBaselines(piId: string) {
@@ -555,6 +608,47 @@ function getBaselineStatusLabel(status: string) {
     .header-actions {
       display: flex;
       gap: $spacing-sm;
+    }
+  }
+
+  .project-info-card {
+    margin-bottom: $spacing-lg;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+
+    :deep(.el-card__body) {
+      padding: 20px;
+    }
+
+    .project-info-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      color: white;
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .info-label {
+          font-size: 14px;
+          opacity: 0.9;
+        }
+
+        .info-link {
+          color: white;
+          text-decoration: none;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 
