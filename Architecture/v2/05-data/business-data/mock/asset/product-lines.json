@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T18:00:00Z",
+    "description": "产品线Mock数据"
+  },
+  "data": [
+    {
+      "id": "PL-001",
+      "name": "智能驾驶平台",
+      "code": "ADS-Platform",
+      "description": "面向高速和城区场景的L2+到L4级智能驾驶解决方案",
+      "status": "active",
+      "owner": "产品总监A",
+      "createDate": "2022-01-15",
+      "domains": ["感知", "决策", "控制", "地图定位"],
+      "products": ["PROD-001", "PROD-002", "PROD-003"],
+      "features": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004", "FEAT-005"],
+      "modules": 25,
+      "teams": ["感知团队", "规划团队", "控制团队"],
+      "versions": [
+        {"version": "v3.1", "releaseDate": "2024-12-01", "status": "current"},
+        {"version": "v3.0", "releaseDate": "2024-09-01", "status": "stable"},
+        {"version": "v2.5", "releaseDate": "2024-06-01", "status": "deprecated"}
+      ],
+      "metrics": {
+        "totalFeatures": 45,
+        "activeFeatures": 38,
+        "reuseRate": 0.75,
+        "maturityLevel": "优化中"
+      }
+    },
+    {
+      "id": "PL-002",
+      "name": "智能座舱平台",
+      "code": "ICS-Platform",
+      "description": "智能座舱人机交互和娱乐系统平台",
+      "status": "active",
+      "owner": "产品总监B",
+      "createDate": "2021-06-01",
+      "domains": ["语音交互", "车载娱乐", "仪表显示"],
+      "products": ["PROD-004", "PROD-005"],
+      "features": ["FEAT-006", "FEAT-007", "FEAT-008"],
+      "modules": 18,
+      "teams": ["座舱团队", "HMI团队"],
+      "versions": [
+        {"version": "v2.0", "releaseDate": "2024-10-01", "status": "current"}
+      ],
+      "metrics": {
+        "totalFeatures": 28,
+        "activeFeatures": 25,
+        "reuseRate": 0.68,
+        "maturityLevel": "成熟"
+      }
+    },
+    {
+      "id": "PL-003",
+      "name": "车联网平台",
+      "code": "IoV-Platform",
+      "description": "车联网通信、云服务和大数据平台",
+      "status": "active",
+      "owner": "产品总监C",
+      "createDate": "2021-03-01",
+      "domains": ["V2X通信", "云服务", "OTA升级", "大数据"],
+      "products": ["PROD-006"],
+      "features": ["FEAT-009", "FEAT-010"],
+      "modules": 12,
+      "teams": ["云服务团队", "通信团队"],
+      "versions": [
+        {"version": "v1.5", "releaseDate": "2024-11-01", "status": "current"}
+      ],
+      "metrics": {
+        "totalFeatures": 20,
+        "activeFeatures": 18,
+        "reuseRate": 0.60,
+        "maturityLevel": "成长中"
+      }
+    }
+  ]
+}

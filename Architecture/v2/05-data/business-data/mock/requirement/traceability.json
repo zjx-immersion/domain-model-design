@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T18:00:00Z",
+    "description": "需求追溯关系Mock数据 - 端到端追溯链"
+  },
+  "data": {
+    "traceabilityChains": [
+      {
+        "id": "TRACE-001",
+        "name": "高速NOA自动换道完整追溯链",
+        "userRequirement": {
+          "id": "UR-001",
+          "title": "高速NOA自动换道优化",
+          "status": "in_development",
+          "progress": 0.65
+        },
+        "featureRequirements": [
+          {
+            "id": "FR-001",
+            "title": "融合感知优化",
+            "status": "in_development",
+            "progress": 0.70
+          },
+          {
+            "id": "FR-002",
+            "title": "决策规划增强",
+            "status": "in_development",
+            "progress": 0.60
+          }
+        ],
+        "moduleRequirements": [
+          {
+            "id": "MR-001",
+            "title": "感知融合算法优化",
+            "featureRequirementId": "FR-001",
+            "status": "in_development",
+            "progress": 0.75
+          },
+          {
+            "id": "MR-002",
+            "title": "障碍物检测增强",
+            "featureRequirementId": "FR-001",
+            "status": "in_development",
+            "progress": 0.65
+          },
+          {
+            "id": "MR-003",
+            "title": "换道决策优化",
+            "featureRequirementId": "FR-002",
+            "status": "in_development",
+            "progress": 0.60
+          }
+        ],
+        "stories": [
+          {
+            "id": "STORY-001",
+            "title": "融合感知算法优化",
+            "moduleRequirementId": "MR-001",
+            "sprintId": "SPRINT-001",
+            "status": "in_progress",
+            "storyPoints": 8
+          },
+          {
+            "id": "STORY-002",
+            "title": "障碍物检测模型训练",
+            "moduleRequirementId": "MR-002",
+            "sprintId": "SPRINT-001",
+            "status": "in_progress",
+            "storyPoints": 13
+          },
+          {
+            "id": "STORY-003",
+            "title": "换道决策规则优化",
+            "moduleRequirementId": "MR-003",
+            "sprintId": "SPRINT-001",
+            "status": "todo",
+            "storyPoints": 8
+          }
+        ],
+        "tasks": [
+          {
+            "id": "TASK-001",
+            "title": "算法模型优化",
+            "storyId": "STORY-001",
+            "assignee": "算法工程师A",
+            "status": "in_progress"
+          },
+          {
+            "id": "TASK-002",
+            "title": "单元测试编写",
+            "storyId": "STORY-001",
+            "assignee": "算法工程师A",
+            "status": "todo"
+          },
+          {
+            "id": "TASK-003",
+            "title": "数据集准备",
+            "storyId": "STORY-002",
+            "assignee": "算法工程师B",
+            "status": "done"
+          },
+          {
+            "id": "TASK-004",
+            "title": "模型训练",
+            "storyId": "STORY-002",
+            "assignee": "算法工程师B",
+            "status": "in_progress"
+          }
+        ],
+        "commits": [
+          {
+            "id": "COMMIT-001",
+            "message": "feat: 优化感知融合算法",
+            "taskId": "TASK-001",
+            "author": "算法工程师A",
+            "date": "2025-01-04T10:30:00Z"
+          },
+          {
+            "id": "COMMIT-002",
+            "message": "feat: 数据集扩充",
+            "taskId": "TASK-003",
+            "author": "算法工程师B",
+            "date": "2025-01-03T15:20:00Z"
+          }
+        ],
+        "pullRequests": [
+          {
+            "id": "PR-001",
+            "title": "融合感知算法优化",
+            "commitIds": ["COMMIT-001"],
+            "status": "open",
+            "author": "算法工程师A",
+            "reviewers": ["算法架构师A"]
+          }
+        ],
+        "testCases": [
+          {
+            "id": "TC-001",
+            "title": "感知融合算法测试",
+            "requirementId": "MR-001",
+            "status": "passed",
+            "lastRun": "2025-01-04"
+          },
+          {
+            "id": "TC-002",
+            "title": "障碍物检测准确率测试",
+            "requirementId": "MR-002",
+            "status": "in_progress",
+            "lastRun": "2025-01-05"
+          },
+          {
+            "id": "TC-003",
+            "title": "换道决策场景测试",
+            "requirementId": "MR-003",
+            "status": "not_run",
+            "lastRun": null
+          }
+        ],
+        "defects": [
+          {
+            "id": "DEFECT-001",
+            "title": "感知融合算法边界条件异常",
+            "testCaseId": "TC-001",
+            "requirementId": "MR-001",
+            "severity": "高",
+            "status": "已修复"
+          }
+        ],
+        "builds": [
+          {
+            "id": "BUILD-001",
+            "commitId": "COMMIT-001",
+            "status": "success",
+            "duration": "12分钟"
+          }
+        ],
+        "releases": [
+          {
+            "id": "RELEASE-001",
+            "version": "v3.1.0",
+            "buildId": "BUILD-001",
+            "status": "released",
+            "environment": "测试环境"
+          }
+        ]
+      },
+      {
+        "id": "TRACE-002",
+        "name": "城区复杂场景追溯链",
+        "userRequirement": {
+          "id": "UR-002",
+          "title": "城区复杂场景自动驾驶",
+          "status": "planning",
+          "progress": 0.0
+        },
+        "featureRequirements": [
+          {
+            "id": "FR-003",
+            "title": "城区场景识别",
+            "status": "planning",
+            "progress": 0.0
+          }
+        ],
+        "moduleRequirements": [
+          {
+            "id": "MR-004",
+            "title": "交通灯识别",
+            "featureRequirementId": "FR-003",
+            "status": "planning",
+            "progress": 0.0
+          }
+        ],
+        "stories": [],
+        "tasks": [],
+        "commits": [],
+        "pullRequests": [],
+        "testCases": [],
+        "defects": [],
+        "builds": [],
+        "releases": []
+      }
+    ],
+    "statistics": {
+      "totalChains": 2,
+      "userRequirements": 2,
+      "featureRequirements": 3,
+      "moduleRequirements": 4,
+      "stories": 3,
+      "tasks": 4,
+      "commits": 2,
+      "pullRequests": 1,
+      "testCases": 3,
+      "defects": 1,
+      "builds": 1,
+      "releases": 1
+    },
+    "coverageAnalysis": {
+      "requirementsToCases": 0.75,
+      "casesToDefects": 0.33,
+      "storiesToTasks": 1.33,
+      "tasksToCommits": 0.50,
+      "commitsToBuilds": 0.50
+    }
+  }
+}
+

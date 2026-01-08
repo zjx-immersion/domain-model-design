@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": "ENV-001",
+      "name": "开发环境",
+      "type": "dev",
+      "status": "running",
+      "currentVersion": "v2.5.0-dev",
+      "url": "https://dev.auto-platform.example.com",
+      "lastDeployTime": "2026-01-05T09:00:00"
+    },
+    {
+      "id": "ENV-002",
+      "name": "测试环境",
+      "type": "test",
+      "status": "running",
+      "currentVersion": "v2.4.5-test",
+      "url": "https://test.auto-platform.example.com",
+      "lastDeployTime": "2026-01-04T14:30:00"
+    },
+    {
+      "id": "ENV-003",
+      "name": "预发布环境",
+      "type": "staging",
+      "status": "running",
+      "currentVersion": "v2.4.0-staging",
+      "url": "https://staging.auto-platform.example.com",
+      "lastDeployTime": "2026-01-03T10:00:00"
+    },
+    {
+      "id": "ENV-004",
+      "name": "生产环境",
+      "type": "production",
+      "status": "running",
+      "currentVersion": "v2.3.5",
+      "url": "https://auto-platform.example.com",
+      "lastDeployTime": "2025-12-28T16:00:00"
+    }
+  ]
+}

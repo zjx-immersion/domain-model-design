@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "id": "REL-001",
+      "version": "v2.5.0",
+      "name": "2026年Q1重大功能发布",
+      "status": "success",
+      "buildId": "2024",
+      "requirements": ["MR-001", "MR-002", "MR-003", "MR-025"],
+      "releaseTime": "2026-01-05T18:00:00",
+      "releaseBy": "张经理"
+    },
+    {
+      "id": "REL-002",
+      "version": "v2.4.5",
+      "name": "Hotfix - 规划模块修复",
+      "status": "success",
+      "buildId": "2023",
+      "requirements": ["MR-025"],
+      "releaseTime": "2026-01-04T12:00:00",
+      "releaseBy": "李工"
+    },
+    {
+      "id": "REL-003",
+      "version": "v2.4.4",
+      "name": "性能优化版本",
+      "status": "success",
+      "buildId": "2019",
+      "requirements": ["MR-018", "MR-019"],
+      "releaseTime": "2025-12-20T16:00:00",
+      "releaseBy": "王经理"
+    },
+    {
+      "id": "REL-004",
+      "version": "v2.4.3",
+      "name": "控制模块紧急修复",
+      "status": "rolled_back",
+      "buildId": "2022",
+      "requirements": ["MR-032"],
+      "releaseTime": "2025-12-15T09:00:00",
+      "releaseBy": "王工"
+    }
+  ]
+}

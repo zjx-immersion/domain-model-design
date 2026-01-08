@@ -1,0 +1,8 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "代码评审Mock数据"},
+  "data": [
+    {"id": "REVIEW-001", "prId": "PR-001", "reviewer": "李四", "status": "approved", "comments": [{"line": 45, "content": "建议优化内存分配"}], "createdAt": "2025-01-17T10:00:00Z"},
+    {"id": "REVIEW-002", "prId": "PR-002", "reviewer": "张三", "status": "changes_requested", "comments": [{"line": 78, "content": "需要添加单元测试"}], "createdAt": "2025-01-18T11:00:00Z"}
+  ]
+}
+

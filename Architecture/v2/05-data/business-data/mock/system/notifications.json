@@ -1,0 +1,11 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T16:00:00Z", "description": "通知中心Mock数据"},
+  "data": [
+    {"id": "NOTIF-001", "type": "system", "title": "系统升级通知", "content": "系统将于今晚22:00进行升级维护", "priority": "high", "status": "unread", "createdAt": "2025-01-05T09:00:00Z", "recipient": "all"},
+    {"id": "NOTIF-002", "type": "sprint", "title": "Sprint 1即将结束", "content": "Sprint 1将于明天结束，请及时完成任务", "priority": "medium", "status": "unread", "createdAt": "2025-01-05T10:00:00Z", "recipient": "TEAM-001"},
+    {"id": "NOTIF-003", "type": "defect", "title": "发现高优先级缺陷", "content": "DEFECT-001需要立即处理", "priority": "high", "status": "read", "createdAt": "2025-01-05T11:00:00Z", "recipient": "算法工程师C"},
+    {"id": "NOTIF-004", "type": "review", "title": "代码审查请求", "content": "PR-002等待你的审查", "priority": "medium", "status": "unread", "createdAt": "2025-01-05T12:00:00Z", "recipient": "张三"},
+    {"id": "NOTIF-005", "type": "build", "title": "构建失败通知", "content": "BUILD-002构建失败", "priority": "high", "status": "read", "createdAt": "2025-01-05T13:00:00Z", "recipient": "李四"}
+  ]
+}
+

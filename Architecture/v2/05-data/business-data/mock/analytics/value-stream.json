@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T16:00:00Z",
+    "description": "价值流分析Mock数据"
+  },
+  "data": {
+    "period": {"start": "2024-10-01", "end": "2024-12-31"},
+    "stages": [
+      {"name": "产品规划", "leadTime": 15, "processTime": 10, "waitTime": 5, "efficiency": 0.67},
+      {"name": "需求分析", "leadTime": 10, "processTime": 7, "waitTime": 3, "efficiency": 0.70},
+      {"name": "项目规划", "leadTime": 8, "processTime": 6, "waitTime": 2, "efficiency": 0.75},
+      {"name": "迭代研发", "leadTime": 30, "processTime": 25, "waitTime": 5, "efficiency": 0.83},
+      {"name": "集成晋级", "leadTime": 5, "processTime": 4, "waitTime": 1, "efficiency": 0.80},
+      {"name": "测试验证", "leadTime": 12, "processTime": 10, "waitTime": 2, "efficiency": 0.83},
+      {"name": "需求验收", "leadTime": 3, "processTime": 2, "waitTime": 1, "efficiency": 0.67},
+      {"name": "发布交付", "leadTime": 2, "processTime": 1.5, "waitTime": 0.5, "efficiency": 0.75}
+    ],
+    "summary": {
+      "totalLeadTime": 85,
+      "totalProcessTime": 65.5,
+      "totalWaitTime": 19.5,
+      "overallEfficiency": 0.77,
+      "throughput": 12,
+      "cycleTime": 7.08
+    },
+    "bottlenecks": [
+      {"stage": "迭代研发", "reason": "开发资源不足", "impact": "high"},
+      {"stage": "产品规划", "reason": "决策周期长", "impact": "medium"}
+    ]
+  }
+}
+

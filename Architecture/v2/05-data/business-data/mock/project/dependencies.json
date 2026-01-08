@@ -1,0 +1,10 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "依赖关系Mock数据"},
+  "data": [
+    {"piId": "PI-2025-Q1", "dependencies": [
+      {"id": "DEP-001", "from": "TEAM-001", "to": "TEAM-002", "type": "feature", "description": "感知数据输出给规划模块", "status": "resolved"},
+      {"id": "DEP-002", "from": "TEAM-002", "to": "TEAM-003", "type": "interface", "description": "规划结果传递给控制", "status": "at_risk"}
+    ]}
+  ]
+}
+

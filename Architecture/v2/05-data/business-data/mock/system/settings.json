@@ -1,0 +1,44 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T16:00:00Z", "description": "系统配置Mock数据"},
+  "data": {
+    "general": {
+      "systemName": "Auto DevOps Platform",
+      "version": "v1.0.0",
+      "environment": "production",
+      "timezone": "Asia/Shanghai",
+      "language": "zh-CN"
+    },
+    "authentication": {
+      "ssoEnabled": true,
+      "ldapEnabled": true,
+      "mfaRequired": false,
+      "sessionTimeout": 3600,
+      "passwordPolicy": {
+        "minLength": 8,
+        "requireUppercase": true,
+        "requireNumbers": true,
+        "requireSpecialChars": true,
+        "expiryDays": 90
+      }
+    },
+    "notifications": {
+      "emailEnabled": true,
+      "smsEnabled": false,
+      "webhookEnabled": true,
+      "channels": ["email", "webhook", "in-app"]
+    },
+    "integrations": {
+      "git": {"type": "GitLab", "url": "https://git.company.com"},
+      "ci": {"type": "Jenkins", "url": "https://jenkins.company.com"},
+      "sonar": {"type": "SonarQube", "url": "https://sonar.company.com"}
+    },
+    "features": {
+      "piPlanning": true,
+      "sprintManagement": true,
+      "codeReview": true,
+      "testManagement": true,
+      "analytics": true
+    }
+  }
+}
+

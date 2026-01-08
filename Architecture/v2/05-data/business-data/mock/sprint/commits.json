@@ -1,0 +1,8 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "代码提交Mock数据"},
+  "data": [
+    {"id": "COMMIT-001", "message": "feat: 添加摄像头数据采集接口", "author": "张三", "date": "2025-01-15T10:30:00Z", "files": 3, "additions": 120, "deletions": 15, "taskId": "TASK-001"},
+    {"id": "COMMIT-002", "message": "fix: 修复数据缓存内存泄漏", "author": "张三", "date": "2025-01-16T14:20:00Z", "files": 2, "additions": 45, "deletions": 30, "taskId": "TASK-002"}
+  ]
+}
+

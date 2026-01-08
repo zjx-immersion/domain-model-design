@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2025-01-05T18:00:00Z",
+    "description": "资产关系Mock数据 - 用于Cytoscape.js网络图展示"
+  },
+  "data": {
+    "nodes": [
+      {"id": "PL-001", "label": "智能驾驶平台", "type": "productLine", "group": 1},
+      {"id": "PL-002", "label": "智能座舱平台", "type": "productLine", "group": 2},
+      {"id": "PL-003", "label": "车联网平台", "type": "productLine", "group": 3},
+      
+      {"id": "FEAT-001", "label": "多传感器融合感知", "type": "feature", "group": 1},
+      {"id": "FEAT-002", "label": "路径规划与决策", "type": "feature", "group": 1},
+      {"id": "FEAT-003", "label": "车辆控制执行", "type": "feature", "group": 1},
+      {"id": "FEAT-004", "label": "高精地图与定位", "type": "feature", "group": 1},
+      {"id": "FEAT-005", "label": "障碍物检测与追踪", "type": "feature", "group": 1},
+      {"id": "FEAT-006", "label": "智能语音助手", "type": "feature", "group": 2},
+      
+      {"id": "MOD-001", "label": "摄像头感知", "type": "module", "group": 1},
+      {"id": "MOD-002", "label": "激光雷达感知", "type": "module", "group": 1},
+      {"id": "MOD-003", "label": "毫米波雷达感知", "type": "module", "group": 1},
+      {"id": "MOD-004", "label": "传感器融合", "type": "module", "group": 1},
+      {"id": "MOD-005", "label": "全局路径规划", "type": "module", "group": 1},
+      {"id": "MOD-006", "label": "局部路径规划", "type": "module", "group": 1},
+      {"id": "MOD-007", "label": "决策引擎", "type": "module", "group": 1},
+      {"id": "MOD-008", "label": "横向控制", "type": "module", "group": 1},
+      {"id": "MOD-009", "label": "纵向控制", "type": "module", "group": 1},
+      {"id": "MOD-010", "label": "高精地图", "type": "module", "group": 1},
+      {"id": "MOD-011", "label": "高精定位", "type": "module", "group": 1},
+      {"id": "MOD-012", "label": "3D目标检测", "type": "module", "group": 1},
+      {"id": "MOD-013", "label": "目标追踪", "type": "module", "group": 1}
+    ],
+    "edges": [
+      {"source": "PL-001", "target": "FEAT-001", "type": "contains", "label": "包含"},
+      {"source": "PL-001", "target": "FEAT-002", "type": "contains", "label": "包含"},
+      {"source": "PL-001", "target": "FEAT-003", "type": "contains", "label": "包含"},
+      {"source": "PL-001", "target": "FEAT-004", "type": "contains", "label": "包含"},
+      {"source": "PL-001", "target": "FEAT-005", "type": "contains", "label": "包含"},
+      {"source": "PL-002", "target": "FEAT-006", "type": "contains", "label": "包含"},
+      
+      {"source": "FEAT-001", "target": "MOD-001", "type": "contains", "label": "包含"},
+      {"source": "FEAT-001", "target": "MOD-002", "type": "contains", "label": "包含"},
+      {"source": "FEAT-001", "target": "MOD-003", "type": "contains", "label": "包含"},
+      {"source": "FEAT-001", "target": "MOD-004", "type": "contains", "label": "包含"},
+      {"source": "FEAT-002", "target": "MOD-005", "type": "contains", "label": "包含"},
+      {"source": "FEAT-002", "target": "MOD-006", "type": "contains", "label": "包含"},
+      {"source": "FEAT-002", "target": "MOD-007", "type": "contains", "label": "包含"},
+      {"source": "FEAT-003", "target": "MOD-008", "type": "contains", "label": "包含"},
+      {"source": "FEAT-003", "target": "MOD-009", "type": "contains", "label": "包含"},
+      {"source": "FEAT-004", "target": "MOD-010", "type": "contains", "label": "包含"},
+      {"source": "FEAT-004", "target": "MOD-011", "type": "contains", "label": "包含"},
+      {"source": "FEAT-005", "target": "MOD-012", "type": "contains", "label": "包含"},
+      {"source": "FEAT-005", "target": "MOD-013", "type": "contains", "label": "包含"},
+      
+      {"source": "MOD-001", "target": "MOD-004", "type": "depends", "label": "依赖"},
+      {"source": "MOD-002", "target": "MOD-004", "type": "depends", "label": "依赖"},
+      {"source": "MOD-003", "target": "MOD-004", "type": "depends", "label": "依赖"},
+      {"source": "MOD-005", "target": "MOD-007", "type": "depends", "label": "依赖"},
+      {"source": "MOD-006", "target": "MOD-007", "type": "depends", "label": "依赖"},
+      {"source": "MOD-011", "target": "MOD-010", "type": "depends", "label": "依赖"},
+      {"source": "MOD-013", "target": "MOD-012", "type": "depends", "label": "依赖"},
+      
+      {"source": "FEAT-005", "target": "FEAT-001", "type": "depends", "label": "依赖"},
+      {"source": "FEAT-002", "target": "FEAT-001", "type": "depends", "label": "依赖"},
+      {"source": "FEAT-003", "target": "FEAT-002", "type": "depends", "label": "依赖"}
+    ],
+    "statistics": {
+      "totalNodes": 22,
+      "totalEdges": 31,
+      "productLines": 3,
+      "features": 6,
+      "modules": 13,
+      "containsRelations": 23,
+      "dependsRelations": 8
+    }
+  }
+}

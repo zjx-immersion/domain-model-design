@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "lastUpdate": "2025-01-07T09:10:00Z",
+    "description": "扩展的用户需求Mock数据 - 覆盖智能驾驶、智能座舱、电子电器三大领域",
+    "totalCount": 30
+  },
+  "data": [
+    {"id": "UR-001", "code": "UR-001", "title": "城市NOA导航辅助", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-001", "FR-002"], "progress": 0.75},
+    {"id": "UR-002", "title": "高速NOA自动换道优化", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-003", "FR-004"], "progress": 0.65},
+    {"id": "UR-003", "title": "自动泊车功能升级", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "李四", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-005", "FR-006"], "progress": 0.15},
+    {"id": "UR-004", "title": "召唤功能实现", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-007"], "progress": 0.10},
+    {"id": "UR-005", "title": "感知精度提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "智能驾驶", "product": "感知系统", "featureRequirements": ["FR-008", "FR-009"], "progress": 0.55},
+    {"id": "UR-006", "title": "3D目标检测优化", "category": "性能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "智能驾驶", "product": "感知系统", "featureRequirements": ["FR-010"], "progress": 0.45},
+    {"id": "UR-007", "title": "规划决策响应时间优化", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "规划决策系统", "featureRequirements": ["FR-011", "FR-012"], "progress": 0.50},
+    {"id": "UR-008", "title": "复杂场景决策能力提升", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能驾驶", "product": "规划决策系统", "featureRequirements": ["FR-013"], "progress": 0.20},
+    {"id": "UR-009", "title": "车辆控制精度提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "赵六", "productLine": "智能驾驶", "product": "控制系统", "featureRequirements": ["FR-014"], "progress": 0.60},
+    {"id": "UR-010", "title": "舒适性优化", "category": "体验需求", "priority": "P2", "status": "planning", "owner": "赵六", "productLine": "智能驾驶", "product": "控制系统", "featureRequirements": ["FR-015"], "progress": 0.10},
+    {"id": "UR-011", "title": "AI语音助手智能化升级", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-016", "FR-017", "FR-018"], "progress": 0.70},
+    {"id": "UR-012", "title": "语音识别准确率提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "王五", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-019"], "progress": 0.65},
+    {"id": "UR-013", "title": "多轮对话能力增强", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "李四", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-020"], "progress": 0.55},
+    {"id": "UR-014", "title": "多屏联动体验优化", "category": "体验需求", "priority": "P1", "status": "in_development", "owner": "张三", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-021", "FR-022"], "progress": 0.50},
+    {"id": "UR-015", "title": "AR-HUD导航增强", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-023"], "progress": 0.25},
+    {"id": "UR-016", "title": "智能氛围灯情感化交互", "category": "体验需求", "priority": "P2", "status": "planning", "owner": "张三", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-024"], "progress": 0.15},
+    {"id": "UR-017", "title": "手势识别功能实现", "category": "功能需求", "priority": "P2", "status": "developing", "owner": "王五", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-025"], "progress": 0.40},
+    {"id": "UR-018", "title": "表情识别与情感交互", "category": "功能需求", "priority": "P2", "status": "developing", "owner": "李四", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-026"], "progress": 0.35},
+    {"id": "UR-019", "title": "多模态融合交互实现", "category": "功能需求", "priority": "P1", "status": "developing", "owner": "王五", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-027"], "progress": 0.30},
+    {"id": "UR-020", "title": "中央域控制器量产上车", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "赵六", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-028", "FR-029"], "progress": 0.60},
+    {"id": "UR-021", "title": "域控通信性能优化", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-030"], "progress": 0.55},
+    {"id": "UR-022", "title": "系统虚拟化能力实现", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "赵六", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-031"], "progress": 0.30},
+    {"id": "UR-023", "title": "SOA服务化平台上线", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-032", "FR-033"], "progress": 0.65},
+    {"id": "UR-024", "title": "服务编排能力实现", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-034"], "progress": 0.45},
+    {"id": "UR-025", "title": "动态配置管理", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "李四", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-035"], "progress": 0.20},
+    {"id": "UR-026", "title": "全车OTA升级能力", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-036", "FR-037"], "progress": 0.70},
+    {"id": "UR-027", "title": "差分升级功能实现", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-038"], "progress": 0.50},
+    {"id": "UR-028", "title": "OTA回滚机制", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-039"], "progress": 0.55},
+    {"id": "UR-029", "title": "高精地图实时更新", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "张三", "productLine": "基础设施", "product": "高精地图引擎", "featureRequirements": ["FR-040"], "progress": 0.25},
+    {"id": "UR-030", "title": "大规模仿真能力", "category": "功能需求", "priority": "P1", "status": "developing", "owner": "李四", "productLine": "基础设施", "product": "仿真测试平台", "featureRequirements": ["FR-041"], "progress": 0.35}
+  ]
+}
+

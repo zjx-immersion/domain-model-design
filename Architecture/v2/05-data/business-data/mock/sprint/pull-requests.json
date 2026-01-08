@@ -1,0 +1,8 @@
+{
+  "metadata": {"version": "1.0", "lastUpdate": "2025-01-05T14:00:00Z", "description": "Pull Request Mock数据"},
+  "data": [
+    {"id": "PR-001", "title": "Feature: 摄像头数据采集", "author": "张三", "status": "merged", "createdAt": "2025-01-17T09:00:00Z", "mergedAt": "2025-01-17T15:30:00Z", "commits": ["COMMIT-001", "COMMIT-002"], "reviewers": ["李四", "王五"], "approved": true},
+    {"id": "PR-002", "title": "Refactor: 融合感知算法优化", "author": "李四", "status": "open", "createdAt": "2025-01-18T10:00:00Z", "commits": ["COMMIT-003"], "reviewers": ["张三"], "approved": false}
+  ]
+}
+
