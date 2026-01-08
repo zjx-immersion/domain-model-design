@@ -1,251 +1,508 @@
 # 🚀 快速开始指南
 
-## 📋 前置条件
+## 📋 目录
 
-- Node.js >= 16.0
-- npm >= 8.0
+1. [系统概述](#系统概述)
+2. [环境准备](#环境准备)
+3. [快速启动](#快速启动)
+4. [核心功能](#核心功能)
+5. [常见场景](#常见场景)
+6. [常见问题](#常见问题)
 
 ---
 
-## 🛠️ 安装步骤
+## 📖 系统概述
 
-### 1. 进入前端目录
-```bash
-cd frontend
+本系统是一个**智能汽车研发管理平台**，支持从项目规划到迭代交付的完整研发价值流。
+
+### 核心功能模块
+
+```
+📦 项目管理
+  ├─ 车型项目管理
+  └─ 领域项目管理
+
+📦 资产管理
+  ├─ 产品线管理
+  ├─ 产品管理
+  ├─ 特性管理
+  └─ 模块管理
+
+📦 需求管理
+  ├─ 用户需求
+  ├─ 特性需求
+  └─ 模块需求
+
+📦 PI Planning
+  ├─ PI 工作区
+  └─ PI 列表
+
+📦 Backlog 管理
+  ├─ 项目待办
+  └─ 团队待办
+
+📦 Sprint 管理
+  ├─ Sprint 列表
+  └─ Sprint 详情
+
+📦 版本管理
+  ├─ 版本列表
+  └─ 特性包管理
 ```
 
-### 2. 安装依赖
+---
+
+## 🛠️ 环境准备
+
+### 必需软件
+
+- **Node.js**: >= 18.0.0
+- **npm**: >= 9.0.0
+- **Git**: >= 2.30.0
+
+### 检查环境
+
 ```bash
+# 检查 Node.js 版本
+node --version
+
+# 检查 npm 版本
+npm --version
+
+# 检查 Git 版本
+git --version
+```
+
+---
+
+## 🚀 快速启动
+
+### 方法 1: 使用一键启动脚本（推荐）
+
+#### macOS/Linux:
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+#### Windows:
+```cmd
+start.bat
+```
+
+---
+
+### 方法 2: 手动启动
+
+#### 步骤 1: 克隆代码
+```bash
+git clone https://github.com/zjx-immersion/domain-model-design.git
+cd domain-model-design
+```
+
+#### 步骤 2: 安装依赖
+```bash
+cd frontend
 npm install
 ```
 
-### 3. 启动开发服务器
+#### 步骤 3: 启动开发服务器
 ```bash
 npm run dev
 ```
 
-服务器将启动在: **http://localhost:9080**
+#### 步骤 4: 访问系统
+打开浏览器访问: **http://localhost:9080**
 
 ---
 
-## 🔐 登录账号
+## 🔑 登录系统
 
-### 管理员账号
-```
-用户名: admin
-密码: admin123
-```
+### 默认账号
 
-### 产品经理账号
-```
-用户名: pm001
-密码: pm123
-```
-
-### 开发人员账号
-```
-用户名: dev001
-密码: dev123
-```
+| 角色 | 用户名 | 密码 | 权限 |
+|------|--------|------|------|
+| 管理员 | admin | admin123 | 全部功能 |
+| 产品经理 | pm | pm123 | 产品和需求管理 |
+| 开发人员 | dev | dev123 | 开发功能 |
 
 ---
 
-## 🎯 核心功能导航
+## 🎯 核心功能
 
-### 1. 工作台 (Dashboard)
-- 查看个人任务和项目概览
-- 快速访问常用功能
+### 1. 项目管理
 
-### 2. 研发价值流
-- **L1主价值流**: 端到端价值流程
-- **L2价值流**: 产品规划、需求分析、项目规划、迭代研发等
+#### 车型项目管理
 
-### 3. PI Planning
-- **PI列表**: 查看所有PI Planning
-- **PI工作区**: 拖拽式工作项分配
-  - 左侧: 工作项池
-  - 中间: 团队和Sprint
-  - 右侧: 依赖和风险
+**访问路径**: 导航栏 → 项目管理 → 车型项目
 
-### 4. 需求管理
-- **用户需求**: 业务需求管理
-- **特性需求**: 产品特性需求
-- **模块需求**: 软件模块需求
-- **需求追溯**: 端到端追溯链可视化
+**功能说明**:
+- 创建和管理车型项目
+- 查看项目进度和统计
+- 关联领域项目
+- 管理项目目标和里程碑
 
-### 5. 资产管理
-- **产品线**: 产品线管理
-- **领域产品**: 产品管理
-- **领域特性**: 特性管理
-- **软件模块**: 模块管理
-- **资产库**: 资产库总览
-
-### 6. 迭代协同
-- **Sprint列表**: 查看所有Sprint
-- **Sprint详情**: 任务看板、燃尽图
-
-### 7. DevOps
-- **构建管理**: CI/CD构建记录
-- **发布管理**: 版本发布管理
-
-### 8. 测试管理
-- **测试计划**: 测试计划管理
-- **测试用例**: 测试用例库
-- **缺陷管理**: Bug追踪
-
-### 9. 版本管理
-- **版本管理**: 产品版本规划
-- **特性包管理**: 特性基线管理
+**操作步骤**:
+1. 点击"新建车型项目"
+2. 填写项目基本信息
+3. 设置项目负责人和时间
+4. 添加项目目标
+5. 保存并创建
 
 ---
 
-## 📊 示例业务流程
+#### 领域项目管理
 
-### 场景1: PI Planning工作流
+**访问路径**: 导航栏 → 项目管理 → 领域项目
 
-```
-1. 进入 "PI Planning" → "PI列表"
-2. 点击 "2025 Q1" 进入PI工作区
-3. 在"概览"Tab查看:
-   - 进度统计
-   - PI Objectives
-   - 置信度投票
-   - 特性包管理
-4. 切换到"风险管理"Tab查看和管理风险
-5. 切换到"依赖管理"Tab查看团队间依赖
-```
+**功能说明**:
+- 创建技术领域项目（智能驾驶、智能座舱、电子电器）
+- 规划产品版本
+- 创建 PI Planning
+- 管理团队和产品
 
-### 场景2: 需求追溯
+**操作步骤**:
+1. 点击"新建领域项目"
+2. 选择技术领域
+3. 关联车型项目
+4. 设置项目团队
+5. 规划版本和 PI
 
-```
-1. 进入 "需求管理" → "需求追溯"
-2. 设置查询条件:
-   - 实体类型: 用户需求
-   - 实体ID: UR-NOA-001
-   - 追溯方向: 正向追溯
-   - 最大深度: 7
-3. 点击"查询"查看追溯链
-4. 点击节点查看详情
-```
+---
 
-### 场景3: 资产管理
+### 2. PI Planning
+
+**访问路径**: 导航栏 → PI Planning
+
+**核心流程**:
 
 ```
-1. 进入 "资产管理" → "领域产品"
-2. 查看三大领域:
-   - 智能驾驶
-   - 智能座舱
-   - 电子电器架构
-3. 点击产品查看详情:
-   - 关联特性
-   - 关联模块
-   - 关联需求
-   - 产品版本
-   - 特性包
+1. 创建 PI Planning
+   ↓
+2. 定义 PI 目标
+   ↓
+3. 关联特性包
+   ↓
+4. 团队容量规划
+   ↓
+5. 风险识别
+   ↓
+6. 置信度投票
+   ↓
+7. 生成 ProjectBacklog
+```
+
+**关键操作**:
+- 在 PI 工作区查看项目信息（所属领域项目、车型项目）
+- 拖拽特性到 PI Objectives
+- 评估团队容量
+- 记录风险和依赖
+- 进行置信度投票
+
+---
+
+### 3. Backlog 管理
+
+#### ProjectBacklog
+
+**访问路径**: 导航栏 → Backlog管理 → 项目待办
+
+**功能说明**:
+- 查看 PI Planning 生成的工作项
+- 按模块、团队筛选
+- 分配工作项到 TeamBacklog
+
+**操作流程**:
+```
+PI Planning 结束
+  ↓
+自动生成 ProjectBacklog
+  ↓
+筛选和排序工作项
+  ↓
+分配给团队
 ```
 
 ---
 
-## 🎨 核心数据
+#### TeamBacklog
 
-### 智能驾驶领域
-- **产品**: NOA、泊车、召唤系统
-- **特性**: 融合感知、路径规划、车辆控制
-- **模块**: 81个软件模块
-- **需求**: 40个模块需求
+**访问路径**: 导航栏 → Backlog管理 → 团队待办
 
-### 智能座舱领域
-- **产品**: 语音助手、3D仪表、手势控制
-- **特性**: 语音识别、语音合成、显示系统
-- **模块**: 相关软件模块
-- **需求**: 相关需求
+**功能说明**:
+- 管理团队级工作项
+- 调整优先级
+- 拉取工作项到 Sprint
 
-### 电子电器架构
-- **产品**: 域控制器、中央网关、车载以太网
-- **特性**: 通信协议、电源管理
-- **模块**: 相关软件模块
-
----
-
-## 🔧 常用命令
-
-### 开发
-```bash
-npm run dev          # 启动开发服务器
+**操作流程**:
 ```
-
-### 构建
-```bash
-npm run build        # 生产构建
-npm run preview      # 预览构建结果
-```
-
-### 代码检查
-```bash
-npm run lint         # ESLint检查
-npm run format       # Prettier格式化
+从 ProjectBacklog 拉取工作项
+  ↓
+团队评审和评估
+  ↓
+调整优先级
+  ↓
+Sprint Planning 拉取到 Sprint
 ```
 
 ---
 
-## 📁 目录结构
+### 4. Sprint 管理
+
+**访问路径**: 导航栏 → Sprint 管理 → Sprint 列表
+
+**功能说明**:
+- 创建 Sprint
+- 查看 Sprint 详情
+- 追溯到 TeamBacklog（新功能）
+- 跟踪 Sprint 进度
+
+**Sprint 详情页新增**:
+- **来源Backlog**: 显示工作项来源的 TeamBacklog，可点击跳转
+
+---
+
+### 5. 版本管理
+
+**访问路径**: 导航栏 → 资产管理 → 版本管理
+
+**功能说明**:
+- 管理产品版本
+- 规划版本特性
+- 跟踪版本进度
+- 版本发布管理
+
+---
+
+### 6. 特性包管理
+
+**访问路径**: 导航栏 → 资产管理 → 特性包管理
+
+**功能说明**:
+- 定义特性基线
+- 管理特性包配置
+- 关联到 PI Planning
+- 跟踪特性状态
+
+---
+
+## 📱 常见场景
+
+### 场景 1: 新车型项目启动
 
 ```
-frontend/
-├── src/
-│   ├── views/              # 页面组件
-│   │   ├── Dashboard/      # 工作台
-│   │   ├── PIPlanning/     # PI Planning
-│   │   ├── Requirement/    # 需求管理
-│   │   ├── Asset/          # 资产管理
-│   │   ├── Sprint/         # 迭代协同
-│   │   ├── DevOps/         # DevOps
-│   │   ├── Test/           # 测试管理
-│   │   ├── Release/        # 版本管理
-│   │   └── ValueStream/    # 价值流
-│   ├── components/         # 公共组件
-│   │   └── Layout/         # 布局组件
-│   ├── types/              # TypeScript类型
-│   ├── stores/             # Pinia状态管理
-│   ├── router/             # 路由配置
-│   ├── data/               # 静态数据
-│   └── styles/             # 样式文件
-└── public/                 # 静态资源
+1. 创建车型项目
+   路径: 项目管理 → 车型项目 → 新建
+   
+2. 创建领域项目
+   路径: 项目管理 → 领域项目 → 新建
+   关联到车型项目
+   
+3. 规划产品版本
+   路径: 领域项目详情 → 版本规划
+   
+4. 创建 PI Planning
+   路径: PI Planning → 新建
+   关联到领域项目
 ```
 
 ---
 
-## 🐛 常见问题
+### 场景 2: PI Planning 到 Sprint 执行
 
-### Q1: 启动后页面空白？
-A: 确保执行了 `npm install`，并检查控制台是否有错误。
-
-### Q2: Mock数据无法加载？
-A: 检查 `biz-data/mock/` 目录是否存在，数据文件是否完整。
-
-### Q3: 路由跳转404？
-A: 检查 `src/router/index.ts` 路由配置是否正确。
-
-### Q4: 登录失败？
-A: 使用默认账号 `admin/admin123`，检查 `src/data/users.json`。
+```
+1. 进行 PI Planning
+   路径: PI Planning → PI 工作区
+   • 查看项目信息（车型项目、领域项目）
+   • 定义 PI 目标
+   • 关联特性包
+   • 评估容量
+   
+2. 查看 ProjectBacklog
+   路径: Backlog管理 → 项目待办
+   • 查看工作项列表
+   • 分配给团队
+   
+3. 管理 TeamBacklog
+   路径: Backlog管理 → 团队待办
+   • 调整优先级
+   • 评估工作量
+   
+4. Sprint Planning
+   路径: Sprint 管理 → 新建 Sprint
+   • 从 TeamBacklog 拉取工作项
+   • 制定 Sprint 目标
+   
+5. Sprint 执行
+   路径: Sprint 详情
+   • 查看来源 Backlog（新增）
+   • 跟踪进度
+   • 每日站会
+```
 
 ---
 
-## 📚 更多资源
+### 场景 3: 追溯数据关系
 
-- **项目文档**: 查看 `README.md`
-- **架构设计**: 查看 `Architecture/` 目录
-- **数据设计**: 查看 `biz-data/` 目录
-- **研发流程**: 查看 `platform-rd-process/` 目录
+#### 从 PI Planning 追溯到项目
+
+```
+PI Planning 页面
+  ↓ 点击项目信息卡片
+领域项目详情
+  ↓ 点击车型项目链接
+车型项目详情
+```
+
+#### 从 Sprint 追溯到 Backlog
+
+```
+Sprint 详情页
+  ↓ 点击"来源Backlog"链接
+TeamBacklog 页面
+  ↓ 查看来源信息
+ProjectBacklog 页面
+  ↓ 查看 PI Planning
+PI Planning 详情
+```
+
+---
+
+## ❓ 常见问题
+
+### Q1: 如何修改启动端口？
+
+**A**: 编辑 `frontend/vite.config.ts`:
+```typescript
+export default defineConfig({
+  server: {
+    port: 9080, // 修改为你想要的端口
+  },
+})
+```
+
+---
+
+### Q2: 如何添加新的测试数据？
+
+**A**: 编辑对应的 Mock 数据文件:
+- 车型项目: `biz-data/mock/project/vehicle-projects.json`
+- 领域项目: `biz-data/mock/project/domain-projects.json`
+- ProjectBacklog: `biz-data/mock/backlog/project-backlogs.json`
+- TeamBacklog: `biz-data/mock/backlog/team-backlogs.json`
+
+---
+
+### Q3: 页面加载失败怎么办？
+
+**A**: 按以下步骤排查:
+1. 检查控制台错误信息
+2. 确认 Mock 数据文件存在
+3. 检查路由配置是否正确
+4. 清除浏览器缓存后重新加载
+5. 重启开发服务器
+
+---
+
+### Q4: 如何查看项目的完整数据流？
+
+**A**: 完整数据流追溯路径:
+
+```
+车型项目
+  ↓ (关联)
+领域项目
+  ↓ (规划)
+产品版本
+  ↓ (基于)
+PI Planning
+  ↓ (生成)
+ProjectBacklog
+  ↓ (分配)
+TeamBacklog
+  ↓ (拉取)
+Sprint
+  ↓ (执行)
+任务完成
+```
+
+**操作方式**:
+1. 从车型项目列表开始
+2. 点击项目详情
+3. 查看关联的领域项目
+4. 点击领域项目，查看 PI Planning 列表
+5. 进入 PI Planning 详情
+6. 查看生成的 ProjectBacklog
+7. 查看分配的 TeamBacklog
+8. 查看 Sprint 列表
+9. 进入 Sprint 详情，查看"来源Backlog"
+
+---
+
+### Q5: 如何添加新的导航菜单？
+
+**A**: 编辑 `frontend/src/components/Layout/MainLayout.vue`:
+
+```vue
+<el-menu-item index="/your-path">
+  <el-icon><YourIcon /></el-icon>
+  <span>菜单名称</span>
+</el-menu-item>
+```
+
+同时在 `frontend/src/router/index.ts` 添加对应路由。
+
+---
+
+## 📚 进阶学习
+
+### 架构文档
+
+- [业务架构设计](./Architecture/v2/01-business/BUSINESS_ARCHITECTURE_V3.md)
+- [领域模型设计](./Architecture/v2/02-domain/DOMAIN_MODEL_DESIGN.md)
+- [项目管理设计](./Architecture/v2/08-project/PROJECT_MANAGEMENT_DESIGN.md)
+- [数据关系分析](./Architecture/v2/05-data/DATA_RELATIONSHIP_ANALYSIS.md)
+
+---
+
+### 实施文档
+
+- [M2-M3-M4 实施总结](./project-for-v3-arch/M2-M3-M4_IMPLEMENTATION_SUMMARY.md)
+- [系统集成验证](./project-for-v3-arch/INTEGRATION_VERIFICATION.md)
+- [P0-P1 优化完成](./project-for-v3-arch/P0_P1_OPTIMIZATION_COMPLETE.md)
+
+---
+
+## 🆘 获取帮助
+
+### 技术支持
+
+- **Issue 报告**: [GitHub Issues](https://github.com/zjx-immersion/domain-model-design/issues)
+- **文档中心**: `./Architecture/` 目录
+- **开发指南**: `./project-for-v3-arch/` 目录
+
+---
+
+### 联系方式
+
+- **项目负责人**: 架构团队
+- **技术支持**: 开发团队
 
 ---
 
 ## 🎉 开始使用
 
-现在可以在浏览器中打开 `http://localhost:9080` 开始体验系统了！
+现在你已经准备好了！
 
-**默认登录**: `admin` / `admin123`
+1. ✅ 启动系统: `./start.sh` 或 `npm run dev`
+2. ✅ 访问: `http://localhost:9080`
+3. ✅ 登录: 使用默认账号 `admin/admin123`
+4. ✅ 探索: 从项目管理开始，体验完整流程
+
+祝你使用愉快！🚀
 
 ---
 
-**最后更新**: 2025年1月8日
+**文档版本**: v1.0  
+**更新日期**: 2025-01-08  
+**维护团队**: 架构团队
