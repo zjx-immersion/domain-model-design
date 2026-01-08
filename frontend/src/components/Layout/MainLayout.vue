@@ -48,7 +48,17 @@
             <el-icon><Box /></el-icon>
             <span>项目管理</span>
           </template>
-          <el-menu-item index="/projects">项目列表</el-menu-item>
+          <el-menu-item index="/projects/vehicle">车型项目</el-menu-item>
+          <el-menu-item index="/projects/domain">领域项目</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="backlog">
+          <template #title>
+            <el-icon><List /></el-icon>
+            <span>Backlog管理</span>
+          </template>
+          <el-menu-item index="/backlog/project">项目待办</el-menu-item>
+          <el-menu-item index="/backlog/team">团队待办</el-menu-item>
         </el-sub-menu>
 
         <el-sub-menu index="assets">

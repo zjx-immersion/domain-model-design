@@ -154,26 +154,73 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'projects',
         name: 'Projects',
-        redirect: '/projects/list',
+        redirect: '/projects/vehicle',
         meta: { title: '项目管理', icon: 'Box' },
         children: [
+          // 车型项目
           {
-            path: '',
+            path: 'vehicle',
+            name: 'VehicleProjects',
+            component: () => import('@/views/Project/VehicleProjectList.vue'),
+            meta: { title: '车型项目' },
+          },
+          {
+            path: 'vehicle/:id',
+            name: 'VehicleProjectDetail',
+            component: () => import('@/views/Project/VehicleProjectDetail.vue'),
+            meta: { title: '车型项目详情' },
+          },
+          // 领域项目
+          {
+            path: 'domain',
+            name: 'DomainProjects',
+            component: () => import('@/views/Project/DomainProjectList.vue'),
+            meta: { title: '领域项目' },
+          },
+          {
+            path: 'domain/:id',
+            name: 'DomainProjectDetail',
+            component: () => import('@/views/Project/DomainProjectDetail.vue'),
+            meta: { title: '领域项目详情' },
+          },
+          // 原有路由保留兼容性
+          {
+            path: 'list',
             name: 'ProjectList',
             component: () => import('@/views/Project/List.vue'),
-            meta: { title: '项目列表' },
+            meta: { title: '项目列表（旧）' },
           },
           {
             path: ':id',
             name: 'ProjectDetail',
             component: () => import('@/views/Project/Detail.vue'),
-            meta: { title: '项目详情' },
+            meta: { title: '项目详情（旧）' },
           },
           {
             path: ':id/board',
             name: 'ProjectBoard',
             component: () => import('@/views/Project/Board.vue'),
             meta: { title: '项目看板' },
+          },
+        ],
+      },
+      // Backlog 管理
+      {
+        path: 'backlog',
+        name: 'Backlog',
+        meta: { title: 'Backlog管理', icon: 'List' },
+        children: [
+          {
+            path: 'project/:id',
+            name: 'ProjectBacklog',
+            component: () => import('@/views/Backlog/ProjectBacklog.vue'),
+            meta: { title: '项目待办' },
+          },
+          {
+            path: 'team/:id',
+            name: 'TeamBacklog',
+            component: () => import('@/views/Backlog/TeamBacklog.vue'),
+            meta: { title: '团队待办' },
           },
         ],
       },
