@@ -20,7 +20,8 @@ v2/
 ├── 04-task/                  # 任务架构设计
 ├── 05-data/                  # 数据架构和业务数据
 ├── 06-terminology/           # 术语定义
-└── 07-specialized/           # 专项设计
+├── 07-specialized/           # 专项设计
+└── 08-project/               # 项目管理设计 (新增 v3)
 ```
 
 ---
@@ -142,6 +143,35 @@ v2/
 
 ---
 
+### 8️⃣ 项目管理设计 (`08-project/`) ⭐ 新增
+
+#### [PROJECT_MANAGEMENT_DESIGN.md](08-project/PROJECT_MANAGEMENT_DESIGN.md) ⭐
+**项目管理完整设计 (v3 新增)**
+- 车型项目和领域项目管理
+- 核心实体设计（6个新实体）
+- 完整业务流程
+- 数据关系图
+- 页面设计规范
+- 系统集成方案
+- 权限设计
+- 关键指标定义
+
+**核心内容**:
+- ✅ VehicleProject (车型项目)
+- ✅ DomainProject (领域项目)
+- ✅ ProjectVersion (项目版本)
+- ✅ ProjectObjective (项目目标)
+- ✅ ProjectBacklog (项目待办)
+- ✅ TeamBacklog (团队待办)
+
+**价值**:
+- 支持多车型项目管理
+- 清晰的技术领域划分
+- 完整的数据追溯链
+- 增强团队协作能力
+
+---
+
 ## 🎯 核心设计理念
 
 ### 1. 模块-团队责任绑定 ⭐
@@ -221,9 +251,10 @@ L3: 模块需求 (Module Requirement)
 - **核心架构文档**: 4 篇
 - **专项设计文档**: 4 篇
 - **数据设计文档**: 2 篇
-- **总计**: 18 篇文档
-- **Mock 数据**: 50+ JSON 文件
-- **总大小**: ~400KB
+- **项目管理文档**: 1 篇 (新增)
+- **总计**: 19 篇文档
+- **Mock 数据**: 54+ JSON 文件
+- **总大小**: ~450KB
 
 ---
 
@@ -233,9 +264,10 @@ L3: 模块需求 (Module Requirement)
 
 1. **业务架构** → `01-business/BUSINESS_ARCHITECTURE_V3.md`
 2. **领域模型** → `02-domain/DOMAIN_MODEL_DESIGN.md`
-3. **任务架构** → `04-task/TASK_BASED_ARCHITECTURE.md`
-4. **功能架构** → `03-functional/FUNCTIONAL_ARCHITECTURE.md`
-5. **数据架构** → `05-data/DATA_RELATIONSHIP_ANALYSIS.md`
+3. **项目管理** → `08-project/PROJECT_MANAGEMENT_DESIGN.md` ⭐ 新增
+4. **任务架构** → `04-task/TASK_BASED_ARCHITECTURE.md`
+5. **功能架构** → `03-functional/FUNCTIONAL_ARCHITECTURE.md`
+6. **数据架构** → `05-data/DATA_RELATIONSHIP_ANALYSIS.md`
 
 ### 关键概念理解
 
