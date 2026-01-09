@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -21,9 +21,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      '@/data': resolve(__dirname, 'src/data'),
-      '@/biz-data': resolve(__dirname, '../biz-data'),
+      '@': path.resolve(__dirname, './src'),
+      '@/data': path.resolve(__dirname, './src/data'),
+      '@/biz-data': path.resolve(__dirname, '../biz-data'),
     },
   },
   server: {
@@ -31,10 +31,17 @@ export default defineConfig({
     open: true,
     fs: {
       // 允许访问项目根目录的 biz-data 文件夹
-      allow: ['..'],
+      strict: false,
+      allow: [
+        path.resolve(__dirname, '..'),
+        path.resolve(__dirname, '../biz-data'),
+      ],
     },
   },
   // 配置公共基础路径，使 /biz-data 可访问
   publicDir: 'public',
+  optimizeDeps: {
+    exclude: ['@/biz-data'],
+  },
 })
 

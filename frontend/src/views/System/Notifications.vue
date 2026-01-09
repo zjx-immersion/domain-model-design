@@ -13,19 +13,129 @@
 
       <el-tabs v-model="activeTab">
         <el-tab-pane label="全部" name="all">
-          <notification-list :notifications="allNotifications" @read="handleRead" @delete="handleDelete" />
+          <div class="notification-list">
+            <el-empty v-if="allNotifications.length === 0" description="暂无通知" />
+            <div
+              v-for="notif in allNotifications"
+              :key="notif.id"
+              :class="['notification-item', notif.status === 'unread' ? 'unread' : '']"
+            >
+              <div class="notification-header">
+                <el-tag :type="getPriorityType(notif.priority)" size="small">{{ notif.priority }}</el-tag>
+                <span class="notification-time">{{ formatTime(notif.createdAt) }}</span>
+              </div>
+              <div class="notification-title">{{ notif.title }}</div>
+              <div class="notification-content">{{ notif.content }}</div>
+              <div class="notification-actions">
+                <el-button v-if="notif.status === 'unread'" link type="primary" size="small" @click="handleRead(notif.id)">
+                  标记已读
+                </el-button>
+                <el-button link type="danger" size="small" @click="handleDelete(notif.id)">
+                  删除
+                </el-button>
+              </div>
+            </div>
+          </div>
         </el-tab-pane>
         <el-tab-pane label="未读" name="unread">
-          <notification-list :notifications="unreadNotifications" @read="handleRead" @delete="handleDelete" />
+          <div class="notification-list">
+            <el-empty v-if="unreadNotifications.length === 0" description="暂无通知" />
+            <div
+              v-for="notif in unreadNotifications"
+              :key="notif.id"
+              :class="['notification-item', notif.status === 'unread' ? 'unread' : '']"
+            >
+              <div class="notification-header">
+                <el-tag :type="getPriorityType(notif.priority)" size="small">{{ notif.priority }}</el-tag>
+                <span class="notification-time">{{ formatTime(notif.createdAt) }}</span>
+              </div>
+              <div class="notification-title">{{ notif.title }}</div>
+              <div class="notification-content">{{ notif.content }}</div>
+              <div class="notification-actions">
+                <el-button v-if="notif.status === 'unread'" link type="primary" size="small" @click="handleRead(notif.id)">
+                  标记已读
+                </el-button>
+                <el-button link type="danger" size="small" @click="handleDelete(notif.id)">
+                  删除
+                </el-button>
+              </div>
+            </div>
+          </div>
         </el-tab-pane>
         <el-tab-pane label="系统" name="system">
-          <notification-list :notifications="systemNotifications" @read="handleRead" @delete="handleDelete" />
+          <div class="notification-list">
+            <el-empty v-if="systemNotifications.length === 0" description="暂无通知" />
+            <div
+              v-for="notif in systemNotifications"
+              :key="notif.id"
+              :class="['notification-item', notif.status === 'unread' ? 'unread' : '']"
+            >
+              <div class="notification-header">
+                <el-tag :type="getPriorityType(notif.priority)" size="small">{{ notif.priority }}</el-tag>
+                <span class="notification-time">{{ formatTime(notif.createdAt) }}</span>
+              </div>
+              <div class="notification-title">{{ notif.title }}</div>
+              <div class="notification-content">{{ notif.content }}</div>
+              <div class="notification-actions">
+                <el-button v-if="notif.status === 'unread'" link type="primary" size="small" @click="handleRead(notif.id)">
+                  标记已读
+                </el-button>
+                <el-button link type="danger" size="small" @click="handleDelete(notif.id)">
+                  删除
+                </el-button>
+              </div>
+            </div>
+          </div>
         </el-tab-pane>
         <el-tab-pane label="项目" name="sprint">
-          <notification-list :notifications="sprintNotifications" @read="handleRead" @delete="handleDelete" />
+          <div class="notification-list">
+            <el-empty v-if="sprintNotifications.length === 0" description="暂无通知" />
+            <div
+              v-for="notif in sprintNotifications"
+              :key="notif.id"
+              :class="['notification-item', notif.status === 'unread' ? 'unread' : '']"
+            >
+              <div class="notification-header">
+                <el-tag :type="getPriorityType(notif.priority)" size="small">{{ notif.priority }}</el-tag>
+                <span class="notification-time">{{ formatTime(notif.createdAt) }}</span>
+              </div>
+              <div class="notification-title">{{ notif.title }}</div>
+              <div class="notification-content">{{ notif.content }}</div>
+              <div class="notification-actions">
+                <el-button v-if="notif.status === 'unread'" link type="primary" size="small" @click="handleRead(notif.id)">
+                  标记已读
+                </el-button>
+                <el-button link type="danger" size="small" @click="handleDelete(notif.id)">
+                  删除
+                </el-button>
+              </div>
+            </div>
+          </div>
         </el-tab-pane>
         <el-tab-pane label="缺陷" name="defect">
-          <notification-list :notifications="defectNotifications" @read="handleRead" @delete="handleDelete" />
+          <div class="notification-list">
+            <el-empty v-if="defectNotifications.length === 0" description="暂无通知" />
+            <div
+              v-for="notif in defectNotifications"
+              :key="notif.id"
+              :class="['notification-item', notif.status === 'unread' ? 'unread' : '']"
+            >
+              <div class="notification-header">
+                <el-tag :type="getPriorityType(notif.priority)" size="small">{{ notif.priority }}</el-tag>
+                <span class="notification-time">{{ formatTime(notif.createdAt) }}</span>
+              </div>
+              <div class="notification-title">{{ notif.title }}</div>
+              <div class="notification-content">{{ notif.content }}</div>
+              <div class="notification-actions">
+                <el-button v-if="notif.status === 'unread'" link type="primary" size="small" @click="handleRead(notif.id)">
+                  标记已读
+                </el-button>
+                <el-button link type="danger" size="small" @click="handleDelete(notif.id)">
+                  删除
+                </el-button>
+              </div>
+            </div>
+          </div>
         </el-tab-pane>
       </el-tabs>
     </el-card>
@@ -33,64 +143,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineComponent } from 'vue';
+import { ref, computed } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import type { Notification } from '@/types/system';
 
-const NotificationList = defineComponent({
-  props: {
-    notifications: { type: Array as () => Notification[], required: true },
-  },
-  emits: ['read', 'delete'],
-  setup(props, { emit }) {
-    const formatTime = (time: string) => {
-      const now = new Date();
-      const notifTime = new Date(time);
-      const diff = now.getTime() - notifTime.getTime();
-      const minutes = Math.floor(diff / 60000);
-      const hours = Math.floor(diff / 3600000);
-      const days = Math.floor(diff / 86400000);
-      
-      if (minutes < 60) return `${minutes}分钟前`;
-      if (hours < 24) return `${hours}小时前`;
-      return `${days}天前`;
-    };
+const formatTime = (time: string) => {
+  const now = new Date();
+  const notifTime = new Date(time);
+  const diff = now.getTime() - notifTime.getTime();
+  const minutes = Math.floor(diff / 60000);
+  const hours = Math.floor(diff / 3600000);
+  const days = Math.floor(diff / 86400000);
+  
+  if (minutes < 60) return `${minutes}分钟前`;
+  if (hours < 24) return `${hours}小时前`;
+  return `${days}天前`;
+};
 
-    const getPriorityType = (priority: string) => {
-      const types: Record<string, any> = { high: 'danger', medium: 'warning', low: 'info' };
-      return types[priority] || '';
-    };
-
-    return () => (
-      <div class="notification-list">
-        {props.notifications.length === 0 ? (
-          <el-empty description="暂无通知" />
-        ) : (
-          props.notifications.map(notif => (
-            <div key={notif.id} class={['notification-item', notif.status === 'unread' ? 'unread' : '']}>
-              <div class="notification-header">
-                <el-tag type={getPriorityType(notif.priority)} size="small">{notif.priority}</el-tag>
-                <span class="notification-time">{formatTime(notif.createdAt)}</span>
-              </div>
-              <div class="notification-title">{notif.title}</div>
-              <div class="notification-content">{notif.content}</div>
-              <div class="notification-actions">
-                {notif.status === 'unread' && (
-                  <el-button link type="primary" size="small" onClick={() => emit('read', notif.id)}>
-                    标记已读
-                  </el-button>
-                )}
-                <el-button link type="danger" size="small" onClick={() => emit('delete', notif.id)}>
-                  删除
-                </el-button>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
-    );
-  },
-});
+const getPriorityType = (priority: string) => {
+  const types: Record<string, any> = { high: 'danger', medium: 'warning', low: 'info' };
+  return types[priority] || '';
+};
 
 const activeTab = ref('all');
 
