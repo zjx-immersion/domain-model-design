@@ -20,7 +20,10 @@
       "capacity": 40,
       "planned": 38,
       "completed": 25,
-      "progress": 66
+      "progress": 66,
+      "plannedStoryPoints": 38,
+      "completedStoryPoints": 25,
+      "remainingStoryPoints": 13
     },
     {
       "id": "SPRINT-002",
@@ -37,7 +40,10 @@
       "capacity": 40,
       "planned": 35,
       "completed": 0,
-      "progress": 0
+      "progress": 0,
+      "plannedStoryPoints": 35,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 35
     },
     {
       "id": "SPRINT-003",
@@ -54,7 +60,10 @@
       "capacity": 35,
       "planned": 32,
       "completed": 20,
-      "progress": 63
+      "progress": 63,
+      "plannedStoryPoints": 32,
+      "completedStoryPoints": 20,
+      "remainingStoryPoints": 12
     },
     {
       "id": "SPRINT-004",
@@ -71,7 +80,10 @@
       "capacity": 30,
       "planned": 28,
       "completed": 18,
-      "progress": 64
+      "progress": 64,
+      "plannedStoryPoints": 28,
+      "completedStoryPoints": 18,
+      "remainingStoryPoints": 10
     },
     {
       "id": "SPRINT-005",
@@ -88,7 +100,10 @@
       "capacity": 35,
       "planned": 33,
       "completed": 0,
-      "progress": 0
+      "progress": 0,
+      "plannedStoryPoints": 33,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 33
     },
     {
       "id": "SPRINT-006",
@@ -105,7 +120,10 @@
       "capacity": 30,
       "planned": 28,
       "completed": 0,
-      "progress": 0
+      "progress": 0,
+      "plannedStoryPoints": 28,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 28
     },
     {
       "id": "SPRINT-007",
@@ -122,7 +140,10 @@
       "capacity": 35,
       "planned": 30,
       "completed": 0,
-      "progress": 0
+      "progress": 0,
+      "plannedStoryPoints": 30,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 30
     },
     {
       "id": "SPRINT-008",
@@ -139,7 +160,10 @@
       "capacity": 40,
       "planned": 38,
       "completed": 0,
-      "progress": 0
+      "progress": 0,
+      "plannedStoryPoints": 38,
+      "completedStoryPoints": 0,
+      "remainingStoryPoints": 38
     }
   ]
 }

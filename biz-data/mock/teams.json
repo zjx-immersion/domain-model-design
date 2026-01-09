@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "version": "2.0",
-    "lastUpdate": "2025-01-05T22:00:00Z",
-    "description": "团队Mock数据 - 重构版，包含模块责任绑定"
+    "version": "3.0",
+    "lastUpdate": "2025-01-10T10:00:00Z",
+    "description": "团队Mock数据 - 补充avatar和更多成员信息"
   },
   "data": [
     {
@@ -16,28 +16,36 @@
           "name": "算法工程师A",
           "role": "算法工程师",
           "email": "algo-a@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-001",
+          "capacity": 40,
+          "skills": ["深度学习", "目标检测", "Python", "C++"]
         },
         {
           "id": "EMP-002",
           "name": "算法工程师B",
           "role": "算法工程师",
           "email": "algo-b@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-002",
+          "capacity": 40,
+          "skills": ["计算机视觉", "目标追踪", "Python", "TensorFlow"]
         },
         {
           "id": "EMP-003",
           "name": "算法工程师C",
           "role": "算法工程师",
           "email": "algo-c@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-003",
+          "capacity": 40,
+          "skills": ["传感器融合", "Kalman滤波", "C++", "ROS"]
         },
         {
           "id": "EMP-004",
           "name": "算法架构师A",
           "role": "架构师",
           "email": "arch-a@company.com",
-          "capacity": 32
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-004",
+          "capacity": 32,
+          "skills": ["系统架构", "算法优化", "性能调优", "团队管理"]
         }
       ],
       "responsibleModules": [
@@ -57,18 +65,19 @@
         {"id": "MOD-013", "name": "目标追踪模块"}
       ],
       "capacity": {
-        "sprintCapacity": 35,
-        "velocity": 34,
+        "sprintCapacity": 152,
+        "teamCapacity": 152,
+        "velocity": 38,
         "utilizationRate": 0.95
       },
-      "currentPI": "PI-2024-Q4",
+      "currentPI": "PI-2025-Q1",
       "currentSprint": "SPRINT-001",
-      "workItems": ["WI-001", "WI-002", "WI-004", "WI-005"],
+      "workItems": ["WI-001", "WI-002", "WI-005", "WI-011", "WI-012", "WI-017", "WI-018"],
       "owner": "研发总监",
       "createdAt": "2024-01-01",
       "metrics": {
-        "totalMembers": 12,
-        "avgVelocity": 34,
+        "totalMembers": 4,
+        "avgVelocity": 38,
         "completionRate": 0.92,
         "defectRate": 0.08
       }
@@ -84,21 +93,27 @@
           "name": "规划工程师A",
           "role": "规划工程师",
           "email": "planning-a@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-005",
+          "capacity": 40,
+          "skills": ["路径规划", "运动规划", "C++", "算法优化"]
         },
         {
           "id": "EMP-006",
           "name": "规划工程师B",
           "role": "规划工程师",
           "email": "planning-b@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-006",
+          "capacity": 40,
+          "skills": ["决策规划", "行为预测", "Python", "仿真测试"]
         },
         {
           "id": "EMP-007",
           "name": "算法架构师B",
           "role": "架构师",
           "email": "arch-b@company.com",
-          "capacity": 32
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-007",
+          "capacity": 32,
+          "skills": ["规划架构", "算法设计", "性能优化", "代码评审"]
         }
       ],
       "responsibleModules": [
@@ -112,18 +127,19 @@
         {"id": "MOD-007", "name": "决策引擎模块"}
       ],
       "capacity": {
-        "sprintCapacity": 32,
-        "velocity": 31,
+        "sprintCapacity": 112,
+        "teamCapacity": 112,
+        "velocity": 32,
         "utilizationRate": 0.92
       },
-      "currentPI": "PI-2024-Q4",
-      "currentSprint": "SPRINT-001",
-      "workItems": ["WI-006"],
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-003",
+      "workItems": ["WI-006", "WI-007", "WI-013", "WI-014"],
       "owner": "研发总监",
       "createdAt": "2024-01-01",
       "metrics": {
-        "totalMembers": 10,
-        "avgVelocity": 31,
+        "totalMembers": 3,
+        "avgVelocity": 32,
         "completionRate": 0.89,
         "defectRate": 0.06
       }
@@ -139,14 +155,18 @@
           "name": "控制工程师A",
           "role": "控制工程师",
           "email": "control-a@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-008",
+          "capacity": 40,
+          "skills": ["横向控制", "PID控制", "C++", "Simulink"]
         },
         {
           "id": "EMP-009",
           "name": "控制工程师B",
           "role": "控制工程师",
           "email": "control-b@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-009",
+          "capacity": 40,
+          "skills": ["纵向控制", "MPC", "Matlab", "车辆动力学"]
         }
       ],
       "responsibleModules": [
@@ -158,18 +178,19 @@
         {"id": "MOD-009", "name": "纵向控制模块"}
       ],
       "capacity": {
-        "sprintCapacity": 26,
-        "velocity": 25,
+        "sprintCapacity": 80,
+        "teamCapacity": 80,
+        "velocity": 28,
         "utilizationRate": 0.88
       },
-      "currentPI": "PI-2024-Q4",
-      "currentSprint": "SPRINT-001",
-      "workItems": [],
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-004",
+      "workItems": ["WI-009", "WI-015", "WI-016"],
       "owner": "研发总监",
       "createdAt": "2024-01-01",
       "metrics": {
-        "totalMembers": 8,
-        "avgVelocity": 25,
+        "totalMembers": 2,
+        "avgVelocity": 28,
         "completionRate": 0.94,
         "defectRate": 0.04
       }
@@ -185,14 +206,18 @@
           "name": "地图工程师A",
           "role": "地图工程师",
           "email": "map-a@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-010",
+          "capacity": 40,
+          "skills": ["高精地图", "地图编译", "Python", "GIS"]
         },
         {
           "id": "EMP-011",
           "name": "定位工程师A",
           "role": "定位工程师",
           "email": "loc-a@company.com",
-          "capacity": 40
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-011",
+          "capacity": 40,
+          "skills": ["高精定位", "SLAM", "C++", "传感器融合"]
         }
       ],
       "responsibleModules": [
@@ -204,30 +229,280 @@
         {"id": "MOD-011", "name": "高精定位模块"}
       ],
       "capacity": {
-        "sprintCapacity": 28,
+        "sprintCapacity": 80,
+        "teamCapacity": 80,
         "velocity": 27,
         "utilizationRate": 0.90
       },
-      "currentPI": "PI-2024-Q4",
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-005",
+      "workItems": ["WI-019", "WI-020"],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 2,
+        "avgVelocity": 27,
+        "completionRate": 0.91,
+        "defectRate": 0.10
+      }
+    },
+    {
+      "id": "TEAM-PERCEPTION",
+      "name": "感知平台团队",
+      "code": "PerceptionPlatform",
+      "description": "负责感知平台架构和基础设施",
+      "members": [
+        {
+          "id": "EMP-012",
+          "name": "感知架构师A",
+          "role": "系统架构师",
+          "email": "perc-arch-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-012",
+          "capacity": 32,
+          "skills": ["系统架构", "性能优化", "C++", "分布式系统"]
+        },
+        {
+          "id": "EMP-013",
+          "name": "感知工程师A",
+          "role": "高级工程师",
+          "email": "perc-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-013",
+          "capacity": 40,
+          "skills": ["算法集成", "工具开发", "Python", "DevOps"]
+        }
+      ],
+      "responsibleModules": [],
+      "moduleDetails": [],
+      "capacity": {
+        "sprintCapacity": 72,
+        "teamCapacity": 72,
+        "velocity": 30,
+        "utilizationRate": 0.85
+      },
+      "currentPI": "PI-2025-Q1",
       "currentSprint": "SPRINT-001",
       "workItems": [],
       "owner": "研发总监",
       "createdAt": "2024-01-01",
       "metrics": {
-        "totalMembers": 8,
-        "avgVelocity": 27,
-        "completionRate": 0.91,
-        "defectRate": 0.10
+        "totalMembers": 2,
+        "avgVelocity": 30,
+        "completionRate": 0.88,
+        "defectRate": 0.07
+      }
+    },
+    {
+      "id": "TEAM-PLANNING",
+      "name": "规划平台团队",
+      "code": "PlanningPlatform",
+      "description": "负责规划平台架构和仿真测试",
+      "members": [
+        {
+          "id": "EMP-014",
+          "name": "规划架构师A",
+          "role": "系统架构师",
+          "email": "plan-arch-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-014",
+          "capacity": 32,
+          "skills": ["规划架构", "算法设计", "C++", "系统优化"]
+        },
+        {
+          "id": "EMP-015",
+          "name": "仿真工程师A",
+          "role": "仿真工程师",
+          "email": "sim-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-015",
+          "capacity": 40,
+          "skills": ["仿真平台", "场景构建", "Python", "Carla"]
+        }
+      ],
+      "responsibleModules": [],
+      "moduleDetails": [],
+      "capacity": {
+        "sprintCapacity": 72,
+        "teamCapacity": 72,
+        "velocity": 28,
+        "utilizationRate": 0.82
+      },
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-003",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 2,
+        "avgVelocity": 28,
+        "completionRate": 0.85,
+        "defectRate": 0.08
+      }
+    },
+    {
+      "id": "TEAM-CONTROL",
+      "name": "控制平台团队",
+      "code": "ControlPlatform",
+      "description": "负责控制平台架构和车辆接口",
+      "members": [
+        {
+          "id": "EMP-016",
+          "name": "控制架构师A",
+          "role": "系统架构师",
+          "email": "ctrl-arch-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-016",
+          "capacity": 32,
+          "skills": ["控制架构", "车辆接口", "C++", "实时系统"]
+        },
+        {
+          "id": "EMP-017",
+          "name": "控制工程师C",
+          "role": "控制工程师",
+          "email": "ctrl-eng-c@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-017",
+          "capacity": 40,
+          "skills": ["CAN通信", "车辆标定", "Matlab", "自动化测试"]
+        }
+      ],
+      "responsibleModules": [],
+      "moduleDetails": [],
+      "capacity": {
+        "sprintCapacity": 72,
+        "teamCapacity": 72,
+        "velocity": 26,
+        "utilizationRate": 0.80
+      },
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-004",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 2,
+        "avgVelocity": 26,
+        "completionRate": 0.87,
+        "defectRate": 0.06
+      }
+    },
+    {
+      "id": "TEAM-COCKPIT",
+      "name": "座舱团队",
+      "code": "Cockpit",
+      "description": "负责智能座舱相关功能的开发",
+      "members": [
+        {
+          "id": "EMP-018",
+          "name": "HMI工程师A",
+          "role": "前端工程师",
+          "email": "hmi-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-018",
+          "capacity": 40,
+          "skills": ["React", "UI设计", "JavaScript", "用户体验"]
+        },
+        {
+          "id": "EMP-019",
+          "name": "语音工程师A",
+          "role": "算法工程师",
+          "email": "voice-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-019",
+          "capacity": 40,
+          "skills": ["语音识别", "NLP", "Python", "深度学习"]
+        },
+        {
+          "id": "EMP-020",
+          "name": "座舱架构师A",
+          "role": "系统架构师",
+          "email": "cockpit-arch-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-020",
+          "capacity": 32,
+          "skills": ["系统架构", "多模态交互", "Android", "车载系统"]
+        }
+      ],
+      "responsibleModules": ["MOD-020", "MOD-021", "MOD-022"],
+      "moduleDetails": [
+        {"id": "MOD-020", "name": "智能HMI模块"},
+        {"id": "MOD-021", "name": "语音助手模块"},
+        {"id": "MOD-022", "name": "AR导航模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 112,
+        "teamCapacity": 112,
+        "velocity": 35,
+        "utilizationRate": 0.90
+      },
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-008",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 3,
+        "avgVelocity": 35,
+        "completionRate": 0.90,
+        "defectRate": 0.05
+      }
+    },
+    {
+      "id": "TEAM-EE",
+      "name": "电子电器团队",
+      "code": "EE",
+      "description": "负责电子电器架构和通信",
+      "members": [
+        {
+          "id": "EMP-021",
+          "name": "EE架构师A",
+          "role": "系统架构师",
+          "email": "ee-arch-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-021",
+          "capacity": 32,
+          "skills": ["域控架构", "通信协议", "网络安全", "系统集成"]
+        },
+        {
+          "id": "EMP-022",
+          "name": "通信工程师A",
+          "role": "通信工程师",
+          "email": "comm-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-022",
+          "capacity": 40,
+          "skills": ["TSN", "以太网", "CAN/LIN", "实时通信"]
+        },
+        {
+          "id": "EMP-023",
+          "name": "嵌入式工程师A",
+          "role": "嵌入式工程师",
+          "email": "embed-eng-a@company.com",
+          "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=EMP-023",
+          "capacity": 40,
+          "skills": ["嵌入式系统", "RTOS", "C/C++", "硬件调试"]
+        }
+      ],
+      "responsibleModules": ["MOD-030", "MOD-031"],
+      "moduleDetails": [
+        {"id": "MOD-030", "name": "域控制器模块"},
+        {"id": "MOD-031", "name": "通信架构模块"}
+      ],
+      "capacity": {
+        "sprintCapacity": 112,
+        "teamCapacity": 112,
+        "velocity": 32,
+        "utilizationRate": 0.88
+      },
+      "currentPI": "PI-2025-Q1",
+      "currentSprint": "SPRINT-001",
+      "workItems": [],
+      "owner": "研发总监",
+      "createdAt": "2024-01-01",
+      "metrics": {
+        "totalMembers": 3,
+        "avgVelocity": 32,
+        "completionRate": 0.88,
+        "defectRate": 0.07
       }
     }
   ],
   "statistics": {
-    "totalTeams": 4,
-    "totalMembers": 38,
-    "totalModules": 13,
-    "totalCapacity": 121,
-    "avgVelocity": 29.25,
-    "avgUtilization": 0.91
+    "totalTeams": 9,
+    "totalMembers": 23,
+    "totalModules": 16,
+    "totalCapacity": 864,
+    "avgVelocity": 30.6,
+    "avgUtilization": 0.87
   }
 }
-
