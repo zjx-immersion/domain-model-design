@@ -210,17 +210,31 @@ const routes: RouteRecordRaw[] = [
         name: 'Backlog',
         meta: { title: 'Backlog管理', icon: 'List' },
         children: [
+          // 项目待办列表
           {
-            path: 'project/:id',
-            name: 'ProjectBacklog',
-            component: () => import('@/views/Backlog/ProjectBacklog.vue'),
+            path: 'project',
+            name: 'ProjectBacklogList',
+            component: () => import('@/views/Backlog/ProjectBacklogList.vue'),
             meta: { title: '项目待办' },
           },
           {
-            path: 'team/:id',
-            name: 'TeamBacklog',
-            component: () => import('@/views/Backlog/TeamBacklog.vue'),
+            path: 'project/:id',
+            name: 'ProjectBacklogDetail',
+            component: () => import('@/views/Backlog/ProjectBacklog.vue'),
+            meta: { title: '项目待办详情' },
+          },
+          // 团队待办列表
+          {
+            path: 'team',
+            name: 'TeamBacklogList',
+            component: () => import('@/views/Backlog/TeamBacklogList.vue'),
             meta: { title: '团队待办' },
+          },
+          {
+            path: 'team/:id',
+            name: 'TeamBacklogDetail',
+            component: () => import('@/views/Backlog/TeamBacklog.vue'),
+            meta: { title: '团队待办详情' },
           },
         ],
       },
