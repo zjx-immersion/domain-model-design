@@ -242,6 +242,7 @@ function viewStage(stage: any) {
 
 <style scoped lang="scss">
 @use '@/styles/variables.scss' as *;
+@use 'sass:color';
 
 .value-stream-main {
   .role-selector {
@@ -288,12 +289,12 @@ function viewStage(stage: any) {
 
       &.active {
         border-color: $primary;
-        background: lighten($primary, 48%);
+        background: color.adjust($primary, $lightness: 48%);
       }
 
       &.completed {
         border-color: $success;
-        background: lighten($success, 52%);
+        background: color.adjust($success, $lightness: 52%);
       }
 
       .stage-number {
