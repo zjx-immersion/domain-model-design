@@ -12,66 +12,57 @@
         :collapse-transition="false"
         @select="handleMenuSelect"
       >
+        <!-- 工作台 -->
         <el-menu-item index="/dashboard">
           <el-icon><Odometer /></el-icon>
           <template #title>工作台</template>
         </el-menu-item>
 
-        <el-sub-menu index="value-stream">
-          <template #title>
-            <el-icon><TrendCharts /></el-icon>
-            <span>研发价值流</span>
-          </template>
-          <el-menu-item index="/value-stream/main">L1主价值流</el-menu-item>
-        </el-sub-menu>
-
-        <el-sub-menu index="pi-planning">
-          <template #title>
-            <el-icon><Calendar /></el-icon>
-            <span>PI Planning</span>
-          </template>
-          <el-menu-item index="/pi-planning">PI列表</el-menu-item>
-        </el-sub-menu>
-
-        <el-menu-item index="/releases/list">
-          <el-icon><Memo /></el-icon>
-          <template #title>版本管理</template>
-        </el-menu-item>
-
-        <el-menu-item index="/baselines/list">
-          <el-icon><Collection /></el-icon>
-          <template #title>特性包管理</template>
-        </el-menu-item>
-
-        <el-sub-menu index="projects">
+        <!-- 产品中心 - 新增核心视角 -->
+        <el-sub-menu index="products">
           <template #title>
             <el-icon><Box /></el-icon>
-            <span>项目管理</span>
+            <span>产品中心</span>
           </template>
-          <el-menu-item index="/projects/vehicle">车型项目</el-menu-item>
-          <el-menu-item index="/projects/domain">领域项目</el-menu-item>
-        </el-sub-menu>
-
-        <el-sub-menu index="backlog">
-          <template #title>
-            <el-icon><List /></el-icon>
-            <span>Backlog管理</span>
-          </template>
-          <el-menu-item index="/backlog/project">项目待办</el-menu-item>
-          <el-menu-item index="/backlog/team">团队待办</el-menu-item>
-        </el-sub-menu>
-
-        <el-sub-menu index="assets">
-          <template #title>
-            <el-icon><Files /></el-icon>
-            <span>资产管理</span>
-          </template>
-          <el-menu-item index="/assets/products">领域产品</el-menu-item>
-          <el-menu-item index="/assets/features">领域特性</el-menu-item>
-          <el-menu-item index="/assets/modules">软件模块</el-menu-item>
+          <el-menu-item index="/products/overview">📊 产品资产全景</el-menu-item>
+          <el-menu-item index="/products/lines">产品线管理</el-menu-item>
+          <el-menu-item index="/products/list">领域产品管理</el-menu-item>
+          <el-menu-item index="/releases/list">产品版本管理</el-menu-item>
+          <el-menu-item index="/products/features">领域特性管理</el-menu-item>
+          <el-menu-item index="/products/modules">软件模块管理</el-menu-item>
+          <el-menu-item index="/baselines/list">特性包管理</el-menu-item>
           <el-menu-item index="/assets/library">资产库</el-menu-item>
         </el-sub-menu>
 
+        <!-- 项目中心 - 新增核心视角 -->
+        <el-sub-menu index="projects">
+          <template #title>
+            <el-icon><Histogram /></el-icon>
+            <span>项目中心</span>
+          </template>
+          <el-menu-item index="/projects/overview">📊 项目全景图</el-menu-item>
+          <el-menu-item index="/projects/vehicle">车型项目管理</el-menu-item>
+          <el-menu-item index="/projects/domain">领域项目管理</el-menu-item>
+          <el-menu-item index="/pi-planning">PI Planning管理</el-menu-item>
+          <el-menu-item index="/backlog/project">项目待办管理</el-menu-item>
+          <el-menu-item index="/backlog/team">团队待办管理</el-menu-item>
+        </el-sub-menu>
+
+        <!-- 团队工作台 - 新增核心视角 -->
+        <el-sub-menu index="team">
+          <template #title>
+            <el-icon><User /></el-icon>
+            <span>团队工作台</span>
+          </template>
+          <el-menu-item index="/team/workspace">📊 团队工作全景</el-menu-item>
+          <el-menu-item index="/sprints">Sprint管理</el-menu-item>
+          <el-menu-item index="/team/work-items">工作项管理</el-menu-item>
+          <el-menu-item index="/team/bugs">缺陷管理</el-menu-item>
+          <el-menu-item index="/team/tech-debt">技术债管理</el-menu-item>
+          <el-menu-item index="/team/metrics">团队效能</el-menu-item>
+        </el-sub-menu>
+
+        <!-- 需求管理 - 保留但调整 -->
         <el-sub-menu index="requirements">
           <template #title>
             <el-icon><Document /></el-icon>
@@ -83,14 +74,24 @@
           <el-menu-item index="/requirements/traceability">需求追溯</el-menu-item>
         </el-sub-menu>
 
-        <el-sub-menu index="sprints">
+        <!-- 研发价值流 - 保留 -->
+        <el-sub-menu index="value-stream">
           <template #title>
-            <el-icon><Histogram /></el-icon>
-            <span>迭代协同</span>
+            <el-icon><TrendCharts /></el-icon>
+            <span>研发价值流</span>
           </template>
-          <el-menu-item index="/sprints">Sprint列表</el-menu-item>
+          <el-menu-item index="/value-stream/main">L1主价值流</el-menu-item>
+          <el-menu-item index="/value-stream/product-planning">L2产品规划</el-menu-item>
+          <el-menu-item index="/value-stream/requirement-analysis">L2需求分析</el-menu-item>
+          <el-menu-item index="/value-stream/project-planning">L2项目规划</el-menu-item>
+          <el-menu-item index="/value-stream/iteration-rd">L2迭代研发</el-menu-item>
+          <el-menu-item index="/value-stream/integration">L2集成晋级</el-menu-item>
+          <el-menu-item index="/value-stream/testing">L2测试验证</el-menu-item>
+          <el-menu-item index="/value-stream/acceptance">L2需求验收</el-menu-item>
+          <el-menu-item index="/value-stream/release">L2发布交付</el-menu-item>
         </el-sub-menu>
 
+        <!-- DevOps - 保留 -->
         <el-sub-menu index="devops">
           <template #title>
             <el-icon><SetUp /></el-icon>
@@ -98,12 +99,21 @@
           </template>
           <el-menu-item index="/devops/builds">构建管理</el-menu-item>
           <el-menu-item index="/devops/releases">发布管理</el-menu-item>
+          <el-menu-item index="/devops/tests">测试管理</el-menu-item>
+          <el-menu-item index="/devops/artifacts">制品管理</el-menu-item>
         </el-sub-menu>
 
-        <el-menu-item index="/settings">
-          <el-icon><Setting /></el-icon>
-          <template #title>系统设置</template>
-        </el-menu-item>
+        <!-- 系统设置 - 保留 -->
+        <el-sub-menu index="settings">
+          <template #title>
+            <el-icon><Setting /></el-icon>
+            <span>系统设置</span>
+          </template>
+          <el-menu-item index="/settings/organization">组织架构</el-menu-item>
+          <el-menu-item index="/settings/users">用户管理</el-menu-item>
+          <el-menu-item index="/settings/notifications">通知设置</el-menu-item>
+          <el-menu-item index="/settings/monitor">系统监控</el-menu-item>
+        </el-sub-menu>
       </el-menu>
 
       <div class="collapse-btn" @click="isCollapse = !isCollapse">

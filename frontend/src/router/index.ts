@@ -154,9 +154,16 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'projects',
         name: 'Projects',
-        redirect: '/projects/vehicle',
-        meta: { title: '项目管理', icon: 'Box' },
+        redirect: '/projects/overview',
+        meta: { title: '项目中心', icon: 'Box' },
         children: [
+          // 项目全景图 - 核心一页视图
+          {
+            path: 'overview',
+            name: 'ProjectOverview',
+            component: () => import('@/views/Project/Overview.vue'),
+            meta: { title: '项目全景图' },
+          },
           // 车型项目
           {
             path: 'vehicle',
@@ -238,33 +245,40 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 资产管理
+      // 产品中心（原资产管理）
       {
-        path: 'assets',
-        name: 'Assets',
-        redirect: '/assets/product-lines',
-        meta: { title: '资产管理', icon: 'Files' },
+        path: 'products',
+        name: 'ProductCenter',
+        redirect: '/products/overview',
+        meta: { title: '产品中心', icon: 'Files' },
         children: [
+          // 产品资产全景 - 核心一页视图
           {
-            path: 'product-lines',
-            name: 'ProductLines',
-            component: () => import('@/views/Asset/ProductLines.vue'),
-            meta: { title: '产品线' },
+            path: 'overview',
+            name: 'ProductOverview',
+            component: () => import('@/views/Product/Overview.vue'),
+            meta: { title: '产品资产全景' },
           },
           {
-            path: 'product-lines/:id',
+            path: 'lines',
+            name: 'ProductLines',
+            component: () => import('@/views/Asset/ProductLines.vue'),
+            meta: { title: '产品线管理' },
+          },
+          {
+            path: 'lines/:id',
             name: 'ProductLineDetail',
             component: () => import('@/views/Asset/ProductLineDetail.vue'),
             meta: { title: '产品线详情' },
           },
           {
-            path: 'products',
+            path: 'list',
             name: 'Products',
             component: () => import('@/views/Asset/Products.vue'),
-            meta: { title: '领域产品' },
+            meta: { title: '领域产品管理' },
           },
           {
-            path: 'products/:id',
+            path: 'list/:id',
             name: 'ProductDetail',
             component: () => import('@/views/Asset/ProductDetail.vue'),
             meta: { title: '产品详情' },
@@ -273,7 +287,7 @@ const routes: RouteRecordRaw[] = [
             path: 'features',
             name: 'Features',
             component: () => import('@/views/Asset/Features.vue'),
-            meta: { title: '领域特性' },
+            meta: { title: '领域特性管理' },
           },
           {
             path: 'features/:id',
@@ -285,7 +299,7 @@ const routes: RouteRecordRaw[] = [
             path: 'modules',
             name: 'Modules',
             component: () => import('@/views/Asset/Modules.vue'),
-            meta: { title: '软件模块' },
+            meta: { title: '软件模块管理' },
           },
           {
             path: 'modules/:id',
@@ -293,11 +307,20 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/Asset/ModuleDetail.vue'),
             meta: { title: '模块详情' },
           },
+        ],
+      },
+      // 资产库（独立路由）
+      {
+        path: 'assets',
+        name: 'Assets',
+        redirect: '/assets/library',
+        meta: { title: '资产库', icon: 'Files' },
+        children: [
           {
-            path: 'relationship',
-            name: 'AssetRelationship',
+            path: 'library',
+            name: 'AssetLibrary',
             component: () => import('@/views/Asset/Relationship.vue'),
-            meta: { title: '资产关系图' },
+            meta: { title: '资产库' },
           },
         ],
       },
@@ -388,24 +411,49 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 工作项管理 ⭐ 新增
+      // 团队工作台 - 新增核心视角
       {
-        path: 'work-items',
-        name: 'WorkItems',
-        redirect: '/work-items/list',
-        meta: { title: '工作项管理', icon: 'Ticket' },
+        path: 'team',
+        name: 'Team',
+        redirect: '/team/workspace',
+        meta: { title: '团队工作台', icon: 'User' },
         children: [
+          // 团队工作全景 - 核心一页视图
           {
-            path: '',
-            name: 'WorkItemList',
-            component: () => import('@/views/WorkItem/List.vue'),
-            meta: { title: '工作项列表' },
+            path: 'workspace',
+            name: 'TeamWorkspace',
+            component: () => import('@/views/Team/Workspace.vue'),
+            meta: { title: '团队工作全景' },
           },
           {
-            path: ':id',
+            path: 'work-items',
+            name: 'TeamWorkItems',
+            component: () => import('@/views/WorkItem/List.vue'),
+            meta: { title: '工作项管理' },
+          },
+          {
+            path: 'work-items/:id',
             name: 'WorkItemDetail',
             component: () => import('@/views/WorkItem/Detail.vue'),
             meta: { title: '工作项详情' },
+          },
+          {
+            path: 'bugs',
+            name: 'TeamBugs',
+            component: () => import('@/views/Team/Bugs.vue'),
+            meta: { title: '缺陷管理' },
+          },
+          {
+            path: 'tech-debt',
+            name: 'TeamTechDebt',
+            component: () => import('@/views/Team/TechDebt.vue'),
+            meta: { title: '技术债管理' },
+          },
+          {
+            path: 'metrics',
+            name: 'TeamMetrics',
+            component: () => import('@/views/Team/Metrics.vue'),
+            meta: { title: '团队效能' },
           },
         ],
       },
