@@ -26,6 +26,13 @@ export default defineConfig({
       '@/biz-data': path.resolve(__dirname, '../biz-data'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler', // 使用新的 Sass API，消除 deprecation 警告
+      },
+    },
+  },
   server: {
     port: 9080,
     open: true,
