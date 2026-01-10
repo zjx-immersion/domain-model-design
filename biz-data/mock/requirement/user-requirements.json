@@ -1,41 +1,332 @@
-{
-  "metadata": {
-    "version": "2.0",
-    "lastUpdate": "2025-01-07T09:10:00Z",
-    "description": "扩展的用户需求Mock数据 - 覆盖智能驾驶、智能座舱、电子电器三大领域",
-    "totalCount": 30
+[
+  {
+    "id": "UR-PARK-001",
+    "title": "用户需要一键自动泊车功能",
+    "description": "用户希望在停车场通过手机APP或车内按钮一键启动，车辆自动寻找车位并完成泊车，提升停车便利性",
+    "type": "experience",
+    "source": "customer",
+    "productId": "PROD-ADAS-FLAG",
+    "relatedProductAssetId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "businessValue": 90,
+    "marketImpact": "差异化竞争优势，提升高端市场占有率，预计提升15%销量",
+    "stakeholders": ["PM-Zhang", "SE-Li", "Marketing-Wang", "Sales-Zhao"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "用户可通过手机APP远程启动泊车",
+      "用户可通过车内按钮启动泊车",
+      "支持垂直、水平、斜列车位",
+      "泊车成功率>95%",
+      "泊车时间<3分钟"
+    ],
+    "successMetrics": [
+      {
+        "metric": "用户满意度",
+        "target": ">4.5分/5分"
+      },
+      {
+        "metric": "功能使用率",
+        "target": ">60%的用户使用"
+      },
+      {
+        "metric": "NPS评分",
+        "target": ">50"
+      }
+    ],
+    "childFeatureRequirements": ["FR-PARK-001", "FR-PARK-002", "FR-PARK-003"],
+    "status": "approved",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-02-01T00:00:00Z",
+    "createdBy": "PM-Zhang",
+    "approvedBy": "Director-Chen",
+    "approvedAt": "2024-02-01T00:00:00Z"
   },
-  "data": [
-    {"id": "UR-001", "code": "UR-001", "title": "城市NOA导航辅助", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-001", "FR-002"], "progress": 0.75},
-    {"id": "UR-002", "title": "高速NOA自动换道优化", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-003", "FR-004"], "progress": 0.65},
-    {"id": "UR-003", "title": "自动泊车功能升级", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "李四", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-005", "FR-006"], "progress": 0.15},
-    {"id": "UR-004", "title": "召唤功能实现", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能驾驶", "product": "NOA", "featureRequirements": ["FR-007"], "progress": 0.10},
-    {"id": "UR-005", "title": "感知精度提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "智能驾驶", "product": "感知系统", "featureRequirements": ["FR-008", "FR-009"], "progress": 0.55},
-    {"id": "UR-006", "title": "3D目标检测优化", "category": "性能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "智能驾驶", "product": "感知系统", "featureRequirements": ["FR-010"], "progress": 0.45},
-    {"id": "UR-007", "title": "规划决策响应时间优化", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "智能驾驶", "product": "规划决策系统", "featureRequirements": ["FR-011", "FR-012"], "progress": 0.50},
-    {"id": "UR-008", "title": "复杂场景决策能力提升", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能驾驶", "product": "规划决策系统", "featureRequirements": ["FR-013"], "progress": 0.20},
-    {"id": "UR-009", "title": "车辆控制精度提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "赵六", "productLine": "智能驾驶", "product": "控制系统", "featureRequirements": ["FR-014"], "progress": 0.60},
-    {"id": "UR-010", "title": "舒适性优化", "category": "体验需求", "priority": "P2", "status": "planning", "owner": "赵六", "productLine": "智能驾驶", "product": "控制系统", "featureRequirements": ["FR-015"], "progress": 0.10},
-    {"id": "UR-011", "title": "AI语音助手智能化升级", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-016", "FR-017", "FR-018"], "progress": 0.70},
-    {"id": "UR-012", "title": "语音识别准确率提升", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "王五", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-019"], "progress": 0.65},
-    {"id": "UR-013", "title": "多轮对话能力增强", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "李四", "productLine": "智能座舱", "product": "AI语音交互系统", "featureRequirements": ["FR-020"], "progress": 0.55},
-    {"id": "UR-014", "title": "多屏联动体验优化", "category": "体验需求", "priority": "P1", "status": "in_development", "owner": "张三", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-021", "FR-022"], "progress": 0.50},
-    {"id": "UR-015", "title": "AR-HUD导航增强", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "王五", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-023"], "progress": 0.25},
-    {"id": "UR-016", "title": "智能氛围灯情感化交互", "category": "体验需求", "priority": "P2", "status": "planning", "owner": "张三", "productLine": "智能座舱", "product": "智能显示系统", "featureRequirements": ["FR-024"], "progress": 0.15},
-    {"id": "UR-017", "title": "手势识别功能实现", "category": "功能需求", "priority": "P2", "status": "developing", "owner": "王五", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-025"], "progress": 0.40},
-    {"id": "UR-018", "title": "表情识别与情感交互", "category": "功能需求", "priority": "P2", "status": "developing", "owner": "李四", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-026"], "progress": 0.35},
-    {"id": "UR-019", "title": "多模态融合交互实现", "category": "功能需求", "priority": "P1", "status": "developing", "owner": "王五", "productLine": "智能座舱", "product": "多模态交互平台", "featureRequirements": ["FR-027"], "progress": 0.30},
-    {"id": "UR-020", "title": "中央域控制器量产上车", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "赵六", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-028", "FR-029"], "progress": 0.60},
-    {"id": "UR-021", "title": "域控通信性能优化", "category": "性能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-030"], "progress": 0.55},
-    {"id": "UR-022", "title": "系统虚拟化能力实现", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "赵六", "productLine": "电子电器架构", "product": "中央域控制器", "featureRequirements": ["FR-031"], "progress": 0.30},
-    {"id": "UR-023", "title": "SOA服务化平台上线", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "李四", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-032", "FR-033"], "progress": 0.65},
-    {"id": "UR-024", "title": "服务编排能力实现", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-034"], "progress": 0.45},
-    {"id": "UR-025", "title": "动态配置管理", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "李四", "productLine": "电子电器架构", "product": "SOA服务平台", "featureRequirements": ["FR-035"], "progress": 0.20},
-    {"id": "UR-026", "title": "全车OTA升级能力", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-036", "FR-037"], "progress": 0.70},
-    {"id": "UR-027", "title": "差分升级功能实现", "category": "功能需求", "priority": "P1", "status": "in_development", "owner": "王五", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-038"], "progress": 0.50},
-    {"id": "UR-028", "title": "OTA回滚机制", "category": "功能需求", "priority": "P0", "status": "in_development", "owner": "张三", "productLine": "电子电器架构", "product": "OTA升级系统", "featureRequirements": ["FR-039"], "progress": 0.55},
-    {"id": "UR-029", "title": "高精地图实时更新", "category": "功能需求", "priority": "P1", "status": "planning", "owner": "张三", "productLine": "基础设施", "product": "高精地图引擎", "featureRequirements": ["FR-040"], "progress": 0.25},
-    {"id": "UR-030", "title": "大规模仿真能力", "category": "功能需求", "priority": "P1", "status": "developing", "owner": "李四", "productLine": "基础设施", "product": "仿真测试平台", "featureRequirements": ["FR-041"], "progress": 0.35}
-  ]
-}
-
+  {
+    "id": "UR-NOA-001",
+    "title": "用户需要高速公路自动驾驶功能",
+    "description": "用户希望在高速公路上启用自动驾驶，包括自动跟车、自动变道、匝道通行、收费站通过等功能",
+    "type": "experience",
+    "source": "market",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "businessValue": 95,
+    "marketImpact": "核心竞争力，对标特斯拉FSD，提升品牌形象",
+    "stakeholders": ["PM-Zhang", "SE-Li", "Marketing-Wang"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "支持0-120km/h速度范围",
+      "自动跟车安全距离可调",
+      "自动变道成功率>90%",
+      "匝道通行成功率>95%",
+      "人工接管率<5次/100km"
+    ],
+    "successMetrics": [
+      {
+        "metric": "用户满意度",
+        "target": ">4.8分/5分"
+      },
+      {
+        "metric": "功能使用率",
+        "target": ">80%的高速行驶启用"
+      }
+    ],
+    "childFeatureRequirements": ["FR-NOA-001", "FR-NOA-002", "FR-NOA-003"],
+    "status": "approved",
+    "createdAt": "2023-06-01T00:00:00Z",
+    "updatedAt": "2023-07-15T00:00:00Z",
+    "createdBy": "PM-Zhang",
+    "approvedBy": "Director-Chen",
+    "approvedAt": "2023-07-15T00:00:00Z"
+  },
+  {
+    "id": "UR-ACC-001",
+    "title": "用户需要全速域自适应巡航",
+    "description": "用户希望在0-150km/h全速域范围内使用自适应巡航控制，自动跟随前车，保持安全距离",
+    "type": "experience",
+    "source": "customer",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "businessValue": 85,
+    "marketImpact": "基础ADAS功能，市场标配",
+    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "支持0-150km/h全速域",
+      "跟车距离可设置3档",
+      "加减速平顺，加速度<0.3g",
+      "前车消失后自动加速恢复设定速度"
+    ],
+    "successMetrics": [
+      {
+        "metric": "功能使用率",
+        "target": ">70%"
+      },
+      {
+        "metric": "用户满意度",
+        "target": ">4.3分/5分"
+      }
+    ],
+    "childFeatureRequirements": ["FR-ACC-001"],
+    "status": "approved",
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z",
+    "createdBy": "PM-Zhang",
+    "approvedBy": "Director-Chen",
+    "approvedAt": "2020-02-01T00:00:00Z"
+  },
+  {
+    "id": "UR-SAFETY-001",
+    "title": "满足NCAP五星安全评级要求",
+    "description": "车辆需要通过Euro NCAP和C-NCAP五星安全评级，包括AEB、LKA、BSD等主动安全功能",
+    "type": "regulatory",
+    "source": "regulation",
+    "productId": "PROD-ADAS-STD",
+    "priority": "p0",
+    "businessValue": 100,
+    "marketImpact": "法规强制要求，市场准入门槛",
+    "stakeholders": ["PM-Zhang", "SE-Li", "Compliance-Liu"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "通过Euro NCAP五星评级",
+      "通过C-NCAP五星评级",
+      "AEB功能符合Euro NCAP要求",
+      "LKA功能符合Euro NCAP要求"
+    ],
+    "successMetrics": [
+      {
+        "metric": "NCAP评分",
+        "target": "五星"
+      }
+    ],
+    "childFeatureRequirements": ["FR-AEB-001", "FR-LKA-001", "FR-BSD-001"],
+    "status": "approved",
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2023-06-01T00:00:00Z"
+  },
+  {
+    "id": "UR-IVI-001",
+    "title": "用户需要智能语音助手",
+    "description": "用户希望通过语音控制车辆功能，包括导航、音乐、空调、车窗等，提升驾驶安全性和便利性",
+    "type": "experience",
+    "source": "customer",
+    "productId": "PROD-IVI-FLAG",
+    "priority": "p1",
+    "businessValue": 80,
+    "marketImpact": "提升用户体验，增强品牌竞争力",
+    "stakeholders": ["PM-Wang", "SE-Liu"],
+    "owner": "PM-Wang",
+    "acceptanceCriteria": [
+      "支持中文普通话识别",
+      "识别准确率>96%",
+      "响应时间<300ms",
+      "支持多轮对话",
+      "支持20+常用功能控制"
+    ],
+    "successMetrics": [
+      {
+        "metric": "使用率",
+        "target": ">50%"
+      },
+      {
+        "metric": "用户满意度",
+        "target": ">4.2分/5分"
+      }
+    ],
+    "childFeatureRequirements": ["FR-VOICE-001"],
+    "status": "approved",
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "UR-OTA-001",
+    "title": "支持远程软件升级",
+    "description": "车辆需要支持FOTA和SOTA远程升级，用户可以通过手机APP或车机接收和安装升级包",
+    "type": "strategic",
+    "source": "internal",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "businessValue": 90,
+    "marketImpact": "降低售后成本，提升用户体验，支持功能迭代",
+    "stakeholders": ["PM-Zhang", "DevOps-Zhou"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "支持FOTA固件升级",
+      "支持SOTA软件升级",
+      "升级成功率>99.9%",
+      "升级失败可回滚",
+      "升级过程不影响车辆使用"
+    ],
+    "successMetrics": [
+      {
+        "metric": "升级成功率",
+        "target": ">99.9%"
+      },
+      {
+        "metric": "用户主动升级率",
+        "target": ">80%"
+      }
+    ],
+    "childFeatureRequirements": ["FR-OTA-001"],
+    "status": "approved",
+    "createdAt": "2021-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "UR-PERF-001",
+    "title": "系统性能要求",
+    "description": "系统需要满足性能指标，包括算法延迟、帧率、CPU/内存占用等",
+    "type": "strategic",
+    "source": "internal",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p1",
+    "businessValue": 75,
+    "marketImpact": "保证系统稳定性和用户体验",
+    "stakeholders": ["SE-Li", "Arch-Sun"],
+    "owner": "SE-Li",
+    "acceptanceCriteria": [
+      "感知算法延迟<100ms",
+      "决策规划延迟<50ms",
+      "控制响应延迟<30ms",
+      "CPU占用率<70%",
+      "内存占用率<80%"
+    ],
+    "successMetrics": [
+      {
+        "metric": "系统延迟",
+        "target": "<180ms端到端"
+      }
+    ],
+    "childFeatureRequirements": ["FR-PERF-001"],
+    "status": "approved",
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "UR-SEC-001",
+    "title": "网络安全要求",
+    "description": "车载系统需要满足ISO 21434网络安全标准，防御各类网络攻击",
+    "type": "regulatory",
+    "source": "regulation",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "businessValue": 100,
+    "marketImpact": "合规要求，保障用户安全",
+    "stakeholders": ["SE-Li", "Security-Wei"],
+    "owner": "SE-Li",
+    "acceptanceCriteria": [
+      "通过ISO 21434认证",
+      "防御常见网络攻击",
+      "数据加密传输和存储",
+      "安全启动和认证",
+      "入侵检测和防御"
+    ],
+    "successMetrics": [
+      {
+        "metric": "安全测试通过率",
+        "target": "100%"
+      }
+    ],
+    "childFeatureRequirements": ["FR-SEC-001"],
+    "status": "approved",
+    "createdAt": "2021-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "UR-MAP-001",
+    "title": "高精地图支持",
+    "description": "车辆需要支持高精地图，提供厘米级定位和导航能力",
+    "type": "experience",
+    "source": "market",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p1",
+    "businessValue": 70,
+    "marketImpact": "支持高级ADAS功能，提升竞争力",
+    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "支持高精地图加载和显示",
+      "定位精度<10cm",
+      "地图更新及时",
+      "覆盖高速公路和城市道路"
+    ],
+    "successMetrics": [
+      {
+        "metric": "地图覆盖率",
+        "target": ">90%高速公路"
+      }
+    ],
+    "childFeatureRequirements": ["FR-MAP-001", "FR-LOC-001"],
+    "status": "approved",
+    "createdAt": "2021-01-01T00:00:00Z",
+    "updatedAt": "2024-03-01T00:00:00Z"
+  },
+  {
+    "id": "UR-ICA-001",
+    "title": "拥堵路段智能跟车",
+    "description": "用户希望在拥堵路段启用智能跟车功能，自动跟随前车并保持车道居中",
+    "type": "experience",
+    "source": "customer",
+    "productId": "PROD-ADAS-HIGH",
+    "priority": "p1",
+    "businessValue": 75,
+    "marketImpact": "缓解驾驶疲劳，提升用户体验",
+    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "owner": "PM-Zhang",
+    "acceptanceCriteria": [
+      "支持0-60km/h速度范围",
+      "自动跟车并保持车道居中",
+      "停车后3秒内自动重启",
+      "人工接管率<3次/30km"
+    ],
+    "successMetrics": [
+      {
+        "metric": "使用率",
+        "target": ">60%拥堵路段"
+      }
+    ],
+    "childFeatureRequirements": ["FR-ICA-001"],
+    "status": "approved",
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  }
+]

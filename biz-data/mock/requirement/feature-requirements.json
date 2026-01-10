@@ -1,600 +1,199 @@
-{
-  "metadata": {
-    "version": "1.0",
-    "lastUpdate": "2025-01-07T09:15:00Z",
-    "description": "特性需求Mock数据 - 对应33个领域特性",
-    "totalCount": 60
+[
+  {
+    "id": "FR-PARK-001",
+    "title": "自动寻找车位",
+    "description": "系统需要自动检测可用车位，包括垂直、水平、斜列车位",
+    "type": "functional",
+    "category": "Parking",
+    "parentUserRequirementId": "UR-PARK-001",
+    "relatedFeatureAssetId": "FEAT-AVP-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "acceptanceCriteria": [
+      {
+        "given": "车位尺寸>2.4m宽×5.0m长",
+        "when": "启动自动泊车",
+        "then": "成功识别车位并完成泊车"
+      },
+      {
+        "given": "车位有障碍物",
+        "when": "检测车位",
+        "then": "标记为不可用并继续搜索"
+      }
+    ],
+    "performanceRequirements": {
+      "latency": "<500ms",
+      "accuracy": ">95%",
+      "reliability": ">99%"
+    },
+    "childModuleRequirements": ["MR-PARK-PER-001", "MR-PARK-PER-002"],
+    "dependencies": [],
+    "owner": "SE-Li",
+    "status": "approved",
+    "createdAt": "2024-02-01T00:00:00Z",
+    "updatedAt": "2024-02-15T00:00:00Z"
   },
-  "data": [
-    {
-      "id": "FR-001",
-      "code": "FR-001",
-      "title": "多传感器数据融合",
-      "featureId": "FEAT-001",
-      "featureName": "多传感器融合感知",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-001",
-        "MR-002",
-        "MR-003"
-      ],
-      "progress": 0.75
+  {
+    "id": "FR-PARK-002",
+    "title": "泊车路径规划",
+    "description": "系统需要规划从当前位置到目标车位的泊车路径",
+    "type": "functional",
+    "category": "Parking",
+    "parentUserRequirementId": "UR-PARK-001",
+    "relatedFeatureAssetId": "FEAT-AVP-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "acceptanceCriteria": [
+      {
+        "given": "车位位置和车辆当前位置",
+        "when": "规划泊车路径",
+        "then": "生成平滑可行的路径"
+      }
+    ],
+    "performanceRequirements": {
+      "latency": "<200ms",
+      "accuracy": ">98%"
     },
-    {
-      "id": "FR-002",
-      "code": "FR-002",
-      "title": "实时感知处理",
-      "featureId": "FEAT-001",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-004",
-        "MR-005"
-      ],
-      "progress": 0.7
+    "childModuleRequirements": ["MR-PARK-PLAN-001"],
+    "owner": "SE-Li",
+    "status": "approved",
+    "createdAt": "2024-02-01T00:00:00Z",
+    "updatedAt": "2024-02-15T00:00:00Z"
+  },
+  {
+    "id": "FR-PARK-003",
+    "title": "低速泊车控制",
+    "description": "系统需要控制车辆沿规划路径完成泊车",
+    "type": "functional",
+    "category": "Parking",
+    "parentUserRequirementId": "UR-PARK-001",
+    "relatedFeatureAssetId": "FEAT-AVP-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "acceptanceCriteria": [
+      {
+        "given": "泊车路径",
+        "when": "执行泊车控制",
+        "then": "车辆平稳跟随路径完成泊车"
+      }
+    ],
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": ">99%"
     },
-    {
-      "id": "FR-003",
-      "title": "城市路网导航",
-      "featureId": "FEAT-002",
-      "featureName": "城市NOA导航",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-006",
-        "MR-007"
-      ],
-      "progress": 0.65,
-      "code": "FR-003"
+    "childModuleRequirements": ["MR-PARK-CTRL-001"],
+    "owner": "SE-Li",
+    "status": "approved",
+    "createdAt": "2024-02-01T00:00:00Z",
+    "updatedAt": "2024-02-15T00:00:00Z"
+  },
+  {
+    "id": "FR-NOA-001",
+    "title": "高速公路自动跟车",
+    "description": "在高速公路上自动跟随前车，保持安全距离",
+    "type": "functional",
+    "category": "Highway",
+    "parentUserRequirementId": "UR-NOA-001",
+    "relatedFeatureAssetId": "FEAT-NOA-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "acceptanceCriteria": [
+      {
+        "given": "高速公路场景，前方有车",
+        "when": "启用NOA",
+        "then": "自动跟随前车并保持安全距离"
+      }
+    ],
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">99%"
     },
-    {
-      "id": "FR-004",
-      "title": "复杂路口处理",
-      "featureId": "FEAT-002",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-008"
-      ],
-      "progress": 0.6,
-      "code": "FR-004"
-    },
-    {
-      "id": "FR-005",
-      "title": "自动泊车路径规划",
-      "featureId": "FEAT-003",
-      "featureName": "自动泊车",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-009",
-        "MR-010"
-      ],
-      "progress": 0.2,
-      "code": "FR-005"
-    },
-    {
-      "id": "FR-006",
-      "title": "泊车空间识别",
-      "featureId": "FEAT-003",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-011"
-      ],
-      "progress": 0.15,
-      "code": "FR-006"
-    },
-    {
-      "id": "FR-007",
-      "title": "远程召唤控制",
-      "featureId": "FEAT-004",
-      "featureName": "召唤功能",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-012",
-        "MR-013"
-      ],
-      "progress": 0.1,
-      "code": "FR-007"
-    },
-    {
-      "id": "FR-008",
-      "title": "3D目标精确检测",
-      "featureId": "FEAT-005",
-      "featureName": "3D目标检测",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-014",
-        "MR-015"
-      ],
-      "progress": 0.55,
-      "code": "FR-008"
-    },
-    {
-      "id": "FR-009",
-      "title": "点云实时处理",
-      "featureId": "FEAT-005",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-016"
-      ],
-      "progress": 0.5,
-      "code": "FR-009"
-    },
-    {
-      "id": "FR-010",
-      "title": "语义分割算法优化",
-      "featureId": "FEAT-006",
-      "featureName": "语义分割",
-      "priority": "P1",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-017",
-        "MR-018"
-      ],
-      "progress": 0.45,
-      "code": "FR-010"
-    },
-    {
-      "id": "FR-011",
-      "title": "全局路径规划",
-      "featureId": "FEAT-007",
-      "featureName": "路径规划",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-019",
-        "MR-020"
-      ],
-      "progress": 0.5,
-      "code": "FR-011"
-    },
-    {
-      "id": "FR-012",
-      "title": "动态路径调整",
-      "featureId": "FEAT-007",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-021"
-      ],
-      "progress": 0.48,
-      "code": "FR-012"
-    },
-    {
-      "id": "FR-013",
-      "title": "智能行为决策",
-      "featureId": "FEAT-008",
-      "featureName": "行为决策",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-022",
-        "MR-023"
-      ],
-      "progress": 0.25,
-      "code": "FR-013"
-    },
-    {
-      "id": "FR-014",
-      "title": "轨迹优化算法",
-      "featureId": "FEAT-009",
-      "featureName": "轨迹优化",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-024",
-        "MR-025"
-      ],
-      "progress": 0.6,
-      "code": "FR-014"
-    },
-    {
-      "id": "FR-015",
-      "title": "纵向精确控制",
-      "featureId": "FEAT-010",
-      "featureName": "纵向控制",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "赵六",
-      "moduleRequirements": [
-        "MR-026",
-        "MR-027"
-      ],
-      "progress": 0.65,
-      "code": "FR-015"
-    },
-    {
-      "id": "FR-016",
-      "title": "横向稳定控制",
-      "featureId": "FEAT-011",
-      "featureName": "横向控制",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "赵六",
-      "moduleRequirements": [
-        "MR-028",
-        "MR-029"
-      ],
-      "progress": 0.6,
-      "code": "FR-016"
-    },
-    {
-      "id": "FR-017",
-      "title": "语音识别引擎",
-      "featureId": "FEAT-012",
-      "featureName": "智能语音识别",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-030",
-        "MR-031"
-      ],
-      "progress": 0.7,
-      "code": "FR-017"
-    },
-    {
-      "id": "FR-018",
-      "title": "噪声环境识别",
-      "featureId": "FEAT-012",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-032"
-      ],
-      "progress": 0.65,
-      "code": "FR-018"
-    },
-    {
-      "id": "FR-019",
-      "title": "语义理解能力",
-      "featureId": "FEAT-013",
-      "featureName": "语义理解与对话",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-033",
-        "MR-034"
-      ],
-      "progress": 0.6,
-      "code": "FR-019"
-    },
-    {
-      "id": "FR-020",
-      "title": "多轮对话管理",
-      "featureId": "FEAT-013",
-      "priority": "P1",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-035"
-      ],
-      "progress": 0.55,
-      "code": "FR-020"
-    },
-    {
-      "id": "FR-021",
-      "title": "智能语音合成",
-      "featureId": "FEAT-014",
-      "featureName": "智能语音合成",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-036",
-        "MR-037"
-      ],
-      "progress": 0.7,
-      "code": "FR-021"
-    },
-    {
-      "id": "FR-022",
-      "title": "多屏内容同步",
-      "featureId": "FEAT-015",
-      "featureName": "多屏联动显示",
-      "priority": "P1",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-038",
-        "MR-039"
-      ],
-      "progress": 0.5,
-      "code": "FR-022"
-    },
-    {
-      "id": "FR-023",
-      "title": "AR导航显示",
-      "featureId": "FEAT-016",
-      "featureName": "AR-HUD增强显示",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-040",
-        "MR-041"
-      ],
-      "progress": 0.25,
-      "code": "FR-023"
-    },
-    {
-      "id": "FR-024",
-      "title": "氛围灯智能联动",
-      "featureId": "FEAT-017",
-      "featureName": "智能氛围灯联动",
-      "priority": "P2",
-      "status": "planning",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-042"
-      ],
-      "progress": 0.15,
-      "code": "FR-024"
-    },
-    {
-      "id": "FR-025",
-      "title": "手势识别算法",
-      "featureId": "FEAT-018",
-      "featureName": "手势识别",
-      "priority": "P2",
-      "status": "developing",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-043",
-        "MR-044"
-      ],
-      "progress": 0.4,
-      "code": "FR-025"
-    },
-    {
-      "id": "FR-026",
-      "title": "表情情感分析",
-      "featureId": "FEAT-019",
-      "featureName": "表情识别",
-      "priority": "P2",
-      "status": "developing",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-045"
-      ],
-      "progress": 0.35,
-      "code": "FR-026"
-    },
-    {
-      "id": "FR-027",
-      "title": "多模态数据融合",
-      "featureId": "FEAT-020",
-      "featureName": "多模态融合交互",
-      "priority": "P1",
-      "status": "developing",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-046",
-        "MR-047"
-      ],
-      "progress": 0.3,
-      "code": "FR-027"
-    },
-    {
-      "id": "FR-028",
-      "title": "高性能计算平台",
-      "featureId": "FEAT-021",
-      "featureName": "高性能计算平台",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "赵六",
-      "moduleRequirements": [
-        "MR-048",
-        "MR-049"
-      ],
-      "progress": 0.6,
-      "code": "FR-028"
-    },
-    {
-      "id": "FR-029",
-      "title": "资源调度优化",
-      "featureId": "FEAT-021",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-050"
-      ],
-      "progress": 0.55,
-      "code": "FR-029"
-    },
-    {
-      "id": "FR-030",
-      "title": "域控通信协议",
-      "featureId": "FEAT-022",
-      "featureName": "域控制器通信",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-051",
-        "MR-052"
-      ],
-      "progress": 0.6,
-      "code": "FR-030"
-    },
-    {
-      "id": "FR-031",
-      "title": "系统虚拟化层",
-      "featureId": "FEAT-023",
-      "featureName": "系统虚拟化",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "赵六",
-      "moduleRequirements": [
-        "MR-053"
-      ],
-      "progress": 0.3,
-      "code": "FR-031"
-    },
-    {
-      "id": "FR-032",
-      "title": "服务注册发现机制",
-      "featureId": "FEAT-024",
-      "featureName": "服务注册与发现",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-054",
-        "MR-055"
-      ],
-      "progress": 0.65,
-      "code": "FR-032"
-    },
-    {
-      "id": "FR-033",
-      "title": "服务健康检查",
-      "featureId": "FEAT-024",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-056"
-      ],
-      "progress": 0.6,
-      "code": "FR-033"
-    },
-    {
-      "id": "FR-034",
-      "title": "服务编排引擎",
-      "featureId": "FEAT-025",
-      "featureName": "服务编排引擎",
-      "priority": "P1",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-057",
-        "MR-058"
-      ],
-      "progress": 0.45,
-      "code": "FR-034"
-    },
-    {
-      "id": "FR-035",
-      "title": "动态配置中心",
-      "featureId": "FEAT-026",
-      "featureName": "动态配置管理",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-059"
-      ],
-      "progress": 0.2,
-      "code": "FR-035"
-    },
-    {
-      "id": "FR-036",
-      "title": "OTA版本管理",
-      "featureId": "FEAT-027",
-      "featureName": "OTA升级管理",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-060",
-        "MR-061"
-      ],
-      "progress": 0.7,
-      "code": "FR-036"
-    },
-    {
-      "id": "FR-037",
-      "title": "升级任务调度",
-      "featureId": "FEAT-027",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "王五",
-      "moduleRequirements": [
-        "MR-062"
-      ],
-      "progress": 0.65,
-      "code": "FR-037"
-    },
-    {
-      "id": "FR-038",
-      "title": "差分算法实现",
-      "featureId": "FEAT-028",
-      "featureName": "差分升级",
-      "priority": "P1",
-      "status": "in_development",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-063"
-      ],
-      "progress": 0.5,
-      "code": "FR-038"
-    },
-    {
-      "id": "FR-039",
-      "title": "回滚机制实现",
-      "featureId": "FEAT-029",
-      "featureName": "回滚机制",
-      "priority": "P0",
-      "status": "in_development",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-064"
-      ],
-      "progress": 0.55,
-      "code": "FR-039"
-    },
-    {
-      "id": "FR-040",
-      "title": "实时地图更新",
-      "featureId": "FEAT-031",
-      "featureName": "实时地图更新",
-      "priority": "P1",
-      "status": "planning",
-      "owner": "张三",
-      "moduleRequirements": [
-        "MR-065"
-      ],
-      "progress": 0.25,
-      "code": "FR-040"
-    },
-    {
-      "id": "FR-041",
-      "title": "大规模场景仿真",
-      "featureId": "FEAT-032",
-      "featureName": "场景仿真引擎",
-      "priority": "P1",
-      "status": "developing",
-      "owner": "李四",
-      "moduleRequirements": [
-        "MR-066",
-        "MR-067"
-      ],
-      "progress": 0.35,
-      "code": "FR-041"
-    }
-  ]
-}
+    "childModuleRequirements": ["MR-NOA-PER-001", "MR-NOA-PLAN-001", "MR-NOA-CTRL-001"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-NOA-002",
+    "title": "自动变道",
+    "description": "系统判断时机并执行自动变道",
+    "type": "functional",
+    "category": "Highway",
+    "parentUserRequirementId": "UR-NOA-001",
+    "relatedFeatureAssetId": "FEAT-NOA-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "childModuleRequirements": ["MR-NOA-PLAN-002"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-NOA-003",
+    "title": "匝道通行",
+    "description": "自动识别匝道并完成驶入/驶出",
+    "type": "functional",
+    "category": "Highway",
+    "parentUserRequirementId": "UR-NOA-001",
+    "relatedFeatureAssetId": "FEAT-NOA-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p1",
+    "childModuleRequirements": ["MR-NOA-PLAN-003"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-ACC-001",
+    "title": "全速域自适应巡航",
+    "description": "0-150km/h全速域自适应巡航控制",
+    "type": "functional",
+    "category": "Cruise",
+    "parentUserRequirementId": "UR-ACC-001",
+    "relatedFeatureAssetId": "FEAT-ACC-001",
+    "productId": "PROD-ADAS-FLAG",
+    "priority": "p0",
+    "childModuleRequirements": ["MR-ACC-001"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-AEB-001",
+    "title": "自动紧急制动",
+    "description": "检测碰撞风险并自动制动",
+    "type": "functional",
+    "category": "Safety",
+    "parentUserRequirementId": "UR-SAFETY-001",
+    "relatedFeatureAssetId": "FEAT-AEB-001",
+    "productId": "PROD-ADAS-STD",
+    "priority": "p0",
+    "childModuleRequirements": ["MR-AEB-001"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-LKA-001",
+    "title": "车道保持辅助",
+    "description": "防止车辆偏离车道",
+    "type": "functional",
+    "category": "Safety",
+    "parentUserRequirementId": "UR-SAFETY-001",
+    "relatedFeatureAssetId": "FEAT-LKA-001",
+    "productId": "PROD-ADAS-STD",
+    "priority": "p0",
+    "childModuleRequirements": ["MR-LKA-001"],
+    "owner": "SE-Li",
+    "status": "approved"
+  },
+  {
+    "id": "FR-BSD-001",
+    "title": "盲区监测",
+    "description": "监测车辆后方盲区并预警",
+    "type": "functional",
+    "category": "Safety",
+    "parentUserRequirementId": "UR-SAFETY-001",
+    "relatedFeatureAssetId": "FEAT-BSD-001",
+    "productId": "PROD-ADAS-STD",
+    "priority": "p0",
+    "childModuleRequirements": ["MR-BSD-001"],
+    "owner": "SE-Li",
+    "status": "approved"
+  }
+]
