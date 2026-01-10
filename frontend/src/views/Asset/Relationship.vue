@@ -49,12 +49,19 @@ const loadData = async () => {
 const initGraph = (data: any) => {
   if (!graphContainer.value) return
   
+  // 转换数据格式为 Cytoscape.js 所需的格式
+  const elements = {
+    nodes: data.nodes.map((node: any) => ({
+      data: { ...node }
+    })),
+    edges: data.edges.map((edge: any) => ({
+      data: { ...edge }
+    }))
+  }
+  
   cy = cytoscape({
     container: graphContainer.value,
-    elements: {
-      nodes: data.nodes,
-      edges: data.edges
-    },
+    elements: elements,
     style: [
       {
         selector: 'node',
@@ -63,7 +70,37 @@ const initGraph = (data: any) => {
           'label': 'data(label)',
           'color': '#fff',
           'text-valign': 'center',
-          'text-halign': 'center'
+          'text-halign': 'center',
+          'width': '60px',
+          'height': '60px',
+          'font-size': '12px',
+          'text-wrap': 'wrap',
+          'text-max-width': '80px'
+        }
+      },
+      {
+        selector: 'node[type="productLine"]',
+        style: {
+          'background-color': '#67C23A',
+          'shape': 'rectangle',
+          'width': '80px',
+          'height': '40px'
+        }
+      },
+      {
+        selector: 'node[type="feature"]',
+        style: {
+          'background-color': '#409EFF',
+          'shape': 'roundrectangle'
+        }
+      },
+      {
+        selector: 'node[type="module"]',
+        style: {
+          'background-color': '#E6A23C',
+          'shape': 'ellipse',
+          'width': '50px',
+          'height': '50px'
         }
       },
       {
@@ -73,14 +110,27 @@ const initGraph = (data: any) => {
           'line-color': '#ccc',
           'target-arrow-color': '#ccc',
           'target-arrow-shape': 'triangle',
-          'curve-style': 'bezier'
+          'curve-style': 'bezier',
+          'label': 'data(label)',
+          'font-size': '10px',
+          'text-rotation': 'autorotate',
+          'text-margin-y': -10
+        }
+      },
+      {
+        selector: 'edge[type="depends"]',
+        style: {
+          'line-color': '#F56C6C',
+          'target-arrow-color': '#F56C6C',
+          'line-style': 'dashed'
         }
       }
     ],
     layout: {
       name: 'breadthfirst',
       directed: true,
-      padding: 10
+      padding: 20,
+      spacingFactor: 1.5
     }
   })
   
