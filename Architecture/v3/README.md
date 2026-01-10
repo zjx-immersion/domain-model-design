@@ -99,106 +99,61 @@ mindmap
 
 ## 🌟 核心设计亮点
 
-### 1. WorkItem统一模型 ⭐⭐⭐
+### 1. WorkItem统一模型 ⭐⭐⭐⭐⭐
 
 ```typescript
-// WorkItem是基础抽象模型
 interface WorkItem {
-  id: string
-  type: WorkItemType  // 8种类型
-  parentWorkItemId?: string  // 父子关系
-  childWorkItemIds: string[]
-  moduleId?: string
-  assignedTeamId?: string  // 自动分配
-  assignee?: string  // task类型必填
-  // ...
+  type: WorkItemType              // 8种类型统一管理
+  parentWorkItemId?: string       // 层级分解
+  moduleId?: string               // 自动分配团队
+  assignedTeamId?: string
+  assignee?: string               // task必填
 }
 
-// 8种工作项类型
-type WorkItemType = 
-  | 'task'                // 任务
-  | 'technical_task'      // 技术任务
-  | 'module_requirement'  // 模块需求
-  | 'test_task'           // 测试任务
-  | 'bug'                 // 缺陷
-  | 'tech_debt'           // 技术债
-  | 'research'            // 调研
-  | 'subtask'             // 子任务
+type WorkItemType = 'task' | 'technical_task' | 'module_requirement' 
+  | 'test_task' | 'bug' | 'tech_debt' | 'research' | 'subtask'
 ```
 
-**价值**:
-- ✅ 统一的工作项模型，易于理解和管理
-- ✅ 支持灵活的分解和组合
-- ✅ 所有工作类型平等对待
-- ✅ 完整的价值流跟踪
+**核心价值**: 统一模型 | 灵活分解 | 完整追溯
 
-### 2. 模块-团队责任绑定 ⭐⭐⭐
+### 2. 模块-团队责任绑定 ⭐⭐⭐⭐⭐
 
 ```typescript
-// 模块
-interface Module {
-  id: string
-  code: string
-  name: string
-  responsibleTeamId: string  // ⭐ 负责团队
-  // ...
-}
+Module.responsibleTeamId → Team.id
+Team.responsibleModules[] → Module.id[]
 
-// 团队
-interface Team {
-  id: string
-  code: string
-  name: string
-  responsibleModules: string[]  // ⭐ 负责的模块列表
-  // ...
-}
-
-// WorkItem自动分配
-WorkItem.moduleId → Module.responsibleTeamId → WorkItem.assignedTeamId
+WorkItem.moduleId → 自动分配 → WorkItem.assignedTeamId
 ```
 
-**价值**:
-- ✅ 明确团队责任范围
-- ✅ 自动化WorkItem分配
-- ✅ 减少协调成本
-- ✅ 利于绩效考核
+**核心价值**: 明确责任 | 自动分配 | 减少协调
 
-### 3. 端到端价值流 ⭐⭐⭐
+### 3. 端到端价值流 ⭐⭐⭐⭐⭐
 
 ```
-战略层（Strategic Layer）
-  └─ 产品线规划 → 技术路线规划 → 资产战略规划
-     ↓
-规划层（Planning Layer）
-  └─ PI Planning → Sprint Planning → 容量规划
-     ↓
-执行层（Execution Layer）
-  └─ WorkItem执行 → 代码提交 → CI/CD → 交付
+战略层: 产品线规划 → 技术路线 → 资产战略
+   ↓
+规划层: PI Planning → Sprint Planning → 容量规划
+   ↓
+执行层: WorkItem执行 → 代码提交 → CI/CD → 交付
 ```
 
-**价值**:
-- ✅ 完整的价值流可视化
-- ✅ 端到端的追溯能力
-- ✅ 瓶颈识别与优化
-- ✅ 持续改进机制
+**核心价值**: 全流程可视化 | 端到端追溯 | 瓶颈优化
 
-### 4. 领域驱动设计 ⭐⭐
+### 4. 完整数据模型 ⭐⭐⭐⭐⭐
 
 ```
-6大核心领域:
-├─ 产品域: ProductLine, Product, Version, Feature, Module
-├─ 项目域: VehicleProject, DomainProject, PIPlanning, Sprint
-├─ 团队域: Organization, Team, TeamMember
-├─ 工作项域: WorkItem (统一模型)
-├─ 资产域: AssetPlan, Asset, AssetMetric
-└─ 质量域: TestCase, Bug, TechDebt, QualityMetric
+30+核心实体 | 完整ERD图 | 追溯链路 | 完整性约束
 ```
 
-**价值**:
-- ✅ 清晰的领域边界
-- ✅ 统一的业务语言
-- ✅ 高内聚低耦合
-- ✅ 易于扩展和维护
+**核心价值**: 清晰结构 | 数据完整 | 双向追溯
+
+### 5. 可视化优先 ⭐⭐⭐⭐⭐
+
+```
+50+张Mermaid图表 | 图文并茂 | 多种图形 | 易于理解
+```
+
+**核心价值**: 直观清晰 | 降低理解成本 | 提升沟通效率
 
 ---
 
