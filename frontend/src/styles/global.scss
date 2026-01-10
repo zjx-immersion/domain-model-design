@@ -101,8 +101,9 @@ a {
 
 // 页面容器
 .page-container {
-  padding: $spacing-lg;
-  min-height: calc(100vh - 60px);
+  padding: 0;
+  width: 100%;
+  min-height: calc(100vh - 60px - 48px); // 减去header和padding
 }
 
 .page-header {

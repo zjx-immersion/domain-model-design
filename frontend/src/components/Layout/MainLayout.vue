@@ -338,9 +338,35 @@ function handleCommand(command: string) {
 }
 
 .main-content {
-  padding: 0;
+  padding: 24px;
   background: $bg-secondary;
   overflow-y: auto;
+  height: calc(100vh - 60px);
+  
+  // 确保内容区域有最大宽度，防止超宽屏幕下布局问题
+  > * {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  // 优化滚动条样式
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
 }
 </style>
 

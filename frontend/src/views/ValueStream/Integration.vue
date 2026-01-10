@@ -198,7 +198,8 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .integration-container {
-  padding: 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .stage-header {

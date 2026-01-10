@@ -619,9 +619,8 @@ const goToSprintDetail = () => {
 
 <style scoped lang="scss">
 .team-workspace {
-  max-width: 100%;
-  overflow-x: hidden;
-  padding: 20px;
+  width: 100%;
+  padding: 0;
 
   .page-header {
     margin-bottom: 20px;

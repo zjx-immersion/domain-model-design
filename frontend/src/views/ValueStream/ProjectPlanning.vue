@@ -197,7 +197,8 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .project-planning-container {
-  padding: 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .stage-header {

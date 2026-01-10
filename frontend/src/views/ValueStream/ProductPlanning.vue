@@ -258,7 +258,8 @@ const goToNextStage = () => {
 
 <style scoped lang="scss">
 .product-planning-container {
-  padding: 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .stage-header {
