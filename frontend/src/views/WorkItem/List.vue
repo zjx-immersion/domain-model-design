@@ -294,6 +294,7 @@ import {
   WORK_ITEM_STATUS_CONFIGS,
   PRIORITY_CONFIGS,
 } from '@/types/work-item'
+import workItemsDataRaw from '@/biz-data/mock/work-items.json'
 
 const router = useRouter()
 
@@ -334,12 +335,58 @@ const statistics = ref<WorkItemStatistics>({
 const fetchWorkItems = async () => {
   loading.value = true
   try {
-    // TODO: 调用实际API
-    const response = await fetch('/biz-data/mock/work-items.json')
-    const data = await response.json()
+    // 使用导入的mock数据
+    const data = workItemsDataRaw as any
     
-    workItemList.value = data.data
-    total.value = data.data.length
+    let filteredData = [...data.data]
+    
+    // 应用筛选条件
+    if (queryParams.type && queryParams.type.length > 0) {
+      filteredData = filteredData.filter((item: any) => 
+        queryParams.type.includes(item.type)
+      )
+    }
+    
+    if (queryParams.status && queryParams.status.length > 0) {
+      filteredData = filteredData.filter((item: any) => 
+        queryParams.status.includes(item.status)
+      )
+    }
+    
+    if (queryParams.priority && queryParams.priority.length > 0) {
+      filteredData = filteredData.filter((item: any) => 
+        queryParams.priority.includes(item.priority)
+      )
+    }
+    
+    if (queryParams.teamId) {
+      filteredData = filteredData.filter((item: any) => 
+        item.assignedTeamId === queryParams.teamId
+      )
+    }
+    
+    if (queryParams.sprintId) {
+      filteredData = filteredData.filter((item: any) => 
+        item.assignedSprintId === queryParams.sprintId
+      )
+    }
+    
+    if (queryParams.keyword) {
+      const keyword = queryParams.keyword.toLowerCase()
+      filteredData = filteredData.filter((item: any) => 
+        item.title.toLowerCase().includes(keyword) ||
+        item.description?.toLowerCase().includes(keyword) ||
+        item.id.toLowerCase().includes(keyword)
+      )
+    }
+    
+    total.value = filteredData.length
+    
+    // 分页
+    const start = (queryParams.page - 1) * queryParams.pageSize
+    const end = start + queryParams.pageSize
+    workItemList.value = filteredData.slice(start, end)
+    
     statistics.value = data.statistics
   } catch (error) {
     console.error('Failed to fetch work items:', error)

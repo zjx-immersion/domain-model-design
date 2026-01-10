@@ -619,6 +619,10 @@ const goToSprintDetail = () => {
 
 <style scoped lang="scss">
 .team-workspace {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 20px;
+
   .page-header {
     margin-bottom: 20px;
     display: flex;
@@ -750,6 +754,8 @@ const goToSprintDetail = () => {
 
   .work-items-section {
     .kanban-board {
+      margin: 0 -10px;
+
       .kanban-column {
         .column-header {
           display: flex;
@@ -761,6 +767,8 @@ const goToSprintDetail = () => {
         :deep(.el-card__body) {
           padding: 12px;
           min-height: 400px;
+          max-height: 600px;
+          overflow-y: auto;
         }
 
         .work-item-list {
@@ -775,10 +783,17 @@ const goToSprintDetail = () => {
           border-radius: 4px;
           cursor: pointer;
           transition: all 0.2s;
+          user-select: none;
 
           &:hover {
             border-color: #409EFF;
             box-shadow: 0 2px 8px rgba(64, 158, 255, 0.2);
+          }
+
+          &:focus,
+          &:active {
+            outline: none;
+            border-color: #409EFF;
           }
 
           .item-header {
