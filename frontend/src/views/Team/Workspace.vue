@@ -310,9 +310,9 @@ import draggable from 'vuedraggable'
 import dayjs from 'dayjs'
 
 // 导入数据
-import teamsDataRaw from '@/biz-data/mock/team/teams.json'
+import teamsDataRaw from '@/biz-data/mock/teams.json'
 import sprintsDataRaw from '@/biz-data/mock/sprint/sprints.json'
-import workItemsDataRaw from '@/biz-data/mock/work-item/work-items.json'
+import workItemsDataRaw from '@/biz-data/mock/work-items.json'
 import usersDataRaw from '@/biz-data/mock/users/users.json'
 
 const router = useRouter()
