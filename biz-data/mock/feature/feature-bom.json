@@ -1,0 +1,285 @@
+[
+  {
+    "id": "BOM-FLAG-AVP",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-AVP-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10,
+    "versionConstraint": ">=1.5.0",
+    "requiresLicense": true,
+    "licenseType": "OTA_SUBSCRIPTION",
+    "variantRules": [
+      {
+        "condition": "region === 'CN'",
+        "action": "include",
+        "reason": "中国市场标配"
+      }
+    ],
+    "configurationParameters": {
+      "maxParkingAttempts": 3,
+      "supportedSpotTypes": ["vertical", "horizontal", "diagonal"]
+    }
+  },
+  {
+    "id": "BOM-FLAG-NOA",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-NOA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-ACC",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-ACC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-LKA",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-LKA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-AEB",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-AEB-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-FUSION",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-PERC-FUSION",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-MAP",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-MAP-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-LOC",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-LOC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-USS",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-USS-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-CAM",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-CAM-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-LIDAR",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-LIDAR-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-RADAR",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-RADAR-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-BSD",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-BSD-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 8
+  },
+  {
+    "id": "BOM-FLAG-LCC",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-LCC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-ICA",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-ICA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-FLAG-VOICE",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-VOICE-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 7
+  },
+  {
+    "id": "BOM-FLAG-NAV",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-NAV-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 7
+  },
+  {
+    "id": "BOM-FLAG-OTA",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-OTA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-FLAG-SEC",
+    "productId": "PROD-ADAS-FLAG",
+    "featureId": "FEAT-CYBERSEC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-HIGH-AVP",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-AVP-001",
+    "isStandard": false,
+    "isOptional": true,
+    "isDefault": false,
+    "priority": 8,
+    "variantRules": [
+      {
+        "condition": "vehiclePrice > 300000",
+        "action": "include",
+        "reason": "仅30万以上车型"
+      }
+    ]
+  },
+  {
+    "id": "BOM-HIGH-ACC",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-ACC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-HIGH-LKA",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-LKA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-HIGH-AEB",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-AEB-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-HIGH-BSD",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-BSD-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 8
+  },
+  {
+    "id": "BOM-HIGH-LCC",
+    "productId": "PROD-ADAS-HIGH",
+    "featureId": "FEAT-LCC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 9
+  },
+  {
+    "id": "BOM-STD-ACC",
+    "productId": "PROD-ADAS-STD",
+    "featureId": "FEAT-ACC-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-STD-LKA",
+    "productId": "PROD-ADAS-STD",
+    "featureId": "FEAT-LKA-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-STD-AEB",
+    "productId": "PROD-ADAS-STD",
+    "featureId": "FEAT-AEB-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 10
+  },
+  {
+    "id": "BOM-STD-BSD",
+    "productId": "PROD-ADAS-STD",
+    "featureId": "FEAT-BSD-001",
+    "isStandard": true,
+    "isOptional": false,
+    "isDefault": true,
+    "priority": 8
+  }
+]
+

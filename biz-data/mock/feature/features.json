@@ -1,0 +1,904 @@
+[
+  {
+    "id": "FEAT-AVP-001",
+    "code": "AVP",
+    "name": "自动代客泊车",
+    "nameEn": "Automated Valet Parking",
+    "version": "1.5.0",
+    "description": "自动寻找车位并完成泊车，支持垂直、水平、斜列车位",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "high",
+    "estimatedStoryPoints": 80,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-MAP-001",
+        "dependencyType": "require",
+        "reason": "需要高精地图支持"
+      },
+      {
+        "featureId": "FEAT-USS-001",
+        "dependencyType": "require",
+        "reason": "需要超声波雷达"
+      }
+    ],
+    "conflicts": ["FEAT-MANUAL-PARK"],
+    "moduleIds": ["MOD-PARK-PER-001", "MOD-PARK-PLAN-001", "MOD-PARK-CTRL-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["超声波雷达×12", "摄像头×4"],
+      "computePower": "20 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<500ms",
+      "accuracy": ">95%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 5,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001"],
+    "owner": "Zhang San",
+    "ownerTeam": "TEAM-PARKING",
+    "status": "active",
+    "maturityLevel": "ga",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "releaseDate": "2024-01-15T00:00:00Z",
+        "changes": "初始版本，支持水平车位",
+        "status": "released"
+      },
+      {
+        "version": "1.5.0",
+        "releaseDate": "2024-06-20T00:00:00Z",
+        "changes": "新增垂直和斜列车位支持",
+        "status": "released"
+      }
+    ],
+    "relatedRequirements": ["FR-PARK-001", "FR-PARK-002"],
+    "licenseCost": 50000,
+    "developmentCost": 800000,
+    "maintenanceCost": 100000,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-06-20T00:00:00Z",
+    "createdBy": "admin",
+    "updatedBy": "Zhang San"
+  },
+  {
+    "id": "FEAT-NOA-001",
+    "code": "NOA",
+    "name": "高速NOA领航辅助",
+    "nameEn": "Navigate on Autopilot",
+    "version": "2.0.0",
+    "description": "高速公路自动驾驶，支持自动变道、匝道通行、收费站通过",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "high",
+    "estimatedStoryPoints": 120,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-PERC-FUSION",
+        "dependencyType": "require",
+        "reason": "需要融合感知"
+      },
+      {
+        "featureId": "FEAT-MAP-001",
+        "dependencyType": "require",
+        "reason": "需要高精地图"
+      },
+      {
+        "featureId": "FEAT-LOC-001",
+        "dependencyType": "require",
+        "reason": "需要高精定位"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001", "MOD-PER-LIDAR-001", "MOD-PLAN-001", "MOD-CTRL-LONG-001", "MOD-CTRL-LAT-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×8", "激光雷达×3", "毫米波雷达×5"],
+      "computePower": "254 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">99%"
+    },
+    "safetyLevel": "asil_d",
+    "reuseCount": 3,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001"],
+    "owner": "Li Si",
+    "ownerTeam": "TEAM-ADAS",
+    "status": "active",
+    "maturityLevel": "ga",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "releaseDate": "2023-06-01T00:00:00Z",
+        "changes": "初始版本",
+        "status": "released"
+      },
+      {
+        "version": "2.0.0",
+        "releaseDate": "2024-08-01T00:00:00Z",
+        "changes": "新增自动变道和匝道功能",
+        "status": "released"
+      }
+    ],
+    "relatedRequirements": ["FR-NOA-001", "FR-NOA-002", "FR-NOA-003"],
+    "licenseCost": 100000,
+    "developmentCost": 2000000,
+    "maintenanceCost": 300000,
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-08-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-ACC-001",
+    "code": "ACC",
+    "name": "自适应巡航控制",
+    "nameEn": "Adaptive Cruise Control",
+    "version": "3.0.0",
+    "description": "全速域自适应巡航，0-150km/h",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 50,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-RADAR-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-RADAR-001", "MOD-CTRL-LONG-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "sensors": ["毫米波雷达×3"],
+      "computePower": "5 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": ">98%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001", "PROD-AEB-001", "PROD-BSD-001", "PROD-LKA-001"],
+    "owner": "Wang Wu",
+    "ownerTeam": "TEAM-CONTROL",
+    "status": "active",
+    "maturityLevel": "mature",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "releaseDate": "2020-01-01T00:00:00Z",
+        "changes": "初始版本，30-120km/h",
+        "status": "released"
+      },
+      {
+        "version": "2.0.0",
+        "releaseDate": "2022-06-01T00:00:00Z",
+        "changes": "扩展到0-150km/h全速域",
+        "status": "released"
+      },
+      {
+        "version": "3.0.0",
+        "releaseDate": "2024-01-01T00:00:00Z",
+        "changes": "优化舒适性和响应速度",
+        "status": "released"
+      }
+    ],
+    "relatedRequirements": ["FR-ACC-001"],
+    "licenseCost": 20000,
+    "developmentCost": 300000,
+    "maintenanceCost": 50000,
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-LKA-001",
+    "code": "LKA",
+    "name": "车道保持辅助",
+    "nameEn": "Lane Keeping Assist",
+    "version": "2.5.0",
+    "description": "车道保持辅助，防止车辆偏离车道",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "low",
+    "estimatedStoryPoints": 30,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [
+      {
+        "featureId": "FEAT-CAM-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001", "MOD-CTRL-LAT-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M", "PLT-SA8295"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×1"],
+      "computePower": "2 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<30ms",
+      "accuracy": ">96%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-LCC-001", "PROD-LKA-001", "PROD-AEB-001", "PROD-BSD-001", "PROD-AVP-001"],
+    "owner": "Zhao Liu",
+    "ownerTeam": "TEAM-CONTROL",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-LKA-001"],
+    "licenseCost": 10000,
+    "developmentCost": 200000,
+    "maintenanceCost": 30000,
+    "createdAt": "2020-06-01T00:00:00Z",
+    "updatedAt": "2023-12-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-AEB-001",
+    "code": "AEB",
+    "name": "自动紧急制动",
+    "nameEn": "Automatic Emergency Braking",
+    "version": "2.0.0",
+    "description": "检测前方碰撞风险并自动制动",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 40,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [
+      {
+        "featureId": "FEAT-RADAR-001",
+        "dependencyType": "require"
+      },
+      {
+        "featureId": "FEAT-CAM-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001", "MOD-PER-RADAR-001", "MOD-CTRL-LONG-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×1", "毫米波雷达×1"],
+      "computePower": "5 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": ">99.5%"
+    },
+    "safetyLevel": "asil_d",
+    "reuseCount": 8,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-LCC-001", "PROD-AEB-001", "PROD-AVP-001"],
+    "owner": "Sun Qi",
+    "ownerTeam": "TEAM-SAFETY",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-AEB-001"],
+    "licenseCost": 15000,
+    "developmentCost": 400000,
+    "maintenanceCost": 60000,
+    "createdAt": "2020-03-01T00:00:00Z",
+    "updatedAt": "2023-09-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-PERC-FUSION",
+    "code": "PERC_FUSION",
+    "name": "多传感器融合感知",
+    "version": "1.0.0",
+    "description": "融合摄像头、激光雷达、毫米波雷达的感知结果",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "high",
+    "estimatedStoryPoints": 100,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-CAM-001",
+        "dependencyType": "require"
+      },
+      {
+        "featureId": "FEAT-LIDAR-001",
+        "dependencyType": "optional"
+      },
+      {
+        "featureId": "FEAT-RADAR-001",
+        "dependencyType": "optional"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-FUSION-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×8", "激光雷达×3", "毫米波雷达×5"],
+      "computePower": "100 TOPS",
+      "memory": "8GB"
+    },
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">98%"
+    },
+    "safetyLevel": "asil_c",
+    "reuseCount": 4,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001"],
+    "owner": "Zhou Ba",
+    "ownerTeam": "TEAM-PERCEPTION",
+    "status": "active",
+    "maturityLevel": "beta",
+    "relatedRequirements": ["FR-PERC-001"],
+    "licenseCost": 80000,
+    "developmentCost": 1500000,
+    "maintenanceCost": 200000,
+    "createdAt": "2023-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-MAP-001",
+    "code": "HD_MAP",
+    "name": "高精地图",
+    "version": "3.0.0",
+    "description": "厘米级高精地图支持",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "medium",
+    "estimatedStoryPoints": 60,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-MAP-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "computePower": "5 TOPS",
+      "memory": "2GB"
+    },
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": "10cm"
+    },
+    "safetyLevel": "qm",
+    "reuseCount": 6,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001"],
+    "owner": "Wu Jiu",
+    "ownerTeam": "TEAM-LOCALIZATION",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-MAP-001"],
+    "licenseCost": 40000,
+    "developmentCost": 600000,
+    "maintenanceCost": 100000,
+    "createdAt": "2021-01-01T00:00:00Z",
+    "updatedAt": "2024-03-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-LOC-001",
+    "code": "POSITIONING",
+    "name": "高精定位",
+    "version": "2.0.0",
+    "description": "GNSS+IMU+视觉SLAM融合定位",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "medium",
+    "estimatedStoryPoints": 50,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-MAP-001",
+        "dependencyType": "optional"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-LOC-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["GNSS×2", "IMU×1"],
+      "computePower": "10 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<20ms",
+      "accuracy": "10cm"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 5,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001"],
+    "owner": "Zheng Shi",
+    "ownerTeam": "TEAM-LOCALIZATION",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-LOC-001"],
+    "licenseCost": 30000,
+    "developmentCost": 500000,
+    "maintenanceCost": 80000,
+    "createdAt": "2021-06-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-USS-001",
+    "code": "USS",
+    "name": "超声波雷达",
+    "version": "1.0.0",
+    "description": "12个超声波雷达近距离障碍物检测",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "low",
+    "estimatedStoryPoints": 20,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-USS-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M", "PLT-SA8295"],
+    "hardwareRequirements": {
+      "sensors": ["超声波雷达×12"],
+      "computePower": "1 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<10ms",
+      "accuracy": ">95%"
+    },
+    "safetyLevel": "qm",
+    "reuseCount": 8,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-AVP-001", "PROD-ICA-001", "PROD-BSD-001", "PROD-LKA-001", "PROD-AEB-001"],
+    "owner": "Qian Shiyi",
+    "ownerTeam": "TEAM-PERCEPTION",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-USS-001"],
+    "licenseCost": 5000,
+    "developmentCost": 100000,
+    "maintenanceCost": 20000,
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2023-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-CAM-001",
+    "code": "CAMERA",
+    "name": "摄像头感知",
+    "version": "4.0.0",
+    "description": "多目摄像头360度环视",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 60,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×8"],
+      "computePower": "50 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">97%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001", "PROD-AEB-001", "PROD-BSD-001", "PROD-LKA-001"],
+    "owner": "Sun Shier",
+    "ownerTeam": "TEAM-PERCEPTION",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-CAM-001"],
+    "licenseCost": 25000,
+    "developmentCost": 800000,
+    "maintenanceCost": 120000,
+    "createdAt": "2019-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-LIDAR-001",
+    "code": "LIDAR",
+    "name": "激光雷达感知",
+    "version": "2.0.0",
+    "description": "3个激光雷达3D点云感知",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "high",
+    "estimatedStoryPoints": 80,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-LIDAR-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["激光雷达×3"],
+      "computePower": "80 TOPS",
+      "memory": "4GB"
+    },
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">98%"
+    },
+    "safetyLevel": "asil_c",
+    "reuseCount": 3,
+    "products": ["PROD-ADAS-FLAG", "PROD-NOA-001", "PROD-ICA-001"],
+    "owner": "Li Shisan",
+    "ownerTeam": "TEAM-PERCEPTION",
+    "status": "active",
+    "maturityLevel": "beta",
+    "relatedRequirements": ["FR-LIDAR-001"],
+    "licenseCost": 60000,
+    "developmentCost": 1200000,
+    "maintenanceCost": 180000,
+    "createdAt": "2022-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-RADAR-001",
+    "code": "RADAR",
+    "name": "毫米波雷达感知",
+    "version": "3.0.0",
+    "description": "5个毫米波雷达远距离目标检测",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 50,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-RADAR-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "sensors": ["毫米波雷达×5"],
+      "computePower": "10 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": ">96%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001", "PROD-AEB-001", "PROD-BSD-001", "PROD-LKA-001"],
+    "owner": "Zhou Shisi",
+    "ownerTeam": "TEAM-PERCEPTION",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-RADAR-001"],
+    "licenseCost": 18000,
+    "developmentCost": 400000,
+    "maintenanceCost": 70000,
+    "createdAt": "2019-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-BSD-001",
+    "code": "BSD",
+    "name": "盲区监测",
+    "version": "1.5.0",
+    "description": "后方盲区车辆监测和预警",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "low",
+    "estimatedStoryPoints": 25,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [
+      {
+        "featureId": "FEAT-RADAR-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-RADAR-001", "MOD-WARNING-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M", "PLT-SA8295"],
+    "hardwareRequirements": {
+      "sensors": ["毫米波雷达×2"],
+      "computePower": "2 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<30ms",
+      "accuracy": ">95%"
+    },
+    "safetyLevel": "asil_a",
+    "reuseCount": 8,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001", "PROD-BSD-001", "PROD-LKA-001"],
+    "owner": "Wu Shiwu",
+    "ownerTeam": "TEAM-SAFETY",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-BSD-001"],
+    "licenseCost": 8000,
+    "developmentCost": 150000,
+    "maintenanceCost": 30000,
+    "createdAt": "2020-06-01T00:00:00Z",
+    "updatedAt": "2023-12-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-LCC-001",
+    "code": "LCC",
+    "name": "车道居中控制",
+    "version": "2.0.0",
+    "description": "保持车辆在车道中央行驶",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 40,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-CAM-001",
+        "dependencyType": "require"
+      },
+      {
+        "featureId": "FEAT-LKA-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001", "MOD-CTRL-LAT-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-J6M"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×1"],
+      "computePower": "5 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<50ms",
+      "accuracy": ">97%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 7,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001", "PROD-LCC-001", "PROD-AEB-001", "PROD-LKA-001"],
+    "owner": "Zheng Shiliu",
+    "ownerTeam": "TEAM-CONTROL",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-LCC-001"],
+    "licenseCost": 12000,
+    "developmentCost": 250000,
+    "maintenanceCost": 40000,
+    "createdAt": "2021-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-ICA-001",
+    "code": "ICA",
+    "name": "智能巡航辅助",
+    "version": "1.0.0",
+    "description": "拥堵路段智能跟车和车道居中",
+    "type": "functional",
+    "domain": "ADAS",
+    "category": "variant",
+    "complexity": "high",
+    "estimatedStoryPoints": 70,
+    "isStandard": false,
+    "isOptional": true,
+    "isConfigurable": true,
+    "dependencies": [
+      {
+        "featureId": "FEAT-ACC-001",
+        "dependencyType": "require"
+      },
+      {
+        "featureId": "FEAT-LCC-001",
+        "dependencyType": "require"
+      }
+    ],
+    "conflicts": [],
+    "moduleIds": ["MOD-PER-CAM-001", "MOD-PER-RADAR-001", "MOD-PLAN-001", "MOD-CTRL-LONG-001", "MOD-CTRL-LAT-001"],
+    "platformRequirements": ["PLT-ORIN-X"],
+    "hardwareRequirements": {
+      "sensors": ["摄像头×4", "毫米波雷达×3"],
+      "computePower": "30 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<100ms",
+      "accuracy": ">98%"
+    },
+    "safetyLevel": "asil_c",
+    "reuseCount": 4,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001", "PROD-ICA-001"],
+    "owner": "Wang Shiqi",
+    "ownerTeam": "TEAM-ADAS",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-ICA-001"],
+    "licenseCost": 35000,
+    "developmentCost": 700000,
+    "maintenanceCost": 110000,
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-VOICE-001",
+    "code": "VOICE_AI",
+    "name": "AI语音助手",
+    "version": "3.0.0",
+    "description": "智能语音交互和控制",
+    "type": "functional",
+    "domain": "IVI",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 55,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-IVI-VOICE-001"],
+    "platformRequirements": ["PLT-SA8295"],
+    "hardwareRequirements": {
+      "sensors": ["麦克风阵列×4"],
+      "computePower": "10 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<300ms",
+      "accuracy": ">96%"
+    },
+    "safetyLevel": "qm",
+    "reuseCount": 6,
+    "products": ["PROD-IVI-FLAG", "PROD-IVI-HIGH", "PROD-IVI-STD", "PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001"],
+    "owner": "Feng Shiba",
+    "ownerTeam": "TEAM-IVI",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-VOICE-001"],
+    "licenseCost": 22000,
+    "developmentCost": 550000,
+    "maintenanceCost": 90000,
+    "createdAt": "2020-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-NAV-001",
+    "code": "NAVIGATION",
+    "name": "智能导航",
+    "version": "4.0.0",
+    "description": "实时路况导航和路径规划",
+    "type": "functional",
+    "domain": "IVI",
+    "category": "common",
+    "complexity": "medium",
+    "estimatedStoryPoints": 50,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-IVI-NAV-001"],
+    "platformRequirements": ["PLT-SA8295"],
+    "hardwareRequirements": {
+      "computePower": "8 TOPS",
+      "memory": "2GB"
+    },
+    "performanceRequirements": {
+      "latency": "<500ms",
+      "accuracy": ">98%"
+    },
+    "safetyLevel": "qm",
+    "reuseCount": 6,
+    "products": ["PROD-IVI-FLAG", "PROD-IVI-HIGH", "PROD-IVI-STD", "PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001"],
+    "owner": "Chen Shijiu",
+    "ownerTeam": "TEAM-IVI",
+    "status": "active",
+    "maturityLevel": "mature",
+    "relatedRequirements": ["FR-NAV-001"],
+    "licenseCost": 18000,
+    "developmentCost": 500000,
+    "maintenanceCost": 80000,
+    "createdAt": "2019-01-01T00:00:00Z",
+    "updatedAt": "2024-03-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-OTA-001",
+    "code": "OTA",
+    "name": "空中升级",
+    "version": "2.0.0",
+    "description": "FOTA和SOTA远程升级",
+    "type": "non_functional",
+    "domain": "Platform",
+    "category": "common",
+    "complexity": "high",
+    "estimatedStoryPoints": 90,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": true,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PLAT-OTA-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-SA8295"],
+    "hardwareRequirements": {
+      "computePower": "5 TOPS",
+      "storage": "10GB"
+    },
+    "performanceRequirements": {
+      "reliability": ">99.9%"
+    },
+    "safetyLevel": "asil_b",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-IVI-FLAG", "PROD-IVI-HIGH", "PROD-IVI-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001"],
+    "owner": "Chu Ershi",
+    "ownerTeam": "TEAM-PLATFORM",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-OTA-001"],
+    "licenseCost": 28000,
+    "developmentCost": 900000,
+    "maintenanceCost": 150000,
+    "createdAt": "2021-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "FEAT-CYBERSEC-001",
+    "code": "CYBERSEC",
+    "name": "网络安全",
+    "version": "1.5.0",
+    "description": "车载网络安全防护",
+    "type": "non_functional",
+    "domain": "Platform",
+    "category": "common",
+    "complexity": "high",
+    "estimatedStoryPoints": 85,
+    "isStandard": true,
+    "isOptional": false,
+    "isConfigurable": false,
+    "dependencies": [],
+    "conflicts": [],
+    "moduleIds": ["MOD-PLAT-SEC-001"],
+    "platformRequirements": ["PLT-ORIN-X", "PLT-SA8295"],
+    "hardwareRequirements": {
+      "computePower": "5 TOPS"
+    },
+    "performanceRequirements": {
+      "latency": "<10ms"
+    },
+    "safetyLevel": "asil_d",
+    "reuseCount": 10,
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-ADAS-STD", "PROD-IVI-FLAG", "PROD-IVI-HIGH", "PROD-IVI-STD", "PROD-NOA-001", "PROD-ICA-001", "PROD-AVP-001", "PROD-LCC-001"],
+    "owner": "Wei Ershiyi",
+    "ownerTeam": "TEAM-SECURITY",
+    "status": "active",
+    "maturityLevel": "ga",
+    "relatedRequirements": ["FR-SEC-001"],
+    "licenseCost": 32000,
+    "developmentCost": 850000,
+    "maintenanceCost": 140000,
+    "createdAt": "2021-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  }
+]
+

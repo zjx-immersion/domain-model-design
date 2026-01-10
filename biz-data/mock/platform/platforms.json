@@ -1,0 +1,359 @@
+[
+  {
+    "id": "PLT-ORIN-X",
+    "code": "ORIN-X",
+    "name": "NVIDIA Orin-X",
+    "nameEn": "NVIDIA Orin-X",
+    "version": "1.0",
+    "description": "NVIDIA Drive Orin-X 智能驾驶芯片",
+    "type": "hardware",
+    "category": "soc",
+    "hardwareSpecs": {
+      "architecture": "ARM64",
+      "cpu": "12-core ARM Cortex-A78AE",
+      "gpu": "2048-core Ampere GPU",
+      "npu": "DLA×2 + PVA×2",
+      "computePower": "254 TOPS",
+      "memory": "32GB LPDDR5",
+      "storage": "64GB eMMC",
+      "interfaces": ["PCIe Gen4", "Gigabit Ethernet", "CAN FD", "FlexRay"]
+    },
+    "compatibility": {
+      "requiredPlatforms": [],
+      "supportedPlatforms": ["PLT-QNX-7.1", "PLT-LINUX-5.10"]
+    },
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH", "PROD-NOA-001"],
+    "modules": ["MOD-PER-CAM-001", "MOD-PER-LIDAR-001", "MOD-PLAN-001"],
+    "vendor": "NVIDIA",
+    "vendorContact": "nvidia-auto@nvidia.com",
+    "supportContact": "support@nvidia.com",
+    "status": "active",
+    "unitCost": 800,
+    "benchmarks": {
+      "int8": 2000,
+      "fp16": 254,
+      "fp32": 127
+    },
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-J6M",
+    "code": "J6M",
+    "name": "Horizon Journey 6M",
+    "nameEn": "Horizon Journey 6M",
+    "version": "1.0",
+    "description": "地平线征程6M智能驾驶芯片",
+    "type": "hardware",
+    "category": "soc",
+    "hardwareSpecs": {
+      "architecture": "ARM64",
+      "cpu": "8-core ARM Cortex-A78",
+      "gpu": "Mali-G78",
+      "npu": "BPU×2",
+      "computePower": "128 TOPS",
+      "memory": "16GB LPDDR5",
+      "storage": "32GB eMMC",
+      "interfaces": ["PCIe Gen3", "Ethernet", "CAN FD"]
+    },
+    "compatibility": {
+      "requiredPlatforms": [],
+      "supportedPlatforms": ["PLT-LINUX-5.10", "PLT-QNX-7.1"]
+    },
+    "products": ["PROD-ADAS-HIGH", "PROD-ADAS-STD"],
+    "modules": ["MOD-PER-CAM-001", "MOD-PER-RADAR-001"],
+    "vendor": "Horizon Robotics",
+    "vendorContact": "auto@horizon.ai",
+    "supportContact": "support@horizon.ai",
+    "status": "active",
+    "unitCost": 400,
+    "benchmarks": {
+      "int8": 1000,
+      "fp16": 128,
+      "fp32": 64
+    },
+    "createdAt": "2023-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-SA8295",
+    "code": "SA8295",
+    "name": "Qualcomm Snapdragon Ride",
+    "nameEn": "Qualcomm Snapdragon Ride SA8295P",
+    "version": "1.0",
+    "description": "高通骁龙SA8295P座舱芯片",
+    "type": "hardware",
+    "category": "soc",
+    "hardwareSpecs": {
+      "architecture": "ARM64",
+      "cpu": "8-core Kryo CPU",
+      "gpu": "Adreno GPU",
+      "npu": "Hexagon DSP",
+      "computePower": "30 TOPS",
+      "memory": "16GB LPDDR5",
+      "storage": "128GB UFS",
+      "interfaces": ["PCIe", "USB 3.2", "Ethernet", "CAN"]
+    },
+    "compatibility": {
+      "requiredPlatforms": [],
+      "supportedPlatforms": ["PLT-ANDROID-12", "PLT-LINUX-5.10"]
+    },
+    "products": ["PROD-IVI-FLAG", "PROD-IVI-HIGH"],
+    "modules": ["MOD-IVI-VOICE-001", "MOD-IVI-NAV-001"],
+    "vendor": "Qualcomm",
+    "vendorContact": "automotive@qualcomm.com",
+    "supportContact": "support@qualcomm.com",
+    "status": "active",
+    "unitCost": 350,
+    "benchmarks": {
+      "int8": 300,
+      "fp16": 30
+    },
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-QNX-7.1",
+    "code": "QNX-7.1",
+    "name": "QNX 7.1",
+    "nameEn": "QNX RTOS 7.1",
+    "version": "7.1",
+    "description": "BlackBerry QNX实时操作系统",
+    "type": "software",
+    "category": "os",
+    "softwareSpecs": {
+      "os": "QNX",
+      "osVersion": "7.1",
+      "kernel": "QNX Neutrino RTOS",
+      "runtime": "POSIX, C++17",
+      "libraries": ["QNX Momentics", "QNX CAR Platform"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-ORIN-X", "PLT-J6M"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH"],
+    "modules": ["MOD-PER-CAM-001", "MOD-CTRL-LONG-001"],
+    "vendor": "BlackBerry QNX",
+    "vendorContact": "qnx@blackberry.com",
+    "supportContact": "qnx-support@blackberry.com",
+    "status": "active",
+    "licenseCost": 50000,
+    "createdAt": "2022-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-LINUX-5.10",
+    "code": "LINUX-5.10",
+    "name": "Linux 5.10",
+    "nameEn": "Linux Kernel 5.10",
+    "version": "5.10",
+    "description": "Linux内核5.10 LTS版本",
+    "type": "software",
+    "category": "os",
+    "softwareSpecs": {
+      "os": "Linux",
+      "osVersion": "5.10 LTS",
+      "kernel": "Linux 5.10",
+      "runtime": "glibc 2.31, C++17, Python 3.9",
+      "libraries": ["systemd", "dbus", "opencv"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-ORIN-X", "PLT-J6M", "PLT-SA8295"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-ADAS-HIGH", "PROD-IVI-HIGH"],
+    "modules": ["MOD-PLAN-001", "MOD-IVI-VOICE-001"],
+    "vendor": "Linux Foundation",
+    "status": "active",
+    "licenseCost": 0,
+    "createdAt": "2020-12-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-ANDROID-12",
+    "code": "ANDROID-12",
+    "name": "Android Automotive OS 12",
+    "nameEn": "Android Automotive OS 12",
+    "version": "12",
+    "description": "Android Automotive OS 12",
+    "type": "software",
+    "category": "os",
+    "softwareSpecs": {
+      "os": "Android",
+      "osVersion": "12",
+      "kernel": "Linux 5.10",
+      "runtime": "Java 11, Kotlin 1.6, C++17",
+      "libraries": ["Android SDK", "Android NDK"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-SA8295"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-IVI-FLAG", "PROD-IVI-HIGH"],
+    "modules": ["MOD-IVI-VOICE-001", "MOD-IVI-NAV-001"],
+    "vendor": "Google",
+    "status": "active",
+    "licenseCost": 0,
+    "createdAt": "2021-10-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-ROS2-FOXY",
+    "code": "ROS2-FOXY",
+    "name": "ROS 2 Foxy",
+    "nameEn": "Robot Operating System 2 Foxy Fitzroy",
+    "version": "Foxy",
+    "description": "ROS 2 Foxy Fitzroy中间件",
+    "type": "software",
+    "category": "middleware",
+    "softwareSpecs": {
+      "os": "Linux",
+      "osVersion": "Ubuntu 20.04",
+      "runtime": "Python 3.8, C++17",
+      "libraries": ["rclcpp", "rclpy", "tf2", "navigation2"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-LINUX-5.10"],
+      "requiredPlatforms": ["PLT-LINUX-5.10"]
+    },
+    "products": ["PROD-ADAS-HIGH"],
+    "modules": ["MOD-PLAN-001"],
+    "vendor": "Open Robotics",
+    "status": "active",
+    "licenseCost": 0,
+    "createdAt": "2020-06-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-AUTOSAR-CP",
+    "code": "AUTOSAR-CP",
+    "name": "AUTOSAR Classic Platform",
+    "nameEn": "AUTOSAR Classic Platform R20-11",
+    "version": "R20-11",
+    "description": "AUTOSAR经典平台",
+    "type": "software",
+    "category": "middleware",
+    "softwareSpecs": {
+      "os": "QNX / RTOS",
+      "runtime": "C++14",
+      "libraries": ["COM", "DEM", "NVM", "DCM"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-QNX-7.1"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-ADAS-FLAG"],
+    "modules": ["MOD-CTRL-LONG-001", "MOD-CTRL-LAT-001"],
+    "vendor": "AUTOSAR",
+    "status": "active",
+    "licenseCost": 30000,
+    "createdAt": "2020-11-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-AUTOSAR-AP",
+    "code": "AUTOSAR-AP",
+    "name": "AUTOSAR Adaptive Platform",
+    "nameEn": "AUTOSAR Adaptive Platform R21-11",
+    "version": "R21-11",
+    "description": "AUTOSAR自适应平台",
+    "type": "software",
+    "category": "middleware",
+    "softwareSpecs": {
+      "os": "Linux / QNX",
+      "runtime": "C++17",
+      "libraries": ["ara::com", "ara::exec", "ara::log"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-ORIN-X", "PLT-LINUX-5.10"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-ADAS-FLAG", "PROD-ADAS-HIGH"],
+    "modules": ["MOD-PER-CAM-001", "MOD-PLAN-001"],
+    "vendor": "AUTOSAR",
+    "status": "active",
+    "licenseCost": 50000,
+    "createdAt": "2021-11-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-DDS",
+    "code": "DDS",
+    "name": "Data Distribution Service",
+    "nameEn": "OMG DDS 1.4",
+    "version": "1.4",
+    "description": "DDS分布式通信中间件",
+    "type": "software",
+    "category": "middleware",
+    "softwareSpecs": {
+      "os": "Linux / QNX",
+      "runtime": "C++17, Java",
+      "libraries": ["RTI Connext DDS", "Fast DDS"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-LINUX-5.10", "PLT-QNX-7.1"],
+      "requiredPlatforms": []
+    },
+    "products": ["PROD-ADAS-HIGH"],
+    "modules": ["MOD-PER-FUSION-001"],
+    "vendor": "OMG / RTI",
+    "status": "active",
+    "licenseCost": 25000,
+    "createdAt": "2019-01-01T00:00:00Z",
+    "updatedAt": "2024-01-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-TENSORRT",
+    "code": "TENSORRT",
+    "name": "NVIDIA TensorRT",
+    "nameEn": "NVIDIA TensorRT 8.5",
+    "version": "8.5",
+    "description": "NVIDIA深度学习推理加速引擎",
+    "type": "development",
+    "category": "sdk",
+    "softwareSpecs": {
+      "os": "Linux",
+      "runtime": "CUDA 11.8, cuDNN 8.6",
+      "libraries": ["TensorRT", "ONNX Runtime"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-ORIN-X"],
+      "requiredPlatforms": ["PLT-ORIN-X"]
+    },
+    "products": ["PROD-ADAS-FLAG", "PROD-NOA-001"],
+    "modules": ["MOD-PER-CAM-001", "MOD-PER-LIDAR-001"],
+    "vendor": "NVIDIA",
+    "status": "active",
+    "licenseCost": 0,
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  },
+  {
+    "id": "PLT-OPENH66-SDK",
+    "code": "OPENH66-SDK",
+    "name": "Horizon OpenExplorer SDK",
+    "nameEn": "Horizon OpenExplorer SDK 2.0",
+    "version": "2.0",
+    "description": "地平线OpenExplorer开发套件",
+    "type": "development",
+    "category": "sdk",
+    "softwareSpecs": {
+      "os": "Linux",
+      "runtime": "Python 3.8, C++17",
+      "libraries": ["HZNet", "HZNPULib"]
+    },
+    "compatibility": {
+      "supportedPlatforms": ["PLT-J6M"],
+      "requiredPlatforms": ["PLT-J6M"]
+    },
+    "products": ["PROD-ADAS-HIGH"],
+    "modules": ["MOD-PER-CAM-001"],
+    "vendor": "Horizon Robotics",
+    "status": "active",
+    "licenseCost": 0,
+    "createdAt": "2023-06-01T00:00:00Z",
+    "updatedAt": "2024-06-01T00:00:00Z"
+  }
+]
+
