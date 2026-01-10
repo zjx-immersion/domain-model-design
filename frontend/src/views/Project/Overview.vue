@@ -419,7 +419,7 @@ import { Plus, Download, Refresh, Search, Folder, Management, Calendar, Warning,
 // 导入数据
 import vehicleProjectsDataRaw from '@/biz-data/mock/project/vehicle-projects.json'
 import domainProjectsDataRaw from '@/biz-data/mock/project/domain-projects.json'
-import piPlanningsDataRaw from '@/biz-data/mock/projects/pi-plannings.json'
+import piPlanningsDataRaw from '@/biz-data/mock/project/pi-details.json'
 
 const router = useRouter()
 
