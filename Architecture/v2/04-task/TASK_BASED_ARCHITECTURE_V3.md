@@ -12,6 +12,12 @@
 - 领域模型与工作流可视化
 - 完整的Mermaid架构图
 
+**⭐⭐⭐ 核心设计原则**：
+- **WorkItem是基础抽象模型**，不是单独的一层
+- **Task、Bug、TechDebt等都是WorkItem的具体类型**
+- **不存在"工作项拆分为任务"的概念**，而是"工作项分解为子工作项"
+- **所有工作都是WorkItem**，通过`type`字段区分类型，通过`parentWorkItemId`建立层级关系
+
 ---
 
 ## 🎯 v3.0 核心设计理念
@@ -37,29 +43,53 @@
 - 减少管理层级，提升效率
 - 降低学习成本和使用复杂度
 
-#### 2. 引入工作项（Work Item）统一管理 ⭐⭐⭐
+#### 2. 工作项（Work Item）作为基础模型 ⭐⭐⭐
 
-**6种工作项类型**:
+**核心概念**:
+- WorkItem 是所有工作的基础抽象模型
+- Task、ModuleRequirement、Bug 等都是 WorkItem 的具体类型
+- 不存在"工作项拆分为任务"的概念，而是"工作项分解为子工作项"
+
+**工作项类型体系**:
 ```typescript
+// WorkItem 是基础抽象模型
+interface WorkItem {
+  id: string
+  type: WorkItemType
+  title: string
+  // ... 共同属性
+}
+
+// 具体工作项类型
 type WorkItemType = 
-  | 'module_requirement'  // 模块需求：来自需求分解
-  | 'bugfix'              // 缺陷修复：来自测试和用户反馈
-  | 'tech_debt'           // 技术债：代码重构、架构优化
-  | 'non_functional'      // 非功能需求：性能、安全、可靠性
-  | 'optimization'        // 优化改进：用户体验优化、流程改进
-  | 'research'            // 技术调研：POC、技术预研
+  | 'task'                // 任务：最小执行单元
+  | 'technical_task'      // 技术任务：重构、优化等
+  | 'module_requirement'  // 模块需求：可分解为多个task
+  | 'test_task'           // 测试任务：测试执行单元
+  | 'bug'                 // 缺陷：缺陷修复
+  | 'tech_debt'           // 技术债：技术债清理
+  | 'research'            // 调研任务：技术调研
+  | 'subtask'             // 子任务：任务的细分
 ```
 
-**工作项统一流转**:
+**工作项层级关系**:
 ```
-工作项（任意类型） → PI Planning分配 → Sprint Planning拆分 → 团队执行
+ModuleRequirement (工作项) 
+  └─ 分解为 → Task (工作项)
+                └─ 分解为 → SubTask (工作项)
+
+Bug (工作项) 
+  └─ 分解为 → Task (工作项)
+
+TechDebt (工作项)
+  └─ 分解为 → TechnicalTask (工作项)
 ```
 
 **价值**:
-- ✅ 支持多种工作类型，不仅仅是需求
-- ✅ Bugfix、技术债可以直接进入PI，不需要"伪装"成需求
-- ✅ 统一的工作项管理界面，提升管理效率
-- ✅ 完整的价值流跟踪，所有工作都可度量
+- ✅ 统一的工作项模型，易于理解和管理
+- ✅ 支持灵活的分解和组合
+- ✅ 所有工作类型平等对待
+- ✅ 完整的价值流跟踪
 
 #### 3. 模块-团队责任绑定 ⭐⭐
 
@@ -67,9 +97,9 @@ type WorkItemType =
 ```
 Module ←→ Team (responsibleModules) ⭐ 核心绑定
    ↓ 自动分配
-WorkItem (moduleId → assignedTeamId)
-   ↓ 继承
-Task (teamId, sprintId, assignee)
+WorkItem (moduleId → assignedTeamId) ⭐ 统一模型
+   ↓ 分解
+WorkItem (子工作项，继承 teamId, sprintId)
 ```
 
 **价值**:
@@ -82,8 +112,9 @@ Task (teamId, sprintId, assignee)
 
 1. **模块-团队责任绑定**: Team与Module通过responsibleModules明确绑定
 2. **需求三层分解**: UserRequirement → FeatureRequirement → ModuleRequirement
-3. **工作项类型多样**: 6种工作项类型覆盖实际研发场景
-4. **任务自动分配**: 基于模块责任自动分配团队
+3. **工作项统一模型**: WorkItem是基础模型，Task是其中一种类型 ⭐ 核心变更
+4. **工作项分解**: 复杂工作项可分解为多个子工作项（同一模型）
+5. **自动团队分配**: 基于模块责任自动分配团队
 
 ---
 
@@ -137,17 +168,12 @@ graph TB
         FR --> MR
     end
     
-    %% 工作项层
-    subgraph WORK["📦 工作项层 (Work Item Layer)"]
-        WI["WorkItem ⭐⭐⭐<br/>6种类型统一管理<br/>• module_requirement<br/>• bugfix<br/>• tech_debt<br/>• non_functional<br/>• optimization<br/>• research"]
-    end
-    
-    %% 迭代层
-    subgraph ITER["🔄 迭代层 (Iteration Layer)"]
+    %% 执行层
+    subgraph EXEC["🔄 执行层 (Execution Layer)"]
         Sprint["Sprint<br/>• 2-4周<br/>• Team单位<br/>• WorkItem[]"]
-        Task["Task<br/>• 开发任务<br/>• Assignee"]
+        WI["WorkItem ⭐⭐⭐<br/>统一基础模型<br/>类型包括：<br/>• task<br/>• module_requirement<br/>• bug<br/>• tech_debt<br/>• technical_task<br/>• test_task<br/>• research<br/>• subtask"]
         
-        Sprint --> Task
+        Sprint --> WI
     end
     
     %% 核心关联关系
@@ -160,7 +186,7 @@ graph TB
     WI -.moduleId自动分配.-> Team
     WI -.PI Planning.-> PI
     WI -.Sprint Planning.-> Sprint
-    WI -.拆分.-> Task
+    WI -.可分解为.-> WI
     
     Feature -.实现.-> Module
     Product -.开发.-> DomainProj
@@ -170,15 +196,13 @@ graph TB
     classDef prodStyle fill:#e3f2fd,stroke:#2196f3,stroke-width:2px
     classDef projStyle fill:#fff3e0,stroke:#ff9800,stroke-width:2px
     classDef reqStyle fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px
-    classDef workStyle fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
-    classDef iterStyle fill:#fce4ec,stroke:#e91e63,stroke-width:2px
+    classDef execStyle fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
     
     class Company,BU,Dept,Team orgStyle
     class PL,Product,Feature,Module prodStyle
     class VehicleProj,DomainProj,PI projStyle
     class UR,FR,MR reqStyle
-    class WI workStyle
-    class Sprint,Task iterStyle
+    class Sprint,WI execStyle
 ```
 
 ### 2. 工作项流转流程图
@@ -231,13 +255,13 @@ flowchart TD
     PIObj --> Sprint4[Sprint 4<br/>2周]
     
     %% Sprint Planning
-    Sprint1 --> SP1[Sprint Planning<br/>拆分WorkItem]
-    SP1 --> Task1[Task 1<br/>Assignee: 张三]
-    SP1 --> Task2[Task 2<br/>Assignee: 李四]
+    Sprint1 --> SP1[Sprint Planning<br/>分解WorkItem]
+    SP1 --> WI_Task1[WorkItem: Task<br/>type: task<br/>Assignee: 张三]
+    SP1 --> WI_Task2[WorkItem: Task<br/>type: task<br/>Assignee: 李四]
     
-    %% 任务执行
-    Task1 --> Exec[Sprint执行]
-    Task2 --> Exec
+    %% 工作项执行
+    WI_Task1 --> Exec[Sprint执行]
+    WI_Task2 --> Exec
     
     Exec --> Review[Sprint Review]
     Review --> Retro[Sprint Retro]
@@ -249,14 +273,14 @@ flowchart TD
     classDef wiStyle fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
     classDef teamStyle fill:#e3f2fd,stroke:#2196f3
     classDef piStyle fill:#fff3e0,stroke:#ff9800
-    classDef sprintStyle fill:#fce4ec,stroke:#e91e63
+    classDef execStyle fill:#fce4ec,stroke:#e91e63
     
     class Start,ReqType inputStyle
     class UR,FR,MR,Bug,TD,NF reqStyle
-    class WI1,WI2,WI3,WI4,WIPool wiStyle
+    class WI1,WI2,WI3,WI4,WIPool,WI_Task1,WI_Task2 wiStyle
     class TeamA,TeamB,TeamC teamStyle
     class PIPlanning,PIObj,DepMatrix,RiskBoard piStyle
-    class Sprint1,Sprint2,Sprint3,Sprint4,SP1,Task1,Task2,Exec sprintStyle
+    class Sprint1,Sprint2,Sprint3,Sprint4,SP1,Exec execStyle
 ```
 
 ### 3. 模块-团队责任绑定机制
@@ -269,9 +293,8 @@ erDiagram
     ModuleRequirement ||--|| WorkItem : "generates"
     WorkItem }o--|| Team : "assigned to (auto)"
     WorkItem }o--|| Sprint : "planned in"
-    WorkItem ||--o{ Task : "breaks into"
-    Task }o--|| TeamMember : "assigned to"
-    Task }o--|| Sprint : "belongs to"
+    WorkItem ||--o{ WorkItem : "decomposes to (parent-child)"
+    WorkItem }o--|| TeamMember : "assigned to"
     Sprint }o--|| Team : "owned by"
     Sprint }o--|| PI : "part of"
     
@@ -317,25 +340,15 @@ erDiagram
         string id PK
         string code
         string title
-        string type "⭐ 6种类型"
+        string type "⭐ task|module_requirement|bug|tech_debt|etc"
         string moduleId FK "⭐ 关联模块"
+        string parentWorkItemId FK "⭐ 父工作项(可选)"
         string assignedTeamId FK "⭐ 自动分配"
         string assignedSprintId FK
+        string assignee FK "⭐ 分配给成员"
         int estimatedHours
-        string priority
-        string status
-    }
-    
-    Task {
-        string id PK
-        string code
-        string title
-        string workItemId FK
-        string teamId FK "⭐ 继承自WorkItem"
-        string sprintId FK "⭐ 继承自WorkItem"
-        string assignee FK
         int storyPoints
-        int estimatedHours
+        string priority
         string status
         int progress
     }
@@ -375,29 +388,30 @@ erDiagram
 ```mermaid
 sequenceDiagram
     participant MR as 模块需求<br/>(ModuleRequirement)
-    participant WI as 工作项<br/>(WorkItem)
+    participant WI_MR as WorkItem<br/>(type: module_requirement)
     participant Module as 模块<br/>(Module)
     participant Team as 团队<br/>(Team)
     participant Sprint as Sprint
+    participant WI_Task as WorkItem<br/>(type: task)
     
     Note over MR: Step 1: 创建模块需求
-    MR->>WI: 生成工作项<br/>type: module_requirement<br/>moduleId: MOD-001
+    MR->>WI_MR: 生成工作项<br/>type: module_requirement<br/>moduleId: MOD-001
     
-    Note over WI: Step 2: 自动分配团队
-    WI->>Module: 查询模块信息<br/>moduleId: MOD-001
+    Note over WI_MR: Step 2: 自动分配团队
+    WI_MR->>Module: 查询模块信息<br/>moduleId: MOD-001
     Module->>Team: 查找负责团队<br/>"MOD-001" IN responsibleModules
-    Team-->>WI: 返回 teamId: TEAM-001<br/>⭐ 自动分配
+    Team-->>WI_MR: 返回 teamId: TEAM-001<br/>⭐ 自动分配
     
-    Note over WI: Step 3: PI Planning
-    WI->>Team: 确认团队接收
+    Note over WI_MR: Step 3: PI Planning
+    WI_MR->>Team: 确认团队接收
     Team->>Sprint: 分配到Sprint<br/>Sprint 2
     
-    Note over Sprint: Step 4: Sprint Planning
-    Sprint->>WI: 拆分工作项
-    WI->>WI: 创建Task[]<br/>继承 teamId & sprintId
+    Note over Sprint: Step 4: Sprint Planning - 分解工作项
+    Sprint->>WI_MR: 分解为子工作项
+    WI_MR->>WI_Task: 创建 WorkItem (type: task)<br/>继承 teamId & sprintId<br/>设置 parentWorkItemId
     
     Note over Sprint: Step 5: 执行
-    WI->>Team: 团队执行
+    WI_Task->>Team: 团队成员执行
     Team->>Sprint: 完成交付
 ```
 
@@ -448,56 +462,65 @@ classDiagram
         +string id
         +string code
         +string title
-        +WorkItemType type
-        +string moduleId ⭐
-        +string assignedTeamId ⭐
+        +WorkItemType type ⭐
+        +string parentWorkItemId "⭐ 父工作项"
+        +string moduleId
+        +string assignedTeamId
         +string assignedSprintId
+        +string assignee "⭐ 分配给成员"
         +int estimatedHours
+        +int storyPoints
         +Priority priority
         +Status status
         +int progress
-        +createTasks() Task[]
+        +decompose() WorkItem[] "⭐ 分解为子工作项"
+    }
+    
+    class TaskWI {
+        +string taskType "development|review|deployment"
+        +string[] subtaskIds
+        +validateCompletion() boolean
+    }
+    
+    class TechnicalTaskWI {
+        +string technicalArea "refactor|optimize|upgrade"
+        +string technicalContext
+        +int complexityScore
+        +estimateTechnicalRisk() Risk
     }
     
     class ModuleRequirementWI {
         +string moduleRequirementId
         +string featureRequirementId
-        +int storyPoints
         +RequirementType reqType
+        +string[] acceptanceCriteria
         +validateRequirement() boolean
     }
     
-    class BugfixWI {
+    class TestTaskWI {
+        +string testType "unit|integration|e2e"
+        +string testSuite
+        +int testCaseCount
+        +string coverageTarget
+        +runTests() TestResult
+    }
+    
+    class BugWI {
         +string bugId
         +Severity severity
         +string reportedBy
         +date reportedDate
         +string affectedVersion
+        +string[] reproductionSteps
         +reproducible() boolean
     }
     
     class TechDebtWI {
-        +string debtType
+        +string debtType "code_quality|architecture|documentation"
         +Impact impact
         +string technicalContext
         +int interestRate
         +estimateRefactoringCost() int
-    }
-    
-    class NonFunctionalWI {
-        +string nfType "performance|security|reliability"
-        +string metric
-        +string baseline
-        +string target
-        +measure() Metric
-    }
-    
-    class OptimizationWI {
-        +string area "UX|performance|process"
-        +string currentState
-        +string targetState
-        +string benefit
-        +calculateROI() number
     }
     
     class ResearchWI {
@@ -509,24 +532,36 @@ classDiagram
         +evaluate() ResearchResult
     }
     
+    class SubTaskWI {
+        +string parentTaskId
+        +int sequenceOrder
+        +boolean isBlocking
+    }
+    
+    WorkItem <|-- TaskWI
+    WorkItem <|-- TechnicalTaskWI
     WorkItem <|-- ModuleRequirementWI
-    WorkItem <|-- BugfixWI
+    WorkItem <|-- TestTaskWI
+    WorkItem <|-- BugWI
     WorkItem <|-- TechDebtWI
-    WorkItem <|-- NonFunctionalWI
-    WorkItem <|-- OptimizationWI
     WorkItem <|-- ResearchWI
+    WorkItem <|-- SubTaskWI
+    
+    WorkItem "1" --> "*" WorkItem : parent-child
 ```
 
 #### 2.2 工作项类型使用场景
 
-| 类型 | 来源 | PI Planning优先级 | 示例 |
-|------|------|------------------|------|
-| **module_requirement** | 需求分解 | P0-P2（按业务价值） | "实现AEB自动紧急制动功能" |
-| **bugfix** | 测试/用户反馈 | P0-P1（按严重度） | "修复高速NOA车道偏离问题" |
-| **tech_debt** | 技术评审 | P2-P3 | "感知融合模块重构" |
-| **non_functional** | 性能/安全评估 | P1-P2 | "感知延迟优化到50ms以内" |
-| **optimization** | 持续改进 | P3 | "开发者体验优化" |
-| **research** | 技术规划 | P2-P3 | "Transformer感知算法POC" |
+| 类型 | 来源 | 可否分解 | PI Planning优先级 | 示例 |
+|------|------|----------|------------------|------|
+| **task** | 工作项分解 | 可分解为subtask | N/A（已分解） | "实现目标检测算法" |
+| **technical_task** | 技术规划 | 可分解为task | P2-P3 | "感知模块性能优化" |
+| **module_requirement** | 需求分解 | 可分解为task | P0-P2（按业务价值） | "实现AEB自动紧急制动功能" |
+| **test_task** | 测试计划 | 可分解为subtask | N/A（已分解） | "集成测试执行" |
+| **bug** | 测试/用户反馈 | 可分解为task | P0-P1（按严重度） | "修复高速NOA车道偏离问题" |
+| **tech_debt** | 技术评审 | 可分解为technical_task | P2-P3 | "感知融合模块重构" |
+| **research** | 技术规划 | 不可分解 | P2-P3 | "Transformer感知算法POC" |
+| **subtask** | task分解 | 不可分解 | N/A（已分解） | "编写单元测试" |
 
 ### 3. PI Planning工作流
 
@@ -730,42 +765,42 @@ flowchart TD
         FR3 -.decompose.-> MR4
     end
     
-    subgraph WI["工作项层 (Work Item)"]
-        WI1[WI-001<br/>type: module_requirement<br/>moduleId: MOD-001<br/>teamId: TEAM-001 ⭐]
-        WI2[WI-002<br/>type: module_requirement<br/>moduleId: MOD-004<br/>teamId: TEAM-003 ⭐]
+    subgraph WI_L1["工作项层 - L1 (Module Requirement)"]
+        WI1[WI-001<br/>type: module_requirement<br/>title: 目标检测精度提升<br/>moduleId: MOD-001<br/>teamId: TEAM-001 ⭐]
+        WI2[WI-002<br/>type: module_requirement<br/>title: 目标追踪稳定性<br/>moduleId: MOD-004<br/>teamId: TEAM-003 ⭐]
         
         MR1 -.生成.-> WI1
         MR2 -.生成.-> WI2
     end
     
-    subgraph TASK["任务层 (Task)"]
-        T1[Task-001: 数据集标注<br/>Assignee: 张三<br/>8h]
-        T2[Task-002: 模型训练<br/>Assignee: 李四<br/>16h]
-        T3[Task-003: 模型部署<br/>Assignee: 王五<br/>8h]
+    subgraph WI_L2["工作项层 - L2 (Task) ⭐ 同一模型"]
+        T1[WI-Task-001<br/>type: task<br/>title: 数据集标注<br/>parentWorkItemId: WI-001<br/>Assignee: 张三<br/>8h]
+        T2[WI-Task-002<br/>type: task<br/>title: 模型训练<br/>parentWorkItemId: WI-001<br/>Assignee: 李四<br/>16h]
+        T3[WI-Task-003<br/>type: task<br/>title: 模型部署<br/>parentWorkItemId: WI-001<br/>Assignee: 王五<br/>8h]
         
-        WI1 -.Sprint Planning拆分.-> T1
-        WI1 -.Sprint Planning拆分.-> T2
-        WI1 -.Sprint Planning拆分.-> T3
+        WI1 -.Sprint Planning分解.-> T1
+        WI1 -.Sprint Planning分解.-> T2
+        WI1 -.Sprint Planning分解.-> T3
     end
     
     classDef urStyle fill:#e8f5e9,stroke:#4caf50
     classDef frStyle fill:#e3f2fd,stroke:#2196f3
     classDef mrStyle fill:#fff3e0,stroke:#ff9800
-    classDef wiStyle fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
-    classDef taskStyle fill:#fce4ec,stroke:#e91e63
+    classDef wiL1Style fill:#fff9c4,stroke:#fbc02d,stroke-width:3px
+    classDef wiL2Style fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
     
     class UR1 urStyle
     class FR1,FR2,FR3 frStyle
     class MR1,MR2,MR3,MR4 mrStyle
-    class WI1,WI2 wiStyle
-    class T1,T2,T3 taskStyle
+    class WI1,WI2 wiL1Style
+    class T1,T2,T3 wiL2Style
 ```
 
 ### 2. 工作项数据结构
 
 ```typescript
 /**
- * 工作项基础接口
+ * 工作项基础接口 ⭐ 统一模型
  */
 interface WorkItemBase {
   // 基本信息
@@ -773,15 +808,21 @@ interface WorkItemBase {
   code: string
   title: string
   description: string
-  type: WorkItemType
+  type: WorkItemType                   // ⭐ 工作项类型
   
-  // 关联关系 ⭐
+  // 层级关系 ⭐⭐⭐
+  parentWorkItemId?: string            // ⭐ 父工作项（支持层级分解）
+  childWorkItemIds?: string[]          // 子工作项列表
+  
+  // 关联关系
   moduleId?: string                    // 关联模块（核心）
   moduleRequirementId?: string         // 关联模块需求（如果是需求类型）
   assignedTeamId?: string              // 分配的团队 ⭐ 自动分配
   assignedTeamName?: string
   assignedSprintId?: string            // 分配的Sprint
   assignedSprintName?: string
+  assignee?: string                    // ⭐ 分配给成员（task类型必填）
+  assigneeName?: string
   
   // 工作量
   estimatedHours: number
@@ -798,18 +839,46 @@ interface WorkItemBase {
   createdAt: Date
   updatedAt: Date
   tags: string[]
+  
+  // 方法
+  decompose(): WorkItem[]              // ⭐ 分解为子工作项
 }
 
 /**
- * 工作项类型枚举
+ * 工作项类型枚举 ⭐ 8种类型
  */
 enum WorkItemType {
+  TASK = 'task',                       // ⭐ 任务：最小执行单元
+  TECHNICAL_TASK = 'technical_task',   // ⭐ 技术任务：重构、优化
   MODULE_REQUIREMENT = 'module_requirement',
-  BUGFIX = 'bugfix',
+  TEST_TASK = 'test_task',             // ⭐ 测试任务
+  BUG = 'bug',                         // ⭐ 缺陷
   TECH_DEBT = 'tech_debt',
-  NON_FUNCTIONAL = 'non_functional',
-  OPTIMIZATION = 'optimization',
-  RESEARCH = 'research'
+  RESEARCH = 'research',
+  SUBTASK = 'subtask'                  // ⭐ 子任务
+}
+
+/**
+ * 任务类型工作项 ⭐
+ */
+interface TaskWorkItem extends WorkItemBase {
+  type: WorkItemType.TASK
+  assignee: string                     // 必需
+  taskType: 'development' | 'review' | 'deployment' | 'documentation'
+  subtaskIds?: string[]
+  validateCompletion(): boolean
+}
+
+/**
+ * 技术任务类型工作项 ⭐
+ */
+interface TechnicalTaskWorkItem extends WorkItemBase {
+  type: WorkItemType.TECHNICAL_TASK
+  assignee: string                     // 必需
+  technicalArea: 'refactor' | 'optimize' | 'upgrade' | 'migration'
+  technicalContext: string
+  complexityScore: number
+  estimateTechnicalRisk(): Risk
 }
 
 /**
@@ -825,10 +894,23 @@ interface ModuleRequirementWorkItem extends WorkItemBase {
 }
 
 /**
- * 缺陷修复工作项
+ * 测试任务类型工作项 ⭐
  */
-interface BugfixWorkItem extends WorkItemBase {
-  type: WorkItemType.BUGFIX
+interface TestTaskWorkItem extends WorkItemBase {
+  type: WorkItemType.TEST_TASK
+  assignee: string                     // 必需
+  testType: 'unit' | 'integration' | 'e2e' | 'performance'
+  testSuite: string
+  testCaseCount: number
+  coverageTarget: string
+  runTests(): TestResult
+}
+
+/**
+ * 缺陷类型工作项
+ */
+interface BugWorkItem extends WorkItemBase {
+  type: WorkItemType.BUG
   bugId: string                        // 关联Bug ID
   severity: 'critical' | 'major' | 'minor' | 'trivial'
   affectedVersion: string
@@ -839,7 +921,7 @@ interface BugfixWorkItem extends WorkItemBase {
 }
 
 /**
- * 技术债工作项
+ * 技术债类型工作项
  */
 interface TechDebtWorkItem extends WorkItemBase {
   type: WorkItemType.TECH_DEBT
@@ -851,31 +933,7 @@ interface TechDebtWorkItem extends WorkItemBase {
 }
 
 /**
- * 非功能需求工作项
- */
-interface NonFunctionalWorkItem extends WorkItemBase {
-  type: WorkItemType.NON_FUNCTIONAL
-  nfType: 'performance' | 'security' | 'reliability' | 'scalability' | 'maintainability'
-  metric: string                       // 度量指标
-  baseline: string                     // 当前基线
-  target: string                       // 目标值
-  testMethod: string
-}
-
-/**
- * 优化改进工作项
- */
-interface OptimizationWorkItem extends WorkItemBase {
-  type: WorkItemType.OPTIMIZATION
-  area: 'ux' | 'performance' | 'process' | 'tooling'
-  currentState: string
-  targetState: string
-  expectedBenefit: string
-  roi?: number
-}
-
-/**
- * 技术调研工作项
+ * 技术调研类型工作项
  */
 interface ResearchWorkItem extends WorkItemBase {
   type: WorkItemType.RESEARCH
@@ -886,6 +944,17 @@ interface ResearchWorkItem extends WorkItemBase {
   timeline: string
   conclusion?: string
   nextSteps?: string[]
+}
+
+/**
+ * 子任务类型工作项 ⭐
+ */
+interface SubTaskWorkItem extends WorkItemBase {
+  type: WorkItemType.SUBTASK
+  assignee: string                     // 必需
+  parentTaskId: string                 // 必需（等同于parentWorkItemId）
+  sequenceOrder: number
+  isBlocking: boolean
 }
 ```
 
@@ -933,10 +1002,11 @@ stateDiagram-v2
     
     state "Sprint Planning" as SP {
         [*] --> SelectWI: 选择工作项
-        SelectWI --> BreakdownTask: 拆分任务
-        BreakdownTask --> EstimateTask: 估算工作量
-        EstimateTask --> AssignTask: 分配任务
-        AssignTask --> SprintBacklog: Sprint Backlog
+        SelectWI --> DecomposeWI: 分解工作项 ⭐
+        DecomposeWI --> CreateSubWI: 创建子工作项(type: task)
+        CreateSubWI --> EstimateWI: 估算工作量
+        EstimateWI --> AssignWI: 分配工作项给成员 ⭐
+        AssignWI --> SprintBacklog: Sprint Backlog
         SprintBacklog --> [*]
     }
     
@@ -987,10 +1057,8 @@ stateDiagram-v2
 | **WorkItem** | Module | moduleId | N:1 | ⭐ 工作项关联模块 |
 | **WorkItem** | Team | assignedTeamId | N:1 | ⭐ 工作项自动分配团队 |
 | **WorkItem** | Sprint | assignedSprintId | N:1 | 工作项分配到Sprint |
-| **WorkItem** | Task | workItemId | 1:N | 工作项拆分为任务 |
-| **Task** | Team | teamId | N:1 | ⭐ 任务继承团队 |
-| **Task** | Sprint | sprintId | N:1 | ⭐ 任务继承Sprint |
-| **Task** | TeamMember | assignee | N:1 | 任务分配给成员 |
+| **WorkItem** | WorkItem | parentWorkItemId | N:1 | ⭐⭐⭐ 工作项层级分解（核心变更） |
+| **WorkItem** | TeamMember | assignee | N:1 | ⭐ 工作项分配给成员 |
 | **Sprint** | Team | teamId | N:1 | ⭐ Sprint属于团队 |
 | **Sprint** | PI | piId | N:1 | Sprint属于PI |
 
@@ -999,9 +1067,11 @@ stateDiagram-v2
 Module ←→ Team (responsibleModules) ⭐ 核心绑定
    ↓ 自动分配
 WorkItem (moduleId → assignedTeamId) ⭐ 自动分配
-   ↓ 继承
-Task (teamId, sprintId) ⭐ 继承团队和Sprint
-   ↓ 执行
+   ↓ 分解
+WorkItem (parentWorkItemId) ⭐⭐⭐ 工作项层级分解
+   ↓ 分配
+WorkItem (assignee) → 团队成员执行
+   ↓ 交付
 Sprint (teamId) → 团队交付
 ```
 
@@ -1125,14 +1195,18 @@ function calculateWorkItemPriority(workItem: WorkItem): number {
 - ✅ 利于绩效考核
 - ✅ 减少协调成本
 
-### 2. 工作项统一管理 ⭐⭐⭐
-- ✅ 需求、Bug、技术债统一管理
+### 2. 工作项统一模型 ⭐⭐⭐
+- ✅ WorkItem作为基础抽象模型
+- ✅ Task是WorkItem的一种类型（核心变更）
+- ✅ 8种工作项类型覆盖所有场景
+- ✅ 支持灵活的层级分解（parentWorkItemId）
 - ✅ 统一排期和分配
 - ✅ 统一度量和追溯
 - ✅ 完整的价值流跟踪
 
-### 3. 三层需求分解清晰 ⭐⭐⭐
-- ✅ 层次分明
+### 3. 需求到执行的清晰映射 ⭐⭐⭐
+- ✅ 需求三层分解：UserRequirement → FeatureRequirement → ModuleRequirement
+- ✅ 工作项灵活分解：ModuleRequirement (WorkItem) → Task (WorkItem) → SubTask (WorkItem)
 - ✅ 端到端可追溯
 - ✅ 符合实际业务
 - ✅ 取消Story层，简化流程
