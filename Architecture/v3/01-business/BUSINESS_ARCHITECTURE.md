@@ -125,30 +125,36 @@ graph TB
 
 ## 二、核心业务域
 
-### 2.1 六大核心业务域
+### 2.1 七大核心业务域
 
 ```mermaid
-graph LR
-    D1[产品域<br/>Product Domain]
-    D2[项目域<br/>Project Domain]
-    D3[资产域<br/>Asset Domain]
-    D4[团队域<br/>Team Domain]
-    D5[质量域<br/>Quality Domain]
-    D6[度量域<br/>Metrics Domain]
+graph TB
+    D0[需求域<br/>Requirement Domain<br/>UR-FR-MR三层需求]
+    D1[产品域<br/>Product Domain<br/>Product-Feature BOM]
+    D2[资产域<br/>Asset Domain<br/>Feature-Module-Platform]
+    D3[项目域<br/>Project Domain<br/>PI Planning-Sprint]
+    D4[团队域<br/>Team Domain<br/>WorkItem-Sprint执行]
+    D5[质量域<br/>Quality Domain<br/>测试-缺陷-技术债]
+    D6[度量域<br/>Metrics Domain<br/>指标-分析-改进]
     
-    D1 -.产品版本.-> D2
-    D1 -.产品模块.-> D3
-    D2 -.项目任务.-> D4
-    D3 -.资产复用.-> D2
+    D0 -.需求分解.-> D0
+    D0 -.关联产品.-> D1
+    D0 -.关联资产.-> D2
+    D1 -.Feature BOM.-> D2
+    D2 -.资产复用.-> D3
+    D3 -.项目任务.-> D4
+    D2 -.模块-团队绑定.-> D4
     D4 -.团队产出.-> D5
     D5 -.质量数据.-> D6
+    D6 -.度量反馈.-> D0
     D6 -.度量反馈.-> D1
-    D6 -.度量反馈.-> D2
+    D6 -.度量反馈.-> D3
     
+    style D0 fill:#e1f5ff
     style D1 fill:#e8f5e9
-    style D2 fill:#fff9c4
-    style D3 fill:#f3e5f5
-    style D4 fill:#e1f5ff
+    style D2 fill:#f3e5f5
+    style D3 fill:#fff9c4
+    style D4 fill:#fce4ec
     style D5 fill:#ffebee
     style D6 fill:#e0f2f1
 ```
@@ -157,12 +163,18 @@ graph LR
 
 | 业务域 | 核心职责 | 关键实体 | 主要用户 |
 |-------|---------|---------|---------|
-| **产品域** | 产品规划、特性管理、版本管理、模块管理 | ProductLine, Product, Version, Feature, Module | 产品经理、架构师 |
+| **需求域** | 三层需求管理（UR/FR/MR）、需求分解、需求追溯 | UserRequirement, FeatureRequirement, ModuleRequirement | 产品经理、SE、FO |
+| **产品域** | 产品规划、版本管理、Feature BOM配置 | ProductLine, Product, Version, FeatureBOM | 产品经理、架构师 |
+| **资产域** | 三层资产管理（Feature/Module/Platform）、资产复用 | Feature, Module, Platform, AssetBaseline | 架构师、资产管理员 |
 | **项目域** | 项目立项、PI规划、迭代执行、项目交付 | VehicleProject, DomainProject, PIPlanning, Sprint | 项目经理、团队Lead |
-| **资产域** | 资产规划、资产开发、资产入库、资产复用 | AssetPlan, ModuleAsset, Component, Baseline | 架构师、资产管理员 |
 | **团队域** | 团队组建、Sprint执行、WorkItem管理、协作 | Team, TeamMember, Sprint, WorkItem | 团队Lead、工程师 |
 | **质量域** | 测试管理、缺陷管理、技术债管理、质量保证 | TestCase, Bug, TechDebt, QualityMetric | 测试工程师、QA |
 | **度量域** | 指标定义、数据采集、分析报告、持续改进 | Metric, Dashboard, Report, KPI | 管理层、PMO |
+
+**核心关系**：
+- **需求域 ←→ 资产域**：需求通过relatedAssetId关联资产，需求跟随产品，资产独立演进
+- **产品域 → 资产域**：Product通过Feature BOM包含Feature，Feature实现于Module
+- **资产域 → 团队域**：Module绑定Team，MR自动分配到Team
 
 ---
 
@@ -486,12 +498,12 @@ flowchart TD
 
 ### 5.2 关键业务场景
 
-#### 场景1: 新产品开发
+#### 场景1: 新产品开发（融合三层需求与三层资产）
 
 ```yaml
 场景: 新产品开发流程
 触发: 市场机会、技术创新
-参与角色: 产品线经理、产品经理、架构师、项目经理
+参与角色: 产品线经理、产品经理、SE、架构师、项目经理
 
 主流程:
   1. 市场分析与立项
@@ -500,53 +512,84 @@ flowchart TD
      - 输出: 产品立项书
      - 负责人: 产品线经理
   
-  2. 产品规划
+  2. 用户需求规划（UR）
      - 输入: 产品立项书
-     - 活动: 产品定义、特性规划、路线图制定
-     - 输出: 产品规划文档、特性列表
+     - 活动: 用户需求收集、需求分析、优先级排序
+     - 输出: 用户需求列表（10+ UR）
      - 负责人: 产品经理
+     - 关联: UR.productId → Product
   
-  3. 架构设计
-     - 输入: 产品规划文档
-     - 活动: 架构设计、模块规划、技术选型
-     - 输出: 架构设计文档、模块清单
+  3. 特性需求分解（FR）
+     - 输入: 用户需求列表
+     - 活动: UR分解为FR、Feature资产评估、Make or Reuse决策
+     - 输出: 特性需求列表（30+ FR）
+     - 负责人: SE + 架构师
+     - 关联: FR.relatedFeatureAssetId → Feature（可复用）
+     - 决策: 
+       * 有可复用Feature → 关联到现有Feature
+       * 无可复用Feature → 规划新Feature开发
+  
+  4. Feature资产规划
+     - 输入: 特性需求列表
+     - 活动: Feature BOM配置、Feature依赖分析、平台选型
+     - 输出: Product Feature BOM（旗舰版/高配版/标准版配置）
      - 负责人: 架构师
+     - 关联: Product → FeatureBOM → Feature
   
-  4. 资产规划
-     - 输入: 模块清单
-     - 活动: 资产评估、Make or Reuse决策
-     - 输出: 资产规划文档
-     - 负责人: 架构师
+  5. 模块需求分解（MR）
+     - 输入: 特性需求、Feature-Module映射
+     - 活动: FR分解为MR、模块设计、团队分配
+     - 输出: 模块需求列表（50+ MR）
+     - 负责人: FO（功能负责人）
+     - 关联: MR.moduleId → Module → Team（自动分配）
   
-  5. 项目启动
-     - 输入: 产品规划、架构设计、资产规划
+  6. 项目启动
+     - 输入: 需求Backlog（UR/FR/MR）、资产规划（Feature/Module/Platform）
      - 活动: 项目立项、团队组建、资源分配
      - 输出: 项目计划
      - 负责人: 项目经理
   
-  6. PI Planning
-     - 输入: 项目计划、特性列表
-     - 活动: PI目标制定、WorkItem分解、团队分配
-     - 输出: PI Backlog、团队迭代计划
+  7. PI Planning
+     - 输入: 项目计划、FR/MR Backlog
+     - 活动: PI目标制定、MR分解为Task、团队分配
+     - 输出: PI Backlog（MR → Task）、团队迭代计划
      - 负责人: 产品经理 + 项目经理
+     - WorkItem: MR (type=module_requirement) → Task (type=task/technical_task/test_task)
   
-  7. 迭代开发
-     - 输入: 团队迭代计划
-     - 活动: Sprint执行、开发测试、持续集成
+  8. Sprint迭代开发
+     - 输入: 团队Sprint Backlog（Task）
+     - 活动: Sprint执行、代码开发、单元测试、Code Review
      - 输出: 可工作软件增量
      - 负责人: 团队Lead
+     - 追溯: Task → Commit → Module → Feature
   
-  8. 产品交付
-     - 输入: 产品增量
-     - 活动: 集成验证、用户验收、上线部署
-     - 输出: 正式版本
-     - 负责人: 项目经理
+  9. Feature集成验证
+     - 输入: Module增量
+     - 活动: Feature级集成测试、性能测试
+     - 输出: Feature验证报告
+     - 负责人: 测试工程师
+     - 验证: Feature是否满足FR的验收标准
+  
+  10. 产品交付与资产沉淀
+      - 输入: Feature集成验收通过
+      - 活动: 产品集成、用户验收、上线部署、资产入库
+      - 输出: 正式版本、Feature资产库更新
+      - 负责人: 项目经理 + 资产管理员
+      - 资产: Feature.reuseCount++, Feature.products.push(newProduct)
 
 度量指标:
   - Time to Market: 从立项到上线 < 6个月
-  - 资产复用率: ≥ 40%
+  - Feature资产复用率: ≥ 60%（5-10个产品）
+  - 需求追溯完整度: 100%（UR→FR→MR→Task→Commit）
   - 首次质量合格率: ≥ 90%
   - 客户满意度: ≥ 4.0/5.0
+
+追溯链路示例:
+  UR-PARK-001（一键自动泊车）
+    → FR-PARK-001（自动寻找车位）→ FEAT-AVP-001（AVP资产）
+      → MR-PARK-PER-001（车位检测算法）→ MOD-PARK-PER-001
+        → TASK-PARK-001（超声波融合）→ Commit-abc123
+        → TASK-PARK-002（车位识别）→ Commit-def456
 ```
 
 #### 场景2: 资产复用开发

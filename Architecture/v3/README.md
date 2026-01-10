@@ -99,13 +99,63 @@ mindmap
 
 ## 🌟 核心设计亮点
 
-### 1. WorkItem统一模型 ⭐⭐⭐⭐⭐
+### 1. 三层需求体系 ⭐⭐⭐⭐⭐
+
+```mermaid
+graph TB
+    UR[用户需求<br/>User Requirement] --> FR[特性需求<br/>Feature Requirement]
+    FR --> MR[模块需求<br/>Module Requirement]
+    MR --> Task[任务<br/>Task]
+    
+    UR -.关联.-> Product[产品资产]
+    FR -.关联.-> Feature[特性资产]
+    MR -.关联.-> Module[模块资产]
+    Module -.部署.-> Platform[平台资产]
+    
+    style UR fill:#e1f5ff
+    style FR fill:#fff4e6
+    style MR fill:#f3e5f5
+    style Feature fill:#ffcccc
+```
+
+**核心价值**: 需求与资产分离 | 层层分解 | 资产复用 | 完整追溯
+
+- **UR（用户需求）**：从用户视角描述"要什么"，关联Product
+- **FR（特性需求）**：分解为产品特性，关联Feature资产（可复用）
+- **MR（模块需求）**：软件级实现需求，关联Module资产
+- **需求跟随产品，资产独立演进**
+
+### 2. 三层资产体系 ⭐⭐⭐⭐⭐
+
+```mermaid
+graph TB
+    Product[产品资产<br/>Product] -->|Feature BOM| Feature[特性资产<br/>Feature]
+    Feature -->|实现于| Module[模块资产<br/>Module]
+    Module -->|部署于| Platform[平台资产<br/>Platform]
+    
+    Feature -->|复用| Product2[其他产品]
+    Feature -->|复用| Product3[其他产品]
+    
+    style Product fill:#e8f5e9
+    style Feature fill:#fff9c4
+    style Module fill:#e1f5ff
+    style Platform fill:#f3e5f5
+```
+
+**核心价值**: 资产独立演进 | 跨产品复用 | 软硬件解耦 | 配置管理
+
+- **Product**：产品资产，通过Feature BOM定义包含哪些特性
+- **Feature**：特性资产，可被多个产品复用（5-10个产品）
+- **Module**：模块资产，实现Feature的软件单元
+- **Platform**：平台资产，Module部署运行的硬件/软件环境
+
+### 3. WorkItem统一模型 ⭐⭐⭐⭐⭐
 
 ```typescript
 interface WorkItem {
   type: WorkItemType              // 8种类型统一管理
-  parentWorkItemId?: string       // 层级分解
-  moduleId?: string               // 自动分配团队
+  parentWorkItemId?: string       // 层级分解（MR→Task）
+  moduleId?: string               // 关联模块，自动分配团队
   assignedTeamId?: string
   assignee?: string               // task必填
 }
@@ -116,7 +166,28 @@ type WorkItemType = 'task' | 'technical_task' | 'module_requirement'
 
 **核心价值**: 统一模型 | 灵活分解 | 完整追溯
 
-### 2. 模块-团队责任绑定 ⭐⭐⭐⭐⭐
+- **MR（模块需求）也是WorkItem的一种类型**
+- **MR分解为Task、TechnicalTask、TestTask等**
+- **取消Story层，简化需求流**
+
+### 4. 完整追溯链路 ⭐⭐⭐⭐⭐
+
+```
+需求层:
+  UR → FR → MR → Task → Commit → TestCase
+   ↓    ↓    ↓      ↓
+资产层:
+  Product → Feature → Module → Platform
+
+关联:
+  UR ←→ Product
+  FR ←→ Feature (N:1, 支持资产复用)
+  MR ←→ Module
+```
+
+**核心价值**: 端到端双向追溯 | 需求到代码 | 代码到需求 | 影响分析
+
+### 5. 模块-团队责任绑定 ⭐⭐⭐⭐⭐
 
 ```typescript
 Module.responsibleTeamId → Team.id
@@ -127,27 +198,21 @@ WorkItem.moduleId → 自动分配 → WorkItem.assignedTeamId
 
 **核心价值**: 明确责任 | 自动分配 | 减少协调
 
-### 3. 端到端价值流 ⭐⭐⭐⭐⭐
+### 6. 端到端价值流 ⭐⭐⭐⭐⭐
 
 ```
 战略层: 产品线规划 → 技术路线 → 资产战略
    ↓
-规划层: PI Planning → Sprint Planning → 容量规划
+需求层: UR规划 → FR分解 → MR分解
+   ↓
+资产层: Feature复用 → Module开发 → Platform部署
    ↓
 执行层: WorkItem执行 → 代码提交 → CI/CD → 交付
 ```
 
 **核心价值**: 全流程可视化 | 端到端追溯 | 瓶颈优化
 
-### 4. 完整数据模型 ⭐⭐⭐⭐⭐
-
-```
-30+核心实体 | 完整ERD图 | 追溯链路 | 完整性约束
-```
-
-**核心价值**: 清晰结构 | 数据完整 | 双向追溯
-
-### 5. 可视化优先 ⭐⭐⭐⭐⭐
+### 7. 可视化优先 ⭐⭐⭐⭐⭐
 
 ```
 50+张Mermaid图表 | 图文并茂 | 多种图形 | 易于理解
