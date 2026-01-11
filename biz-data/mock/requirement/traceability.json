@@ -1,247 +1,236 @@
 {
   "metadata": {
-    "version": "1.0",
-    "lastUpdate": "2025-01-05T18:00:00Z",
-    "description": "需求追溯关系Mock数据 - 端到端追溯链"
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T02:38:03.702Z",
+    "description": "需求追溯数据 - V3增强版"
   },
-  "data": {
-    "traceabilityChains": [
-      {
-        "id": "TRACE-001",
-        "name": "高速NOA自动换道完整追溯链",
-        "userRequirement": {
-          "id": "UR-001",
-          "title": "高速NOA自动换道优化",
-          "status": "in_development",
-          "progress": 0.65
-        },
-        "featureRequirements": [
-          {
-            "id": "FR-001",
-            "title": "融合感知优化",
-            "status": "in_development",
-            "progress": 0.70
-          },
-          {
-            "id": "FR-002",
-            "title": "决策规划增强",
-            "status": "in_development",
-            "progress": 0.60
-          }
-        ],
-        "moduleRequirements": [
-          {
-            "id": "MR-001",
-            "title": "感知融合算法优化",
-            "featureRequirementId": "FR-001",
-            "status": "in_development",
-            "progress": 0.75
-          },
-          {
-            "id": "MR-002",
-            "title": "障碍物检测增强",
-            "featureRequirementId": "FR-001",
-            "status": "in_development",
-            "progress": 0.65
-          },
-          {
-            "id": "MR-003",
-            "title": "换道决策优化",
-            "featureRequirementId": "FR-002",
-            "status": "in_development",
-            "progress": 0.60
-          }
-        ],
-        "stories": [
-          {
-            "id": "STORY-001",
-            "title": "融合感知算法优化",
-            "moduleRequirementId": "MR-001",
-            "sprintId": "SPRINT-001",
-            "status": "in_progress",
-            "storyPoints": 8
-          },
-          {
-            "id": "STORY-002",
-            "title": "障碍物检测模型训练",
-            "moduleRequirementId": "MR-002",
-            "sprintId": "SPRINT-001",
-            "status": "in_progress",
-            "storyPoints": 13
-          },
-          {
-            "id": "STORY-003",
-            "title": "换道决策规则优化",
-            "moduleRequirementId": "MR-003",
-            "sprintId": "SPRINT-001",
-            "status": "todo",
-            "storyPoints": 8
-          }
-        ],
-        "tasks": [
-          {
-            "id": "TASK-001",
-            "title": "算法模型优化",
-            "storyId": "STORY-001",
-            "assignee": "算法工程师A",
-            "status": "in_progress"
-          },
-          {
-            "id": "TASK-002",
-            "title": "单元测试编写",
-            "storyId": "STORY-001",
-            "assignee": "算法工程师A",
-            "status": "todo"
-          },
-          {
-            "id": "TASK-003",
-            "title": "数据集准备",
-            "storyId": "STORY-002",
-            "assignee": "算法工程师B",
-            "status": "done"
-          },
-          {
-            "id": "TASK-004",
-            "title": "模型训练",
-            "storyId": "STORY-002",
-            "assignee": "算法工程师B",
-            "status": "in_progress"
-          }
-        ],
-        "commits": [
-          {
-            "id": "COMMIT-001",
-            "message": "feat: 优化感知融合算法",
-            "taskId": "TASK-001",
-            "author": "算法工程师A",
-            "date": "2025-01-04T10:30:00Z"
-          },
-          {
-            "id": "COMMIT-002",
-            "message": "feat: 数据集扩充",
-            "taskId": "TASK-003",
-            "author": "算法工程师B",
-            "date": "2025-01-03T15:20:00Z"
-          }
-        ],
-        "pullRequests": [
-          {
-            "id": "PR-001",
-            "title": "融合感知算法优化",
-            "commitIds": ["COMMIT-001"],
-            "status": "open",
-            "author": "算法工程师A",
-            "reviewers": ["算法架构师A"]
-          }
-        ],
-        "testCases": [
-          {
-            "id": "TC-001",
-            "title": "感知融合算法测试",
-            "requirementId": "MR-001",
-            "status": "passed",
-            "lastRun": "2025-01-04"
-          },
-          {
-            "id": "TC-002",
-            "title": "障碍物检测准确率测试",
-            "requirementId": "MR-002",
-            "status": "in_progress",
-            "lastRun": "2025-01-05"
-          },
-          {
-            "id": "TC-003",
-            "title": "换道决策场景测试",
-            "requirementId": "MR-003",
-            "status": "not_run",
-            "lastRun": null
-          }
-        ],
-        "defects": [
-          {
-            "id": "DEFECT-001",
-            "title": "感知融合算法边界条件异常",
-            "testCaseId": "TC-001",
-            "requirementId": "MR-001",
-            "severity": "高",
-            "status": "已修复"
-          }
-        ],
-        "builds": [
-          {
-            "id": "BUILD-001",
-            "commitId": "COMMIT-001",
-            "status": "success",
-            "duration": "12分钟"
-          }
-        ],
-        "releases": [
-          {
-            "id": "RELEASE-001",
-            "version": "v3.1.0",
-            "buildId": "BUILD-001",
-            "status": "released",
-            "environment": "测试环境"
-          }
-        ]
-      },
-      {
-        "id": "TRACE-002",
-        "name": "城区复杂场景追溯链",
-        "userRequirement": {
-          "id": "UR-002",
-          "title": "城区复杂场景自动驾驶",
-          "status": "planning",
-          "progress": 0.0
-        },
-        "featureRequirements": [
-          {
-            "id": "FR-003",
-            "title": "城区场景识别",
-            "status": "planning",
-            "progress": 0.0
-          }
-        ],
-        "moduleRequirements": [
-          {
-            "id": "MR-004",
-            "title": "交通灯识别",
-            "featureRequirementId": "FR-003",
-            "status": "planning",
-            "progress": 0.0
-          }
-        ],
-        "stories": [],
-        "tasks": [],
-        "commits": [],
-        "pullRequests": [],
-        "testCases": [],
-        "defects": [],
-        "builds": [],
-        "releases": []
-      }
-    ],
-    "statistics": {
-      "totalChains": 2,
-      "userRequirements": 2,
-      "featureRequirements": 3,
-      "moduleRequirements": 4,
-      "stories": 3,
-      "tasks": 4,
-      "commits": 2,
-      "pullRequests": 1,
-      "testCases": 3,
-      "defects": 1,
-      "builds": 1,
-      "releases": 1
+  "forwardTraces": [
+    {
+      "urId": "UR-PARK-001",
+      "urTitle": "用户需要一键自动泊车功能",
+      "frs": [
+        {
+          "frId": "FR-PARK-001",
+          "frTitle": "自动寻找车位",
+          "relatedFeatureAssetId": "FEAT-AVP-001",
+          "mrs": [
+            {
+              "mrId": "MR-PARK-PER-001",
+              "mrTitle": "实现车位检测算法",
+              "relatedModuleId": "MOD-PARK-PER-001",
+              "tasks": []
+            },
+            {
+              "mrId": "MR-AEB-001",
+              "mrTitle": "实现AEB紧急制动算法",
+              "relatedModuleId": "MOD-CTRL-LONG-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
     },
-    "coverageAnalysis": {
-      "requirementsToCases": 0.75,
-      "casesToDefects": 0.33,
-      "storiesToTasks": 1.33,
-      "tasksToCommits": 0.50,
-      "commitsToBuilds": 0.50
+    {
+      "urId": "UR-NOA-001",
+      "urTitle": "用户需要高速公路自动驾驶功能",
+      "frs": [
+        {
+          "frId": "FR-PARK-002",
+          "frTitle": "泊车路径规划",
+          "relatedFeatureAssetId": "FEAT-AVP-001",
+          "mrs": [
+            {
+              "mrId": "MR-PARK-PER-002",
+              "mrTitle": "实现障碍物检测",
+              "relatedModuleId": "MOD-PARK-PER-001",
+              "tasks": []
+            },
+            {
+              "mrId": "MR-LKA-001",
+              "mrTitle": "实现车道保持控制",
+              "relatedModuleId": "MOD-CTRL-LAT-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-ACC-001",
+      "urTitle": "用户需要全速域自适应巡航",
+      "frs": [
+        {
+          "frId": "FR-PARK-003",
+          "frTitle": "低速泊车控制",
+          "relatedFeatureAssetId": "FEAT-AVP-001",
+          "mrs": [
+            {
+              "mrId": "MR-PARK-PLAN-001",
+              "mrTitle": "实现泊车路径规划算法",
+              "relatedModuleId": "MOD-PARK-PLAN-001",
+              "tasks": []
+            },
+            {
+              "mrId": "MR-BSD-001",
+              "mrTitle": "实现盲区监测算法",
+              "relatedModuleId": "MOD-PER-RADAR-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-SAFETY-001",
+      "urTitle": "满足NCAP五星安全评级要求",
+      "frs": [
+        {
+          "frId": "FR-NOA-001",
+          "frTitle": "高速公路自动跟车",
+          "relatedFeatureAssetId": "FEAT-NOA-001",
+          "mrs": [
+            {
+              "mrId": "MR-PARK-CTRL-001",
+              "mrTitle": "实现低速泊车控制",
+              "relatedModuleId": "MOD-PARK-CTRL-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-IVI-001",
+      "urTitle": "用户需要智能语音助手",
+      "frs": [
+        {
+          "frId": "FR-NOA-002",
+          "frTitle": "自动变道",
+          "relatedFeatureAssetId": "FEAT-NOA-001",
+          "mrs": [
+            {
+              "mrId": "MR-NOA-PER-001",
+              "mrTitle": "实现多传感器融合感知",
+              "relatedModuleId": "MOD-PER-FUSION-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-OTA-001",
+      "urTitle": "支持远程软件升级",
+      "frs": [
+        {
+          "frId": "FR-NOA-003",
+          "frTitle": "匝道通行",
+          "relatedFeatureAssetId": "FEAT-NOA-001",
+          "mrs": [
+            {
+              "mrId": "MR-NOA-PLAN-001",
+              "mrTitle": "实现高速跟车规划",
+              "relatedModuleId": "MOD-PLAN-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-PERF-001",
+      "urTitle": "系统性能要求",
+      "frs": [
+        {
+          "frId": "FR-ACC-001",
+          "frTitle": "全速域自适应巡航",
+          "relatedFeatureAssetId": "FEAT-ACC-001",
+          "mrs": [
+            {
+              "mrId": "MR-NOA-PLAN-002",
+              "mrTitle": "实现自动变道决策",
+              "relatedModuleId": "MOD-PLAN-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-SEC-001",
+      "urTitle": "网络安全要求",
+      "frs": [
+        {
+          "frId": "FR-AEB-001",
+          "frTitle": "自动紧急制动",
+          "relatedFeatureAssetId": "FEAT-AEB-001",
+          "mrs": [
+            {
+              "mrId": "MR-NOA-PLAN-003",
+              "mrTitle": "实现匝道通行规划",
+              "relatedModuleId": "MOD-PLAN-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-MAP-001",
+      "urTitle": "高精地图支持",
+      "frs": [
+        {
+          "frId": "FR-LKA-001",
+          "frTitle": "车道保持辅助",
+          "relatedFeatureAssetId": "FEAT-LKA-001",
+          "mrs": [
+            {
+              "mrId": "MR-NOA-CTRL-001",
+              "mrTitle": "实现纵向控制",
+              "relatedModuleId": "MOD-CTRL-LONG-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "urId": "UR-ICA-001",
+      "urTitle": "拥堵路段智能跟车",
+      "frs": [
+        {
+          "frId": "FR-BSD-001",
+          "frTitle": "盲区监测",
+          "relatedFeatureAssetId": "FEAT-BSD-001",
+          "mrs": [
+            {
+              "mrId": "MR-ACC-001",
+              "mrTitle": "实现全速域ACC控制",
+              "relatedModuleId": "MOD-CTRL-LONG-001",
+              "tasks": []
+            }
+          ]
+        }
+      ]
     }
+  ],
+  "backwardTraces": [],
+  "completeness": {
+    "totalURs": 10,
+    "tracedURs": 10,
+    "urCoverage": 100,
+    "totalFRs": 10,
+    "tracedFRs": 10,
+    "frCoverage": 100,
+    "totalMRs": 13,
+    "tracedMRs": 13,
+    "mrCoverage": 100,
+    "totalTasks": 0,
+    "tracedTasks": 0,
+    "taskCoverage": 0,
+    "totalCommits": 0,
+    "tracedCommits": 0,
+    "commitCoverage": 0,
+    "overallCompleteness": 60
   }
 }
-

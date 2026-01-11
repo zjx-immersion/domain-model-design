@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "2.0",
-    "lastUpdate": "2025-01-10T11:00:00Z",
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T02:38:03.684Z",
     "description": "项目待办（PI Backlog）Mock数据 - 与工作项、PI、Sprint关联"
   },
   "data": [
@@ -11,31 +11,99 @@
       "description": "2025 Q1 PI Planning产生的所有工作项待办",
       "piPlanningId": "PI-2025-Q1",
       "piName": "2025 Q1 PI Planning",
-      "domainProjectIds": ["DP-AD-2025-Q1", "DP-IC-2025-Q1", "DP-EE-2025-Q1"],
-      "sprintIds": ["SPRINT-001", "SPRINT-002", "SPRINT-003", "SPRINT-004"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1",
+        "DP-IC-2025-Q1",
+        "DP-EE-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-001",
+        "SPRINT-002",
+        "SPRINT-003",
+        "SPRINT-004"
+      ],
       "workItemIds": [
-        "WI-001", "WI-002", "WI-005", "WI-006", "WI-007",
-        "WI-009", "WI-011", "WI-012", "WI-013", "WI-014",
-        "WI-015", "WI-016", "WI-017"
+        "WI-001",
+        "WI-002",
+        "WI-005",
+        "WI-006",
+        "WI-007",
+        "WI-009",
+        "WI-011",
+        "WI-012",
+        "WI-013",
+        "WI-014",
+        "WI-015",
+        "WI-016",
+        "WI-017"
       ],
       "workItemsByType": {
-        "module_requirement": ["WI-001", "WI-005", "WI-006", "WI-013", "WI-015"],
-        "bugfix": ["WI-002", "WI-007", "WI-012", "WI-016"],
-        "tech_debt": ["WI-017"],
-        "non_functional": ["WI-014"],
-        "optimization": ["WI-009"],
+        "module_requirement": [
+          "WI-001",
+          "WI-005",
+          "WI-006",
+          "WI-013",
+          "WI-015"
+        ],
+        "bugfix": [
+          "WI-002",
+          "WI-007",
+          "WI-012",
+          "WI-016"
+        ],
+        "tech_debt": [
+          "WI-017"
+        ],
+        "non_functional": [
+          "WI-014"
+        ],
+        "optimization": [
+          "WI-009"
+        ],
         "research": []
       },
       "workItemsByStatus": {
-        "done": ["WI-005", "WI-011", "WI-012", "WI-014", "WI-016"],
-        "in_progress": ["WI-001", "WI-006", "WI-009", "WI-013", "WI-015"],
-        "todo": ["WI-002", "WI-007", "WI-017"],
+        "done": [
+          "WI-005",
+          "WI-011",
+          "WI-012",
+          "WI-014",
+          "WI-016"
+        ],
+        "in_progress": [
+          "WI-001",
+          "WI-006",
+          "WI-009",
+          "WI-013",
+          "WI-015"
+        ],
+        "todo": [
+          "WI-002",
+          "WI-007",
+          "WI-017"
+        ],
         "backlog": []
       },
       "workItemsByTeam": {
-        "TEAM-001": ["WI-001", "WI-002", "WI-005", "WI-011", "WI-012", "WI-017"],
-        "TEAM-002": ["WI-006", "WI-007", "WI-013", "WI-014"],
-        "TEAM-003": ["WI-009", "WI-015", "WI-016"]
+        "TEAM-001": [
+          "WI-001",
+          "WI-002",
+          "WI-005",
+          "WI-011",
+          "WI-012",
+          "WI-017"
+        ],
+        "TEAM-002": [
+          "WI-006",
+          "WI-007",
+          "WI-013",
+          "WI-014"
+        ],
+        "TEAM-003": [
+          "WI-009",
+          "WI-015",
+          "WI-016"
+        ]
       },
       "totalWorkItems": 13,
       "assignedWorkItems": 13,
@@ -56,7 +124,78 @@
       "createdAt": "2024-12-15T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "PI Owner",
-      "updatedBy": "PI Owner"
+      "updatedBy": "PI Owner",
+      "mrIds": [
+        "WI-001",
+        "WI-005",
+        "WI-006",
+        "WI-013",
+        "WI-015"
+      ],
+      "frIds": [
+        "FR-001"
+      ],
+      "urIds": [
+        "UR-001"
+      ],
+      "featureIds": [],
+      "moduleIds": [],
+      "requirements": {
+        "urs": [],
+        "frs": [],
+        "mrs": [
+          {
+            "id": "WI-001",
+            "title": "模块需求 WI-001",
+            "status": "todo",
+            "priority": "P1"
+          },
+          {
+            "id": "WI-005",
+            "title": "模块需求 WI-005",
+            "status": "todo",
+            "priority": "P1"
+          },
+          {
+            "id": "WI-006",
+            "title": "模块需求 WI-006",
+            "status": "todo",
+            "priority": "P1"
+          },
+          {
+            "id": "WI-013",
+            "title": "模块需求 WI-013",
+            "status": "todo",
+            "priority": "P1"
+          },
+          {
+            "id": "WI-015",
+            "title": "模块需求 WI-015",
+            "status": "todo",
+            "priority": "P1"
+          }
+        ]
+      },
+      "priorityQueue": {
+        "p0": [],
+        "p1": [
+          "WI-001",
+          "WI-005",
+          "WI-006",
+          "WI-013",
+          "WI-015"
+        ],
+        "p2": []
+      },
+      "statistics": {
+        "totalRequirements": 7,
+        "urCount": 1,
+        "frCount": 1,
+        "mrCount": 5,
+        "featureCount": 0,
+        "moduleCount": 0,
+        "requirementCompleteness": 34
+      }
     },
     {
       "id": "PB-PI-2025-Q2",
@@ -64,28 +203,57 @@
       "description": "2025 Q2 PI Planning产生的工作项待办",
       "piPlanningId": "PI-2025-Q2",
       "piName": "2025 Q2 PI Planning",
-      "domainProjectIds": ["DP-AD-2025-Q1", "DP-IC-2025-Q1"],
-      "sprintIds": ["SPRINT-005", "SPRINT-006", "SPRINT-007"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1",
+        "DP-IC-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-005",
+        "SPRINT-006",
+        "SPRINT-007"
+      ],
       "workItemIds": [
-        "WI-004", "WI-018", "WI-019", "WI-020"
+        "WI-004",
+        "WI-018",
+        "WI-019",
+        "WI-020"
       ],
       "workItemsByType": {
-        "module_requirement": ["WI-019"],
-        "bugfix": ["WI-020"],
+        "module_requirement": [
+          "WI-019"
+        ],
+        "bugfix": [
+          "WI-020"
+        ],
         "tech_debt": [],
-        "non_functional": ["WI-004"],
-        "optimization": ["WI-018"],
+        "non_functional": [
+          "WI-004"
+        ],
+        "optimization": [
+          "WI-018"
+        ],
         "research": []
       },
       "workItemsByStatus": {
         "done": [],
         "in_progress": [],
-        "todo": ["WI-004", "WI-018", "WI-019", "WI-020"],
+        "todo": [
+          "WI-004",
+          "WI-018",
+          "WI-019",
+          "WI-020"
+        ],
         "backlog": []
       },
       "workItemsByTeam": {
-        "TEAM-001": ["WI-004", "WI-018"],
-        "TEAM-004": ["WI-019", "WI-020"]
+        "TEAM-001": [
+          "WI-004",
+          "WI-018"
+        ],
+        "TEAM-004": [
+          "WI-019",
+          "WI-020"
+        ]
       },
       "totalWorkItems": 4,
       "assignedWorkItems": 4,
@@ -106,7 +274,46 @@
       "createdAt": "2025-01-05T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "PI Owner",
-      "updatedBy": "PI Owner"
+      "updatedBy": "PI Owner",
+      "mrIds": [
+        "WI-019"
+      ],
+      "frIds": [
+        "FR-002"
+      ],
+      "urIds": [
+        "UR-002"
+      ],
+      "featureIds": [],
+      "moduleIds": [],
+      "requirements": {
+        "urs": [],
+        "frs": [],
+        "mrs": [
+          {
+            "id": "WI-019",
+            "title": "模块需求 WI-019",
+            "status": "todo",
+            "priority": "P1"
+          }
+        ]
+      },
+      "priorityQueue": {
+        "p0": [],
+        "p1": [
+          "WI-019"
+        ],
+        "p2": []
+      },
+      "statistics": {
+        "totalRequirements": 3,
+        "urCount": 1,
+        "frCount": 1,
+        "mrCount": 1,
+        "featureCount": 0,
+        "moduleCount": 0,
+        "requirementCompleteness": 0
+      }
     },
     {
       "id": "PB-PI-2025-Q3",
@@ -114,8 +321,13 @@
       "description": "2025 Q3 PI Planning产生的工作项待办",
       "piPlanningId": "PI-2025-Q3",
       "piName": "2025 Q3 PI Planning",
-      "domainProjectIds": ["DP-AD-2026-Q3", "DP-IC-2026-Q3"],
-      "sprintIds": ["SPRINT-008"],
+      "domainProjectIds": [
+        "DP-AD-2026-Q3",
+        "DP-IC-2026-Q3"
+      ],
+      "sprintIds": [
+        "SPRINT-008"
+      ],
       "workItemIds": [],
       "workItemsByType": {
         "module_requirement": [],
@@ -151,7 +363,31 @@
       "createdAt": "2025-01-08T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "PI Owner",
-      "updatedBy": "PI Owner"
+      "updatedBy": "PI Owner",
+      "mrIds": [],
+      "frIds": [],
+      "urIds": [],
+      "featureIds": [],
+      "moduleIds": [],
+      "requirements": {
+        "urs": [],
+        "frs": [],
+        "mrs": []
+      },
+      "priorityQueue": {
+        "p0": [],
+        "p1": [],
+        "p2": []
+      },
+      "statistics": {
+        "totalRequirements": 0,
+        "urCount": 0,
+        "frCount": 0,
+        "mrCount": 0,
+        "featureCount": 0,
+        "moduleCount": 0,
+        "requirementCompleteness": 0
+      }
     },
     {
       "id": "PB-BACKLOG",
@@ -162,21 +398,32 @@
       "domainProjectIds": [],
       "sprintIds": [],
       "workItemIds": [
-        "WI-003", "WI-008", "WI-010"
+        "WI-003",
+        "WI-008",
+        "WI-010"
       ],
       "workItemsByType": {
         "module_requirement": [],
         "bugfix": [],
-        "tech_debt": ["WI-003", "WI-008"],
+        "tech_debt": [
+          "WI-003",
+          "WI-008"
+        ],
         "non_functional": [],
         "optimization": [],
-        "research": ["WI-010"]
+        "research": [
+          "WI-010"
+        ]
       },
       "workItemsByStatus": {
         "done": [],
         "in_progress": [],
         "todo": [],
-        "backlog": ["WI-003", "WI-008", "WI-010"]
+        "backlog": [
+          "WI-003",
+          "WI-008",
+          "WI-010"
+        ]
       },
       "workItemsByTeam": {},
       "totalWorkItems": 3,
@@ -198,7 +445,31 @@
       "createdAt": "2024-12-01T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "Product Owner",
-      "updatedBy": "Product Owner"
+      "updatedBy": "Product Owner",
+      "mrIds": [],
+      "frIds": [],
+      "urIds": [],
+      "featureIds": [],
+      "moduleIds": [],
+      "requirements": {
+        "urs": [],
+        "frs": [],
+        "mrs": []
+      },
+      "priorityQueue": {
+        "p0": [],
+        "p1": [],
+        "p2": []
+      },
+      "statistics": {
+        "totalRequirements": 0,
+        "urCount": 0,
+        "frCount": 0,
+        "mrCount": 0,
+        "featureCount": 0,
+        "moduleCount": 0,
+        "requirementCompleteness": 0
+      }
     }
   ],
   "statistics": {

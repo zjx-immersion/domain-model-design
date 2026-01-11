@@ -22,16 +22,24 @@
       "framework": "ROS2",
       "performance": "延迟<200ms, CPU<30%"
     },
-    "taskIds": ["TASK-PARK-001", "TASK-PARK-002"],
+    "taskIds": [
+      "TASK-PARK-001",
+      "TASK-PARK-002"
+    ],
     "commitIds": [],
-    "testCaseIds": ["TC-PARK-001", "TC-PARK-002"],
+    "testCaseIds": [
+      "TC-PARK-001",
+      "TC-PARK-002"
+    ],
     "owner": "Dev-Sun",
     "assignedTeam": "TEAM-PARKING",
     "status": "completed",
     "sprintId": "SPRINT-01",
     "piId": "PI-2024-Q1",
     "createdAt": "2024-02-15T00:00:00Z",
-    "updatedAt": "2024-03-30T00:00:00Z"
+    "updatedAt": "2024-03-30T00:00:00Z",
+    "parentFRId": "FR-PARK-001",
+    "assignedTeamId": "TEAM-001"
   },
   {
     "id": "MR-PARK-PER-002",
@@ -42,12 +50,16 @@
     "moduleId": "MOD-PARK-PER-001",
     "priority": "p0",
     "storyPoints": 5,
-    "taskIds": ["TASK-PARK-003"],
+    "taskIds": [
+      "TASK-PARK-003"
+    ],
     "owner": "Dev-Sun",
     "assignedTeam": "TEAM-PARKING",
     "status": "in_progress",
     "sprintId": "SPRINT-02",
-    "piId": "PI-2024-Q1"
+    "piId": "PI-2024-Q1",
+    "parentFRId": "FR-PARK-002",
+    "assignedTeamId": "TEAM-002"
   },
   {
     "id": "MR-PARK-PLAN-001",
@@ -58,12 +70,18 @@
     "moduleId": "MOD-PARK-PLAN-001",
     "priority": "p0",
     "storyPoints": 13,
-    "taskIds": ["TASK-PLAN-001", "TASK-PLAN-002", "TASK-PLAN-003"],
+    "taskIds": [
+      "TASK-PLAN-001",
+      "TASK-PLAN-002",
+      "TASK-PLAN-003"
+    ],
     "owner": "Dev-Qian",
     "assignedTeam": "TEAM-PLANNING",
     "status": "completed",
     "sprintId": "SPRINT-01",
-    "piId": "PI-2024-Q1"
+    "piId": "PI-2024-Q1",
+    "parentFRId": "FR-PARK-003",
+    "assignedTeamId": "TEAM-003"
   },
   {
     "id": "MR-PARK-CTRL-001",
@@ -74,12 +92,16 @@
     "moduleId": "MOD-PARK-CTRL-001",
     "priority": "p0",
     "storyPoints": 8,
-    "taskIds": ["TASK-CTRL-001"],
+    "taskIds": [
+      "TASK-CTRL-001"
+    ],
     "owner": "Dev-Chu",
     "assignedTeam": "TEAM-CONTROL",
     "status": "completed",
     "sprintId": "SPRINT-02",
-    "piId": "PI-2024-Q1"
+    "piId": "PI-2024-Q1",
+    "parentFRId": "FR-NOA-001",
+    "assignedTeamId": "TEAM-004"
   },
   {
     "id": "MR-NOA-PER-001",
@@ -94,7 +116,9 @@
     "owner": "Dev-Zhou",
     "assignedTeam": "TEAM-PERCEPTION",
     "status": "in_progress",
-    "piId": "PI-2023-Q3"
+    "piId": "PI-2023-Q3",
+    "parentFRId": "FR-NOA-002",
+    "assignedTeamId": "TEAM-001"
   },
   {
     "id": "MR-NOA-PLAN-001",
@@ -108,7 +132,9 @@
     "owner": "Dev-Qian",
     "assignedTeam": "TEAM-PLANNING",
     "status": "completed",
-    "piId": "PI-2023-Q3"
+    "piId": "PI-2023-Q3",
+    "parentFRId": "FR-NOA-003",
+    "assignedTeamId": "TEAM-002"
   },
   {
     "id": "MR-NOA-PLAN-002",
@@ -122,7 +148,9 @@
     "owner": "Dev-Qian",
     "assignedTeam": "TEAM-PLANNING",
     "status": "completed",
-    "piId": "PI-2024-Q1"
+    "piId": "PI-2024-Q1",
+    "parentFRId": "FR-ACC-001",
+    "assignedTeamId": "TEAM-003"
   },
   {
     "id": "MR-NOA-PLAN-003",
@@ -136,7 +164,9 @@
     "owner": "Dev-Qian",
     "assignedTeam": "TEAM-PLANNING",
     "status": "approved",
-    "piId": "PI-2024-Q2"
+    "piId": "PI-2024-Q2",
+    "parentFRId": "FR-AEB-001",
+    "assignedTeamId": "TEAM-004"
   },
   {
     "id": "MR-NOA-CTRL-001",
@@ -150,7 +180,9 @@
     "owner": "Dev-Chu",
     "assignedTeam": "TEAM-CONTROL",
     "status": "completed",
-    "piId": "PI-2023-Q3"
+    "piId": "PI-2023-Q3",
+    "parentFRId": "FR-LKA-001",
+    "assignedTeamId": "TEAM-001"
   },
   {
     "id": "MR-ACC-001",
@@ -164,7 +196,9 @@
     "owner": "Dev-Chu",
     "assignedTeam": "TEAM-CONTROL",
     "status": "completed",
-    "piId": "PI-2023-Q1"
+    "piId": "PI-2023-Q1",
+    "parentFRId": "FR-BSD-001",
+    "assignedTeamId": "TEAM-002"
   },
   {
     "id": "MR-AEB-001",
@@ -178,7 +212,9 @@
     "owner": "Dev-Chu",
     "assignedTeam": "TEAM-SAFETY",
     "status": "completed",
-    "piId": "PI-2020-Q2"
+    "piId": "PI-2020-Q2",
+    "parentFRId": "FR-PARK-001",
+    "assignedTeamId": "TEAM-003"
   },
   {
     "id": "MR-LKA-001",
@@ -192,7 +228,9 @@
     "owner": "Dev-Zheng",
     "assignedTeam": "TEAM-CONTROL",
     "status": "completed",
-    "piId": "PI-2020-Q3"
+    "piId": "PI-2020-Q3",
+    "parentFRId": "FR-PARK-002",
+    "assignedTeamId": "TEAM-004"
   },
   {
     "id": "MR-BSD-001",
@@ -206,6 +244,8 @@
     "owner": "Dev-Wu",
     "assignedTeam": "TEAM-PERCEPTION",
     "status": "completed",
-    "piId": "PI-2020-Q3"
+    "piId": "PI-2020-Q3",
+    "parentFRId": "FR-PARK-003",
+    "assignedTeamId": "TEAM-001"
   }
 ]

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "2.0",
-    "lastUpdate": "2025-01-10T11:00:00Z",
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T02:38:03.697Z",
     "description": "团队待办（Team Backlog）Mock数据 - 与工作项、Sprint、团队关联"
   },
   "data": [
@@ -14,28 +14,73 @@
       "piPlanningId": "PI-2025-Q1",
       "piName": "2025 Q1 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q1",
-      "domainProjectIds": ["DP-AD-2025-Q1"],
-      "sprintIds": ["SPRINT-001", "SPRINT-002"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-001",
+        "SPRINT-002"
+      ],
       "workItemIds": [
-        "WI-001", "WI-002", "WI-005", "WI-011", "WI-012", "WI-017", "WI-018"
+        "WI-001",
+        "WI-002",
+        "WI-005",
+        "WI-011",
+        "WI-012",
+        "WI-017",
+        "WI-018"
       ],
       "priorityQueue": [
-        "WI-001", "WI-005", "WI-011", "WI-012", "WI-002", "WI-017", "WI-018"
+        "WI-001",
+        "WI-005",
+        "WI-011",
+        "WI-012",
+        "WI-002",
+        "WI-017",
+        "WI-018"
       ],
       "workItemsByPriority": {
-        "P0": ["WI-001", "WI-002", "WI-005", "WI-011", "WI-012"],
-        "P1": ["WI-017", "WI-018"],
+        "P0": [
+          "WI-001",
+          "WI-002",
+          "WI-005",
+          "WI-011",
+          "WI-012"
+        ],
+        "P1": [
+          "WI-017",
+          "WI-018"
+        ],
         "P2": []
       },
       "workItemsBySprint": {
-        "SPRINT-001": ["WI-001", "WI-002", "WI-005", "WI-011", "WI-012"],
-        "SPRINT-002": ["WI-017", "WI-018"],
+        "SPRINT-001": [
+          "WI-001",
+          "WI-002",
+          "WI-005",
+          "WI-011",
+          "WI-012"
+        ],
+        "SPRINT-002": [
+          "WI-017",
+          "WI-018"
+        ],
         "unassigned": []
       },
       "workItemsByStatus": {
-        "done": ["WI-005", "WI-011", "WI-012"],
-        "in_progress": ["WI-001"],
-        "todo": ["WI-002", "WI-017", "WI-018"],
+        "done": [
+          "WI-005",
+          "WI-011",
+          "WI-012"
+        ],
+        "in_progress": [
+          "WI-001"
+        ],
+        "todo": [
+          "WI-002",
+          "WI-017",
+          "WI-018"
+        ],
         "backlog": []
       },
       "totalWorkItems": 7,
@@ -58,7 +103,108 @@
       "createdAt": "2024-12-15T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "王经理",
-      "updatedBy": "算法架构师A"
+      "updatedBy": "算法架构师A",
+      "mrIds": [
+        "WI-001",
+        "WI-002",
+        "WI-005",
+        "WI-011",
+        "WI-012",
+        "WI-017",
+        "WI-018"
+      ],
+      "mrsBySprint": {
+        "SPRINT-001": [
+          "WI-001",
+          "WI-002",
+          "WI-005",
+          "WI-011",
+          "WI-012"
+        ],
+        "SPRINT-002": [
+          "WI-017",
+          "WI-018"
+        ],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [
+          "WI-005",
+          "WI-011",
+          "WI-012"
+        ],
+        "in_progress": [
+          "WI-001"
+        ],
+        "todo": [
+          "WI-002",
+          "WI-017",
+          "WI-018"
+        ],
+        "backlog": []
+      },
+      "mrsDetails": [
+        {
+          "id": "WI-001",
+          "title": "模块需求 WI-001",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-002",
+          "title": "模块需求 WI-002",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-005",
+          "title": "模块需求 WI-005",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-011",
+          "title": "模块需求 WI-011",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-012",
+          "title": "模块需求 WI-012",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-017",
+          "title": "模块需求 WI-017",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-018",
+          "title": "模块需求 WI-018",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        }
+      ],
+      "mrStatistics": {
+        "totalMRs": 7,
+        "readyMRs": 3,
+        "inProgressMRs": 1,
+        "inReviewMRs": 0,
+        "doneMRs": 3,
+        "totalMRStoryPoints": 45,
+        "completedMRStoryPoints": 20,
+        "mrCompletionRate": 43
+      }
     },
     {
       "id": "TB-TEAM-002-Q1",
@@ -69,27 +215,55 @@
       "piPlanningId": "PI-2025-Q1",
       "piName": "2025 Q1 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q1",
-      "domainProjectIds": ["DP-AD-2025-Q1"],
-      "sprintIds": ["SPRINT-003"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-003"
+      ],
       "workItemIds": [
-        "WI-006", "WI-007", "WI-013", "WI-014"
+        "WI-006",
+        "WI-007",
+        "WI-013",
+        "WI-014"
       ],
       "priorityQueue": [
-        "WI-006", "WI-007", "WI-013", "WI-014"
+        "WI-006",
+        "WI-007",
+        "WI-013",
+        "WI-014"
       ],
       "workItemsByPriority": {
-        "P0": ["WI-006", "WI-007"],
-        "P1": ["WI-013", "WI-014"],
+        "P0": [
+          "WI-006",
+          "WI-007"
+        ],
+        "P1": [
+          "WI-013",
+          "WI-014"
+        ],
         "P2": []
       },
       "workItemsBySprint": {
-        "SPRINT-003": ["WI-006", "WI-007", "WI-013", "WI-014"],
+        "SPRINT-003": [
+          "WI-006",
+          "WI-007",
+          "WI-013",
+          "WI-014"
+        ],
         "unassigned": []
       },
       "workItemsByStatus": {
-        "done": ["WI-014"],
-        "in_progress": ["WI-006", "WI-013"],
-        "todo": ["WI-007"],
+        "done": [
+          "WI-014"
+        ],
+        "in_progress": [
+          "WI-006",
+          "WI-013"
+        ],
+        "todo": [
+          "WI-007"
+        ],
         "backlog": []
       },
       "totalWorkItems": 4,
@@ -112,7 +286,76 @@
       "createdAt": "2024-12-15T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "王经理",
-      "updatedBy": "算法架构师B"
+      "updatedBy": "算法架构师B",
+      "mrIds": [
+        "WI-006",
+        "WI-007",
+        "WI-013",
+        "WI-014"
+      ],
+      "mrsBySprint": {
+        "SPRINT-003": [
+          "WI-006",
+          "WI-007",
+          "WI-013",
+          "WI-014"
+        ],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [
+          "WI-014"
+        ],
+        "in_progress": [
+          "WI-006",
+          "WI-013"
+        ],
+        "todo": [
+          "WI-007"
+        ],
+        "backlog": []
+      },
+      "mrsDetails": [
+        {
+          "id": "WI-006",
+          "title": "模块需求 WI-006",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-007",
+          "title": "模块需求 WI-007",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-013",
+          "title": "模块需求 WI-013",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-014",
+          "title": "模块需求 WI-014",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        }
+      ],
+      "mrStatistics": {
+        "totalMRs": 4,
+        "readyMRs": 1,
+        "inProgressMRs": 2,
+        "inReviewMRs": 0,
+        "doneMRs": 1,
+        "totalMRStoryPoints": 27,
+        "completedMRStoryPoints": 3,
+        "mrCompletionRate": 25
+      }
     },
     {
       "id": "TB-TEAM-003-Q1",
@@ -123,26 +366,48 @@
       "piPlanningId": "PI-2025-Q1",
       "piName": "2025 Q1 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q1",
-      "domainProjectIds": ["DP-AD-2025-Q1"],
-      "sprintIds": ["SPRINT-004"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-004"
+      ],
       "workItemIds": [
-        "WI-009", "WI-015", "WI-016"
+        "WI-009",
+        "WI-015",
+        "WI-016"
       ],
       "priorityQueue": [
-        "WI-015", "WI-016", "WI-009"
+        "WI-015",
+        "WI-016",
+        "WI-009"
       ],
       "workItemsByPriority": {
-        "P0": ["WI-016"],
-        "P1": ["WI-009", "WI-015"],
+        "P0": [
+          "WI-016"
+        ],
+        "P1": [
+          "WI-009",
+          "WI-015"
+        ],
         "P2": []
       },
       "workItemsBySprint": {
-        "SPRINT-004": ["WI-009", "WI-015", "WI-016"],
+        "SPRINT-004": [
+          "WI-009",
+          "WI-015",
+          "WI-016"
+        ],
         "unassigned": []
       },
       "workItemsByStatus": {
-        "done": ["WI-016"],
-        "in_progress": ["WI-009", "WI-015"],
+        "done": [
+          "WI-016"
+        ],
+        "in_progress": [
+          "WI-009",
+          "WI-015"
+        ],
         "todo": [],
         "backlog": []
       },
@@ -166,7 +431,65 @@
       "createdAt": "2024-12-15T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "王经理",
-      "updatedBy": "控制工程师A"
+      "updatedBy": "控制工程师A",
+      "mrIds": [
+        "WI-009",
+        "WI-015",
+        "WI-016"
+      ],
+      "mrsBySprint": {
+        "SPRINT-004": [
+          "WI-009",
+          "WI-015",
+          "WI-016"
+        ],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [
+          "WI-016"
+        ],
+        "in_progress": [
+          "WI-009",
+          "WI-015"
+        ],
+        "todo": [],
+        "backlog": []
+      },
+      "mrsDetails": [
+        {
+          "id": "WI-009",
+          "title": "模块需求 WI-009",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-015",
+          "title": "模块需求 WI-015",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-016",
+          "title": "模块需求 WI-016",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        }
+      ],
+      "mrStatistics": {
+        "totalMRs": 3,
+        "readyMRs": 0,
+        "inProgressMRs": 2,
+        "inReviewMRs": 0,
+        "doneMRs": 1,
+        "totalMRStoryPoints": 15,
+        "completedMRStoryPoints": 2,
+        "mrCompletionRate": 33
+      }
     },
     {
       "id": "TB-TEAM-004-Q2",
@@ -177,27 +500,43 @@
       "piPlanningId": "PI-2025-Q2",
       "piName": "2025 Q2 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q2",
-      "domainProjectIds": ["DP-AD-2025-Q1"],
-      "sprintIds": ["SPRINT-005"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-005"
+      ],
       "workItemIds": [
-        "WI-019", "WI-020"
+        "WI-019",
+        "WI-020"
       ],
       "priorityQueue": [
-        "WI-020", "WI-019"
+        "WI-020",
+        "WI-019"
       ],
       "workItemsByPriority": {
-        "P0": ["WI-020"],
-        "P1": ["WI-019"],
+        "P0": [
+          "WI-020"
+        ],
+        "P1": [
+          "WI-019"
+        ],
         "P2": []
       },
       "workItemsBySprint": {
-        "SPRINT-005": ["WI-019", "WI-020"],
+        "SPRINT-005": [
+          "WI-019",
+          "WI-020"
+        ],
         "unassigned": []
       },
       "workItemsByStatus": {
         "done": [],
         "in_progress": [],
-        "todo": ["WI-019", "WI-020"],
+        "todo": [
+          "WI-019",
+          "WI-020"
+        ],
         "backlog": []
       },
       "totalWorkItems": 2,
@@ -220,7 +559,54 @@
       "createdAt": "2025-01-05T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "王经理",
-      "updatedBy": "地图工程师A"
+      "updatedBy": "地图工程师A",
+      "mrIds": [
+        "WI-019",
+        "WI-020"
+      ],
+      "mrsBySprint": {
+        "SPRINT-005": [
+          "WI-019",
+          "WI-020"
+        ],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [],
+        "in_progress": [],
+        "todo": [
+          "WI-019",
+          "WI-020"
+        ],
+        "backlog": []
+      },
+      "mrsDetails": [
+        {
+          "id": "WI-019",
+          "title": "模块需求 WI-019",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-020",
+          "title": "模块需求 WI-020",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        }
+      ],
+      "mrStatistics": {
+        "totalMRs": 2,
+        "readyMRs": 2,
+        "inProgressMRs": 0,
+        "inReviewMRs": 0,
+        "doneMRs": 0,
+        "totalMRStoryPoints": 11,
+        "completedMRStoryPoints": 0,
+        "mrCompletionRate": 0
+      }
     },
     {
       "id": "TB-TEAM-001-Q2",
@@ -231,27 +617,42 @@
       "piPlanningId": "PI-2025-Q2",
       "piName": "2025 Q2 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q2",
-      "domainProjectIds": ["DP-AD-2025-Q1"],
-      "sprintIds": ["SPRINT-002"],
+      "domainProjectIds": [
+        "DP-AD-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-002"
+      ],
       "workItemIds": [
-        "WI-004", "WI-018"
+        "WI-004",
+        "WI-018"
       ],
       "priorityQueue": [
-        "WI-004", "WI-018"
+        "WI-004",
+        "WI-018"
       ],
       "workItemsByPriority": {
         "P0": [],
-        "P1": ["WI-004", "WI-018"],
+        "P1": [
+          "WI-004",
+          "WI-018"
+        ],
         "P2": []
       },
       "workItemsBySprint": {
-        "SPRINT-002": ["WI-004", "WI-018"],
+        "SPRINT-002": [
+          "WI-004",
+          "WI-018"
+        ],
         "unassigned": []
       },
       "workItemsByStatus": {
         "done": [],
         "in_progress": [],
-        "todo": ["WI-004", "WI-018"],
+        "todo": [
+          "WI-004",
+          "WI-018"
+        ],
         "backlog": []
       },
       "totalWorkItems": 2,
@@ -274,7 +675,54 @@
       "createdAt": "2025-01-05T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "王经理",
-      "updatedBy": "算法架构师A"
+      "updatedBy": "算法架构师A",
+      "mrIds": [
+        "WI-004",
+        "WI-018"
+      ],
+      "mrsBySprint": {
+        "SPRINT-002": [
+          "WI-004",
+          "WI-018"
+        ],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [],
+        "in_progress": [],
+        "todo": [
+          "WI-004",
+          "WI-018"
+        ],
+        "backlog": []
+      },
+      "mrsDetails": [
+        {
+          "id": "WI-004",
+          "title": "模块需求 WI-004",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        },
+        {
+          "id": "WI-018",
+          "title": "模块需求 WI-018",
+          "status": "todo",
+          "priority": "P1",
+          "storyPoints": 5
+        }
+      ],
+      "mrStatistics": {
+        "totalMRs": 2,
+        "readyMRs": 2,
+        "inProgressMRs": 0,
+        "inReviewMRs": 0,
+        "doneMRs": 0,
+        "totalMRStoryPoints": 8,
+        "completedMRStoryPoints": 0,
+        "mrCompletionRate": 0
+      }
     },
     {
       "id": "TB-TEAM-COCKPIT-Q3",
@@ -285,8 +733,12 @@
       "piPlanningId": "PI-2025-Q3",
       "piName": "2025 Q3 PI Planning",
       "projectBacklogId": "PB-PI-2025-Q3",
-      "domainProjectIds": ["DP-IC-2025-Q1"],
-      "sprintIds": ["SPRINT-008"],
+      "domainProjectIds": [
+        "DP-IC-2025-Q1"
+      ],
+      "sprintIds": [
+        "SPRINT-008"
+      ],
       "workItemIds": [],
       "priorityQueue": [],
       "workItemsByPriority": {
@@ -324,7 +776,30 @@
       "createdAt": "2025-01-08T00:00:00Z",
       "updatedAt": "2025-01-10T10:00:00Z",
       "createdBy": "李经理",
-      "updatedBy": "HMI工程师A"
+      "updatedBy": "HMI工程师A",
+      "mrIds": [],
+      "mrsBySprint": {
+        "SPRINT-008": [],
+        "unassigned": []
+      },
+      "mrsByModule": {},
+      "mrsByStatus": {
+        "done": [],
+        "in_progress": [],
+        "todo": [],
+        "backlog": []
+      },
+      "mrsDetails": [],
+      "mrStatistics": {
+        "totalMRs": 0,
+        "readyMRs": 0,
+        "inProgressMRs": 0,
+        "inReviewMRs": 0,
+        "doneMRs": 0,
+        "totalMRStoryPoints": 0,
+        "completedMRStoryPoints": 0,
+        "mrCompletionRate": 0
+      }
     }
   ],
   "statistics": {

@@ -10,7 +10,12 @@
     "priority": "p0",
     "businessValue": 90,
     "marketImpact": "差异化竞争优势，提升高端市场占有率，预计提升15%销量",
-    "stakeholders": ["PM-Zhang", "SE-Li", "Marketing-Wang", "Sales-Zhao"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li",
+      "Marketing-Wang",
+      "Sales-Zhao"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "用户可通过手机APP远程启动泊车",
@@ -33,7 +38,11 @@
         "target": ">50"
       }
     ],
-    "childFeatureRequirements": ["FR-PARK-001", "FR-PARK-002", "FR-PARK-003"],
+    "childFeatureRequirements": [
+      "FR-PARK-001",
+      "FR-PARK-002",
+      "FR-PARK-003"
+    ],
     "status": "approved",
     "createdAt": "2024-01-15T00:00:00Z",
     "updatedAt": "2024-02-01T00:00:00Z",
@@ -51,7 +60,11 @@
     "priority": "p0",
     "businessValue": 95,
     "marketImpact": "核心竞争力，对标特斯拉FSD，提升品牌形象",
-    "stakeholders": ["PM-Zhang", "SE-Li", "Marketing-Wang"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li",
+      "Marketing-Wang"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "支持0-120km/h速度范围",
@@ -70,7 +83,11 @@
         "target": ">80%的高速行驶启用"
       }
     ],
-    "childFeatureRequirements": ["FR-NOA-001", "FR-NOA-002", "FR-NOA-003"],
+    "childFeatureRequirements": [
+      "FR-NOA-001",
+      "FR-NOA-002",
+      "FR-NOA-003"
+    ],
     "status": "approved",
     "createdAt": "2023-06-01T00:00:00Z",
     "updatedAt": "2023-07-15T00:00:00Z",
@@ -88,7 +105,10 @@
     "priority": "p0",
     "businessValue": 85,
     "marketImpact": "基础ADAS功能，市场标配",
-    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "支持0-150km/h全速域",
@@ -106,7 +126,9 @@
         "target": ">4.3分/5分"
       }
     ],
-    "childFeatureRequirements": ["FR-ACC-001"],
+    "childFeatureRequirements": [
+      "FR-ACC-001"
+    ],
     "status": "approved",
     "createdAt": "2020-01-01T00:00:00Z",
     "updatedAt": "2024-01-01T00:00:00Z",
@@ -124,7 +146,11 @@
     "priority": "p0",
     "businessValue": 100,
     "marketImpact": "法规强制要求，市场准入门槛",
-    "stakeholders": ["PM-Zhang", "SE-Li", "Compliance-Liu"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li",
+      "Compliance-Liu"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "通过Euro NCAP五星评级",
@@ -138,7 +164,11 @@
         "target": "五星"
       }
     ],
-    "childFeatureRequirements": ["FR-AEB-001", "FR-LKA-001", "FR-BSD-001"],
+    "childFeatureRequirements": [
+      "FR-AEB-001",
+      "FR-LKA-001",
+      "FR-BSD-001"
+    ],
     "status": "approved",
     "createdAt": "2020-01-01T00:00:00Z",
     "updatedAt": "2023-06-01T00:00:00Z"
@@ -153,7 +183,10 @@
     "priority": "p1",
     "businessValue": 80,
     "marketImpact": "提升用户体验，增强品牌竞争力",
-    "stakeholders": ["PM-Wang", "SE-Liu"],
+    "stakeholders": [
+      "PM-Wang",
+      "SE-Liu"
+    ],
     "owner": "PM-Wang",
     "acceptanceCriteria": [
       "支持中文普通话识别",
@@ -172,7 +205,9 @@
         "target": ">4.2分/5分"
       }
     ],
-    "childFeatureRequirements": ["FR-VOICE-001"],
+    "childFeatureRequirements": [
+      "FR-VOICE-001"
+    ],
     "status": "approved",
     "createdAt": "2020-01-01T00:00:00Z",
     "updatedAt": "2024-06-01T00:00:00Z"
@@ -187,7 +222,10 @@
     "priority": "p0",
     "businessValue": 90,
     "marketImpact": "降低售后成本，提升用户体验，支持功能迭代",
-    "stakeholders": ["PM-Zhang", "DevOps-Zhou"],
+    "stakeholders": [
+      "PM-Zhang",
+      "DevOps-Zhou"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "支持FOTA固件升级",
@@ -206,7 +244,9 @@
         "target": ">80%"
       }
     ],
-    "childFeatureRequirements": ["FR-OTA-001"],
+    "childFeatureRequirements": [
+      "FR-OTA-001"
+    ],
     "status": "approved",
     "createdAt": "2021-06-01T00:00:00Z",
     "updatedAt": "2024-06-01T00:00:00Z"
@@ -221,7 +261,10 @@
     "priority": "p1",
     "businessValue": 75,
     "marketImpact": "保证系统稳定性和用户体验",
-    "stakeholders": ["SE-Li", "Arch-Sun"],
+    "stakeholders": [
+      "SE-Li",
+      "Arch-Sun"
+    ],
     "owner": "SE-Li",
     "acceptanceCriteria": [
       "感知算法延迟<100ms",
@@ -236,7 +279,9 @@
         "target": "<180ms端到端"
       }
     ],
-    "childFeatureRequirements": ["FR-PERF-001"],
+    "childFeatureRequirements": [
+      "FR-PERF-001"
+    ],
     "status": "approved",
     "createdAt": "2023-01-01T00:00:00Z",
     "updatedAt": "2024-01-01T00:00:00Z"
@@ -251,7 +296,10 @@
     "priority": "p0",
     "businessValue": 100,
     "marketImpact": "合规要求，保障用户安全",
-    "stakeholders": ["SE-Li", "Security-Wei"],
+    "stakeholders": [
+      "SE-Li",
+      "Security-Wei"
+    ],
     "owner": "SE-Li",
     "acceptanceCriteria": [
       "通过ISO 21434认证",
@@ -266,7 +314,9 @@
         "target": "100%"
       }
     ],
-    "childFeatureRequirements": ["FR-SEC-001"],
+    "childFeatureRequirements": [
+      "FR-SEC-001"
+    ],
     "status": "approved",
     "createdAt": "2021-01-01T00:00:00Z",
     "updatedAt": "2024-01-01T00:00:00Z"
@@ -281,7 +331,10 @@
     "priority": "p1",
     "businessValue": 70,
     "marketImpact": "支持高级ADAS功能，提升竞争力",
-    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "支持高精地图加载和显示",
@@ -295,7 +348,10 @@
         "target": ">90%高速公路"
       }
     ],
-    "childFeatureRequirements": ["FR-MAP-001", "FR-LOC-001"],
+    "childFeatureRequirements": [
+      "FR-MAP-001",
+      "FR-LOC-001"
+    ],
     "status": "approved",
     "createdAt": "2021-01-01T00:00:00Z",
     "updatedAt": "2024-03-01T00:00:00Z"
@@ -310,7 +366,10 @@
     "priority": "p1",
     "businessValue": 75,
     "marketImpact": "缓解驾驶疲劳，提升用户体验",
-    "stakeholders": ["PM-Zhang", "SE-Li"],
+    "stakeholders": [
+      "PM-Zhang",
+      "SE-Li"
+    ],
     "owner": "PM-Zhang",
     "acceptanceCriteria": [
       "支持0-60km/h速度范围",
@@ -324,7 +383,9 @@
         "target": ">60%拥堵路段"
       }
     ],
-    "childFeatureRequirements": ["FR-ICA-001"],
+    "childFeatureRequirements": [
+      "FR-ICA-001"
+    ],
     "status": "approved",
     "createdAt": "2023-01-01T00:00:00Z",
     "updatedAt": "2024-06-01T00:00:00Z"

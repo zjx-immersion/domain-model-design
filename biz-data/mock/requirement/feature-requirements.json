@@ -26,12 +26,16 @@
       "accuracy": ">95%",
       "reliability": ">99%"
     },
-    "childModuleRequirements": ["MR-PARK-PER-001", "MR-PARK-PER-002"],
+    "childModuleRequirements": [
+      "MR-PARK-PER-001",
+      "MR-PARK-PER-002"
+    ],
     "dependencies": [],
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z"
+    "updatedAt": "2024-02-15T00:00:00Z",
+    "parentURId": "UR-PARK-001"
   },
   {
     "id": "FR-PARK-002",
@@ -54,11 +58,14 @@
       "latency": "<200ms",
       "accuracy": ">98%"
     },
-    "childModuleRequirements": ["MR-PARK-PLAN-001"],
+    "childModuleRequirements": [
+      "MR-PARK-PLAN-001"
+    ],
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z"
+    "updatedAt": "2024-02-15T00:00:00Z",
+    "parentURId": "UR-NOA-001"
   },
   {
     "id": "FR-PARK-003",
@@ -81,11 +88,14 @@
       "latency": "<50ms",
       "accuracy": ">99%"
     },
-    "childModuleRequirements": ["MR-PARK-CTRL-001"],
+    "childModuleRequirements": [
+      "MR-PARK-CTRL-001"
+    ],
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z"
+    "updatedAt": "2024-02-15T00:00:00Z",
+    "parentURId": "UR-ACC-001"
   },
   {
     "id": "FR-NOA-001",
@@ -108,9 +118,14 @@
       "latency": "<100ms",
       "accuracy": ">99%"
     },
-    "childModuleRequirements": ["MR-NOA-PER-001", "MR-NOA-PLAN-001", "MR-NOA-CTRL-001"],
+    "childModuleRequirements": [
+      "MR-NOA-PER-001",
+      "MR-NOA-PLAN-001",
+      "MR-NOA-CTRL-001"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-SAFETY-001"
   },
   {
     "id": "FR-NOA-002",
@@ -122,9 +137,12 @@
     "relatedFeatureAssetId": "FEAT-NOA-001",
     "productId": "PROD-ADAS-FLAG",
     "priority": "p0",
-    "childModuleRequirements": ["MR-NOA-PLAN-002"],
+    "childModuleRequirements": [
+      "MR-NOA-PLAN-002"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-IVI-001"
   },
   {
     "id": "FR-NOA-003",
@@ -136,9 +154,12 @@
     "relatedFeatureAssetId": "FEAT-NOA-001",
     "productId": "PROD-ADAS-FLAG",
     "priority": "p1",
-    "childModuleRequirements": ["MR-NOA-PLAN-003"],
+    "childModuleRequirements": [
+      "MR-NOA-PLAN-003"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-OTA-001"
   },
   {
     "id": "FR-ACC-001",
@@ -150,9 +171,12 @@
     "relatedFeatureAssetId": "FEAT-ACC-001",
     "productId": "PROD-ADAS-FLAG",
     "priority": "p0",
-    "childModuleRequirements": ["MR-ACC-001"],
+    "childModuleRequirements": [
+      "MR-ACC-001"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-PERF-001"
   },
   {
     "id": "FR-AEB-001",
@@ -164,9 +188,12 @@
     "relatedFeatureAssetId": "FEAT-AEB-001",
     "productId": "PROD-ADAS-STD",
     "priority": "p0",
-    "childModuleRequirements": ["MR-AEB-001"],
+    "childModuleRequirements": [
+      "MR-AEB-001"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-SEC-001"
   },
   {
     "id": "FR-LKA-001",
@@ -178,9 +205,12 @@
     "relatedFeatureAssetId": "FEAT-LKA-001",
     "productId": "PROD-ADAS-STD",
     "priority": "p0",
-    "childModuleRequirements": ["MR-LKA-001"],
+    "childModuleRequirements": [
+      "MR-LKA-001"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-MAP-001"
   },
   {
     "id": "FR-BSD-001",
@@ -192,8 +222,11 @@
     "relatedFeatureAssetId": "FEAT-BSD-001",
     "productId": "PROD-ADAS-STD",
     "priority": "p0",
-    "childModuleRequirements": ["MR-BSD-001"],
+    "childModuleRequirements": [
+      "MR-BSD-001"
+    ],
     "owner": "SE-Li",
-    "status": "approved"
+    "status": "approved",
+    "parentURId": "UR-ICA-001"
   }
 ]
