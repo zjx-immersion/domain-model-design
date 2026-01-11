@@ -97,7 +97,7 @@ const handleCreate = () => ElMessage.info('新建流水线功能开发中')
 const viewDetail = (row: any) => ElMessage.info(`查看流水线: ${row.name}`)
 const runPipeline = (row: any) => ElMessage.info(`执行流水线: ${row.name}`)
 const editPipeline = (row: any) => ElMessage.info(`编辑流水线: ${row.name}`)
-const goToModule = (moduleId: string) => router.push(`/assets/modules/${moduleId}`)
+const goToModule = (moduleId: string) => router.push(`/products/modules/${moduleId}`)
 
 onMounted(() => {
   fetchPipelines()

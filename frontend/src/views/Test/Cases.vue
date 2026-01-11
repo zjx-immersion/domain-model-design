@@ -297,7 +297,7 @@ const editCase = (testCase: any) => {
 }
 
 const goToModule = (moduleId: string) => {
-  router.push(`/assets/modules/${moduleId}`)
+  router.push(`/products/modules/${moduleId}`)
 }
 
 const goToRequirement = (requirementId: string) => {

@@ -172,7 +172,7 @@ const handleCreate = () => ElMessage.info('新建自动化测试功能开发中'
 const viewDetail = (row: any) => ElMessage.info(`查看自动化测试: ${row.testId}`)
 const runTest = (row: any) => ElMessage.info(`执行自动化测试: ${row.testId}`)
 const editTest = (row: any) => ElMessage.info(`编辑自动化测试: ${row.testId}`)
-const goToModule = (moduleId: string) => router.push(`/assets/modules/${moduleId}`)
+const goToModule = (moduleId: string) => router.push(`/products/modules/${moduleId}`)
 
 const initCharts = () => {
   if (automationCoverageChartRef.value) {

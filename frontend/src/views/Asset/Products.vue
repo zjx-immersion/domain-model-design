@@ -154,7 +154,7 @@ function getStatusText(status: string) {
 }
 
 function viewProduct(id: string) {
-  router.push(`/assets/products/${id}`)
+  router.push(`/products/list/${id}`)
 }
 
 function viewFeatures(productId: string) {
@@ -184,7 +184,7 @@ function handleCommand(command: string, product: any) {
       ElMessage.info(`编辑产品: ${product.name}`)
       break
     case 'version':
-      router.push(`/assets/products/${product.id}/versions`)
+      router.push(`/products/list/${product.id}/versions`)
       break
     case 'delete':
       ElMessageBox.confirm(`确定删除产品 ${product.name} 吗？`, '提示', {

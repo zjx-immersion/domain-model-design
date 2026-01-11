@@ -264,7 +264,7 @@ const handleAddMember = () => ElMessage.info('添加成员功能开发中')
 const goToModuleConfig = () => router.push(`/teams/${team.value.id}/modules`)
 const goToWorkItems = () => router.push(`/work-items?teamId=${team.value.id}`)
 const goToWorkItem = (id: string) => router.push(`/work-items/${id}`)
-const goToModule = (id: string) => router.push(`/assets/modules/${id}`)
+const goToModule = (id: string) => router.push(`/products/modules/${id}`)
 
 onMounted(() => {
   fetchTeamDetail()

@@ -628,7 +628,7 @@ const handleConfirmAddModules = () => {
 }
 
 const handleViewModule = (moduleId: string) => {
-  router.push(`/assets/modules/${moduleId}`)
+  router.push(`/products/modules/${moduleId}`)
 }
 
 const handleViewModuleWorkItems = (moduleId: string) => {

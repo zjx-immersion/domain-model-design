@@ -207,7 +207,7 @@ const viewTraceability = (row: any) => {
   router.push(`/requirements/traceability?defectId=${row.defectId}`)
 }
 const updateStatus = (row: any) => ElMessage.info(`更新缺陷状态: ${row.defectId}`)
-const goToModule = (moduleId: string) => router.push(`/assets/modules/${moduleId}`)
+const goToModule = (moduleId: string) => router.push(`/products/modules/${moduleId}`)
 const goToRequirement = (reqId: string) => router.push(`/requirements/module-detail/${reqId}`)
 const goToBuild = (buildVersion: string) => ElMessage.info(`跳转到构建版本: ${buildVersion}`)
 

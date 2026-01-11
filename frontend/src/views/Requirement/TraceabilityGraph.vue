@@ -529,7 +529,7 @@ const viewNodeDetail = () => {
     if (type === 'requirement') {
       router.push(`/requirements/module-detail/${id}`)
     } else if (type === 'module') {
-      router.push(`/assets/modules/${id}`)
+      router.push(`/products/modules/${id}`)
     } else if (type === 'workitem') {
       router.push(`/work-items/${id}`)
     }

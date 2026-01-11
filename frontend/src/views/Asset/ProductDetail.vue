@@ -447,11 +447,11 @@ function viewFeatures() {
 }
 
 function viewModules() {
-  router.push({ path: '/assets/modules', query: { productId: product.value?.id } })
+  router.push({ path: '/products/modules', query: { productId: product.value?.id } })
 }
 
 function viewVersions() {
-  router.push(`/assets/products/${product.value?.id}/versions`)
+  router.push(`/products/list/${product.value?.id}/versions`)
 }
 
 function viewRequirements() {

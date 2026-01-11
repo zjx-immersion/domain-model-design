@@ -172,7 +172,7 @@ const viewDetail = (row: any) => ElMessage.info(`查看模块覆盖率详情: ${
 const viewTraceability = (row: any) => {
   router.push(`/requirements/traceability?moduleId=${row.moduleId}`)
 }
-const goToModule = (moduleId: string) => router.push(`/assets/modules/${moduleId}`)
+const goToModule = (moduleId: string) => router.push(`/products/modules/${moduleId}`)
 
 onMounted(async () => {
   await fetchCoverageData()
