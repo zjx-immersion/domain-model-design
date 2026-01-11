@@ -405,6 +405,28 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
+      // 价值网络
+      {
+        path: 'value-network',
+        name: 'ValueNetwork',
+        component: () => import('@/views/ValueNetwork/Index.vue'),
+        meta: { title: '三层价值网络', icon: 'Connection' },
+      },
+      // 架构设计
+      {
+        path: 'architecture',
+        name: 'Architecture',
+        redirect: '/architecture/logical',
+        meta: { title: '架构设计', icon: 'Grid' },
+        children: [
+          {
+            path: 'logical',
+            name: 'LogicalArchitecture',
+            component: () => import('@/views/Architecture/LogicalArchitecture.vue'),
+            meta: { title: '逻辑架构设计' },
+          },
+        ],
+      },
       // 需求管理
       {
         path: 'requirements',

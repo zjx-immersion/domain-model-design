@@ -1,0 +1,318 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2026-01-11T18:00:00Z",
+    "description": "三层价值网络Mock数据"
+  },
+  "data": {
+    "L1_strategic": {
+      "id": "VN-L1",
+      "name": "L1战略级价值网络",
+      "description": "战略级业务价值网络，关注产品、项目和业务目标的价值交付",
+      "level": "L1",
+      "nodes": [
+        {
+          "id": "L1-PRODUCT",
+          "type": "product",
+          "name": "产品",
+          "description": "产品资产和产品线",
+          "entities": ["ES9", "ET7", "EC6"],
+          "metrics": {
+            "productCount": 3,
+            "totalFeatures": 120,
+            "avgReuseRate": 65
+          }
+        },
+        {
+          "id": "L1-PROJECT",
+          "type": "project",
+          "name": "项目",
+          "description": "整车项目和领域项目",
+          "entities": ["VP-ES9-2026", "DP-AVP", "DP-ICC"],
+          "metrics": {
+            "projectCount": 5,
+            "activeProjects": 3,
+            "avgProgress": 72
+          }
+        },
+        {
+          "id": "L1-BUSINESS",
+          "type": "business",
+          "name": "业务目标",
+          "description": "业务战略和目标",
+          "entities": ["提升AVP竞争力", "降低开发成本", "加速上市时间"],
+          "metrics": {
+            "strategicGoals": 5,
+            "achievementRate": 80
+          }
+        },
+        {
+          "id": "L1-CUSTOMER",
+          "type": "customer",
+          "name": "客户价值",
+          "description": "客户需求和价值主张",
+          "entities": ["用户需求", "市场需求"],
+          "metrics": {
+            "customerRequirements": 50,
+            "satisfactionRate": 85
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "E1",
+          "from": "L1-CUSTOMER",
+          "to": "L1-BUSINESS",
+          "type": "drives",
+          "label": "驱动",
+          "description": "客户需求驱动业务目标"
+        },
+        {
+          "id": "E2",
+          "from": "L1-BUSINESS",
+          "to": "L1-PROJECT",
+          "type": "delivers",
+          "label": "交付",
+          "description": "业务目标通过项目交付"
+        },
+        {
+          "id": "E3",
+          "from": "L1-PROJECT",
+          "to": "L1-PRODUCT",
+          "type": "produces",
+          "label": "产出",
+          "description": "项目产出产品"
+        },
+        {
+          "id": "E4",
+          "from": "L1-PRODUCT",
+          "to": "L1-CUSTOMER",
+          "type": "serves",
+          "label": "服务",
+          "description": "产品服务客户"
+        }
+      ]
+    },
+    "L2_execution": {
+      "id": "VN-L2",
+      "name": "L2执行级价值网络",
+      "description": "执行级需求和资产价值网络，关注需求分解和资产复用",
+      "level": "L2",
+      "nodes": [
+        {
+          "id": "L2-UR",
+          "type": "requirement",
+          "name": "用户需求 (UR)",
+          "description": "用户需求管理",
+          "entities": ["UR-AVP-001", "UR-AVP-002"],
+          "metrics": {
+            "totalUR": 50,
+            "activeUR": 35,
+            "decomposedUR": 40
+          }
+        },
+        {
+          "id": "L2-FR",
+          "type": "requirement",
+          "name": "特性需求 (FR)",
+          "description": "特性需求管理",
+          "entities": ["FR-AVP-001", "FR-AVP-002"],
+          "metrics": {
+            "totalFR": 120,
+            "activeFR": 95,
+            "linkedFeatures": 80
+          }
+        },
+        {
+          "id": "L2-MR",
+          "type": "requirement",
+          "name": "模块需求 (MR)",
+          "description": "模块需求管理",
+          "entities": ["MR-AVP-001", "MR-AVP-002"],
+          "metrics": {
+            "totalMR": 280,
+            "activeMR": 220,
+            "linkedModules": 200
+          }
+        },
+        {
+          "id": "L2-FEATURE",
+          "type": "asset",
+          "name": "Feature资产",
+          "description": "Feature资产管理",
+          "entities": ["FEAT-AVP-001", "FEAT-CAMERA-001"],
+          "metrics": {
+            "totalFeatures": 120,
+            "activeFeatures": 95,
+            "avgReuseRate": 65
+          }
+        },
+        {
+          "id": "L2-MODULE",
+          "type": "asset",
+          "name": "Module资产",
+          "description": "软件模块资产",
+          "entities": ["MOD-AVP-CAM", "MOD-AVP-PLAN"],
+          "metrics": {
+            "totalModules": 280,
+            "activeModules": 250,
+            "avgComplexity": "medium"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "E5",
+          "from": "L2-UR",
+          "to": "L2-FR",
+          "type": "decomposes",
+          "label": "分解",
+          "description": "UR分解为FR"
+        },
+        {
+          "id": "E6",
+          "from": "L2-FR",
+          "to": "L2-MR",
+          "type": "decomposes",
+          "label": "分解",
+          "description": "FR分解为MR"
+        },
+        {
+          "id": "E7",
+          "from": "L2-FR",
+          "to": "L2-FEATURE",
+          "type": "maps",
+          "label": "映射",
+          "description": "FR映射到Feature资产"
+        },
+        {
+          "id": "E8",
+          "from": "L2-MR",
+          "to": "L2-MODULE",
+          "type": "maps",
+          "label": "映射",
+          "description": "MR映射到Module资产"
+        },
+        {
+          "id": "E9",
+          "from": "L2-FEATURE",
+          "to": "L2-MODULE",
+          "type": "composes",
+          "label": "组成",
+          "description": "Feature由Module组成"
+        }
+      ]
+    },
+    "L3_operational": {
+      "id": "VN-L3",
+      "name": "L3操作级价值网络",
+      "description": "操作级任务和代码价值网络，关注任务执行和代码交付",
+      "level": "L3",
+      "nodes": [
+        {
+          "id": "L3-BACKLOG",
+          "type": "backlog",
+          "name": "Backlog",
+          "description": "项目和团队Backlog",
+          "entities": ["Project Backlog", "Team Backlog"],
+          "metrics": {
+            "projectBacklogs": 5,
+            "teamBacklogs": 12,
+            "totalWorkItems": 450
+          }
+        },
+        {
+          "id": "L3-SPRINT",
+          "type": "sprint",
+          "name": "Sprint",
+          "description": "Sprint迭代",
+          "entities": ["Sprint 1", "Sprint 2", "Sprint 3"],
+          "metrics": {
+            "totalSprints": 15,
+            "activeSprints": 5,
+            "avgVelocity": 85
+          }
+        },
+        {
+          "id": "L3-TASK",
+          "type": "task",
+          "name": "任务 (Task)",
+          "description": "工作任务",
+          "entities": ["TASK-AVP-001", "TASK-AVP-002"],
+          "metrics": {
+            "totalTasks": 650,
+            "activeTasks": 280,
+            "completedTasks": 370
+          }
+        },
+        {
+          "id": "L3-COMMIT",
+          "type": "commit",
+          "name": "Commit",
+          "description": "代码提交",
+          "entities": ["COMMIT-001", "COMMIT-002"],
+          "metrics": {
+            "totalCommits": 1250,
+            "avgCoverage": 82,
+            "buildSuccessRate": 95
+          }
+        },
+        {
+          "id": "L3-ARTIFACT",
+          "type": "artifact",
+          "name": "制品",
+          "description": "构建制品",
+          "entities": ["Artifacts"],
+          "metrics": {
+            "totalArtifacts": 450,
+            "deployedArtifacts": 380,
+            "promotionRate": 85
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "E10",
+          "from": "L3-BACKLOG",
+          "to": "L3-SPRINT",
+          "type": "plans",
+          "label": "规划",
+          "description": "Backlog规划到Sprint"
+        },
+        {
+          "id": "E11",
+          "from": "L3-SPRINT",
+          "to": "L3-TASK",
+          "type": "executes",
+          "label": "执行",
+          "description": "Sprint执行Task"
+        },
+        {
+          "id": "E12",
+          "from": "L3-TASK",
+          "to": "L3-COMMIT",
+          "type": "implements",
+          "label": "实现",
+          "description": "Task通过Commit实现"
+        },
+        {
+          "id": "E13",
+          "from": "L3-COMMIT",
+          "to": "L3-ARTIFACT",
+          "type": "builds",
+          "label": "构建",
+          "description": "Commit构建成制品"
+        },
+        {
+          "id": "E14",
+          "from": "L3-ARTIFACT",
+          "to": "L3-BACKLOG",
+          "type": "feedback",
+          "label": "反馈",
+          "description": "制品反馈到Backlog"
+        }
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdate": "2026-01-11T19:00:00Z",
+    "description": "逻辑架构Mock数据"
+  },
+  "data": [
+    {
+      "id": "ARCH-ES9",
+      "name": "ES9逻辑架构",
+      "product": "ES9",
+      "version": "v1.0",
+      "description": "ES9整车逻辑架构设计，包含所有软件模块和层次关系",
+      "layers": [
+        {
+          "id": "LAYER-APP",
+          "name": "应用层",
+          "level": 1,
+          "description": "应用服务层，提供业务功能",
+          "modules": [
+            {
+              "id": "MOD-AVP",
+              "name": "自动泊车 (AVP)",
+              "description": "自动泊车系统",
+              "features": ["FEAT-AVP-001", "FEAT-AVP-002"],
+              "dependencies": ["MOD-PERCEPTION", "MOD-PLANNING"],
+              "team": "TEAM-AVP"
+            },
+            {
+              "id": "MOD-ICC",
+              "name": "智能巡航 (ICC)",
+              "description": "智能巡航控制系统",
+              "features": ["FEAT-ICC-001"],
+              "dependencies": ["MOD-PERCEPTION", "MOD-CONTROL"],
+              "team": "TEAM-ICC"
+            },
+            {
+              "id": "MOD-HMI",
+              "name": "人机交互 (HMI)",
+              "description": "人机交互界面",
+              "features": ["FEAT-HMI-001"],
+              "dependencies": ["MOD-MIDDLEWARE"],
+              "team": "TEAM-HMI"
+            }
+          ]
+        },
+        {
+          "id": "LAYER-DOMAIN",
+          "name": "领域层",
+          "level": 2,
+          "description": "领域服务层，提供核心能力",
+          "modules": [
+            {
+              "id": "MOD-PERCEPTION",
+              "name": "感知模块",
+              "description": "传感器数据感知和处理",
+              "features": ["FEAT-CAMERA-001", "FEAT-LIDAR-001"],
+              "dependencies": ["MOD-SENSOR-FUSION"],
+              "team": "TEAM-PERCEPTION"
+            },
+            {
+              "id": "MOD-PLANNING",
+              "name": "规划模块",
+              "description": "路径规划和决策",
+              "features": ["FEAT-PATH-PLAN-001"],
+              "dependencies": ["MOD-PERCEPTION"],
+              "team": "TEAM-PLANNING"
+            },
+            {
+              "id": "MOD-CONTROL",
+              "name": "控制模块",
+              "description": "车辆控制执行",
+              "features": ["FEAT-CONTROL-001"],
+              "dependencies": ["MOD-PLANNING", "MOD-CAN-BUS"],
+              "team": "TEAM-CONTROL"
+            }
+          ]
+        },
+        {
+          "id": "LAYER-INFRA",
+          "name": "基础设施层",
+          "level": 3,
+          "description": "基础设施层，提供通用服务",
+          "modules": [
+            {
+              "id": "MOD-MIDDLEWARE",
+              "name": "中间件",
+              "description": "通信中间件和消息总线",
+              "features": ["FEAT-MSG-BUS-001"],
+              "dependencies": ["MOD-OS"],
+              "team": "TEAM-PLATFORM"
+            },
+            {
+              "id": "MOD-SENSOR-FUSION",
+              "name": "传感器融合",
+              "description": "多传感器数据融合",
+              "features": ["FEAT-FUSION-001"],
+              "dependencies": ["MOD-MIDDLEWARE"],
+              "team": "TEAM-PERCEPTION"
+            },
+            {
+              "id": "MOD-CAN-BUS",
+              "name": "CAN总线",
+              "description": "CAN总线通信",
+              "features": ["FEAT-CAN-001"],
+              "dependencies": ["MOD-OS"],
+              "team": "TEAM-PLATFORM"
+            },
+            {
+              "id": "MOD-OS",
+              "name": "操作系统",
+              "description": "实时操作系统（RTOS）",
+              "features": ["FEAT-OS-001"],
+              "dependencies": [],
+              "team": "TEAM-PLATFORM"
+            }
+          ]
+        }
+      ],
+      "crossCuttingConcerns": [
+        {
+          "id": "CONCERN-SECURITY",
+          "name": "安全",
+          "description": "系统安全保障",
+          "affectedLayers": ["LAYER-APP", "LAYER-DOMAIN", "LAYER-INFRA"]
+        },
+        {
+          "id": "CONCERN-LOGGING",
+          "name": "日志",
+          "description": "系统日志记录",
+          "affectedLayers": ["LAYER-APP", "LAYER-DOMAIN"]
+        },
+        {
+          "id": "CONCERN-MONITORING",
+          "name": "监控",
+          "description": "系统监控和诊断",
+          "affectedLayers": ["LAYER-APP", "LAYER-DOMAIN", "LAYER-INFRA"]
+        }
+      ],
+      "deploymentView": {
+        "nodes": [
+          {
+            "id": "NODE-MDC",
+            "name": "MDC (域控制器)",
+            "type": "hardware",
+            "platform": "PLATFORM-ORIN",
+            "deployedModules": ["MOD-AVP", "MOD-ICC", "MOD-PERCEPTION", "MOD-PLANNING", "MOD-CONTROL"]
+          },
+          {
+            "id": "NODE-IVI",
+            "name": "IVI (车载信息娱乐系统)",
+            "type": "hardware",
+            "platform": "PLATFORM-8155",
+            "deployedModules": ["MOD-HMI"]
+          },
+          {
+            "id": "NODE-GATEWAY",
+            "name": "网关",
+            "type": "hardware",
+            "platform": "PLATFORM-GATEWAY",
+            "deployedModules": ["MOD-CAN-BUS", "MOD-MIDDLEWARE"]
+          }
+        ]
+      },
+      "qualityAttributes": {
+        "performance": {
+          "latency": "< 100ms",
+          "throughput": "> 30 FPS"
+        },
+        "reliability": {
+          "availability": "99.99%",
+          "mtbf": "> 10000h"
+        },
+        "scalability": {
+          "modularity": "High",
+          "extensibility": "High"
+        },
+        "security": {
+          "encryption": "AES-256",
+          "authentication": "PKI"
+        }
+      }
+    }
+  ]
+}
+
