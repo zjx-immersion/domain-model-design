@@ -65,26 +65,29 @@
             </el-link>
           </template>
         </el-table-column>
-        <el-table-column prop="projectName" label="所属项目" width="180">
+        <el-table-column prop="piName" label="PI Planning" width="180">
           <template #default="{ row }">
-            {{ getProjectName(row.projectId) }}
+            {{ row.piName || '-' }}
           </template>
         </el-table-column>
-        <el-table-column prop="vehicleProject" label="车型项目" width="150">
+        <el-table-column prop="domainProjects" label="领域项目" width="150">
           <template #default="{ row }">
-            {{ getVehicleProjectName(row) }}
+            <el-tag v-if="row.domainProjectIds && row.domainProjectIds.length > 0" size="small">
+              {{ row.domainProjectIds.length }}个
+            </el-tag>
+            <span v-else>-</span>
           </template>
         </el-table-column>
-        <el-table-column prop="items" label="工作项数" width="120" align="center">
+        <el-table-column prop="totalWorkItems" label="工作项数" width="120" align="center">
           <template #default="{ row }">
-            <el-tag>{{ row.items.length }}</el-tag>
+            <el-tag>{{ row.totalWorkItems || 0 }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="分配进度" width="180" align="center">
+        <el-table-column label="完成进度" width="180" align="center">
           <template #default="{ row }">
             <el-progress
-              :percentage="calculateAllocationProgress(row)"
-              :color="getProgressColor(calculateAllocationProgress(row))"
+              :percentage="row.progress || 0"
+              :color="getProgressColor(row.progress || 0)"
             >
               <template #default="{ percentage }">
                 <span>{{ percentage }}%</span>
@@ -92,17 +95,17 @@
             </el-progress>
           </template>
         </el-table-column>
-        <el-table-column label="优先级分布" width="200" align="center">
+        <el-table-column label="需求统计" width="200" align="center">
           <template #default="{ row }">
             <div class="priority-tags">
-              <el-tag v-if="getPriorityCount(row, 'high') > 0" type="danger" size="small">
-                高: {{ getPriorityCount(row, 'high') }}
+              <el-tag v-if="row.statistics?.urCount" type="success" size="small">
+                UR: {{ row.statistics.urCount }}
               </el-tag>
-              <el-tag v-if="getPriorityCount(row, 'medium') > 0" type="warning" size="small">
-                中: {{ getPriorityCount(row, 'medium') }}
+              <el-tag v-if="row.statistics?.frCount" type="primary" size="small">
+                FR: {{ row.statistics.frCount }}
               </el-tag>
-              <el-tag v-if="getPriorityCount(row, 'low') > 0" type="info" size="small">
-                低: {{ getPriorityCount(row, 'low') }}
+              <el-tag v-if="row.statistics?.mrCount" type="warning" size="small">
+                MR: {{ row.statistics.mrCount }}
               </el-tag>
             </div>
           </template>
@@ -112,10 +115,9 @@
             <el-tag :type="getStatusType(row.status)">{{ getStatusText(row.status) }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="150" align="center" fixed="right">
+        <el-table-column label="操作" width="100" align="center" fixed="right">
           <template #default="{ row }">
             <el-button link type="primary" @click="goToDetail(row.id)">查看</el-button>
-            <el-button link type="primary" @click="goToDomainProject(row.projectId)">项目</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -129,9 +131,8 @@ import { useRouter } from 'vue-router'
 import { Box, List, Clock, Check } from '@element-plus/icons-vue'
 import projectBacklogsData from '@/biz-data/mock/backlog/project-backlogs.json'
 import domainProjectsData from '@/biz-data/mock/project/domain-projects.json'
-import vehicleProjectsData from '@/biz-data/mock/project/vehicle-projects.json'
 import type { ProjectBacklog } from '@/types/backlog'
-import type { DomainProject, VehicleProject } from '@/types/project-v2'
+import type { DomainProject } from '@/types/project-v2'
 
 const router = useRouter()
 
@@ -142,47 +143,42 @@ onMounted(() => {
 })
 
 const totalWorkItems = computed(() => {
-  return backlogs.value.reduce((sum, b) => sum + b.items.length, 0)
+  return backlogs.value.reduce((sum, b) => sum + (b.workItemIds?.length || 0), 0)
 })
 
 const unallocatedCount = computed(() => {
   return backlogs.value.reduce((sum, b) => {
-    return sum + b.items.filter(item => !item.assignedTeamBacklogId).length
+    return sum + (b.unassignedWorkItems || 0)
   }, 0)
 })
 
 const allocatedCount = computed(() => {
   return backlogs.value.reduce((sum, b) => {
-    return sum + b.items.filter(item => item.assignedTeamBacklogId).length
+    return sum + (b.assignedWorkItems || 0)
   }, 0)
 })
 
-const getProjectName = (projectId: string) => {
-  const project = domainProjectsData.data.find((p: DomainProject) => p.id === projectId)
-  return project?.name || projectId
+const getProjectName = (backlog: ProjectBacklog) => {
+  // 使用domainProjectIds数组的第一个
+  if (backlog.domainProjectIds && backlog.domainProjectIds.length > 0) {
+    const project = domainProjectsData.data.find((p: DomainProject) => p.id === backlog.domainProjectIds[0])
+    return project?.name || backlog.domainProjectIds[0]
+  }
+  return '-'
 }
 
 const getVehicleProjectName = (backlog: ProjectBacklog) => {
-  const project = domainProjectsData.data.find((p: DomainProject) => p.id === backlog.projectId)
-  if (!project) return '-'
-  const vehicleProject = vehicleProjectsData.data.find((vp: VehicleProject) => vp.id === project.vehicleProjectId)
-  return vehicleProject?.name || '-'
-}
-
-const calculateAllocationProgress = (backlog: ProjectBacklog) => {
-  if (backlog.items.length === 0) return 0
-  const allocated = backlog.items.filter(item => item.assignedTeamBacklogId).length
-  return Math.round((allocated / backlog.items.length) * 100)
+  // 从PI Planning ID推断
+  if (backlog.piPlanningId) {
+    return backlog.piName || backlog.piPlanningId
+  }
+  return '-'
 }
 
 const getProgressColor = (progress: number) => {
   if (progress < 30) return '#f56c6c'
   if (progress < 70) return '#e6a23c'
   return '#67c23a'
-}
-
-const getPriorityCount = (backlog: ProjectBacklog, priority: string) => {
-  return backlog.items.filter(item => item.priority === priority).length
 }
 
 const getStatusType = (status: string) => {
@@ -205,10 +201,6 @@ const getStatusText = (status: string) => {
 
 const goToDetail = (id: string) => {
   router.push(`/backlog/project/${id}`)
-}
-
-const goToDomainProject = (id: string) => {
-  router.push(`/projects/domain/${id}`)
 }
 </script>
 
