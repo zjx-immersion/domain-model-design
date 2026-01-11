@@ -31,32 +31,31 @@
             <el-descriptions :column="1" border>
               <el-descriptions-item label="待办名称">{{ backlog.name }}</el-descriptions-item>
               <el-descriptions-item label="所属团队">
-                {{ team?.name || backlog.teamId }}
+                {{ backlog.teamName || team?.name || backlog.teamId }}
               </el-descriptions-item>
-              <el-descriptions-item label="所属项目">
-                <el-link type="primary" @click="goToDomainProject(backlog.projectId)">
-                  {{ domainProject?.name || backlog.projectId }}
-                </el-link>
+              <el-descriptions-item label="所属PI Planning">
+                {{ backlog.piName || backlog.piPlanningId || '-' }}
               </el-descriptions-item>
               <el-descriptions-item label="来源项目待办">
-                <el-link type="primary" @click="goToProjectBacklog(backlog.projectBacklogId)">
+                <el-link v-if="backlog.projectBacklogId" type="primary" @click="goToProjectBacklog(backlog.projectBacklogId)">
                   查看项目待办
                 </el-link>
+                <span v-else>-</span>
               </el-descriptions-item>
             </el-descriptions>
           </el-col>
           <el-col :span="12">
             <el-descriptions :column="1" border>
-              <el-descriptions-item label="团队容量">{{ backlog.capacity }} SP/Sprint</el-descriptions-item>
-              <el-descriptions-item label="已分配容量">{{ allocatedCapacity }} SP</el-descriptions-item>
-              <el-descriptions-item label="剩余容量">{{ remainingCapacity }} SP</el-descriptions-item>
+              <el-descriptions-item label="团队容量">{{ backlog.teamCapacity || 0 }}h</el-descriptions-item>
+              <el-descriptions-item label="总工作项">{{ backlog.totalWorkItems || 0 }}项</el-descriptions-item>
               <el-descriptions-item label="容量利用率">
                 <el-progress
-                  :percentage="capacityUtilization"
-                  :color="getCapacityColor(capacityUtilization)"
+                  :percentage="backlog.utilizationRate || 0"
+                  :color="getCapacityColor(backlog.utilizationRate || 0)"
                   :stroke-width="12"
                 />
               </el-descriptions-item>
+              <el-descriptions-item label="完成度">{{ backlog.completionRate || 0 }}%</el-descriptions-item>
             </el-descriptions>
           </el-col>
         </el-row>
@@ -66,7 +65,7 @@
       <el-row :gutter="20" class="stats-row">
         <el-col :span="6">
           <el-card class="stat-card">
-            <el-statistic title="待办工作项" :value="backlog.items.length">
+            <el-statistic title="总工作项" :value="backlog.totalWorkItems || 0">
               <template #prefix>
                 <el-icon><List /></el-icon>
               </template>
@@ -75,16 +74,16 @@
         </el-col>
         <el-col :span="6">
           <el-card class="stat-card">
-            <el-statistic title="待规划" :value="unplannedCount">
+            <el-statistic title="模块需求(MR)" :value="backlog.mrStatistics?.totalMRs || 0">
               <template #prefix>
-                <el-icon><Clock /></el-icon>
+                <el-icon><Document /></el-icon>
               </template>
             </el-statistic>
           </el-card>
         </el-col>
         <el-col :span="6">
           <el-card class="stat-card">
-            <el-statistic title="已规划" :value="plannedCount">
+            <el-statistic title="已完成MR" :value="backlog.mrStatistics?.doneMRs || 0">
               <template #prefix>
                 <el-icon><Check /></el-icon>
               </template>
@@ -93,10 +92,11 @@
         </el-col>
         <el-col :span="6">
           <el-card class="stat-card">
-            <el-statistic title="总故事点" :value="totalStoryPoints">
+            <el-statistic title="MR完成率" :value="backlog.mrStatistics?.mrCompletionRate || 0">
               <template #prefix>
                 <el-icon><TrendCharts /></el-icon>
               </template>
+              <template #suffix>%</template>
             </el-statistic>
           </el-card>
         </el-col>
@@ -110,7 +110,7 @@
               <div class="card-header">
                 <span class="card-title">
                   <el-icon><List /></el-icon>
-                  待办工作项 ({{ filteredItems.length }})
+                  模块需求 (MR) - {{ mrList.length }}个
                 </span>
                 <div class="header-actions">
                   <el-input
@@ -124,75 +124,51 @@
                     </template>
                   </el-input>
                   <el-select
-                    v-model="filterPriority"
-                    placeholder="优先级"
+                    v-model="filterStatus"
+                    placeholder="状态"
                     clearable
                     style="width: 120px"
                   >
                     <el-option label="全部" value="" />
-                    <el-option label="紧急" value="critical" />
-                    <el-option label="高" value="high" />
-                    <el-option label="中" value="medium" />
-                    <el-option label="低" value="low" />
+                    <el-option label="待开始" value="pending" />
+                    <el-option label="进行中" value="in_progress" />
+                    <el-option label="评审中" value="in_review" />
+                    <el-option label="已完成" value="done" />
                   </el-select>
                 </div>
               </div>
             </template>
 
-            <!-- 优先级队列视图 -->
-            <div class="priority-queue">
-              <draggable
-                v-model="sortedItems"
-                item-key="id"
-                class="draggable-list"
-                @change="onPriorityChange"
-              >
-                <template #item="{ element }">
-                  <div class="queue-item" :class="{ 'planned': element.sprintId }">
-                    <div class="item-handle">
-                      <el-icon><Rank /></el-icon>
-                    </div>
-                    <div class="item-content">
-                      <div class="item-header">
-                        <div class="item-title-row">
-                          <el-tag size="small" :type="getTypeColor(element.type)">{{ element.type }}</el-tag>
-                          <span class="item-code">{{ element.code }}</span>
-                          <span class="item-title">{{ element.title }}</span>
-                        </div>
-                        <div class="item-meta">
-                          <el-tag :type="getPriorityType(element.priority)" size="small">
-                            {{ getPriorityText(element.priority) }}
-                          </el-tag>
-                          <el-tag type="info" size="small">{{ element.storyPoints || 0 }} SP</el-tag>
-                          <el-tag v-if="element.sprintId" type="success" size="small">
-                            已加入Sprint
-                          </el-tag>
-                        </div>
-                      </div>
-                      <div class="item-actions">
-                        <el-button type="primary" link size="small" @click="viewItem(element)">
-                          查看
-                        </el-button>
-                        <el-button
-                          v-if="!element.sprintId"
-                          type="success"
-                          link
-                          size="small"
-                          @click="addToSprint(element)"
-                        >
-                          加入Sprint
-                        </el-button>
-                        <el-button v-else type="warning" link size="small" @click="removeFromSprint(element)">
-                          移出Sprint
-                        </el-button>
-                      </div>
-                    </div>
-                  </div>
+            <!-- MR列表 -->
+            <el-table :data="filteredMRs" stripe>
+              <el-table-column prop="code" label="需求编码" width="140" />
+              <el-table-column prop="name" label="需求名称" min-width="250" />
+              <el-table-column prop="status" label="状态" width="100">
+                <template #default="{ row }">
+                  <el-tag :type="getStatusTagType(row.status)" size="small">{{ row.status }}</el-tag>
                 </template>
-              </draggable>
+              </el-table-column>
+              <el-table-column prop="priority" label="优先级" width="100">
+                <template #default="{ row }">
+                  <el-tag :type="getPriorityType(row.priority)" size="small">
+                    {{ getPriorityText(row.priority) }}
+                  </el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column prop="moduleId" label="关联Module" width="150">
+                <template #default="{ row }">
+                  <el-tag v-if="row.moduleId" type="success" size="small">已关联</el-tag>
+                  <span v-else>-</span>
+                </template>
+              </el-table-column>
+              <el-table-column label="操作" width="100">
+                <template #default="{ row }">
+                  <el-button type="primary" link size="small" @click="viewMR(row)">查看</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
 
-              <el-empty v-if="sortedItems.length === 0" description="暂无工作项" :image-size="100" />
-            </div>
+            <el-empty v-if="mrList.length === 0" description="暂无模块需求" :image-size="100" />
           </el-card>
         </el-col>
 
@@ -253,8 +229,8 @@
             <div class="capacity-chart">
               <el-progress
                 type="dashboard"
-                :percentage="capacityUtilization"
-                :color="getCapacityColor(capacityUtilization)"
+                :percentage="backlog.utilizationRate || 0"
+                :color="getCapacityColor(backlog.utilizationRate || 0)"
               >
                 <template #default="{ percentage }">
                   <span class="percentage-value">{{ percentage }}%</span>
@@ -266,15 +242,15 @@
             <div class="capacity-details">
               <div class="detail-item">
                 <span class="detail-label">团队容量:</span>
-                <span class="detail-value">{{ backlog.capacity }} SP</span>
+                <span class="detail-value">{{ backlog.teamCapacity || 0 }}h</span>
               </div>
               <div class="detail-item">
-                <span class="detail-label">已分配:</span>
-                <span class="detail-value">{{ allocatedCapacity }} SP</span>
+                <span class="detail-label">总工作项:</span>
+                <span class="detail-value">{{ backlog.totalWorkItems || 0 }}项</span>
               </div>
               <div class="detail-item">
-                <span class="detail-label">剩余:</span>
-                <span class="detail-value">{{ remainingCapacity }} SP</span>
+                <span class="detail-label">完成率:</span>
+                <span class="detail-value">{{ backlog.completionRate || 0 }}%</span>
               </div>
             </div>
           </el-card>
@@ -287,26 +263,22 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import draggable from 'vuedraggable'
+import { Document } from '@element-plus/icons-vue'
 import teamBacklogsData from '@/biz-data/mock/backlog/team-backlogs.json'
-import domainProjectsData from '@/biz-data/mock/project/domain-projects.json'
 import sprintsData from '@/biz-data/mock/sprint/sprints.json'
 import teamsData from '@/biz-data/mock/teams.json'
-import type { TeamBacklog, BacklogItem } from '@/types/backlog'
-import type { DomainProject } from '@/types/project-v2'
+import type { TeamBacklog } from '@/types/backlog'
 import { ElMessage } from 'element-plus'
 
 const route = useRoute()
 const router = useRouter()
 
 const backlog = ref<TeamBacklog | null>(null)
-const domainProject = ref<DomainProject | null>(null)
 const team = ref<any>(null)
 const sprints = ref<any[]>([])
 
 const searchKeyword = ref('')
-const filterPriority = ref('')
-const sortedItems = ref<BacklogItem[]>([])
+const filterStatus = ref('')
 
 onMounted(() => {
   const backlogId = route.params.id as string
@@ -314,68 +286,39 @@ onMounted(() => {
   
   if (foundBacklog) {
     backlog.value = foundBacklog as TeamBacklog
-    sortedItems.value = [...foundBacklog.items]
     
-    // 加载关联的领域项目
-    const foundProject = domainProjectsData.data.find(
-      (p: DomainProject) => p.id === foundBacklog.projectId
-    )
-    domainProject.value = foundProject as DomainProject || null
-
     // 加载团队信息
-    team.value = teamsData.data.find((t: any) => t.id === foundBacklog.teamId) || null
+    const teams = Array.isArray(teamsData) ? teamsData : teamsData.data || []
+    team.value = teams.find((t: any) => t.id === foundBacklog.teamId) || null
 
     // 加载相关Sprint
     sprints.value = sprintsData.data.filter((s: any) => s.teamId === foundBacklog.teamId) || []
   }
 })
 
-const filteredItems = computed(() => {
-  let items = sortedItems.value
+const mrList = computed(() => {
+  if (!backlog.value || !backlog.value.mrsDetails) return []
+  return backlog.value.mrsDetails
+})
+
+const filteredMRs = computed(() => {
+  let mrs = mrList.value
 
   // 关键词搜索
   if (searchKeyword.value) {
     const keyword = searchKeyword.value.toLowerCase()
-    items = items.filter(item => 
-      item.title.toLowerCase().includes(keyword) ||
-      item.code.toLowerCase().includes(keyword)
+    mrs = mrs.filter(mr => 
+      mr.name?.toLowerCase().includes(keyword) ||
+      mr.code?.toLowerCase().includes(keyword)
     )
   }
 
-  // 优先级筛选
-  if (filterPriority.value) {
-    items = items.filter(item => item.priority === filterPriority.value)
+  // 状态筛选
+  if (filterStatus.value) {
+    mrs = mrs.filter(mr => mr.status === filterStatus.value)
   }
 
-  return items
-})
-
-const unplannedCount = computed(() => {
-  return sortedItems.value.filter(item => !item.sprintId).length
-})
-
-const plannedCount = computed(() => {
-  return sortedItems.value.filter(item => item.sprintId).length
-})
-
-const totalStoryPoints = computed(() => {
-  return sortedItems.value.reduce((sum, item) => sum + (item.storyPoints || 0), 0)
-})
-
-const allocatedCapacity = computed(() => {
-  return sortedItems.value
-    .filter(item => item.sprintId)
-    .reduce((sum, item) => sum + (item.storyPoints || 0), 0)
-})
-
-const remainingCapacity = computed(() => {
-  if (!backlog.value) return 0
-  return backlog.value.capacity - allocatedCapacity.value
-})
-
-const capacityUtilization = computed(() => {
-  if (!backlog.value || backlog.value.capacity === 0) return 0
-  return Math.round((allocatedCapacity.value / backlog.value.capacity) * 100)
+  return mrs
 })
 
 const getStatusType = (status: string) => {
@@ -416,14 +359,16 @@ const getPriorityText = (priority: string) => {
   return map[priority] || priority
 }
 
-const getTypeColor = (type: string) => {
+const getStatusTagType = (status: string) => {
   const map: Record<string, any> = {
-    'feature': 'primary',
-    'story': 'success',
-    'task': 'info',
-    'bug': 'danger'
+    'open': 'info',
+    'pending': 'info',
+    'in_progress': 'primary',
+    'in_review': 'warning',
+    'done': 'success',
+    'approved': 'success',
   }
-  return map[type] || 'info'
+  return map[status] || 'info'
 }
 
 const getSprintStatusType = (status: string) => {
@@ -451,25 +396,22 @@ const getCapacityColor = (utilization: number) => {
 }
 
 const getSprintItemCount = (sprintId: string) => {
-  return sortedItems.value.filter(item => item.sprintId === sprintId).length
+  if (!backlog.value || !backlog.value.mrsBySprint) return 0
+  const sprintMRs = backlog.value.mrsBySprint[sprintId] || []
+  return sprintMRs.length
 }
 
 const getSprintStoryPoints = (sprintId: string) => {
-  return sortedItems.value
-    .filter(item => item.sprintId === sprintId)
-    .reduce((sum, item) => sum + (item.storyPoints || 0), 0)
-}
-
-const onPriorityChange = () => {
-  ElMessage.success('优先级已调整')
+  if (!backlog.value || !backlog.value.mrsBySprint) return 0
+  const sprintMRs = backlog.value.mrsBySprint[sprintId] || []
+  return sprintMRs.reduce((sum: number, mrId: string) => {
+    const mr = backlog.value?.mrsDetails?.find(m => m.id === mrId)
+    return sum + (mr?.estimatedHours || 0)
+  }, 0)
 }
 
 const goBack = () => {
   router.push('/backlog/team')
-}
-
-const goToDomainProject = (projectId: string) => {
-  router.push(`/projects/domain/${projectId}`)
 }
 
 const goToProjectBacklog = (backlogId: string) => {
@@ -480,16 +422,8 @@ const goToSprint = (sprintId: string) => {
   router.push(`/sprint/${sprintId}`)
 }
 
-const viewItem = (item: BacklogItem) => {
-  ElMessage.info(`查看工作项: ${item.title}`)
-}
-
-const addToSprint = (item: BacklogItem) => {
-  ElMessage.info(`将工作项 "${item.title}" 加入Sprint`)
-}
-
-const removeFromSprint = (item: BacklogItem) => {
-  ElMessage.info(`将工作项 "${item.title}" 从Sprint移出`)
+const viewMR = (mr: any) => {
+  ElMessage.info(`查看模块需求: ${mr.name}`)
 }
 </script>
 
@@ -567,78 +501,6 @@ const removeFromSprint = (item: BacklogItem) => {
         font-size: 28px;
         font-weight: bold;
         color: #409eff;
-      }
-    }
-  }
-
-  .priority-queue {
-    .draggable-list {
-      min-height: 400px;
-    }
-
-    .queue-item {
-      display: flex;
-      align-items: center;
-      padding: 12px;
-      margin-bottom: 12px;
-      background: #fff;
-      border: 1px solid #e4e7ed;
-      border-radius: 6px;
-      cursor: move;
-      transition: all 0.3s;
-
-      &:hover {
-        border-color: #409eff;
-        box-shadow: 0 2px 12px rgba(64, 158, 255, 0.2);
-      }
-
-      &.planned {
-        background: #f0f9ff;
-        border-color: #67c23a;
-      }
-
-      .item-handle {
-        margin-right: 12px;
-        color: #909399;
-        cursor: move;
-      }
-
-      .item-content {
-        flex: 1;
-
-        .item-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 8px;
-
-          .item-title-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-
-            .item-code {
-              font-size: 12px;
-              color: #909399;
-            }
-
-            .item-title {
-              font-size: 14px;
-              font-weight: 500;
-            }
-          }
-
-          .item-meta {
-            display: flex;
-            gap: 6px;
-          }
-        }
-
-        .item-actions {
-          display: flex;
-          gap: 8px;
-        }
       }
     }
   }
