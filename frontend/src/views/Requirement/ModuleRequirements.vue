@@ -45,19 +45,23 @@ const loadData = async () => {
   loading.value = true
   try {
     const response = await fetch('/biz-data/mock/requirement/module-requirements.json')
-    rawData.value = (await response.json()).data
-  } catch (error) { ElMessage.error('加载数据失败') } finally { loading.value = false }
+    const result = await response.json()
+    rawData.value = Array.isArray(result) ? result : (result.data || [])
+  } catch (error) { 
+    ElMessage.error('加载数据失败')
+    rawData.value = []
+  } finally { loading.value = false }
 }
 
 const filteredData = computed(() => {
-  let data = rawData.value
+  let data = rawData.value || []
   if (searchText.value) data = data.filter(item => item.title?.toLowerCase().includes(searchText.value.toLowerCase()) || item.code?.toLowerCase().includes(searchText.value.toLowerCase()))
   if (filterStatus.value) data = data.filter(item => item.status === filterStatus.value)
   if (filterPriority.value) data = data.filter(item => item.priority === filterPriority.value)
   return data.slice((currentPage.value - 1) * pageSize.value, currentPage.value * pageSize.value)
 })
 
-const total = computed(() => rawData.value.length)
+const total = computed(() => (rawData.value || []).length)
 const handleSearch = () => { currentPage.value = 1 }
 const handleView = (row: ModuleRequirement) => { router.push({ name: 'ModuleRequirementDetail', params: { id: row.id } }) }
 const handleCreate = () => ElMessage.info('新建功能待实现')

@@ -81,7 +81,7 @@ const loadData = async () => {
   try {
     const response = await fetch('/biz-data/mock/requirement/feature-requirements.json')
     const result = await response.json()
-    rawData.value = result.data
+    rawData.value = Array.isArray(result) ? result : (result.data || [])
     
     // 从URL参数获取特性ID筛选
     const featureId = route.query.featureId as string
@@ -91,13 +91,14 @@ const loadData = async () => {
   } catch (error) {
     console.error('加载数据失败:', error)
     ElMessage.error('加载数据失败')
+    rawData.value = []
   } finally {
     loading.value = false
   }
 }
 
 const filteredData = computed(() => {
-  let data = rawData.value
+  let data = rawData.value || []
   
   // 按特性ID筛选（优先级最高）
   if (filterFeatureId.value) {
@@ -113,7 +114,7 @@ const filteredData = computed(() => {
   return data.slice((currentPage.value - 1) * pageSize.value, currentPage.value * pageSize.value)
 })
 
-const total = computed(() => rawData.value.length)
+const total = computed(() => (rawData.value || []).length)
 const handleSearch = () => { currentPage.value = 1 }
 const handleView = (row: FeatureRequirement) => { router.push({ name: 'FeatureRequirementDetail', params: { id: row.id } }) }
 const handleEdit = () => ElMessage.info('编辑功能待实现')
