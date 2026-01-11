@@ -61,102 +61,226 @@ mindmap
         质量度量
 ```
 
-### 1.2 业务架构分层
+### 1.2 业务架构分层（融合三层需求与三层资产）
 
 ```mermaid
 graph TB
-    subgraph 战略规划层
-        S1[产品线规划]
-        S2[技术路线规划]
-        S3[资产战略规划]
-        S4[组织能力规划]
+    subgraph L1[L1: 战略规划层]
+        S1[产品线规划<br/>ProductLine Strategy]
+        S2[技术路线规划<br/>Technology Roadmap]
+        S3[资产战略规划<br/>Asset Strategy]
+        S4[组织能力规划<br/>Org Capability]
     end
     
-    subgraph 执行管理层
-        M1[产品管理]
-        M2[项目管理]
-        M3[资产管理]
-        M4[团队管理]
+    subgraph L2[L2: 需求与资产管理层]
+        R1[用户需求管理<br/>UR Management]
+        R2[特性需求管理<br/>FR Management]
+        R3[模块需求管理<br/>MR Management]
+        A1[产品管理<br/>Product Management]
+        A2[Feature资产管理<br/>Feature Asset]
+        A3[Module资产管理<br/>Module Asset]
+        A4[Platform管理<br/>Platform Management]
     end
     
-    subgraph 执行层
-        E1[Sprint执行]
-        E2[WorkItem执行]
-        E3[研发活动]
-        E4[质量活动]
+    subgraph L3[L3: 项目交付管理层]
+        P1[项目立项<br/>Project Init]
+        P2[PI Planning<br/>Program Increment]
+        P3[版本规划<br/>Release Planning]
+        P4[制品晋级<br/>Artifact Promotion]
     end
     
-    subgraph 支撑层
-        P1[度量分析]
-        P2[知识管理]
-        P3[工具集成]
-        P4[基础设施]
+    subgraph L4[L4: 团队执行层]
+        T1[Sprint规划<br/>Sprint Planning]
+        T2[WorkItem执行<br/>Task Execution]
+        T3[代码开发<br/>Coding]
+        T4[集成测试<br/>Integration Test]
     end
     
-    S1 --> M1
-    S2 --> M1
-    S2 --> M3
-    S3 --> M3
-    S4 --> M4
+    subgraph L5[L5: 质量与度量层]
+        Q1[质量门禁<br/>Quality Gate]
+        Q2[缺陷管理<br/>Bug Management]
+        Q3[度量分析<br/>Metrics Analysis]
+        Q4[持续改进<br/>Continuous Improvement]
+    end
     
-    M1 --> M2
-    M2 --> E1
-    M3 --> E2
-    M4 --> E1
+    %% L1 → L2 需求分解
+    S1 -->|产品规划| R1
+    R1 -->|UR分解| R2
+    R2 -->|FR分解| R3
     
-    E1 --> E2
-    E2 --> E3
-    E3 --> E4
+    %% L1 → L2 资产关联
+    S1 -->|产品定义| A1
+    S3 -->|资产规划| A2
+    A1 -->|Feature BOM| A2
+    A2 -->|实现于| A3
+    A3 -->|部署于| A4
     
-    P1 -.支撑.-> M1
-    P1 -.支撑.-> M2
-    P1 -.支撑.-> M4
-    P2 -.支撑.-> M3
-    P3 -.支撑.-> E3
-    P4 -.支撑.-> E3
+    %% L2 需求-资产关联
+    R1 -.关联.-> A1
+    R2 -.关联.-> A2
+    R3 -.关联.-> A3
     
-    style S1 fill:#e8f5e9
-    style M1 fill:#fff9c4
-    style E1 fill:#e1f5ff
-    style P1 fill:#f3e5f5
+    %% L2 → L3 项目交付
+    R2 -->|需求输入| P2
+    R3 -->|需求输入| P2
+    A2 -->|资产复用| P1
+    A3 -->|模块分配| P2
+    P2 -->|PI交付| P3
+    P3 -->|版本交付| P4
+    
+    %% L3 → L4 团队执行
+    P2 -->|MR→Task| T1
+    T1 -->|Sprint Backlog| T2
+    T2 -->|编码| T3
+    T3 -->|验证| T4
+    
+    %% L4 → L5 质量保证
+    T3 -->|代码提交| Q1
+    T4 -->|测试结果| Q1
+    Q1 -->|缺陷| Q2
+    Q2 -->|修复| T2
+    
+    %% L5 反馈
+    Q3 -.度量反馈.-> S1
+    Q3 -.度量反馈.-> P2
+    Q4 -.改进建议.-> S2
+    Q4 -.改进建议.-> S3
+    
+    style L1 fill:#e8f5e9
+    style L2 fill:#fff9c4
+    style L3 fill:#e1f5ff
+    style L4 fill:#f3e5f5
+    style L5 fill:#ffebee
 ```
+
+**分层说明**：
+
+| 层级 | 关注点 | 核心活动 | 关键输出 |
+|------|--------|---------|---------|
+| **L1: 战略规划层** | 长期规划 | 产品线规划、技术路线、资产战略 | 产品路线图、技术选型、资产规划 |
+| **L2: 需求与资产管理层** | 需求分解与资产复用 | UR→FR→MR分解、Feature资产管理 | 三层需求、三层资产、Feature BOM |
+| **L3: 项目交付管理层** | 项目执行 | PI Planning、版本规划、制品晋级 | PI Backlog、版本计划、交付制品 |
+| **L4: 团队执行层** | 日常开发 | Sprint执行、编码、测试 | 代码、测试用例、增量软件 |
+| **L5: 质量与度量层** | 质量保障 | 质量门禁、缺陷管理、度量分析 | 质量报告、改进建议 |
 
 ---
 
 ## 二、核心业务域
 
-### 2.1 七大核心业务域
+### 2.1 七大核心业务域（完整关系）
 
 ```mermaid
 graph TB
-    D0[需求域<br/>Requirement Domain<br/>UR-FR-MR三层需求]
-    D1[产品域<br/>Product Domain<br/>Product-Feature BOM]
-    D2[资产域<br/>Asset Domain<br/>Feature-Module-Platform]
-    D3[项目域<br/>Project Domain<br/>PI Planning-Sprint]
-    D4[团队域<br/>Team Domain<br/>WorkItem-Sprint执行]
-    D5[质量域<br/>Quality Domain<br/>测试-缺陷-技术债]
-    D6[度量域<br/>Metrics Domain<br/>指标-分析-改进]
+    subgraph D0_Group[需求域 Requirement Domain]
+        D0_UR[L1: 用户需求<br/>User Requirement]
+        D0_FR[L2: 特性需求<br/>Feature Requirement]
+        D0_MR[L3: 模块需求<br/>Module Requirement]
+        D0_UR -->|分解| D0_FR
+        D0_FR -->|分解| D0_MR
+    end
     
-    D0 -.需求分解.-> D0
-    D0 -.关联产品.-> D1
-    D0 -.关联资产.-> D2
-    D1 -.Feature BOM.-> D2
-    D2 -.资产复用.-> D3
-    D3 -.项目任务.-> D4
-    D2 -.模块-团队绑定.-> D4
-    D4 -.团队产出.-> D5
-    D5 -.质量数据.-> D6
-    D6 -.度量反馈.-> D0
-    D6 -.度量反馈.-> D1
-    D6 -.度量反馈.-> D3
+    subgraph D1_Group[产品域 Product Domain]
+        D1_PL[产品线<br/>Product Line]
+        D1_P[产品<br/>Product]
+        D1_V[版本<br/>Version]
+        D1_BOM[Feature BOM<br/>配置清单]
+        D1_PL -->|包含| D1_P
+        D1_P -->|版本| D1_V
+        D1_P -->|配置| D1_BOM
+    end
     
-    style D0 fill:#e1f5ff
-    style D1 fill:#e8f5e9
-    style D2 fill:#f3e5f5
-    style D3 fill:#fff9c4
-    style D4 fill:#fce4ec
-    style D5 fill:#ffebee
-    style D6 fill:#e0f2f1
+    subgraph D2_Group[资产域 Asset Domain]
+        D2_F[Feature资产<br/>可复用特性]
+        D2_M[Module资产<br/>软件模块]
+        D2_P[Platform资产<br/>硬件/软件平台]
+        D2_B[Baseline<br/>资产基线]
+        D2_F -->|实现于| D2_M
+        D2_M -->|部署于| D2_P
+        D2_M -->|基线| D2_B
+    end
+    
+    subgraph D3_Group[项目域 Project Domain]
+        D3_VP[车型项目<br/>Vehicle Project]
+        D3_DP[领域项目<br/>Domain Project]
+        D3_PI[PI Planning<br/>增量规划]
+        D3_R[版本发布<br/>Release]
+        D3_VP -->|分解| D3_DP
+        D3_DP -->|规划| D3_PI
+        D3_PI -->|交付| D3_R
+    end
+    
+    subgraph D4_Group[团队域 Team Domain]
+        D4_T[团队<br/>Team]
+        D4_S[Sprint<br/>迭代]
+        D4_W[WorkItem<br/>工作项]
+        D4_C[Commit<br/>代码提交]
+        D4_T -->|执行| D4_S
+        D4_S -->|包含| D4_W
+        D4_W -->|产生| D4_C
+    end
+    
+    subgraph D5_Group[质量域 Quality Domain]
+        D5_T[测试<br/>Test]
+        D5_B[缺陷<br/>Bug]
+        D5_TD[技术债<br/>Tech Debt]
+        D5_Q[质量门禁<br/>Quality Gate]
+        D5_T -->|发现| D5_B
+        D5_Q -->|检查| D5_B
+        D5_Q -->|检查| D5_TD
+    end
+    
+    subgraph D6_Group[度量域 Metrics Domain]
+        D6_M[指标<br/>Metrics]
+        D6_D[Dashboard<br/>仪表盘]
+        D6_R[报告<br/>Report]
+        D6_I[改进<br/>Improvement]
+        D6_M -->|展示| D6_D
+        D6_M -->|生成| D6_R
+        D6_R -->|驱动| D6_I
+    end
+    
+    %% 需求域关联
+    D0_UR -.关联产品.-> D1_P
+    D0_FR -.关联Feature.-> D2_F
+    D0_MR -.关联Module.-> D2_M
+    
+    %% 产品域关联
+    D1_BOM -.包含Feature.-> D2_F
+    D1_V -.关联Release.-> D3_R
+    
+    %% 资产域关联
+    D2_F -.复用于.-> D3_PI
+    D2_M -.分配团队.-> D4_T
+    D2_B -.晋级到.-> D3_R
+    
+    %% 项目域关联
+    D3_PI -.生成MR.-> D0_MR
+    D3_PI -.分配Sprint.-> D4_S
+    D3_R -.包含制品.-> D2_B
+    
+    %% 团队域关联
+    D4_W -.追溯到.-> D0_MR
+    D4_C -.关联.-> D2_M
+    D4_S -.交付.-> D5_T
+    
+    %% 质量域关联
+    D5_B -.转为WorkItem.-> D4_W
+    D5_Q -.阻止.-> D3_R
+    
+    %% 度量域反馈
+    D6_M -.度量.-> D0_Group
+    D6_M -.度量.-> D1_Group
+    D6_M -.度量.-> D3_Group
+    D6_I -.改进.-> D0_Group
+    D6_I -.改进.-> D2_Group
+    
+    style D0_Group fill:#e1f5ff
+    style D1_Group fill:#e8f5e9
+    style D2_Group fill:#f3e5f5
+    style D3_Group fill:#fff9c4
+    style D4_Group fill:#fce4ec
+    style D5_Group fill:#ffebee
+    style D6_Group fill:#e0f2f1
 ```
 
 ### 2.2 业务域职责
@@ -180,95 +304,144 @@ graph TB
 
 ## 三、业务能力模型
 
-### 3.1 业务能力地图
+### 3.1 业务能力地图（融合三层需求与三层资产）
 
 ```mermaid
 graph TB
     subgraph 一级能力
-        C1[战略规划能力]
-        C2[产品管理能力]
+        C0[需求管理能力]
+        C1[产品管理能力]
+        C2[资产管理能力]
         C3[项目管理能力]
-        C4[资产管理能力]
-        C5[团队协作能力]
-        C6[质量保证能力]
-        C7[度量分析能力]
+        C4[团队协作能力]
+        C5[质量保证能力]
+        C6[度量分析能力]
     end
     
-    subgraph C1_子能力[战略规划能力]
-        C11[产品线规划]
-        C12[技术路线规划]
-        C13[资源规划]
-        C14[能力规划]
+    subgraph C0_子能力[需求管理能力 ⭐新增]
+        C01[用户需求管理<br/>UR Management]
+        C02[特性需求管理<br/>FR Management]
+        C03[模块需求管理<br/>MR Management]
+        C04[需求分解<br/>Requirement Decomposition]
+        C05[需求追溯<br/>Traceability]
+        C06[需求变更<br/>Change Management]
+        C07[需求验收<br/>Acceptance]
     end
     
-    subgraph C2_子能力[产品管理能力]
-        C21[产品规划]
-        C22[特性管理]
-        C23[版本管理]
-        C24[模块管理]
-        C25[基线管理]
+    subgraph C1_子能力[产品管理能力]
+        C11[产品线规划<br/>Product Line Planning]
+        C12[产品规划<br/>Product Planning]
+        C13[版本管理<br/>Version Management]
+        C14[Feature BOM配置<br/>BOM Configuration]
+        C15[产品发布<br/>Product Release]
+        C16[产品度量<br/>Product Metrics]
+    end
+    
+    subgraph C2_子能力[资产管理能力 ⭐增强]
+        C21[Feature资产管理<br/>Feature Asset]
+        C22[Module资产管理<br/>Module Asset]
+        C23[Platform管理<br/>Platform Management]
+        C24[资产复用<br/>Asset Reuse]
+        C25[资产基线<br/>Baseline Management]
+        C26[资产晋级<br/>Artifact Promotion]
+        C27[资产度量<br/>Asset Metrics]
     end
     
     subgraph C3_子能力[项目管理能力]
-        C31[项目立项]
-        C32[PI Planning]
-        C33[迭代管理]
-        C34[进度跟踪]
-        C35[风险管理]
-        C36[项目交付]
+        C31[车型项目管理<br/>Vehicle Project]
+        C32[领域项目管理<br/>Domain Project]
+        C33[PI Planning<br/>Program Increment]
+        C34[版本规划<br/>Release Planning]
+        C35[制品晋级<br/>Artifact Promotion]
+        C36[项目交付<br/>Delivery]
+        C37[风险管理<br/>Risk Management]
     end
     
-    subgraph C4_子能力[资产管理能力]
-        C41[资产规划]
-        C42[资产开发]
-        C43[资产审核]
-        C44[资产入库]
-        C45[资产搜索]
-        C46[资产复用]
-        C47[资产度量]
+    subgraph C4_子能力[团队协作能力]
+        C41[Sprint规划<br/>Sprint Planning]
+        C42[WorkItem管理<br/>WorkItem Management]
+        C43[项目代办<br/>Project Backlog]
+        C44[团队代办<br/>Team Backlog]
+        C45[日常协作<br/>Collaboration]
+        C46[知识共享<br/>Knowledge Sharing]
     end
     
-    subgraph C5_子能力[团队协作能力]
-        C51[Sprint管理]
-        C52[WorkItem管理]
-        C53[代办管理]
-        C54[协作沟通]
-        C55[知识共享]
+    subgraph C5_子能力[质量保证能力]
+        C51[测试管理<br/>Test Management]
+        C52[缺陷管理<br/>Bug Management]
+        C53[技术债管理<br/>Tech Debt]
+        C54[代码审查<br/>Code Review]
+        C55[质量门禁<br/>Quality Gate]
+        C56[自动化测试<br/>Test Automation]
     end
     
-    subgraph C6_子能力[质量保证能力]
-        C61[测试管理]
-        C62[缺陷管理]
-        C63[技术债管理]
-        C64[代码审查]
-        C65[质量门禁]
+    subgraph C6_子能力[度量分析能力]
+        C61[指标定义<br/>Metrics Definition]
+        C62[数据采集<br/>Data Collection]
+        C63[数据分析<br/>Data Analysis]
+        C64[可视化<br/>Visualization]
+        C65[报告生成<br/>Report Generation]
+        C66[持续改进<br/>Continuous Improvement]
     end
     
-    subgraph C7_子能力[度量分析能力]
-        C71[指标定义]
-        C72[数据采集]
-        C73[数据分析]
-        C74[可视化]
-        C75[报告生成]
-        C76[持续改进]
-    end
-    
+    C0 --> C0_子能力
     C1 --> C1_子能力
     C2 --> C2_子能力
     C3 --> C3_子能力
     C4 --> C4_子能力
     C5 --> C5_子能力
     C6 --> C6_子能力
-    C7 --> C7_子能力
     
+    %% 能力间关联
+    C01 -.输入.-> C12
+    C02 -.输入.-> C14
+    C03 -.输入.-> C33
+    C05 -.支撑.-> C36
+    
+    C14 -.输入.-> C21
+    C15 -.输入.-> C35
+    
+    C21 -.输入.-> C33
+    C22 -.输入.-> C41
+    C25 -.输入.-> C35
+    
+    C33 -.输入.-> C43
+    C33 -.输入.-> C44
+    C35 -.输入.-> C36
+    
+    C41 -.输入.-> C42
+    C42 -.输入.-> C51
+    
+    C55 -.反馈.-> C35
+    C55 -.反馈.-> C36
+    
+    C61 -.度量.-> C0
+    C61 -.度量.-> C1
+    C61 -.度量.-> C2
+    C61 -.度量.-> C3
+    C66 -.改进.-> C0
+    C66 -.改进.-> C2
+    
+    style C0 fill:#e1f5ff
     style C1 fill:#e8f5e9
-    style C2 fill:#fff9c4
-    style C3 fill:#e1f5ff
-    style C4 fill:#f3e5f5
-    style C5 fill:#fce4ec
-    style C6 fill:#ffebee
-    style C7 fill:#e0f2f1
+    style C2 fill:#f3e5f5
+    style C3 fill:#fff9c4
+    style C4 fill:#fce4ec
+    style C5 fill:#ffebee
+    style C6 fill:#e0f2f1
 ```
+
+**能力说明**：
+
+| 一级能力 | 二级能力数 | 核心价值 | V3新增/增强 |
+|---------|-----------|---------|------------|
+| **需求管理能力** | 7个 | 三层需求管理、需求追溯 | ⭐ 新增 |
+| **产品管理能力** | 6个 | 产品规划、Feature BOM配置 | 增强BOM |
+| **资产管理能力** | 7个 | Feature/Module/Platform管理、资产复用 | ⭐ 大幅增强 |
+| **项目管理能力** | 7个 | 车型/领域项目、PI Planning、制品晋级 | 增强晋级 |
+| **团队协作能力** | 6个 | Sprint、WorkItem、Backlog管理 | 增强Backlog |
+| **质量保证能力** | 6个 | 测试、缺陷、质量门禁 | - |
+| **度量分析能力** | 6个 | 指标、分析、持续改进 | - |
 
 ### 3.2 能力成熟度模型
 
