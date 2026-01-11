@@ -92,7 +92,8 @@ const loadData = async () => {
     const id = route.params.id as string
     const response = await fetch('/biz-data/mock/requirement/user-requirements.json')
     const result = await response.json()
-    data.value = result.data.find((item: UserRequirement) => item.id === id)
+    const urList = Array.isArray(result) ? result : (result.data || [])
+    data.value = urList.find((item: UserRequirement) => item.id === id) || null
     
     if (!data.value) {
       ElMessage.error('需求不存在')
@@ -103,12 +104,16 @@ const loadData = async () => {
     // 加载关联的特性需求
     const frResponse = await fetch('/biz-data/mock/requirement/feature-requirements.json')
     const frResult = await frResponse.json()
-    featureRequirements.value = frResult.data.filter((item: FeatureRequirement) => 
-      data.value?.featureRequirements.includes(item.id)
-    )
+    const frList = Array.isArray(frResult) ? frResult : (frResult.data || [])
+    featureRequirements.value = frList.filter((item: FeatureRequirement) => 
+      data.value?.featureRequirements?.includes(item.id) ||
+      data.value?.childFeatureRequirements?.includes(item.id)
+    ) || []
   } catch (error) {
     console.error('加载数据失败:', error)
     ElMessage.error('加载数据失败')
+    data.value = null
+    featureRequirements.value = []
   } finally {
     loading.value = false
   }

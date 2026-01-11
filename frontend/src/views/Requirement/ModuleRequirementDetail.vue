@@ -45,9 +45,20 @@ const loadData = async () => {
   loading.value = true
   try {
     const response = await fetch('/biz-data/mock/requirement/module-requirements.json')
-    data.value = (await response.json()).data.find((item: ModuleRequirement) => item.id === route.params.id)
-    if (!data.value) { ElMessage.error('需求不存在'); router.back() }
-  } catch (error) { ElMessage.error('加载数据失败') } finally { loading.value = false }
+    const result = await response.json()
+    const list = Array.isArray(result) ? result : (result.data || [])
+    data.value = list.find((item: ModuleRequirement) => item.id === route.params.id) || null
+    if (!data.value) { 
+      ElMessage.error('需求不存在')
+      router.back() 
+    }
+  } catch (error) { 
+    console.error('加载数据失败:', error)
+    ElMessage.error('加载数据失败')
+    data.value = null
+  } finally { 
+    loading.value = false 
+  }
 }
 
 const goBack = () => router.back()
