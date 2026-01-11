@@ -419,6 +419,12 @@ const routes: RouteRecordRaw[] = [
             meta: { title: '需求变更' },
           },
           {
+            path: 'decomposition',
+            name: 'RequirementDecomposition',
+            component: () => import('@/views/Requirement/DecompositionFlow.vue'),
+            meta: { title: '需求分解流程' },
+          },
+          {
             path: 'changes/:id',
             name: 'ChangeDetail',
             component: () => import('@/views/Requirement/ChangeDetail.vue'),
