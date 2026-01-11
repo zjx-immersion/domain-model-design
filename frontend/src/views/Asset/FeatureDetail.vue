@@ -1,305 +1,509 @@
 <template>
-  <div class="detail-container">
-    <el-page-header @back="goBack" title="领域特性列表">
-      <template #content>
-        <span class="detail-title">{{ data?.name }}</span>
-      </template>
-      <template #extra>
-        <el-button type="primary" @click="handleEdit">编辑</el-button>
-      </template>
-    </el-page-header>
+  <div class="feature-detail-page page-container">
+    <!-- 页头 -->
+    <div class="page-header">
+      <el-page-header @back="goBack" :content="`Feature详情 - ${feature?.name || ''}`">
+        <template #extra>
+          <el-space>
+            <el-button :icon="Edit" @click="handleEdit">编辑</el-button>
+            <el-button :icon="CopyDocument" @click="handleCopy">复制</el-button>
+            <el-button :icon="Download" @click="handleExport">导出</el-button>
+          </el-space>
+        </template>
+      </el-page-header>
+    </div>
 
-    <el-card class="info-card" v-loading="loading">
-      <template #header>
-        <span>基本信息</span>
-      </template>
-      
-      <el-descriptions :column="2" border>
-        <el-descriptions-item label="特性编号">{{ data?.code }}</el-descriptions-item>
-        <el-descriptions-item label="状态">
-          <el-tag :type="getStatusType(data?.status)">
-            {{ getStatusLabel(data?.status) }}
-          </el-tag>
-        </el-descriptions-item>
-        <el-descriptions-item label="所属产品线">{{ data?.productLineName }}</el-descriptions-item>
-        <el-descriptions-item label="类别">{{ data?.category }}</el-descriptions-item>
-        <el-descriptions-item label="类型">
-          <el-tag :type="getTypeTagType(data?.type)">
-            {{ getTypeLabel(data?.type) }}
-          </el-tag>
-        </el-descriptions-item>
-        <el-descriptions-item label="复用次数">{{ data?.reuseCount }}</el-descriptions-item>
-        <el-descriptions-item label="模块数量">{{ data?.moduleCount }}</el-descriptions-item>
-        <el-descriptions-item label="创建时间">{{ formatDate(data?.createdAt) }}</el-descriptions-item>
-        <el-descriptions-item label="描述" :span="2">{{ data?.description }}</el-descriptions-item>
-      </el-descriptions>
-    </el-card>
+    <div v-if="loading" class="loading-container">
+      <el-skeleton :rows="10" animated />
+    </div>
 
-    <!-- 接口定义 -->
-    <el-card class="interfaces-card">
-      <template #header>
-        <span>接口定义（{{ data?.interfaces?.length || 0 }}）</span>
-      </template>
-      
-      <el-collapse>
-        <el-collapse-item
-          v-for="(iface, index) in data?.interfaces"
-          :key="index"
-          :title="iface.name"
-        >
-          <div class="interface-detail">
-            <p><strong>类型:</strong> {{ iface.type }}</p>
-            <p><strong>描述:</strong> {{ iface.description }}</p>
-            <p><strong>返回值:</strong> {{ iface.returns }}</p>
-            <div v-if="iface.parameters && iface.parameters.length > 0">
-              <p><strong>参数:</strong></p>
-              <el-table :data="iface.parameters" size="small">
-                <el-table-column prop="name" label="参数名" width="150" />
-                <el-table-column prop="type" label="类型" width="150" />
-                <el-table-column prop="required" label="必填" width="80">
-                  <template #default="scope">
-                    <el-tag :type="scope.row.required ? 'danger' : 'info'" size="small">
-                      {{ scope.row.required ? '是' : '否' }}
-                    </el-tag>
-                  </template>
-                </el-table-column>
-                <el-table-column prop="description" label="描述" />
-              </el-table>
-            </div>
+    <div v-else-if="!feature" class="empty-state">
+      <el-empty description="Feature不存在" />
+      <el-button type="primary" @click="goBack">返回列表</el-button>
+    </div>
+
+    <div v-else>
+      <!-- 基本信息卡片 -->
+      <el-card class="section-card info-card">
+        <template #header>
+          <div class="card-header">
+            <span class="card-title">
+              <el-icon><InfoFilled /></el-icon>
+              基本信息
+            </span>
+            <el-tag :type="getStatusTagType(feature.status)">
+              {{ getStatusText(feature.status) }}
+            </el-tag>
           </div>
-        </el-collapse-item>
-      </el-collapse>
-    </el-card>
+        </template>
 
-    <!-- 关联需求 -->
-    <el-card class="requirements-card">
-      <template #header>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span>关联需求（{{ featureRequirements.length }}）</span>
-          <el-button link type="primary" @click="viewAllRequirements">
-            查看全部 →
-          </el-button>
+        <el-descriptions :column="2" border>
+          <el-descriptions-item label="Feature编码">
+            {{ feature.code }}
+          </el-descriptions-item>
+          <el-descriptions-item label="Feature名称">
+            {{ feature.name }}
+          </el-descriptions-item>
+          <el-descriptions-item label="业务域">
+            <el-tag :type="getDomainTagType(feature.domain)">
+              {{ feature.domain }}
+            </el-tag>
+          </el-descriptions-item>
+          <el-descriptions-item label="版本">
+            {{ feature.currentVersion }}
+          </el-descriptions-item>
+          <el-descriptions-item label="复杂度">
+            <el-tag :type="getComplexityType(feature.complexity)">
+              {{ getComplexityText(feature.complexity) }}
+            </el-tag>
+          </el-descriptions-item>
+          <el-descriptions-item label="负责人">
+            {{ feature.owner || '-' }}
+          </el-descriptions-item>
+          <el-descriptions-item label="创建时间">
+            {{ formatDate(feature.createdAt) }}
+          </el-descriptions-item>
+          <el-descriptions-item label="更新时间">
+            {{ formatDate(feature.updatedAt) }}
+          </el-descriptions-item>
+          <el-descriptions-item label="描述" :span="2">
+            {{ feature.description || '-' }}
+          </el-descriptions-item>
+        </el-descriptions>
+      </el-card>
+
+      <!-- 复用情况卡片 -->
+      <el-row :gutter="16">
+        <el-col :span="16">
+          <el-card class="section-card">
+            <template #header>
+              <div class="card-header">
+                <span class="card-title">
+                  <el-icon><TrendCharts /></el-icon>
+                  复用情况分析
+                </span>
+              </div>
+            </template>
+
+            <div class="reuse-stats">
+              <el-row :gutter="16">
+                <el-col :span="8">
+                  <div class="stat-item">
+                    <div class="stat-value">{{ feature.reuseCount || 0 }}</div>
+                    <div class="stat-label">复用次数</div>
+                  </div>
+                </el-col>
+                <el-col :span="8">
+                  <div class="stat-item">
+                    <div class="stat-value">{{ (feature.products || []).length }}</div>
+                    <div class="stat-label">使用产品数</div>
+                  </div>
+                </el-col>
+                <el-col :span="8">
+                  <div class="stat-item">
+                    <div class="stat-value">{{ getReuseRate(feature) }}%</div>
+                    <div class="stat-label">复用率</div>
+                  </div>
+                </el-col>
+              </el-row>
+
+              <el-divider />
+
+              <div class="reuse-chart">
+                <div class="chart-title">复用趋势</div>
+                <el-progress
+                  :percentage="getReuseRate(feature)"
+                  :color="getReuseColor(feature)"
+                  :stroke-width="20"
+                >
+                  <template #default="{ percentage }">
+                    <span class="percentage-text">{{ percentage }}%</span>
+                  </template>
+                </el-progress>
+              </div>
+            </div>
+          </el-card>
+        </el-col>
+
+        <el-col :span="8">
+          <el-card class="section-card">
+            <template #header>
+              <div class="card-header">
+                <span class="card-title">
+                  <el-icon><Box /></el-icon>
+                  组成模块
+                </span>
+              </div>
+            </template>
+
+            <div class="module-list">
+              <el-tag
+                v-for="moduleId in (feature.moduleIds || [])"
+                :key="moduleId"
+                type="info"
+                size="large"
+                style="margin: 4px"
+              >
+                {{ moduleId }}
+              </el-tag>
+              <el-empty v-if="!(feature.moduleIds || []).length" description="暂无模块" :image-size="80" />
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
+
+      <!-- 使用产品列表 -->
+      <el-card class="section-card">
+        <template #header>
+          <div class="card-header">
+            <span class="card-title">
+              <el-icon><ShoppingCart /></el-icon>
+              使用该Feature的产品 ({{ (feature.products || []).length }})
+            </span>
+          </div>
+        </template>
+
+        <el-table :data="feature.products || []" stripe>
+          <el-table-column prop="id" label="产品ID" width="150" />
+          <el-table-column prop="name" label="产品名称" min-width="200" />
+          <el-table-column label="产品线" width="150">
+            <template #default="{ row }">
+              <el-tag type="primary">{{ row.productLine || '-' }}</el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="配置类型" width="120">
+            <template #default="{ row }">
+              <el-tag v-if="row.isCore" type="success">核心配置</el-tag>
+              <el-tag v-else type="info">可选配置</el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" width="100">
+            <template #default="{ row }">
+              <el-button type="primary" link size="small" @click="viewProduct(row.id)">
+                查看
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+
+        <el-empty v-if="!(feature.products || []).length" description="暂无产品使用该Feature" :image-size="100" />
+      </el-card>
+
+      <!-- 关联需求 -->
+      <el-card class="section-card">
+        <template #header>
+          <div class="card-header">
+            <span class="card-title">
+              <el-icon><Document /></el-icon>
+              关联需求
+            </span>
+          </div>
+        </template>
+
+        <div class="requirement-stats">
+          <el-space>
+            <el-tag type="success" size="large">特性需求(FR): {{ relatedRequirements.frCount }}</el-tag>
+            <el-tag type="info" size="large">模块需求(MR): {{ relatedRequirements.mrCount }}</el-tag>
+          </el-space>
         </div>
-      </template>
-      
-      <el-table :data="featureRequirements" v-loading="loadingRequirements" style="width: 100%">
-        <el-table-column prop="code" label="需求编号" width="120" />
-        <el-table-column prop="title" label="需求标题" min-width="200" />
-        <el-table-column prop="priority" label="优先级" width="100">
-          <template #default="scope">
-            <el-tag :type="getPriorityType(scope.row.priority)" size="small">
-              {{ scope.row.priority }}
-            </el-tag>
-          </template>
-        </el-table-column>
-        <el-table-column prop="status" label="状态" width="100">
-          <template #default="scope">
-            <el-tag :type="getRequirementStatusType(scope.row.status)" size="small">
-              {{ getRequirementStatusLabel(scope.row.status) }}
-            </el-tag>
-          </template>
-        </el-table-column>
-        <el-table-column prop="progress" label="进度" width="120">
-          <template #default="scope">
-            <el-progress :percentage="Math.round(scope.row.progress * 100)" :stroke-width="8" />
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" width="120">
-          <template #default="scope">
-            <el-button link type="primary" @click="viewRequirementDetail(scope.row.id)">
-              查看
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-      
-      <el-empty v-if="featureRequirements.length === 0 && !loadingRequirements" 
-        description="暂无关联需求" />
-    </el-card>
 
-    <!-- 包含的模块 -->
-    <el-card class="modules-card">
-      <template #header>
-        <span>包含模块（{{ data?.modules?.length || 0 }}）</span>
-      </template>
-      
-      <el-table :data="data?.modules || []" style="width: 100%">
-        <el-table-column prop="name" label="模块名称" />
-        <el-table-column prop="version" label="版本" width="120" />
-        <el-table-column label="操作" width="150">
-          <template #default="scope">
-            <el-button link type="primary" @click="handleViewModule(scope.row)">查看详情</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-card>
+        <el-divider />
+
+        <el-descriptions title="需求统计" :column="3" border size="small">
+          <el-descriptions-item label="Total">{{ relatedRequirements.frCount }}</el-descriptions-item>
+          <el-descriptions-item label="In Progress">{{ relatedRequirements.inProgress }}</el-descriptions-item>
+          <el-descriptions-item label="Completed">{{ relatedRequirements.completed }}</el-descriptions-item>
+        </el-descriptions>
+      </el-card>
+
+      <!-- 版本历史 -->
+      <el-card class="section-card">
+        <template #header>
+          <div class="card-header">
+            <span class="card-title">
+              <el-icon><Clock /></el-icon>
+              版本历史
+            </span>
+          </div>
+        </template>
+
+        <el-timeline>
+          <el-timeline-item
+            v-for="(version, index) in versionHistory"
+            :key="index"
+            :timestamp="formatDate(version.date)"
+            placement="top"
+          >
+            <el-card>
+              <h4>{{ version.version }}</h4>
+              <p>{{ version.description }}</p>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
+
+        <el-empty v-if="!versionHistory.length" description="暂无版本历史" :image-size="80" />
+      </el-card>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import type { DomainFeature } from '@/types/asset'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
+import {
+  Edit,
+  CopyDocument,
+  Download,
+  InfoFilled,
+  TrendCharts,
+  Box,
+  ShoppingCart,
+  Document,
+  Clock
+} from '@element-plus/icons-vue'
+import featuresDataRaw from '@/biz-data/mock/feature/features.json'
+import featureRequirementsDataRaw from '@/biz-data/mock/requirement/feature-requirements.json'
+import dayjs from 'dayjs'
 
-const router = useRouter()
 const route = useRoute()
+const router = useRouter()
+
+// 数据
+const feature = ref<any>(null)
 const loading = ref(false)
-const loadingRequirements = ref(false)
-const data = ref<DomainFeature | null>(null)
-const featureRequirements = ref<any[]>([])
 
-const loadData = async () => {
-  loading.value = true
-  try {
-    const id = route.params.id as string
-    const response = await fetch('/biz-data/mock/asset/features.json')
-    const result = await response.json()
-    data.value = result.data.find((item: DomainFeature) => item.id === id)
-    
-    if (!data.value) {
-      ElMessage.error('特性不存在')
-      router.back()
-      return
+// 加载数据
+onMounted(() => {
+  const featureId = route.params.id as string
+  const featuresData = featuresDataRaw.data || featuresDataRaw
+  const foundFeature = featuresData.find((f: any) => f.id === featureId)
+
+  if (foundFeature) {
+    feature.value = foundFeature
+  }
+})
+
+// 关联需求统计
+const relatedRequirements = computed(() => {
+  if (!feature.value) return { frCount: 0, mrCount: 0, inProgress: 0, completed: 0 }
+
+  const frData = featureRequirementsDataRaw.data || featureRequirementsDataRaw
+  const relatedFRs = frData.filter((fr: any) => fr.relatedFeatureAssetId === feature.value.id)
+
+  return {
+    frCount: relatedFRs.length,
+    mrCount: 0, // TODO: 从MR数据中统计
+    inProgress: relatedFRs.filter((fr: any) => fr.status === 'in_progress').length,
+    completed: relatedFRs.filter((fr: any) => fr.status === 'approved' || fr.status === 'completed').length
+  }
+})
+
+// 版本历史（示例数据）
+const versionHistory = computed(() => {
+  if (!feature.value) return []
+
+  return [
+    {
+      version: feature.value.currentVersion || 'v1.0.0',
+      date: feature.value.updatedAt || new Date().toISOString(),
+      description: '当前版本'
     }
-    
-    // 加载关联需求
-    await loadFeatureRequirements(id)
-  } catch (error) {
-    console.error('加载数据失败:', error)
-    ElMessage.error('加载数据失败')
-  } finally {
-    loading.value = false
+  ]
+})
+
+// 获取复用率
+const getReuseRate = (f: any) => {
+  const reuseCount = f.reuseCount || 0
+  if (reuseCount === 0) return 0
+  return Math.min(100, Math.round((reuseCount / 10) * 100))
+}
+
+// 获取复用率颜色
+const getReuseColor = (f: any) => {
+  const rate = getReuseRate(f)
+  if (rate >= 60) return '#67C23A'
+  if (rate >= 30) return '#E6A23C'
+  return '#F56C6C'
+}
+
+// 获取业务域标签类型
+const getDomainTagType = (domain: string) => {
+  const map: Record<string, any> = {
+    'ADAS': 'success',
+    'IVI': 'primary',
+    'BCM': 'warning',
+    'PDC': 'danger',
+    'Cockpit': 'info'
   }
+  return map[domain] || 'info'
 }
 
-// 加载特性关联的需求
-const loadFeatureRequirements = async (featureId: string) => {
-  loadingRequirements.value = true
-  try {
-    const response = await fetch('/biz-data/mock/requirement/feature-requirements.json')
-    const result = await response.json()
-    // 筛选出该特性的需求
-    featureRequirements.value = result.data.filter((req: any) => req.featureId === featureId)
-  } catch (error) {
-    console.error('加载需求失败:', error)
-    ElMessage.error('加载需求失败')
-  } finally {
-    loadingRequirements.value = false
-  }
-}
-
-const goBack = () => router.back()
-const handleEdit = () => ElMessage.info('编辑功能待实现')
-
-const handleViewModule = (module: any) => {
-  router.push({ name: 'ModuleDetail', params: { id: module.id } })
-}
-
-const viewAllRequirements = () => {
-  router.push({ path: '/requirements/feature', query: { featureId: data.value?.id } })
-}
-
-const viewRequirementDetail = (requirementId: string) => {
-  router.push({ name: 'FeatureRequirementDetail', params: { id: requirementId } })
-}
-
-const getPriorityType = (priority: string) => {
-  const map: Record<string, string> = {
-    'P0': 'danger',
-    'P1': 'warning',
-    'P2': 'info'
-  }
-  return map[priority] || 'info'
-}
-
-const getRequirementStatusType = (status: string) => {
-  const map: Record<string, string> = {
-    'planning': 'info',
-    'in_development': 'warning',
-    'in_review': 'primary',
-    'completed': 'success'
+// 获取状态标签类型
+const getStatusTagType = (status: string) => {
+  const map: Record<string, any> = {
+    'active': 'success',
+    'deprecated': 'danger',
+    'planning': 'warning',
+    'development': 'primary'
   }
   return map[status] || 'info'
 }
 
-const getRequirementStatusLabel = (status: string) => {
+// 获取状态文本
+const getStatusText = (status: string) => {
   const map: Record<string, string> = {
-    'planning': '已规划',
-    'in_development': '开发中',
-    'in_review': '评审中',
-    'completed': '已完成'
+    'active': 'Active',
+    'deprecated': 'Deprecated',
+    'planning': 'Planning',
+    'development': 'Development'
   }
   return map[status] || status
 }
 
-const getStatusType = (status?: string) => {
-  const map: Record<string, string> = {
-    'active': 'success',
-    'inactive': 'info',
-    'deprecated': 'danger'
+// 获取复杂度类型
+const getComplexityType = (complexity: string) => {
+  const map: Record<string, any> = {
+    'high': 'danger',
+    'medium': 'warning',
+    'low': 'success'
   }
-  return map[status || ''] || 'info'
+  return map[complexity] || 'info'
 }
 
-const getStatusLabel = (status?: string) => {
+// 获取复杂度文本
+const getComplexityText = (complexity: string) => {
   const map: Record<string, string> = {
-    'active': '活跃',
-    'inactive': '不活跃',
-    'deprecated': '已废弃'
+    'high': '高',
+    'medium': '中',
+    'low': '低'
   }
-  return map[status || ''] || status
+  return map[complexity] || complexity
 }
 
-const getTypeTagType = (type?: string) => {
-  const map: Record<string, string> = {
-    'common': 'success',
-    'variant': 'warning',
-    'custom': 'info'
-  }
-  return map[type || ''] || ''
+// 格式化日期
+const formatDate = (date: string) => {
+  return dayjs(date).format('YYYY-MM-DD HH:mm')
 }
 
-const getTypeLabel = (type?: string) => {
-  const map: Record<string, string> = {
-    'common': '通用',
-    'variant': '变体',
-    'custom': '定制'
-  }
-  return map[type || ''] || type
+// 查看产品
+const viewProduct = (productId: string) => {
+  ElMessage.info(`查看产品: ${productId}`)
+  // router.push(`/products/${productId}`)
 }
 
-const formatDate = (dateStr?: string) => {
-  if (!dateStr) return '-'
-  return new Date(dateStr).toLocaleString('zh-CN')
+// 编辑
+const handleEdit = () => {
+  ElMessage.info('编辑功能开发中...')
 }
 
-onMounted(() => loadData())
+// 复制
+const handleCopy = () => {
+  ElMessage.info('复制功能开发中...')
+}
+
+// 导出
+const handleExport = () => {
+  ElMessage.success('导出功能开发中...')
+}
+
+// 返回
+const goBack = () => {
+  router.push('/assets/features')
+}
 </script>
 
 <style scoped lang="scss">
-.detail-container {
-  padding: 20px;
-}
+.feature-detail-page {
+  .page-header {
+    margin-bottom: 20px;
+  }
 
-.detail-title {
-  font-size: 18px;
-  font-weight: bold;
-}
+  .loading-container {
+    padding: 40px;
+  }
 
-.info-card,
-.interfaces-card,
-.requirements-card,
-.modules-card {
-  margin-bottom: 20px;
-}
+  .empty-state {
+    text-align: center;
+    padding: 60px 0;
 
-.interface-detail {
-  padding: 10px;
-  
-  p {
-    margin: 8px 0;
+    .el-button {
+      margin-top: 20px;
+    }
+  }
+
+  .section-card {
+    margin-bottom: 20px;
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+
+    :deep(.el-descriptions__label) {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+
+    :deep(.el-descriptions__content) {
+      color: #fff;
+    }
+  }
+
+  .reuse-stats {
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+
+      .stat-value {
+        font-size: 32px;
+        font-weight: bold;
+        color: #409EFF;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: #909399;
+      }
+    }
+
+    .reuse-chart {
+      padding: 20px 0;
+
+      .chart-title {
+        font-size: 14px;
+        color: #606266;
+        margin-bottom: 16px;
+      }
+
+      .percentage-text {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .module-list {
+    padding: 10px 0;
+  }
+
+  .requirement-stats {
+    margin-bottom: 16px;
   }
 }
 </style>
-

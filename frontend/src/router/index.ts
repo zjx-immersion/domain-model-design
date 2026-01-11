@@ -322,6 +322,18 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/Asset/Relationship.vue'),
             meta: { title: '资产库' },
           },
+          {
+            path: 'features',
+            name: 'FeatureAssetList',
+            component: () => import('@/views/Asset/FeatureList.vue'),
+            meta: { title: 'Feature列表' },
+          },
+          {
+            path: 'features/:id',
+            name: 'FeatureAssetDetail',
+            component: () => import('@/views/Asset/FeatureDetail.vue'),
+            meta: { title: 'Feature详情' },
+          },
         ],
       },
       // 需求管理
