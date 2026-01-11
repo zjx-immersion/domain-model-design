@@ -1,0 +1,1649 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T04:15:29.884Z",
+    "description": "制品晋级数据 - 记录Feature和Module的环境晋级历史"
+  },
+  "data": [
+    {
+      "id": "AP-F-001",
+      "artifactType": "feature",
+      "artifactId": "FEAT-AVP-001",
+      "artifactName": "自动代客泊车",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "自动代客泊车 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-002",
+      "artifactType": "feature",
+      "artifactId": "FEAT-NOA-001",
+      "artifactName": "高速NOA领航辅助",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "高速NOA领航辅助 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-003",
+      "artifactType": "feature",
+      "artifactId": "FEAT-ACC-001",
+      "artifactName": "自适应巡航控制",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "自适应巡航控制 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-004",
+      "artifactType": "feature",
+      "artifactId": "FEAT-LKA-001",
+      "artifactName": "车道保持辅助",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "车道保持辅助 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-005",
+      "artifactType": "feature",
+      "artifactId": "FEAT-AEB-001",
+      "artifactName": "自动紧急制动",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "自动紧急制动 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-006",
+      "artifactType": "feature",
+      "artifactId": "FEAT-PERC-FUSION",
+      "artifactName": "多传感器融合感知",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "多传感器融合感知 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-007",
+      "artifactType": "feature",
+      "artifactId": "FEAT-MAP-001",
+      "artifactName": "高精地图",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "高精地图 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-008",
+      "artifactType": "feature",
+      "artifactId": "FEAT-LOC-001",
+      "artifactName": "高精定位",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "高精定位 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-009",
+      "artifactType": "feature",
+      "artifactId": "FEAT-USS-001",
+      "artifactName": "超声波雷达",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "超声波雷达 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-F-010",
+      "artifactType": "feature",
+      "artifactId": "FEAT-CAM-001",
+      "artifactName": "摄像头感知",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-01T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 120,
+              "failed": 0,
+              "coverage": 85
+            },
+            "integrationTest": {
+              "passed": 45,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "passed",
+          "promotedAt": "2024-12-05T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 80,
+              "failed": 0
+            },
+            "performanceTest": {
+              "passed": true,
+              "metrics": {
+                "latency": "50ms",
+                "throughput": "1000tps"
+              }
+            }
+          }
+        },
+        {
+          "environment": "uat",
+          "status": "passed",
+          "promotedAt": "2024-12-10T16:00:00Z",
+          "promotedBy": "DevOps-002",
+          "buildId": "BUILD-F-001",
+          "testResults": {
+            "acceptanceTest": {
+              "passed": 30,
+              "failed": 0
+            },
+            "securityTest": {
+              "passed": true,
+              "vulnerabilities": 0
+            }
+          }
+        },
+        {
+          "environment": "prod",
+          "status": "deployed",
+          "promotedAt": "2024-12-15T10:00:00Z",
+          "promotedBy": "DevOps-Manager",
+          "buildId": "BUILD-F-001",
+          "releaseNotes": "摄像头感知 vundefined 正式发布"
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-11-28T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 85,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        },
+        "performanceTest": {
+          "status": "passed",
+          "latency": 50,
+          "threshold": 100
+        }
+      },
+      "createdAt": "2024-12-01T10:00:00Z",
+      "updatedAt": "2024-12-15T10:00:00Z"
+    },
+    {
+      "id": "AP-M-001",
+      "artifactType": "module",
+      "artifactId": "MOD-001",
+      "artifactName": "摄像头感知模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-001",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-001",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-002",
+      "artifactType": "module",
+      "artifactId": "MOD-002",
+      "artifactName": "激光雷达感知模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-002",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-002",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-003",
+      "artifactType": "module",
+      "artifactId": "MOD-003",
+      "artifactName": "毫米波雷达模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-003",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-003",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-004",
+      "artifactType": "module",
+      "artifactId": "MOD-004",
+      "artifactName": "传感器融合模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-004",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-004",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-005",
+      "artifactType": "module",
+      "artifactId": "MOD-005",
+      "artifactName": "路网分析模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-005",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-005",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-006",
+      "artifactType": "module",
+      "artifactId": "MOD-006",
+      "artifactName": "路径规划引擎",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-006",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-006",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-007",
+      "artifactType": "module",
+      "artifactId": "MOD-007",
+      "artifactName": "动态避障模块",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-007",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-007",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-008",
+      "artifactType": "module",
+      "artifactId": "MOD-008",
+      "artifactName": "泊车路径规划",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-008",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-008",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-009",
+      "artifactType": "module",
+      "artifactId": "MOD-009",
+      "artifactName": "泊车空间检测",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-009",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-009",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    },
+    {
+      "id": "AP-M-010",
+      "artifactType": "module",
+      "artifactId": "MOD-010",
+      "artifactName": "泊车控制执行",
+      "promotionPath": [
+        {
+          "environment": "dev",
+          "status": "passed",
+          "promotedAt": "2024-12-03T10:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-010",
+          "testResults": {
+            "unitTest": {
+              "passed": 80,
+              "failed": 0,
+              "coverage": 82
+            },
+            "integrationTest": {
+              "passed": 30,
+              "failed": 0
+            }
+          }
+        },
+        {
+          "environment": "test",
+          "status": "in_progress",
+          "promotedAt": "2024-12-07T14:00:00Z",
+          "promotedBy": "DevOps-001",
+          "buildId": "BUILD-M-010",
+          "testResults": {
+            "systemTest": {
+              "passed": 25,
+              "failed": 2,
+              "inProgress": 8
+            }
+          }
+        }
+      ],
+      "qualityGates": {
+        "codeReview": {
+          "status": "passed",
+          "reviewers": 2,
+          "approvedAt": "2024-12-01T15:00:00Z"
+        },
+        "unitTest": {
+          "status": "passed",
+          "coverage": 82,
+          "threshold": 80
+        },
+        "integrationTest": {
+          "status": "passed",
+          "passRate": 100,
+          "threshold": 95
+        },
+        "securityScan": {
+          "status": "passed",
+          "vulnerabilities": 0,
+          "threshold": 0
+        }
+      },
+      "createdAt": "2024-12-03T10:00:00Z",
+      "updatedAt": "2024-12-07T14:00:00Z"
+    }
+  ]
+}

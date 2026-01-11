@@ -1,0 +1,645 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T04:15:29.873Z",
+    "description": "Product版本数据 - 支持产品版本规划和Feature BOM关联"
+  },
+  "data": [
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V1",
+      "productLineId": "PL-003",
+      "productLineName": "车联网平台",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "versionType": "flagship",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "高端市场",
+      "salesPrice": 350000,
+      "targetVolume": 50000,
+      "description": "undefined旗舰版 - 全配置版本",
+      "features": {
+        "total": 25,
+        "core": 15,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-Premium",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2",
+      "productLineId": "PL-003",
+      "productLineName": "车联网平台",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "versionType": "advanced",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "中高端市场",
+      "salesPrice": 280000,
+      "targetVolume": 120000,
+      "description": "undefined高配版 - 高级配置版本",
+      "features": {
+        "total": 20,
+        "core": 15,
+        "optional": 5
+      },
+      "featureBOMId": "FB-undefined-Advanced",
+      "platforms": [
+        "PLT-001",
+        "PLT-002"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V3",
+      "productLineId": "PL-003",
+      "productLineName": "车联网平台",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "versionType": "standard",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "targetMarket": "大众市场",
+      "salesPrice": 220000,
+      "targetVolume": 200000,
+      "description": "undefined标准版 - 标准配置版本",
+      "features": {
+        "total": 15,
+        "core": 15,
+        "optional": 0
+      },
+      "featureBOMId": "FB-undefined-Standard",
+      "platforms": [
+        "PLT-001"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-001",
+      "productLineName": "智能驾驶平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-002",
+      "productLineName": "智能座舱平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "undefined-V2026",
+      "productLineId": "PL-003",
+      "productLineName": "车联网平台",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "versionType": "next_gen",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "targetMarket": "全市场",
+      "salesPrice": 300000,
+      "targetVolume": 150000,
+      "description": "undefined 2026年改款 - 增强智能化配置",
+      "features": {
+        "total": 28,
+        "core": 18,
+        "optional": 10
+      },
+      "featureBOMId": "FB-undefined-2026",
+      "platforms": [
+        "PLT-001",
+        "PLT-002",
+        "PLT-005",
+        "PLT-009"
+      ],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z"
+    }
+  ]
+}

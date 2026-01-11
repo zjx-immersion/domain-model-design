@@ -1,0 +1,297 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T04:15:29.885Z",
+    "description": "测试场景数据 - 支持端到端业务场景验证"
+  },
+  "data": [
+    {
+      "id": "TS-001",
+      "name": "UR分解为FR和MR完整流程",
+      "description": "验证从用户需求分解为特性需求和模块需求的完整流程",
+      "type": "requirement_decomposition",
+      "priority": "P0",
+      "status": "passed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "创建UR",
+          "expected": "UR成功创建",
+          "actual": "UR-001创建成功",
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "action": "分解FR",
+          "expected": "FR关联UR和Feature",
+          "actual": "FR-001关联UR-001和FEA-001",
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "action": "分解MR",
+          "expected": "MR关联FR和Module",
+          "actual": "MR-001关联FR-001和MOD-004",
+          "status": "passed"
+        },
+        {
+          "step": 4,
+          "action": "查看追溯链路",
+          "expected": "UR→FR→MR链路完整",
+          "actual": "追溯链路完整",
+          "status": "passed"
+        }
+      ],
+      "involvedEntities": {
+        "ur": [
+          "UR-001"
+        ],
+        "fr": [
+          "FR-001"
+        ],
+        "mr": [
+          "MR-001",
+          "MR-002"
+        ],
+        "feature": [
+          "FEA-001"
+        ],
+        "module": [
+          "MOD-004"
+        ]
+      },
+      "executedBy": "QA-001",
+      "executedAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "TS-002",
+      "name": "PI Planning创建Project Backlog",
+      "description": "验证PI Planning过程中创建Project Backlog的流程",
+      "type": "pi_planning",
+      "priority": "P0",
+      "status": "passed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "创建PI Planning",
+          "expected": "PI Planning成功创建",
+          "actual": "PI-2025-Q1创建成功",
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "action": "分配UR到PI",
+          "expected": "UR成功分配",
+          "actual": "1个UR分配成功",
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "action": "创建Project Backlog",
+          "expected": "Project Backlog包含MR",
+          "actual": "backlog-PB-001包含5个MR",
+          "status": "passed"
+        },
+        {
+          "step": 4,
+          "action": "查看统计信息",
+          "expected": "统计信息正确",
+          "actual": "UR:1, FR:1, MR:5",
+          "status": "passed"
+        }
+      ],
+      "involvedEntities": {
+        "piPlanning": [
+          "PI-2025-Q1"
+        ],
+        "projectBacklog": [
+          "backlog-PB-001"
+        ],
+        "ur": [
+          "UR-001"
+        ],
+        "fr": [
+          "FR-001"
+        ],
+        "mr": [
+          "MR-001",
+          "MR-002",
+          "MR-003",
+          "MR-004",
+          "MR-005"
+        ]
+      },
+      "executedBy": "QA-002",
+      "executedAt": "2025-01-10T11:00:00Z"
+    },
+    {
+      "id": "TS-003",
+      "name": "MR分配到Team Backlog",
+      "description": "验证模块需求分配到团队待办的流程",
+      "type": "team_backlog",
+      "priority": "P0",
+      "status": "passed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "从Project Backlog查看MR",
+          "expected": "MR列表正确显示",
+          "actual": "5个MR显示正确",
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "action": "分配MR到团队",
+          "expected": "MR成功分配",
+          "actual": "5个MR分配到感知团队",
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "action": "创建Team Backlog",
+          "expected": "Team Backlog包含MR",
+          "actual": "backlog-TB-001包含7个MR",
+          "status": "passed"
+        },
+        {
+          "step": 4,
+          "action": "查看MR统计",
+          "expected": "MR统计正确",
+          "actual": "总数:7, 已完成:3, 完成率:43%",
+          "status": "passed"
+        }
+      ],
+      "involvedEntities": {
+        "projectBacklog": [
+          "backlog-PB-001"
+        ],
+        "teamBacklog": [
+          "backlog-TB-001"
+        ],
+        "team": [
+          "TEAM-001"
+        ],
+        "mr": [
+          "MR-001",
+          "MR-002",
+          "MR-003",
+          "MR-004",
+          "MR-005",
+          "MR-006",
+          "MR-007"
+        ]
+      },
+      "executedBy": "QA-002",
+      "executedAt": "2025-01-10T12:00:00Z"
+    },
+    {
+      "id": "TS-004",
+      "name": "Feature资产复用",
+      "description": "验证Feature资产在多个产品中复用的流程",
+      "type": "feature_reuse",
+      "priority": "P1",
+      "status": "passed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "查询可复用Feature",
+          "expected": "Feature列表正确",
+          "actual": "20个Feature可选",
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "action": "选择Feature",
+          "expected": "Feature详情显示",
+          "actual": "FEA-001详情正确",
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "action": "添加到产品BOM",
+          "expected": "BOM更新成功",
+          "actual": "FEA-001添加到3个产品",
+          "status": "passed"
+        },
+        {
+          "step": 4,
+          "action": "查看复用统计",
+          "expected": "复用次数更新",
+          "actual": "复用次数从2增加到5",
+          "status": "passed"
+        }
+      ],
+      "involvedEntities": {
+        "feature": [
+          "FEA-001"
+        ],
+        "product": [
+          "PROD-001",
+          "PROD-002",
+          "PROD-003"
+        ],
+        "featureBOM": [
+          "FB-PROD-001-Premium",
+          "FB-PROD-002-Advanced",
+          "FB-PROD-003-Standard"
+        ]
+      },
+      "executedBy": "QA-003",
+      "executedAt": "2025-01-10T13:00:00Z"
+    },
+    {
+      "id": "TS-005",
+      "name": "制品晋级流程",
+      "description": "验证Feature从dev到prod环境的晋级流程",
+      "type": "artifact_promotion",
+      "priority": "P1",
+      "status": "passed",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Feature在dev环境测试",
+          "expected": "测试通过",
+          "actual": "单元测试85%覆盖率",
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "action": "晋级到test环境",
+          "expected": "晋级成功",
+          "actual": "test环境部署成功",
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "action": "test环境验证",
+          "expected": "系统测试通过",
+          "actual": "80个测试用例全部通过",
+          "status": "passed"
+        },
+        {
+          "step": 4,
+          "action": "晋级到prod环境",
+          "expected": "生产发布成功",
+          "actual": "prod环境部署完成",
+          "status": "passed"
+        }
+      ],
+      "involvedEntities": {
+        "feature": [
+          "FEA-001"
+        ],
+        "artifactPromotion": [
+          "AP-F-001"
+        ],
+        "environments": [
+          "dev",
+          "test",
+          "uat",
+          "prod"
+        ]
+      },
+      "executedBy": "QA-004",
+      "executedAt": "2025-01-10T14:00:00Z"
+    }
+  ]
+}

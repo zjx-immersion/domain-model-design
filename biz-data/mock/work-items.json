@@ -26,7 +26,11 @@
       "storyPoints": 8,
       "estimatedEffort": 40,
       "actualEffort": 32,
-      "tasks": ["TASK-001", "TASK-002", "TASK-003"],
+      "tasks": [
+        "TASK-001",
+        "TASK-002",
+        "TASK-003"
+      ],
       "taskCount": 3,
       "completedTaskCount": 2,
       "dependencies": [],
@@ -79,7 +83,9 @@
       "tasks": [],
       "taskCount": 0,
       "completedTaskCount": 0,
-      "dependencies": ["WI-001"],
+      "dependencies": [
+        "WI-001"
+      ],
       "blockedBy": [],
       "createdBy": "算法架构师A",
       "createdAt": "2024-12-20T10:00:00Z",
@@ -106,7 +112,9 @@
       "tasks": [],
       "taskCount": 0,
       "completedTaskCount": 0,
-      "dependencies": ["WI-001"],
+      "dependencies": [
+        "WI-001"
+      ],
       "blockedBy": [],
       "createdBy": "性能工程师A",
       "createdAt": "2024-12-25T10:00:00Z",
@@ -132,7 +140,11 @@
       "storyPoints": 13,
       "estimatedEffort": 52,
       "actualEffort": 48,
-      "tasks": ["TASK-004", "TASK-005", "TASK-006"],
+      "tasks": [
+        "TASK-004",
+        "TASK-005",
+        "TASK-006"
+      ],
       "taskCount": 3,
       "completedTaskCount": 3,
       "dependencies": [],
@@ -161,7 +173,10 @@
       "storyPoints": 8,
       "estimatedEffort": 32,
       "actualEffort": 18,
-      "tasks": ["TASK-007", "TASK-008"],
+      "tasks": [
+        "TASK-007",
+        "TASK-008"
+      ],
       "taskCount": 2,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -238,7 +253,9 @@
       "storyPoints": 5,
       "estimatedEffort": 20,
       "actualEffort": 12,
-      "tasks": ["TASK-009"],
+      "tasks": [
+        "TASK-009"
+      ],
       "taskCount": 1,
       "completedTaskCount": 0,
       "dependencies": [],
@@ -287,7 +304,10 @@
       "storyPoints": 5,
       "estimatedEffort": 28,
       "actualEffort": 26,
-      "tasks": ["TASK-010", "TASK-011"],
+      "tasks": [
+        "TASK-010",
+        "TASK-011"
+      ],
       "taskCount": 2,
       "completedTaskCount": 2,
       "dependencies": [],
@@ -316,7 +336,9 @@
       "storyPoints": 2,
       "estimatedEffort": 6,
       "actualEffort": 5,
-      "tasks": ["TASK-012"],
+      "tasks": [
+        "TASK-012"
+      ],
       "taskCount": 1,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -345,7 +367,11 @@
       "storyPoints": 13,
       "estimatedEffort": 56,
       "actualEffort": 32,
-      "tasks": ["TASK-013", "TASK-014", "TASK-015"],
+      "tasks": [
+        "TASK-013",
+        "TASK-014",
+        "TASK-015"
+      ],
       "taskCount": 3,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -372,7 +398,9 @@
       "storyPoints": 3,
       "estimatedEffort": 12,
       "actualEffort": 10,
-      "tasks": ["TASK-016"],
+      "tasks": [
+        "TASK-016"
+      ],
       "taskCount": 1,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -401,7 +429,10 @@
       "storyPoints": 8,
       "estimatedEffort": 36,
       "actualEffort": 20,
-      "tasks": ["TASK-017", "TASK-018"],
+      "tasks": [
+        "TASK-017",
+        "TASK-018"
+      ],
       "taskCount": 2,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -430,7 +461,9 @@
       "storyPoints": 2,
       "estimatedEffort": 8,
       "actualEffort": 7,
-      "tasks": ["TASK-019"],
+      "tasks": [
+        "TASK-019"
+      ],
       "taskCount": 1,
       "completedTaskCount": 1,
       "dependencies": [],
@@ -487,7 +520,9 @@
       "tasks": [],
       "taskCount": 0,
       "completedTaskCount": 0,
-      "dependencies": ["WI-011"],
+      "dependencies": [
+        "WI-011"
+      ],
       "blockedBy": [],
       "createdBy": "性能工程师A",
       "createdAt": "2024-12-29T10:00:00Z",

@@ -39,7 +39,9 @@
     "createdAt": "2024-02-15T00:00:00Z",
     "updatedAt": "2024-03-30T00:00:00Z",
     "parentFRId": "FR-PARK-001",
-    "assignedTeamId": "TEAM-001"
+    "assignedTeamId": "TEAM-001",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-PARK-PER-002",
@@ -59,7 +61,9 @@
     "sprintId": "SPRINT-02",
     "piId": "PI-2024-Q1",
     "parentFRId": "FR-PARK-002",
-    "assignedTeamId": "TEAM-002"
+    "assignedTeamId": "TEAM-002",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-PARK-PLAN-001",
@@ -81,7 +85,9 @@
     "sprintId": "SPRINT-01",
     "piId": "PI-2024-Q1",
     "parentFRId": "FR-PARK-003",
-    "assignedTeamId": "TEAM-003"
+    "assignedTeamId": "TEAM-003",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-PARK-CTRL-001",
@@ -101,7 +107,9 @@
     "sprintId": "SPRINT-02",
     "piId": "PI-2024-Q1",
     "parentFRId": "FR-NOA-001",
-    "assignedTeamId": "TEAM-004"
+    "assignedTeamId": "TEAM-004",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-NOA-PER-001",
@@ -118,7 +126,9 @@
     "status": "in_progress",
     "piId": "PI-2023-Q3",
     "parentFRId": "FR-NOA-002",
-    "assignedTeamId": "TEAM-001"
+    "assignedTeamId": "TEAM-001",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-NOA-PLAN-001",
@@ -134,7 +144,9 @@
     "status": "completed",
     "piId": "PI-2023-Q3",
     "parentFRId": "FR-NOA-003",
-    "assignedTeamId": "TEAM-002"
+    "assignedTeamId": "TEAM-002",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-NOA-PLAN-002",
@@ -150,7 +162,9 @@
     "status": "completed",
     "piId": "PI-2024-Q1",
     "parentFRId": "FR-ACC-001",
-    "assignedTeamId": "TEAM-003"
+    "assignedTeamId": "TEAM-003",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-NOA-PLAN-003",
@@ -166,7 +180,9 @@
     "status": "approved",
     "piId": "PI-2024-Q2",
     "parentFRId": "FR-AEB-001",
-    "assignedTeamId": "TEAM-004"
+    "assignedTeamId": "TEAM-004",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-NOA-CTRL-001",
@@ -182,7 +198,9 @@
     "status": "completed",
     "piId": "PI-2023-Q3",
     "parentFRId": "FR-LKA-001",
-    "assignedTeamId": "TEAM-001"
+    "assignedTeamId": "TEAM-001",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-ACC-001",
@@ -198,7 +216,9 @@
     "status": "completed",
     "piId": "PI-2023-Q1",
     "parentFRId": "FR-BSD-001",
-    "assignedTeamId": "TEAM-002"
+    "assignedTeamId": "TEAM-002",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-AEB-001",
@@ -214,7 +234,9 @@
     "status": "completed",
     "piId": "PI-2020-Q2",
     "parentFRId": "FR-PARK-001",
-    "assignedTeamId": "TEAM-003"
+    "assignedTeamId": "TEAM-003",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-LKA-001",
@@ -230,7 +252,9 @@
     "status": "completed",
     "piId": "PI-2020-Q3",
     "parentFRId": "FR-PARK-002",
-    "assignedTeamId": "TEAM-004"
+    "assignedTeamId": "TEAM-004",
+    "workItemIds": [],
+    "workItemCount": 0
   },
   {
     "id": "MR-BSD-001",
@@ -246,6 +270,8 @@
     "status": "completed",
     "piId": "PI-2020-Q3",
     "parentFRId": "FR-PARK-003",
-    "assignedTeamId": "TEAM-001"
+    "assignedTeamId": "TEAM-001",
+    "workItemIds": [],
+    "workItemCount": 0
   }
 ]
