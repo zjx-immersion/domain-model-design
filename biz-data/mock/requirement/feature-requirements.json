@@ -8,7 +8,7 @@
     "parentUserRequirementId": "UR-PARK-001",
     "relatedFeatureAssetId": "FEAT-AVP-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "acceptanceCriteria": [
       {
         "given": "车位尺寸>2.4m宽×5.0m长",
@@ -34,8 +34,14 @@
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z",
-    "parentURId": "UR-PARK-001"
+    "updatedAt": "2026-01-11T13:19:47.746Z",
+    "parentURId": "UR-PARK-001",
+    "code": "FR-001",
+    "userRequirementTitle": "用户需要一键自动泊车功能",
+    "detailedDescription": "系统需要自动检测可用车位，包括垂直、水平、斜列车位\n\n性能要求：\n- 延迟：<500ms\n- 准确率：>95%\n- 可靠性：>99%",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0
   },
   {
     "id": "FR-PARK-002",
@@ -46,7 +52,7 @@
     "parentUserRequirementId": "UR-PARK-001",
     "relatedFeatureAssetId": "FEAT-AVP-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "acceptanceCriteria": [
       {
         "given": "车位位置和车辆当前位置",
@@ -64,8 +70,14 @@
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z",
-    "parentURId": "UR-NOA-001"
+    "updatedAt": "2026-01-11T13:19:47.751Z",
+    "parentURId": "UR-NOA-001",
+    "code": "FR-002",
+    "userRequirementTitle": "用户需要一键自动泊车功能",
+    "detailedDescription": "系统需要规划从当前位置到目标车位的泊车路径\n\n性能要求：\n- 延迟：<200ms\n- 准确率：>98%\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0
   },
   {
     "id": "FR-PARK-003",
@@ -76,7 +88,7 @@
     "parentUserRequirementId": "UR-PARK-001",
     "relatedFeatureAssetId": "FEAT-AVP-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "acceptanceCriteria": [
       {
         "given": "泊车路径",
@@ -94,8 +106,14 @@
     "owner": "SE-Li",
     "status": "approved",
     "createdAt": "2024-02-01T00:00:00Z",
-    "updatedAt": "2024-02-15T00:00:00Z",
-    "parentURId": "UR-ACC-001"
+    "updatedAt": "2026-01-11T13:19:47.751Z",
+    "parentURId": "UR-ACC-001",
+    "code": "FR-003",
+    "userRequirementTitle": "用户需要一键自动泊车功能",
+    "detailedDescription": "系统需要控制车辆沿规划路径完成泊车\n\n性能要求：\n- 延迟：<50ms\n- 准确率：>99%\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0
   },
   {
     "id": "FR-NOA-001",
@@ -106,7 +124,7 @@
     "parentUserRequirementId": "UR-NOA-001",
     "relatedFeatureAssetId": "FEAT-NOA-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "acceptanceCriteria": [
       {
         "given": "高速公路场景，前方有车",
@@ -125,7 +143,15 @@
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-SAFETY-001"
+    "parentURId": "UR-SAFETY-001",
+    "code": "FR-004",
+    "userRequirementTitle": "用户需要高速公路自动驾驶功能",
+    "detailedDescription": "在高速公路上自动跟随前车，保持安全距离\n\n性能要求：\n- 延迟：<100ms\n- 准确率：>99%\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-NOA-002",
@@ -136,13 +162,21 @@
     "parentUserRequirementId": "UR-NOA-001",
     "relatedFeatureAssetId": "FEAT-NOA-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "childModuleRequirements": [
       "MR-NOA-PLAN-002"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-IVI-001"
+    "parentURId": "UR-IVI-001",
+    "code": "FR-005",
+    "userRequirementTitle": "用户需要高速公路自动驾驶功能",
+    "detailedDescription": "系统判断时机并执行自动变道\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-NOA-003",
@@ -153,13 +187,21 @@
     "parentUserRequirementId": "UR-NOA-001",
     "relatedFeatureAssetId": "FEAT-NOA-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p1",
+    "priority": "P1",
     "childModuleRequirements": [
       "MR-NOA-PLAN-003"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-OTA-001"
+    "parentURId": "UR-OTA-001",
+    "code": "FR-006",
+    "userRequirementTitle": "用户需要高速公路自动驾驶功能",
+    "detailedDescription": "自动识别匝道并完成驶入/驶出\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-ACC-001",
@@ -170,13 +212,21 @@
     "parentUserRequirementId": "UR-ACC-001",
     "relatedFeatureAssetId": "FEAT-ACC-001",
     "productId": "PROD-ADAS-FLAG",
-    "priority": "p0",
+    "priority": "P0",
     "childModuleRequirements": [
       "MR-ACC-001"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-PERF-001"
+    "parentURId": "UR-PERF-001",
+    "code": "FR-007",
+    "userRequirementTitle": "用户需要全速域自适应巡航",
+    "detailedDescription": "0-150km/h全速域自适应巡航控制\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-AEB-001",
@@ -187,13 +237,21 @@
     "parentUserRequirementId": "UR-SAFETY-001",
     "relatedFeatureAssetId": "FEAT-AEB-001",
     "productId": "PROD-ADAS-STD",
-    "priority": "p0",
+    "priority": "P0",
     "childModuleRequirements": [
       "MR-AEB-001"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-SEC-001"
+    "parentURId": "UR-SEC-001",
+    "code": "FR-008",
+    "userRequirementTitle": "满足NCAP五星安全评级要求",
+    "detailedDescription": "检测碰撞风险并自动制动\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-LKA-001",
@@ -204,13 +262,21 @@
     "parentUserRequirementId": "UR-SAFETY-001",
     "relatedFeatureAssetId": "FEAT-LKA-001",
     "productId": "PROD-ADAS-STD",
-    "priority": "p0",
+    "priority": "P0",
     "childModuleRequirements": [
       "MR-LKA-001"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-MAP-001"
+    "parentURId": "UR-MAP-001",
+    "code": "FR-009",
+    "userRequirementTitle": "满足NCAP五星安全评级要求",
+    "detailedDescription": "防止车辆偏离车道\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   },
   {
     "id": "FR-BSD-001",
@@ -221,12 +287,20 @@
     "parentUserRequirementId": "UR-SAFETY-001",
     "relatedFeatureAssetId": "FEAT-BSD-001",
     "productId": "PROD-ADAS-STD",
-    "priority": "p0",
+    "priority": "P0",
     "childModuleRequirements": [
       "MR-BSD-001"
     ],
     "owner": "SE-Li",
     "status": "approved",
-    "parentURId": "UR-ICA-001"
+    "parentURId": "UR-ICA-001",
+    "code": "FR-010",
+    "userRequirementTitle": "满足NCAP五星安全评级要求",
+    "detailedDescription": "监测车辆后方盲区并预警\n\n性能要求：\n- 延迟：N/A\n- 准确率：N/A\n- 可靠性：N/A",
+    "progress": 0,
+    "estimatedHours": 40,
+    "actualHours": 0,
+    "createdAt": "2026-01-11T13:19:47.751Z",
+    "updatedAt": "2026-01-11T13:19:47.751Z"
   }
 ]
