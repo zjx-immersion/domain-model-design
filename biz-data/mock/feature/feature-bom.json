@@ -1,285 +1,484 @@
-[
-  {
-    "id": "BOM-FLAG-AVP",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-AVP-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10,
-    "versionConstraint": ">=1.5.0",
-    "requiresLicense": true,
-    "licenseType": "OTA_SUBSCRIPTION",
-    "variantRules": [
-      {
-        "condition": "region === 'CN'",
-        "action": "include",
-        "reason": "中国市场标配"
-      }
-    ],
-    "configurationParameters": {
-      "maxParkingAttempts": 3,
-      "supportedSpotTypes": ["vertical", "horizontal", "diagonal"]
+{
+  "metadata": {
+    "version": "3.0",
+    "lastUpdate": "2026-01-11T12:00:00Z",
+    "description": "Feature BOM数据 - 产品版本与Feature的映射关系"
+  },
+  "data": [
+    {
+      "id": "FB-PROD-001-Premium",
+      "productId": "PROD-001",
+      "productName": "ES9 旗舰轿车",
+      "productVersionId": "PROD-001-V1",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "bomVersion": "1.0",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "features": [
+        {
+          "featureId": "FEA-001",
+          "featureName": "自动泊车系统 (AVP)",
+          "featureCode": "AVP-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-004", "MOD-005"],
+          "estimatedCost": 15000,
+          "estimatedEffort": 240,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心智能驾驶功能"
+        },
+        {
+          "featureId": "FEA-002",
+          "featureName": "智能语音助手",
+          "featureCode": "IVI-VOICE-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-008"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 160,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心交互功能"
+        },
+        {
+          "featureId": "FEA-003",
+          "featureName": "高精度地图导航",
+          "featureCode": "NAV-HD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-009"],
+          "estimatedCost": 12000,
+          "estimatedEffort": 200,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心导航功能"
+        },
+        {
+          "featureId": "FEA-004",
+          "featureName": "智能座舱系统",
+          "featureCode": "COCKPIT-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-010", "MOD-011"],
+          "estimatedCost": 10000,
+          "estimatedEffort": 180,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心座舱功能"
+        },
+        {
+          "featureId": "FEA-005",
+          "featureName": "远程控制",
+          "featureCode": "REMOTE-001",
+          "configType": "optional",
+          "isOptional": true,
+          "quantity": 1,
+          "modules": ["MOD-012"],
+          "estimatedCost": 5000,
+          "estimatedEffort": 100,
+          "priority": "P1",
+          "addedDate": "2024-02-01",
+          "notes": "可选高级功能"
+        },
+        {
+          "featureId": "FEA-006",
+          "featureName": "氛围灯控制",
+          "featureCode": "AMB-LIGHT-001",
+          "configType": "optional",
+          "isOptional": true,
+          "quantity": 1,
+          "modules": ["MOD-013"],
+          "estimatedCost": 3000,
+          "estimatedEffort": 80,
+          "priority": "P2",
+          "addedDate": "2024-02-01",
+          "notes": "可选舒适功能"
+        }
+      ],
+      "statistics": {
+        "totalFeatures": 6,
+        "coreFeatures": 4,
+        "optionalFeatures": 2,
+        "totalModules": 10,
+        "totalCost": 53000,
+        "totalEffort": 960
+      },
+      "dependencies": [],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z",
+      "createdBy": "产品经理A"
+    },
+    {
+      "id": "FB-PROD-001-Advanced",
+      "productId": "PROD-001",
+      "productName": "ES9 旗舰轿车",
+      "productVersionId": "PROD-001-V2",
+      "versionName": "高配版",
+      "versionCode": "V1.0-Advanced",
+      "bomVersion": "1.0",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "features": [
+        {
+          "featureId": "FEA-001",
+          "featureName": "自动泊车系统 (AVP)",
+          "featureCode": "AVP-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-004", "MOD-005"],
+          "estimatedCost": 15000,
+          "estimatedEffort": 240,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心智能驾驶功能"
+        },
+        {
+          "featureId": "FEA-002",
+          "featureName": "智能语音助手",
+          "featureCode": "IVI-VOICE-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-008"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 160,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心交互功能"
+        },
+        {
+          "featureId": "FEA-003",
+          "featureName": "高精度地图导航",
+          "featureCode": "NAV-HD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-009"],
+          "estimatedCost": 12000,
+          "estimatedEffort": 200,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心导航功能"
+        },
+        {
+          "featureId": "FEA-004",
+          "featureName": "智能座舱系统",
+          "featureCode": "COCKPIT-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-010", "MOD-011"],
+          "estimatedCost": 10000,
+          "estimatedEffort": 180,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心座舱功能"
+        }
+      ],
+      "statistics": {
+        "totalFeatures": 4,
+        "coreFeatures": 4,
+        "optionalFeatures": 0,
+        "totalModules": 8,
+        "totalCost": 45000,
+        "totalEffort": 780
+      },
+      "dependencies": [],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z",
+      "createdBy": "产品经理A"
+    },
+    {
+      "id": "FB-PROD-001-Standard",
+      "productId": "PROD-001",
+      "productName": "ES9 旗舰轿车",
+      "productVersionId": "PROD-001-V3",
+      "versionName": "标准版",
+      "versionCode": "V1.0-Standard",
+      "bomVersion": "1.0",
+      "status": "released",
+      "releaseDate": "2024-06-15",
+      "features": [
+        {
+          "featureId": "FEA-002",
+          "featureName": "智能语音助手",
+          "featureCode": "IVI-VOICE-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-008"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 160,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心交互功能"
+        },
+        {
+          "featureId": "FEA-003",
+          "featureName": "高精度地图导航",
+          "featureCode": "NAV-HD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-009"],
+          "estimatedCost": 12000,
+          "estimatedEffort": 200,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心导航功能"
+        },
+        {
+          "featureId": "FEA-004",
+          "featureName": "智能座舱系统",
+          "featureCode": "COCKPIT-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-010", "MOD-011"],
+          "estimatedCost": 10000,
+          "estimatedEffort": 180,
+          "priority": "P0",
+          "addedDate": "2024-01-15",
+          "notes": "核心座舱功能"
+        }
+      ],
+      "statistics": {
+        "totalFeatures": 3,
+        "coreFeatures": 3,
+        "optionalFeatures": 0,
+        "totalModules": 6,
+        "totalCost": 30000,
+        "totalEffort": 540
+      },
+      "dependencies": [],
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-06-10T15:30:00Z",
+      "createdBy": "产品经理A"
+    },
+    {
+      "id": "FB-PROD-002-Premium",
+      "productId": "PROD-002",
+      "productName": "ET7 智能SUV",
+      "productVersionId": "PROD-002-V1",
+      "versionName": "旗舰版",
+      "versionCode": "V1.0-Premium",
+      "bomVersion": "1.0",
+      "status": "released",
+      "releaseDate": "2024-08-20",
+      "features": [
+        {
+          "featureId": "FEA-001",
+          "featureName": "自动泊车系统 (AVP)",
+          "featureCode": "AVP-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-004", "MOD-005"],
+          "estimatedCost": 15000,
+          "estimatedEffort": 240,
+          "priority": "P0",
+          "addedDate": "2024-03-01",
+          "notes": "复用ES9的AVP功能"
+        },
+        {
+          "featureId": "FEA-007",
+          "featureName": "越野模式",
+          "featureCode": "OFFROAD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-014"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 150,
+          "priority": "P0",
+          "addedDate": "2024-03-01",
+          "notes": "SUV专属功能"
+        },
+        {
+          "featureId": "FEA-002",
+          "featureName": "智能语音助手",
+          "featureCode": "IVI-VOICE-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-008"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 160,
+          "priority": "P0",
+          "addedDate": "2024-03-01",
+          "notes": "复用ES9的语音功能"
+        },
+        {
+          "featureId": "FEA-003",
+          "featureName": "高精度地图导航",
+          "featureCode": "NAV-HD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-009"],
+          "estimatedCost": 12000,
+          "estimatedEffort": 200,
+          "priority": "P0",
+          "addedDate": "2024-03-01",
+          "notes": "复用ES9的导航功能"
+        },
+        {
+          "featureId": "FEA-005",
+          "featureName": "远程控制",
+          "featureCode": "REMOTE-001",
+          "configType": "optional",
+          "isOptional": true,
+          "quantity": 1,
+          "modules": ["MOD-012"],
+          "estimatedCost": 5000,
+          "estimatedEffort": 100,
+          "priority": "P1",
+          "addedDate": "2024-03-01",
+          "notes": "复用ES9的远程功能"
+        }
+      ],
+      "statistics": {
+        "totalFeatures": 5,
+        "coreFeatures": 4,
+        "optionalFeatures": 1,
+        "totalModules": 9,
+        "totalCost": 48000,
+        "totalEffort": 850
+      },
+      "dependencies": [],
+      "createdAt": "2024-03-01T10:00:00Z",
+      "updatedAt": "2024-08-15T15:30:00Z",
+      "createdBy": "产品经理B"
+    },
+    {
+      "id": "FB-PROD-001-2026",
+      "productId": "PROD-001",
+      "productName": "ES9 旗舰轿车",
+      "productVersionId": "PROD-001-V2026",
+      "versionName": "2026款",
+      "versionCode": "V2.0",
+      "bomVersion": "2.0",
+      "status": "planning",
+      "releaseDate": "2026-06-01",
+      "features": [
+        {
+          "featureId": "FEA-001",
+          "featureName": "自动泊车系统 (AVP)",
+          "featureCode": "AVP-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-004", "MOD-005"],
+          "estimatedCost": 15000,
+          "estimatedEffort": 240,
+          "priority": "P0",
+          "addedDate": "2025-01-10",
+          "notes": "升级到AVP 2.0"
+        },
+        {
+          "featureId": "FEA-002",
+          "featureName": "智能语音助手",
+          "featureCode": "IVI-VOICE-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-008"],
+          "estimatedCost": 8000,
+          "estimatedEffort": 160,
+          "priority": "P0",
+          "addedDate": "2025-01-10",
+          "notes": "升级语音识别"
+        },
+        {
+          "featureId": "FEA-003",
+          "featureName": "高精度地图导航",
+          "featureCode": "NAV-HD-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-009"],
+          "estimatedCost": 12000,
+          "estimatedEffort": 200,
+          "priority": "P0",
+          "addedDate": "2025-01-10",
+          "notes": "增强地图精度"
+        },
+        {
+          "featureId": "FEA-004",
+          "featureName": "智能座舱系统",
+          "featureCode": "COCKPIT-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-010", "MOD-011"],
+          "estimatedCost": 10000,
+          "estimatedEffort": 180,
+          "priority": "P0",
+          "addedDate": "2025-01-10",
+          "notes": "升级座舱交互"
+        },
+        {
+          "featureId": "FEA-008",
+          "featureName": "城市NOA",
+          "featureCode": "NOA-CITY-001",
+          "configType": "core",
+          "isOptional": false,
+          "quantity": 1,
+          "modules": ["MOD-015"],
+          "estimatedCost": 20000,
+          "estimatedEffort": 320,
+          "priority": "P0",
+          "addedDate": "2025-01-10",
+          "notes": "2026款新增核心功能"
+        },
+        {
+          "featureId": "FEA-005",
+          "featureName": "远程控制",
+          "featureCode": "REMOTE-001",
+          "configType": "optional",
+          "isOptional": true,
+          "quantity": 1,
+          "modules": ["MOD-012"],
+          "estimatedCost": 5000,
+          "estimatedEffort": 100,
+          "priority": "P1",
+          "addedDate": "2025-01-10",
+          "notes": "标配远程功能"
+        },
+        {
+          "featureId": "FEA-006",
+          "featureName": "氛围灯控制",
+          "featureCode": "AMB-LIGHT-001",
+          "configType": "optional",
+          "isOptional": true,
+          "quantity": 1,
+          "modules": ["MOD-013"],
+          "estimatedCost": 3000,
+          "estimatedEffort": 80,
+          "priority": "P2",
+          "addedDate": "2025-01-10",
+          "notes": "增强氛围灯效果"
+        }
+      ],
+      "statistics": {
+        "totalFeatures": 7,
+        "coreFeatures": 5,
+        "optionalFeatures": 2,
+        "totalModules": 12,
+        "totalCost": 73000,
+        "totalEffort": 1280
+      },
+      "dependencies": [],
+      "createdAt": "2025-01-10T10:00:00Z",
+      "updatedAt": "2025-01-10T10:00:00Z",
+      "createdBy": "产品经理A"
     }
-  },
-  {
-    "id": "BOM-FLAG-NOA",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-NOA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-ACC",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-ACC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-LKA",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-LKA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-AEB",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-AEB-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-FUSION",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-PERC-FUSION",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-MAP",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-MAP-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-LOC",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-LOC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-USS",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-USS-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-CAM",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-CAM-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-LIDAR",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-LIDAR-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-RADAR",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-RADAR-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-BSD",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-BSD-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 8
-  },
-  {
-    "id": "BOM-FLAG-LCC",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-LCC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-ICA",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-ICA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-FLAG-VOICE",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-VOICE-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 7
-  },
-  {
-    "id": "BOM-FLAG-NAV",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-NAV-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 7
-  },
-  {
-    "id": "BOM-FLAG-OTA",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-OTA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-FLAG-SEC",
-    "productId": "PROD-ADAS-FLAG",
-    "featureId": "FEAT-CYBERSEC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-HIGH-AVP",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-AVP-001",
-    "isStandard": false,
-    "isOptional": true,
-    "isDefault": false,
-    "priority": 8,
-    "variantRules": [
-      {
-        "condition": "vehiclePrice > 300000",
-        "action": "include",
-        "reason": "仅30万以上车型"
-      }
-    ]
-  },
-  {
-    "id": "BOM-HIGH-ACC",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-ACC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-HIGH-LKA",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-LKA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-HIGH-AEB",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-AEB-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-HIGH-BSD",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-BSD-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 8
-  },
-  {
-    "id": "BOM-HIGH-LCC",
-    "productId": "PROD-ADAS-HIGH",
-    "featureId": "FEAT-LCC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 9
-  },
-  {
-    "id": "BOM-STD-ACC",
-    "productId": "PROD-ADAS-STD",
-    "featureId": "FEAT-ACC-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-STD-LKA",
-    "productId": "PROD-ADAS-STD",
-    "featureId": "FEAT-LKA-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-STD-AEB",
-    "productId": "PROD-ADAS-STD",
-    "featureId": "FEAT-AEB-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 10
-  },
-  {
-    "id": "BOM-STD-BSD",
-    "productId": "PROD-ADAS-STD",
-    "featureId": "FEAT-BSD-001",
-    "isStandard": true,
-    "isOptional": false,
-    "isDefault": true,
-    "priority": 8
-  }
-]
-
+  ]
+}

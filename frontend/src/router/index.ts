@@ -334,6 +334,39 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/Asset/FeatureDetail.vue'),
             meta: { title: 'Feature详情' },
           },
+          {
+            path: 'feature-bom',
+            name: 'FeatureBOMList',
+            component: () => import('@/views/Asset/FeatureBOMList.vue'),
+            meta: { title: 'Feature BOM管理' },
+          },
+          {
+            path: 'feature-bom/:id',
+            name: 'FeatureBOMDetail',
+            component: () => import('@/views/Asset/FeatureBOMDetail.vue'),
+            meta: { title: 'Feature BOM详情' },
+          },
+        ],
+      },
+      // Platform管理
+      {
+        path: 'platforms',
+        name: 'Platforms',
+        redirect: '/platforms',
+        meta: { title: 'Platform管理', icon: 'Monitor' },
+        children: [
+          {
+            path: '',
+            name: 'PlatformList',
+            component: () => import('@/views/Platform/List.vue'),
+            meta: { title: 'Platform列表' },
+          },
+          {
+            path: ':id',
+            name: 'PlatformDetail',
+            component: () => import('@/views/Platform/Detail.vue'),
+            meta: { title: 'Platform详情' },
+          },
         ],
       },
       // 需求管理
