@@ -369,6 +369,42 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
+      // Commit管理
+      {
+        path: 'commits',
+        name: 'Commits',
+        redirect: '/commits/list',
+        meta: { title: 'Commit追溯', icon: 'Connection' },
+        children: [
+          {
+            path: ':id',
+            name: 'CommitDetail',
+            component: () => import('@/views/Commit/CommitDetail.vue'),
+            meta: { title: 'Commit详情' },
+          },
+        ],
+      },
+      // 追溯管理
+      {
+        path: 'traceability',
+        name: 'TraceabilityManagement',
+        redirect: '/traceability/full-chain',
+        meta: { title: '追溯管理', icon: 'Share' },
+        children: [
+          {
+            path: 'full-chain',
+            name: 'FullChainTraceability',
+            component: () => import('@/views/Traceability/FullChain.vue'),
+            meta: { title: '端到端追溯链路' },
+          },
+          {
+            path: 'full-chain/:type/:id',
+            name: 'FullChainDetail',
+            component: () => import('@/views/Traceability/FullChain.vue'),
+            meta: { title: '追溯链路详情' },
+          },
+        ],
+      },
       // 需求管理
       {
         path: 'requirements',
